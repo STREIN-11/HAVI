@@ -7,7 +7,7 @@
 <h1> My Portfolio Website </h1>
 
 ---
-This repository is the remote version of my portfolio that includes
+This repository is the remote version of my portfolio that includes:
 <ul>
   <li>A brief overview about me</li>
   <li>My services</li>
