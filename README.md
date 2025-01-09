@@ -1,15 +1,25 @@
-# My Portfolio Website 🐱‍👤
-This repository is the backend for my portfolio website that includes:
+
+![banner](https://github.com/user-attachments/assets/d41a0eee-92a6-457e-a585-5ba9bd8a0d76)
+
+> [!Tip]
+> Just start today.
+
+<h1> My Portfolio Website </h1>
+
+---
+This repository is the remote version of my portfolio that includes
 <ul>
   <li>A brief overview about me</li>
   <li>My services</li>
   <li>My selected projects to showcase</li>
   <li>My social pages</li>
-  <li>My personal chatbot named <b>Passion</b>😌</li>
+  <li>My personal chatbot named <b>Passion</b></li>
 </ul>
+
   You can view the live site here: https://tinotenda-mhedziso.pages.dev/
   <br>
-  Theme is based on my favourite color, a Peacock aesthetic and a video game/hacker type narrative
+  Theme is based on my favourite color, a Peacock aesthetic and a video game/hacker type narrative.
+  Update pending >>>>>>
 
   # Preview 🖥
  ![image](https://github.com/user-attachments/assets/0db51d8a-5676-4967-a256-daeb57e7c042)
