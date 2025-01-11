@@ -122,6 +122,9 @@ html /* Very useful simple line of code down below ✔*/ {
   transition-delay: 1s, 1.5s, 1.5s;
   rotate: 135deg;
 }
+#Me p {
+  color: #fff;
+}
 .menu.active li:hover a::before {
   background: var(--clr);
   color: #000713;
@@ -199,10 +202,6 @@ h1 {
 }
 h1 span {
   transition: 0.25s;
-}
-h1:hover span {
-  text-shadow: 0 0 5px rgb(1, 61, 1), 0 0 15px rgb(0, 78, 0),
-    0 0 30px rgb(2, 61, 2);
 }
 .Contactbtn {
   margin-top: 10%;
@@ -384,7 +383,7 @@ h1:hover span {
 }
 .SkillsList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit);
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -1018,7 +1017,7 @@ h1:hover span {
   height: 80%;
   background-color: #000;
   border-radius: 10px;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -1028,7 +1027,6 @@ h1:hover span {
   z-index: 300;
   color: #fff;
 }
-
 .card svg {
   width: 48px;
   fill: #333;
@@ -1058,7 +1056,13 @@ h1:hover span {
   align-items: center;
   color: #fff;
 }
-
+.card__content img {
+  width: 140px;
+  height: 140px;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  object-fit: cover;
+}
 .card:hover .card__content {
   transform: rotateX(0deg);
 }
