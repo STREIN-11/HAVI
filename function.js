@@ -23,13 +23,13 @@ const abutton = document.getElementById('Anime');
 abutton.addEventListener('click', animate);
 let Icons = document.querySelectorAll('.Icon');
 function animate() {
+  document.getElementById('AnimationsTask').checked = true;
   if (anime) {
     for (i = 0; i < Icons.length; ++i) {
       Icons[i].classList.remove('animate');
     }
     anime = false;
-
-    window.location.assign(abutton.value);
+    window.location.assign(`#ContactSection`);
     setTimeout(backHome, 2000);
   } else {
     for (i = 0; i < Icons.length; ++i) {
@@ -37,12 +37,12 @@ function animate() {
     }
     anime = true;
 
-    window.location.assign(abutton.value);
+    window.location.assign(`#ContactSection`);
     setTimeout(backHome, 2000);
   }
 }
 function backHome() {
-  window.location.assign(document.getElementById('hide').value);
+  window.location.assign(`#`);
 }
 //This is an Intersection Observer ... Duh🤣, in plain english, a method (function) of checking if each section is currently visisble
 // on the user's screen, if not the item is hidden, if so then it loads in//
@@ -73,6 +73,7 @@ window.addEventListener('load', function (load) {
 
 function downloadCV() {
   downloadFile('Documents/TinotendaMhedzisoCV.pdf', 'TinotendaMhedzisoCV.pdf');
+  document.getElementById('CVTask').checked = true;
 }
 function downloadFile(fileUrl, fileName) {
   const link = document.createElement('a');
@@ -83,6 +84,7 @@ function downloadFile(fileUrl, fileName) {
   document.body.removeChild(link);
 }
 function openGitHub() {
+  document.getElementById('GitHubTask').checked = true;
   navigateToSite('https://github.com/Passion-Over-Pain');
 }
 function navigateToSite(fileUrl) {
@@ -93,25 +95,33 @@ function navigateToSite(fileUrl) {
   link.click();
   document.body.removeChild(link);
 }
-
+document.getElementById('menuOpener').addEventListener(
+  'click',
+  () => {
+    document.getElementById('NavigationTask').checked = true;
+  },
+  { once: true }
+);
 function openNavMenu() {
   const navMenu = document.getElementById('menuOpener');
   navMenu.click();
 }
-
-function openPassion() {
-  const botpressFab = document.querySelector('iframe.bpFab'); // Select iframe with class "bpFab"
-
-  if (botpressFab) {
-    botpressFab.click(); // Simulate a click
-    const botpressWebchat = document.querySelector('iframe[name="webchat"]');
-    if (botpressWebchat) {
-      botpressWebchat.classList.remove('bpClose'); // Remove the bpClose class
-      botpressWebchat.classList.add('bpOpen'); // Add the bpOpen class
-    } else {
-      console.warn('Botpress Webchat iframe not found');
+// Function to check the checkbox when the chatbot opens
+function handleChatbotOpen(mutationsList) {
+  mutationsList.forEach((mutation) => {
+    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+      const botpressWebchat = mutation.target;
+      if (botpressWebchat.classList.contains('bpOpen')) {
+        document.getElementById('TalktoPassionTask').checked = true;
+        console.log('Chatbot opened, checkbox checked');
+      }
     }
-  } else {
-    console.warn('Botpress Fab iframe not found');
-  }
+  });
+}
+const botpressWebchat = document.querySelector('iframe[name="webchat"]');
+if (botpressWebchat) {
+  const observer = new MutationObserver(handleChatbotOpen);
+  observer.observe(botpressWebchat, { attributes: true }); // Observe changes in attributes
+} else {
+  console.warn('Botpress Webchat iframe not found');
 }

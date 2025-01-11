@@ -35,34 +35,29 @@
         </h1>
         <h4 style="margin-bottom: 5%">A Software Developer</h4>
         <!-- /* From Uiverse.io by JkHuger */  -->
-        Daily Quests:
+        Your current Quests:
         <div id="checklist">
-          <input name="r" type="checkbox" id="CVTask" />
-          <label for="CVTask" onclick="downloadCV()">Download my CV</label>
-          <input name="r" type="checkbox" id="NavigationTask" />
-          <label for="NavigationTask" onclick="openNavMenu()">
-            Open navigation menu
-          </label>
-          <input value="#ContactSection" name="r" type="checkbox" id="Anime" />
-          <label for="Anime">Play with Animations</label>
-          <input name="r" type="checkbox" id="TalktoPassionTask" />
-          <label for="TalktoPassionTask" onclick="openPassion()">
-            Talk to Passion
-          </label>
-          <input name="r" type="checkbox" id="GitHubTask" />
-          <label for="GitHubTask" onclick="openGitHub()">
-            Follow me on GitHub
-          </label>
+          <input name="r" type="checkbox" id="NavigationTask" disabled />
+          <label for="NavigationTask">Open navigation menu</label>
+          <input name="r" type="checkbox" id="CVTask" disabled />
+          <label for="CVTask">Download my CV</label>
+          <input name="r" type="checkbox" id="AnimationsTask" disabled />
+          <label for="AnimationsTask">Play with Animations</label>
+          <input name="r" type="checkbox" id="TalktoPassionTask" disabled />
+          <label for="TalktoPassionTask">Talk to Passion</label>
+          <input name="r" type="checkbox" id="GitHubTask" disabled />
+          <label for="GitHubTask">Follow me on GitHub</label>
         </div>
-        <!-- <button id="Anime" value="#ContactSection" class="btn">
-          Animations
-          <ion-icon name="walk-outline"></ion-icon>
-        </button> -->
-        <button id="hide" value="#"></button>
+        <!-- /* From Uiverse.io by eduardo-amaro-maciel */ -->
+        <div class="flexBox">
+          <div class="animeBtn" id="Anime">
+            <span class="noselect">Animations</span>
+          </div>
+        </div>
       </div>
       <nav>
         <ul class="menu">
-          <div class="menuToggle">
+          <div class="menuToggle" onclick="openNavMenu()">
             <ion-icon name="add-outline" id="menuOpener"></ion-icon>
           </div>
           <li style="--i: 0; --clr: #04fc43">
@@ -100,18 +95,19 @@
             </a>
           </li>
           <li style="--i: 6; --clr: #04fc43">
-            <a href="https://www.github.com/Passion-Over-Pain" target="_blank">
-              <ion-icon name="logo-github" title="My GitHub profile"></ion-icon>
+            <a>
+              <ion-icon
+                onclick="openGitHub()"
+                name="logo-github"
+                title="My GitHub profile"></ion-icon>
             </a>
           </li>
           <li style="--i: 7; --clr: #04fc43">
-            <a
-              href="Documents/TinotendaMhedzisoCV.pdf"
-              download
-              target="_blank">
+            <a>
               <ion-icon
                 name="download-outline"
-                title="Download My CV"></ion-icon>
+                title="Download My CV"
+                onclick="downloadCV()"></ion-icon>
             </a>
           </li>
         </ul>
@@ -378,7 +374,8 @@
                   class="eye"
                   href="https://github.com/Passion-Over-Pain"
                   target="_blank"
-                  title="View My Seventh Floor Media Project">
+                  title="View My Seventh Floor Media Project"
+                  onclick="openGitHub()">
                   <ion-icon name="eye-outline"></ion-icon>
                 </a>
               </div>
@@ -409,13 +406,8 @@
                   <br />
                   Author:@PassionOverPain, @LanceKupeta (Founder)
                 </p>
-                <a
-                  class="eye"
-                  href="https://github.com/Passion-Over-Pain"
-                  title="My Seventh Floor Media Project"
-                  target="_blank">
-                  <ion-icon name="eye-outline"></ion-icon>
-                </a>
+
+                <ion-icon name="eye-outline" onclick="openGitHub()"></ion-icon>
               </div>
             </div>
             <div class="project">
@@ -439,23 +431,16 @@
                   <br />
                   Author:@PassionOverPain
                 </p>
-                <a
-                  class="eye"
-                  href="https://github.com/Passion-Over-Pain"
-                  target="_blank"
-                  title="View My CreateIT prototype">
-                  <ion-icon name="eye-outline"></ion-icon>
-                </a>
+
+                <ion-icon name="eye-outline" onclick="openGitHub()"></ion-icon>
               </div>
             </div>
           </div>
           <div style="text-align: center">
-            <a href="https://www.github.com/Passion-Over-Pain" target="_blank">
-              <button class="btn" id="Git">
-                All Projects
-                <ion-icon name="logo-github"></ion-icon>
-              </button>
-            </a>
+            <button class="btn" id="Git" onclick="openGitHub()">
+              All Projects
+              <ion-icon name="logo-github"></ion-icon>
+            </button>
           </div>
         </div>
       </section>
@@ -483,8 +468,9 @@
                 name="logo-linkedin"
                 title="My LinkedIn profile"></ion-icon>
             </a>
-            <a href="https://www.github.com/Passion-Over-Pain">
+            <a>
               <ion-icon
+                onclick="openGitHub()"
                 class="Icon animate"
                 name="logo-github"
                 title="My GitHub profile"></ion-icon>
