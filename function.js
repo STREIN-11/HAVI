@@ -59,9 +59,7 @@ var observer = new IntersectionObserver((entries) => {
     }
   });
 });
-var hiddenElements = document.querySelectorAll(
-  '.Projects, .AboutMe, .Services'
-);
+var hiddenElements = document.querySelectorAll('.Projects, .AboutMe, .Skills');
 hiddenElements.forEach((el) => observer.observe(el));
 var loader = document.getElementById('preloader');
 window.addEventListener('load', function (load) {
@@ -72,3 +70,30 @@ window.addEventListener('load', function (load) {
     this.document.body.style.overflowY = 'scroll';
   }, 2000);
 });
+
+function openBot() {
+  window.botpressWebChat.sendEvent({ type: 'show' });
+}
+
+function downloadCV() {
+  downloadFile('Documents/TinotendaMhedzisoCV.pdf', 'TinotendaMhedzisoCV.pdf');
+}
+function downloadFile(fileUrl, fileName) {
+  const link = document.createElement('a');
+  link.href = fileUrl;
+  link.download = fileName;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+function openGitHub() {
+  navigateToSite('https://github.com/Passion-Over-Pain');
+}
+function navigateToSite(fileUrl) {
+  const link = document.createElement('a');
+  link.href = fileUrl;
+  link.target = '_blank';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}

@@ -9,8 +9,7 @@
 }
 
 body {
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
   color: white;
   align-items: center;
   min-height: fit-content;
@@ -53,14 +52,14 @@ html /* Very useful simple line of code down below ✔*/ {
 .menu {
   margin: 0;
   position: fixed;
-  left: 75vw;
+  left: 92vw;
   top: -10vh;
   width: 20px;
   height: 260px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100000; /*This is what I was looking for ;)*/
+  z-index: 100;
   transition: all 0.5s;
 }
 .menu li {
@@ -365,7 +364,7 @@ h1:hover span {
 .View ul {
   list-style: none;
 }
-.Services {
+.Skills {
   text-align: start;
   height: fit-content;
   color: white;
@@ -375,7 +374,7 @@ h1:hover span {
   filter: blur(5px);
   transform: translateX(-100%);
 }
-.servicesList {
+.SkillsList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   align-items: center;
@@ -384,7 +383,7 @@ h1:hover span {
   grid-gap: 1rem;
   margin-top: 50px;
 }
-.servicesList div {
+.SkillsList div {
   width: fit-content;
   position: relative;
   background-color: #001908;
@@ -396,28 +395,28 @@ h1:hover span {
   transition: background-color 0.5s, transform 0.5s;
   margin-right: 40px;
 }
-.servicesList div ion-icon {
+.SkillsList div ion-icon {
   font-size: 50px;
   margin-bottom: 10px;
   color: #0f0;
 }
-.servicesList div h2 {
+.SkillsList div h2 {
   font-size: 30px;
   font-weight: 100;
   color: #fff;
   font-family: 'Pixelify Sans', sans-serif;
 }
-.servicesList div a {
+.SkillsList div a {
   text-decoration: none;
   color: #0f0;
   font-size: 12px;
   display: inline-block;
   transition: border 0.5s; /*This is not working the way I want it to*/
 }
-.servicesList div a:hover {
+.SkillsList div a:hover {
   border-bottom: solid 1px green;
 }
-.servicesList div:hover {
+.SkillsList div:hover {
   background-color: #000713;
   transform: translateY(-10px);
 }
@@ -574,6 +573,216 @@ h1:hover span {
 .btn:hover {
   transform: scale(1.1);
 }
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Checkbox list<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+/* From Uiverse.io by JkHuger */
+#checklist {
+  --background: #00000065;
+  --text: #fff;
+  --check: #0f0;
+  --disabled: #c3c8de;
+  --width: 400px;
+  --height: 180px;
+  --border-radius: 10px;
+  background: var(--background);
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius);
+  position: relative;
+  box-shadow: 0 10px 30px rgba(65, 72, 86, 0.05);
+  padding: 30px 85px;
+  display: grid;
+  grid-template-columns: 30px auto;
+  align-items: center;
+  justify-content: center;
+}
+
+#checklist label {
+  color: var(--text);
+  position: relative;
+  cursor: pointer;
+  display: grid;
+  align-items: center;
+  width: fit-content;
+  transition: color 0.3s ease;
+  margin-right: 20px;
+}
+
+#checklist label::before,
+#checklist label::after {
+  content: '';
+  position: absolute;
+}
+
+#checklist label::before {
+  height: 2px;
+  width: 8px;
+  left: -27px;
+  background: var(--check);
+  border-radius: 2px;
+  transition: background 0.3s ease;
+}
+
+#checklist label:after {
+  height: 4px;
+  width: 4px;
+  top: 8px;
+  left: -25px;
+  border-radius: 50%;
+}
+
+#checklist input[type='checkbox'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  height: 15px;
+  width: 15px;
+  outline: none;
+  border: 0;
+  margin: 0 15px 0 0;
+  cursor: pointer;
+  background: var(--background);
+  display: grid;
+  align-items: center;
+  margin-right: 20px;
+}
+
+#checklist input[type='checkbox']::before,
+#checklist input[type='checkbox']::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  top: auto;
+  background: var(--check);
+  border-radius: 2px;
+}
+
+#checklist input[type='checkbox']::before {
+  width: 0px;
+  right: 60%;
+  transform-origin: right bottom;
+}
+
+#checklist input[type='checkbox']::after {
+  width: 0px;
+  left: 40%;
+  transform-origin: left bottom;
+}
+
+#checklist input[type='checkbox']:checked::before {
+  animation: check-01 0.4s ease forwards;
+}
+
+#checklist input[type='checkbox']:checked::after {
+  animation: check-02 0.4s ease forwards;
+}
+
+#checklist input[type='checkbox']:checked + label {
+  color: var(--disabled);
+  animation: move 0.3s ease 0.1s forwards;
+}
+
+#checklist input[type='checkbox']:checked + label::before {
+  background: var(--disabled);
+  animation: slice 0.4s ease forwards;
+}
+
+#checklist input[type='checkbox']:checked + label::after {
+  animation: firework 0.5s ease forwards 0.1s;
+}
+
+@keyframes move {
+  50% {
+    padding-left: 8px;
+    padding-right: 0px;
+  }
+
+  100% {
+    padding-right: 4px;
+  }
+}
+
+@keyframes slice {
+  60% {
+    width: 100%;
+    left: 4px;
+  }
+
+  100% {
+    width: 100%;
+    left: -2px;
+    padding-left: 0;
+  }
+}
+
+@keyframes check-01 {
+  0% {
+    width: 4px;
+    top: auto;
+    transform: rotate(0);
+  }
+
+  50% {
+    width: 0px;
+    top: auto;
+    transform: rotate(0);
+  }
+
+  51% {
+    width: 0px;
+    top: 8px;
+    transform: rotate(45deg);
+  }
+
+  100% {
+    width: 5px;
+    top: 8px;
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes check-02 {
+  0% {
+    width: 4px;
+    top: auto;
+    transform: rotate(0);
+  }
+
+  50% {
+    width: 0px;
+    top: auto;
+    transform: rotate(0);
+  }
+
+  51% {
+    width: 0px;
+    top: 8px;
+    transform: rotate(-45deg);
+  }
+
+  100% {
+    width: 10px;
+    top: 8px;
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes firework {
+  0% {
+    opacity: 1;
+    box-shadow: 0 0 0 -2px #0f0, 0 0 0 -2px #0f0, 0 0 0 -2px #0f0,
+      0 0 0 -2px #0f0, 0 0 0 -2px #0f0, 0 0 0 -2px #0f0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    box-shadow: 0 -15px 0 0px #0f0, 14px -8px 0 0px #0f0, 14px 8px 0 0px #0f0,
+      0 15px 0 0px #0f0, -14px 8px 0 0px #0f0, -14px -8px 0 0px #0f0;
+  }
+}
 /*------------------------------------Responsive Design--------------------------------------------------------*/
 @media only screen and (min-width: 251px) and (max-width: 600px) /* 250px optimisation to come */ {
   .header {
@@ -647,11 +856,11 @@ h1:hover span {
     width: 10vw;
     float: none;
   }
-  .Services {
+  .Skills {
     text-align: center;
     height: fit-content;
   }
-  .servicesList {
+  .SkillsList {
     margin-left: 15px;
     justify-content: center;
   }
@@ -663,22 +872,22 @@ h1:hover span {
     width: 100%;
     height: fit-content;
   }
-  .servicesList {
+  .SkillsList {
     display: grid;
     justify-content: space-between;
     align-items: center;
     text-align: center;
   }
-  .servicesList div {
+  .SkillsList div {
     display: inline-block;
     padding: 10px;
     font-size: 0.7em;
     width: fit-content;
   }
-  .servicesList div ion-icon {
+  .SkillsList div ion-icon {
     font-size: 40px;
   }
-  .servicesList div h2 {
+  .SkillsList div h2 {
     font-size: 20px;
   }
   .Contact {
@@ -727,7 +936,7 @@ h1:hover span {
     color: #0f0;
     gap: 2px;
   }
-  .servicesList {
+  .SkillsList {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     justify-content: center;

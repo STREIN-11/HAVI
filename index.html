@@ -34,16 +34,28 @@
           <span style="color: #0f0">Tinotenda Mhedziso</span>
         </h1>
         <h4 style="margin-bottom: 5%">A Software Developer</h4>
-        <a href="#ContactSection">
-          <button class="btn">
-            Contact Me
-            <ion-icon name="call-outline" style="color: white"></ion-icon>
-          </button>
-        </a>
-        <button id="Anime" value="#ContactSection" class="btn">
+        <!-- /* From Uiverse.io by JkHuger */  -->
+        Daily Quests:
+        <div id="checklist">
+          <input name="r" type="checkbox" id="CVTask" />
+          <label for="CVTask" onclick="downloadCV()">Download my CV</label>
+          <input name="r" type="checkbox" id="NavigationTask" />
+          <label for="NavigationTask">Open navigation menu</label>
+          <input value="#ContactSection" name="r" type="checkbox" id="Anime" />
+          <label for="Anime">Play with Animations</label>
+          <input name="r" type="checkbox" id="TalktoPassionTask" />
+          <label for="TalktoPassionTask" onclick="openBot()">
+            Talk to Passion
+          </label>
+          <input name="r" type="checkbox" id="GitHubTask" />
+          <label for="GitHubTask" onclick="openGitHub()">
+            Follow me on GitHub
+          </label>
+        </div>
+        <!-- <button id="Anime" value="#ContactSection" class="btn">
           Animations
           <ion-icon name="walk-outline"></ion-icon>
-        </button>
+        </button> -->
         <button id="hide" value="#"></button>
       </div>
       <nav>
@@ -62,8 +74,8 @@
             </a>
           </li>
           <li style="--i: 2; --clr: #04fc43">
-            <a href="#ServicesSection">
-              <ion-icon name="people-outline" title="Services"></ion-icon>
+            <a href="#SkillsSection">
+              <ion-icon name="people-outline" title="Skills"></ion-icon>
             </a>
           </li>
           <li style="--i: 3; --clr: #04fc43">
@@ -110,7 +122,7 @@
         <div class="row">
           <div class="AboutC1">
             <img
-              src="Images/Marcus.webp"
+              src="Images/Me.webp"
               alt="This is my webiste profile picture"
               id="Tino" />
           </div>
@@ -264,10 +276,10 @@
           </div>
         </div>
       </section>
-      <!-------------------------------------------Services--------------------------------------------------------------------------------------------->
-      <section class="Services" id="ServicesSection">
-        <h3 class="subTitle">My Services</h3>
-        <div class="servicesList">
+      <!-------------------------------------------Skills--------------------------------------------------------------------------------------------->
+      <section class="Skills" id="SkillsSection">
+        <h3 class="subTitle">My Skills</h3>
+        <div class="SkillsList">
           <div>
             <ion-icon name="game-controller-outline"></ion-icon>
             <h2>Basic Game Development</h2>
