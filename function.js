@@ -1,7 +1,8 @@
 /** @format */
 
-let menuToggle = document.querySelector('.menuToggle'); //This will allow my navbar to have it's items
+let menuToggle = document.querySelector('.menuToggle');
 let menu = document.querySelector('.menu');
+let shown = false;
 menuToggle.onclick = function () {
   menu.classList.toggle('active');
 };
@@ -24,6 +25,7 @@ abutton.addEventListener('click', animate);
 let Icons = document.querySelectorAll('.Icon');
 function animate() {
   document.getElementById('AnimationsTask').checked = true;
+  checkQuests();
   if (anime) {
     for (i = 0; i < Icons.length; ++i) {
       Icons[i].classList.remove('animate');
@@ -74,6 +76,7 @@ window.addEventListener('load', function (load) {
 function downloadCV() {
   downloadFile('Documents/TinotendaMhedzisoCV.pdf', 'TinotendaMhedzisoCV.pdf');
   document.getElementById('CVTask').checked = true;
+  checkQuests();
 }
 function downloadFile(fileUrl, fileName) {
   const link = document.createElement('a');
@@ -86,6 +89,7 @@ function downloadFile(fileUrl, fileName) {
 function openGitHub() {
   document.getElementById('GitHubTask').checked = true;
   navigateToSite('https://github.com/Passion-Over-Pain');
+  checkQuests();
 }
 function navigateToSite(fileUrl) {
   const link = document.createElement('a');
@@ -99,6 +103,7 @@ document.getElementById('menuOpener').addEventListener(
   'click',
   () => {
     document.getElementById('NavigationTask').checked = true;
+    checkQuests();
   },
   { once: true }
 );
@@ -113,7 +118,7 @@ function handleChatbotOpen(mutationsList) {
       const botpressWebchat = mutation.target;
       if (botpressWebchat.classList.contains('bpOpen')) {
         document.getElementById('TalktoPassionTask').checked = true;
-        console.log('Chatbot opened, checkbox checked');
+        checkQuests();
       }
     }
   });
@@ -124,4 +129,23 @@ if (botpressWebchat) {
   observer.observe(botpressWebchat, { attributes: true }); // Observe changes in attributes
 } else {
   console.warn('Botpress Webchat iframe not found');
+}
+function checkQuests() {
+  let complete = true;
+  const quests = document.getElementsByName('r');
+  quests.forEach((quest) => {
+    if (!quest.checked) {
+      complete = false;
+    }
+  });
+  if (complete && !shown) {
+    showPopUp();
+    shown = true;
+  }
+}
+function showPopUp() {
+  document.getElementById('thankYouCard').style.display = 'flex';
+}
+function hidePopUp() {
+  document.getElementById('thankYouCard').style.display = 'none';
 }
