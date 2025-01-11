@@ -40,11 +40,13 @@
           <input name="r" type="checkbox" id="CVTask" />
           <label for="CVTask" onclick="downloadCV()">Download my CV</label>
           <input name="r" type="checkbox" id="NavigationTask" />
-          <label for="NavigationTask">Open navigation menu</label>
+          <label for="NavigationTask" onclick="openNavMenu()">
+            Open navigation menu
+          </label>
           <input value="#ContactSection" name="r" type="checkbox" id="Anime" />
           <label for="Anime">Play with Animations</label>
           <input name="r" type="checkbox" id="TalktoPassionTask" />
-          <label for="TalktoPassionTask" onclick="openBot()">
+          <label for="TalktoPassionTask" onclick="openPassion()">
             Talk to Passion
           </label>
           <input name="r" type="checkbox" id="GitHubTask" />
@@ -61,7 +63,7 @@
       <nav>
         <ul class="menu">
           <div class="menuToggle">
-            <ion-icon name="add-outline"></ion-icon>
+            <ion-icon name="add-outline" id="menuOpener"></ion-icon>
           </div>
           <li style="--i: 0; --clr: #04fc43">
             <a href="#">
@@ -374,7 +376,7 @@
                 </p>
                 <a
                   class="eye"
-                  href="https://passionoverpain.github.io/SeventhFloorMedia/"
+                  href="https://github.com/Passion-Over-Pain"
                   target="_blank"
                   title="View My Seventh Floor Media Project">
                   <ion-icon name="eye-outline"></ion-icon>
@@ -409,7 +411,7 @@
                 </p>
                 <a
                   class="eye"
-                  href="https://passionoverpain.github.io/TheLearningCurve/"
+                  href="https://github.com/Passion-Over-Pain"
                   title="My Seventh Floor Media Project"
                   target="_blank">
                   <ion-icon name="eye-outline"></ion-icon>
@@ -503,7 +505,6 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
     <script src="https://files.bpcontent.cloud/2024/12/06/17/20241206170531-PJF493H8.js"></script>
-
     <script type="text/javascript" src="function.js"></script>
   </body>
 </html>

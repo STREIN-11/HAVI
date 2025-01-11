@@ -68,12 +68,8 @@ window.addEventListener('load', function (load) {
   this.setTimeout(function () {
     loader.style.display = 'none';
     this.document.body.style.overflowY = 'scroll';
-  }, 2000);
+  }, 3000);
 });
-
-function openBot() {
-  window.botpressWebChat.sendEvent({ type: 'show' });
-}
 
 function downloadCV() {
   downloadFile('Documents/TinotendaMhedzisoCV.pdf', 'TinotendaMhedzisoCV.pdf');
@@ -96,4 +92,26 @@ function navigateToSite(fileUrl) {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+}
+
+function openNavMenu() {
+  const navMenu = document.getElementById('menuOpener');
+  navMenu.click();
+}
+
+function openPassion() {
+  const botpressFab = document.querySelector('iframe.bpFab'); // Select iframe with class "bpFab"
+
+  if (botpressFab) {
+    botpressFab.click(); // Simulate a click
+    const botpressWebchat = document.querySelector('iframe[name="webchat"]');
+    if (botpressWebchat) {
+      botpressWebchat.classList.remove('bpClose'); // Remove the bpClose class
+      botpressWebchat.classList.add('bpOpen'); // Add the bpOpen class
+    } else {
+      console.warn('Botpress Webchat iframe not found');
+    }
+  } else {
+    console.warn('Botpress Fab iframe not found');
+  }
 }
