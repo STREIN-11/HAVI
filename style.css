@@ -373,22 +373,22 @@ h1 span {
 }
 .Skills {
   text-align: start;
+  width: 100vw;
   height: fit-content;
   color: white;
-  flex-wrap: wrap;
-  opacity: 0; /*Added this*/
+  opacity: 0;
   transition: all 1s;
   filter: blur(5px);
   transform: translateX(-100%);
 }
 .SkillsList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit);
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   grid-gap: 1rem;
   margin-top: 50px;
+  width: 100%;
 }
 .SkillsList div {
   width: fit-content;
@@ -881,9 +881,12 @@ h1 span {
   }
   .SkillsList {
     display: grid;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     text-align: center;
+    place-content: center;
+    margin-right: 50px;
+    grid-gap: 1rem;
   }
   .SkillsList div {
     display: inline-block;
@@ -906,6 +909,10 @@ h1 span {
   }
   #preloader {
     background-size: 40%;
+  }
+  #thankYouCard {
+    width: 80vw;
+    height: 75vh;
   }
 }
 
@@ -1017,7 +1024,7 @@ h1 span {
   height: 80%;
   background-color: #000;
   border-radius: 10px;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
