@@ -1038,7 +1038,7 @@ h1 span {
 }
 .card svg {
   width: 48px;
-  fill: #333;
+  fill: #0f0;
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -1079,7 +1079,7 @@ h1 span {
 .card__title {
   margin: 0;
   font-size: 24px;
-  color: #fff;
+  color: #0f0;
   font-weight: 700;
 }
 
@@ -1422,33 +1422,6 @@ a {
 .button.is-primary:hover,
 .button.is-primary:focus {
   background-color: #0f0;
-}
-
-.icon-button {
-  padding: 0;
-  border: 0;
-  background-color: transparent;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: 0.15s ease;
-  color: #fff;
-}
-
-.icon-button svg {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
-
-.icon-button svg:hover,
-.icon-button svg:focus {
-  background-color: #fff;
 }
 
 #closeToS {
