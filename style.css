@@ -493,6 +493,7 @@ h1 span {
   background-color: #0f0;
   text-align: center;
   border-radius: 50%;
+  cursor: pointer;
 }
 .person {
   text-decoration: none;
@@ -800,6 +801,9 @@ h1 span {
   #Me {
     font-size: 0.9em;
     text-align: center;
+  }
+  .ui-btn {
+    width: fit-content;
   }
   .menu {
     left: 88vw;
