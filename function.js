@@ -67,6 +67,10 @@ var loader = document.getElementById('preloader');
 window.addEventListener('load', function (load) {
   // Lazy Loading :) //
   this.window.removeEventListener('load', load, false);
+  if (window.location.hash === '#tos') {
+    // Display the ToS modal
+    document.getElementById('ToS').style.display = 'flex';
+  }
   this.setTimeout(function () {
     loader.style.display = 'none';
     this.document.body.style.overflowY = 'scroll';
@@ -148,4 +152,17 @@ function showPopUp() {
 }
 function hidePopUp() {
   document.getElementById('thankYouCard').style.display = 'none';
+}
+
+function showToS() {
+  document.getElementById('ToS').style.display = 'flex';
+}
+function hideToS(acceptance) {
+  if (acceptance) {
+    document.getElementById('ToSTask').checked = true;
+    document.getElementById('acceptanceBtns').style.display = 'none';
+    document.getElementById('closeToS').style.display = 'block';
+    checkQuests();
+  }
+  document.getElementById('ToS').style.display = 'none';
 }
