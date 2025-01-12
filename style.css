@@ -116,7 +116,7 @@ html /* Very useful simple line of code down below ✔*/ {
   height: 60px;
   border: 2px solid var(--clr);
   box-sizing: border-box;
-  background: #000713;
+  background: #000;
   transform: rotate(calc(var(--i) * 90deg)) translate(0px, 0px);
   transition: transform 0.5s, height 0.5s, width 0.5s;
   transition-delay: 1s, 1.5s, 1.5s;
