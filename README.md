@@ -1,4 +1,5 @@
-![banner](https://github.com/user-attachments/assets/d5422605-ceae-4176-bb4d-e5c10686bbce)
+
+![3D Rendering Of _Tinotenda Mhedziso_ With Green Glow](https://github.com/user-attachments/assets/8ceb423e-447a-475f-82af-b94259751a7d)
 
 > [!Tip]
 > Just start today.
