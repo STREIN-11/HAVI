@@ -47,14 +47,17 @@ The portfolio was built using:
 | **HTML5**                     | Structured the website's content and layout.                               |
 | **CSS3**                      | Styled the visual elements, including animations and color schemes.         |
 | **JavaScript**                | Enabled interactivity, such as form validation and chatbot functionality.   |
-| **Webhooks & Make.com**       | Integrated external services for enhanced automation.                      |
 | **GitHub Pages**              | Deployed the website for easy accessibility and maintenance.               |
+| **CloudFlare Pages**          | Redundancy deployment, more dev friendly domain and web analytics.         |
+| **Botpress**                  | Node orientated bot with 2 modes that serves conversations to client       |
+| **Webhooks & Make.com**       | Integrated external services for enhanced automation. Email Sending + Authetication |
 
 ### 4. **SEO Optimization**
 To ensure the portfolio is discoverable, the following strategies were implemented:
 - **Meta Tags**: Optimized titles, descriptions, and keywords for search engines.
 - **Alt Text**: Applied descriptive text to images for accessibility and SEO ranking.
 - **Performance Optimization**: Minimized file sizes and implemented lazy loading for faster loading times.
+- Currently ranked 2nd on Google for the keyword Tinotenda Mhedziso, after my LinkedIn profile page.
 
 ---
 
@@ -62,11 +65,11 @@ To ensure the portfolio is discoverable, the following strategies were implement
 
 | **Section**        | **Description**                                                                                                   |
 |---------------------|-------------------------------------------------------------------------------------------------------------------|
-| **Home**           | A landing page with a bold background, my name, and a tagline highlighting my passion for development and design. |
+| **Home**           | A landing page with a bold background, my name, and an interactive todo like quest checklist.                      |
 | **About**          | A personal narrative including my background, career journey, and interests.                                      |
 | **Skills**         | A categorized list of my technical skills and proficiencies.                                                     |
 | **Projects**       | Featured projects with descriptions, screenshots, and GitHub links.                                              |
-| **Contact**        | A form allowing users to reach out directly.       |
+| **Contact**        | Links to my social pages. My chatbot can also take and respond to emails.                                        |
 | **Social Links**   | Direct links to my profiles on LinkedIn, GitHub, and other platforms.                                             |
 
 ---
@@ -77,7 +80,7 @@ I welcome feedback and collaboration! Feel free to:
 - **Collaborate**: Reach out to me if you’re interested in working together on your portfolio or a related project.
 
 ### Feedback Options
-- Use my chatbot, **Passion**, for immediate feedback.
+- Use my chatbot, **Passion**, for immediate feedback through leaving me a message.
 - Open a GitHub issue on the repository.
 - Connect with me on [LinkedIn](https://www.linkedin.com/in/tinotenda-mhedziso/).
 
@@ -95,5 +98,5 @@ Planned updates for the portfolio:
 ## Final Note
 This portfolio is a testament to my continuous learning and growth in web development. I hope it serves as both an inspiration and a functional showcase of my abilities.
 
-> [!Quote]
-> "Just start today." - A reminder to always keep moving forward.
+> [!TIP]
+> "Passion Over pain." - A reminder to always keep moving forward.
