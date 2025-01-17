@@ -1,4 +1,3 @@
-# Tinotenda Mhedziso Portfolio Documentation
 
 ![3D Rendering Of _Tinotenda Mhedziso_ With Green Glow](https://github.com/user-attachments/assets/6ecc6e3d-0daa-4f62-bd73-598f77ea6ae0)
 
