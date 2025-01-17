@@ -11,7 +11,7 @@ This portfolio is a one-stop platform to showcase my:
 - **Personal Chatbot (Passion)**: An AI-powered chatbot designed to enhance user interaction.
 - **Social Pages**: Links to my professional and creative profiles.
 
-> [!TIP]
+> [!NOTE]
 > The theme of the portfolio integrates my favorite colors, a peacock aesthetic, and a hacker/video game-inspired narrative for a modern, engaging experience.
 
 ### Live Website
