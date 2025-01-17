@@ -1,7 +1,27 @@
+# Tinotenda Mhedziso Portfolio Documentation
 
 ![3D Rendering Of _Tinotenda Mhedziso_ With Green Glow](https://github.com/user-attachments/assets/6ecc6e3d-0daa-4f62-bd73-598f77ea6ae0)
 
 Welcome to the documentation for my portfolio website, which serves as a digital representation of my skills, projects, and professional presence. The portfolio reflects my passion for software/web development, design aesthetics, and interactive technology.
+
+---
+
+## Table of Contents
+- [About the Portfolio](#about-the-portfolio)
+- [Live Website](#live-website)
+- [Preview](#preview)
+- [Features and Highlights](#features-and-highlights)
+  - [1. Design Aesthetics](#1-design-aesthetics)
+  - [2. Interactive Chatbot (Passion)](#2-interactive-chatbot-passion)
+  - [3. Technical Build](#3-technical-build)
+  - [4. SEO Optimization](#4-seo-optimization)
+- [Sections Breakdown](#sections-breakdown)
+- [Contributions](#contributions)
+  - [Feedback Options](#feedback-options)
+- [Future Enhancements](#future-enhancements)
+- [Final Note](#final-note)
+
+---
 
 ## About the Portfolio
 This portfolio is a one-stop platform to showcase my:
@@ -14,12 +34,14 @@ This portfolio is a one-stop platform to showcase my:
 > [!NOTE]
 > The theme of the portfolio integrates my favorite colors, a peacock aesthetic, and a hacker/video game-inspired narrative for a modern, engaging experience.
 
-### Live Website
+---
+
+## Live Website
 Access the live site: [tinotenda-mhedziso.pages.dev](https://tinotenda-mhedziso.pages.dev)
 
 ---
 
-## Preview 🖥
+## Preview 
 Below is a sneak peek of the portfolio's user interface and visual elements:
 
 ![Portfolio Screenshot](https://github.com/user-attachments/assets/0db51d8a-5676-4967-a256-daeb57e7c042)
@@ -48,16 +70,16 @@ The portfolio was built using:
 | **CSS3**                      | Styled the visual elements, including animations and color schemes.         |
 | **JavaScript**                | Enabled interactivity, such as form validation and chatbot functionality.   |
 | **GitHub Pages**              | Deployed the website for easy accessibility and maintenance.               |
-| **CloudFlare Pages**          | Redundancy deployment, more dev friendly domain and web analytics.         |
-| **Botpress**                  | Node orientated bot with 2 modes that serves conversations to client       |
-| **Webhooks & Make.com**       | Integrated external services for enhanced automation. Email Sending + Authetication |
+| **CloudFlare Pages**          | Redundancy deployment, more dev-friendly domain, and web analytics.         |
+| **Botpress**                  | Node-based chatbot framework with two conversation modes.                  |
+| **Webhooks & Make.com**       | Integrated external services for automation, email sending, and authentication. |
 
 ### 4. **SEO Optimization**
 To ensure the portfolio is discoverable, the following strategies were implemented:
 - **Meta Tags**: Optimized titles, descriptions, and keywords for search engines.
 - **Alt Text**: Applied descriptive text to images for accessibility and SEO ranking.
 - **Performance Optimization**: Minimized file sizes and implemented lazy loading for faster loading times.
-- Currently ranked 2nd on Google for the keyword Tinotenda Mhedziso, after my LinkedIn profile page.
+- **Google Search Ranking**: Currently ranked 2nd on Google for the keyword "Tinotenda Mhedziso," after my LinkedIn profile page.
 
 ---
 
@@ -65,16 +87,16 @@ To ensure the portfolio is discoverable, the following strategies were implement
 
 | **Section**        | **Description**                                                                                                   |
 |---------------------|-------------------------------------------------------------------------------------------------------------------|
-| **Home**           | A landing page with a bold background, my name, and an interactive todo like quest checklist.                      |
+| **Home**           | A landing page with a bold background, my name, and an interactive to-do-like quest checklist.                    |
 | **About**          | A personal narrative including my background, career journey, and interests.                                      |
 | **Skills**         | A categorized list of my technical skills and proficiencies.                                                     |
 | **Projects**       | Featured projects with descriptions, screenshots, and GitHub links.                                              |
-| **Contact**        | Links to my social pages. My chatbot can also take and respond to emails.                                        |
+| **Contact**        | Links to my social pages. My chatbot can also take and respond to emails.                                         |
 | **Social Links**   | Direct links to my profiles on LinkedIn, GitHub, and other platforms.                                             |
 
 ---
 
-## Contributions 🤝🏿🤝🏼
+## Contributions
 I welcome feedback and collaboration! Feel free to:
 - **Review and Clone**: Examine the project code and adapt elements that inspire you. However, I encourage you to create something unique that reflects your personal brand.
 - **Collaborate**: Reach out to me if you’re interested in working together on your portfolio or a related project.
@@ -99,4 +121,4 @@ Planned updates for the portfolio:
 This portfolio is a testament to my continuous learning and growth in web development. I hope it serves as both an inspiration and a functional showcase of my abilities.
 
 > [!TIP]
-> "Passion Over pain." - A reminder to always keep moving forward.
+> "Passion Over Pain." - A reminder to always keep moving forward.
