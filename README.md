@@ -3,6 +3,13 @@
 
 Welcome to the documentation for my portfolio website, which serves as a digital representation of my skills, projects, and professional presence. The portfolio reflects my passion for software/web development, design aesthetics, and interactive technology.
 
+>[!Tip]
+>Listen to the AI generated podcast now. **Please note** that this is an experimental feature. Also my name is pronounced: Tea-no-ten-da.
+
+
+https://github.com/user-attachments/assets/bfc903c8-6ce5-4a0f-9b66-e93fdc080d09
+
+
 ---
 
 ## Table of Contents
