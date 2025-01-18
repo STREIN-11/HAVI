@@ -7,10 +7,14 @@ Welcome to the documentation for my portfolio website, which serves as a digital
 >Listen to the AI generated podcast now. **Please note** that this is an experimental feature. Also my name is pronounced: Tea-no-ten-da.
 
 
-https://github.com/user-attachments/assets/bfc903c8-6ce5-4a0f-9b66-e93fdc080d09
+https://github.com/user-attachments/assets/1cd2df61-130d-413f-950f-fa7363089fed
 
 
 ---
+
+
+
+
 
 ## Table of Contents
 - [About the Portfolio](#about-the-portfolio)
