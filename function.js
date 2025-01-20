@@ -102,6 +102,16 @@ function openGitHub() {
   navigateToSite('https://github.com/Passion-Over-Pain');
   checkQuests();
 }
+
+function openEmail() {
+  navigateToSite('mailto:tinomhedziso21@gmail.com');
+}
+function openDevTo() {
+  navigateToSite('https://dev.to/passionoverpain');
+}
+function openLinkedIn() {
+  navigateToSite('https://www.linkedin.com/in/tinotenda-mhedziso/');
+}
 function navigateToSite(fileUrl) {
   const link = document.createElement('a');
   link.href = fileUrl;
