@@ -6,17 +6,22 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  --darkGreen: #001908;
+  --brightGreen: #00ff00;
+  --white: #ffffff;
+  --black: #000000;
+  --complementaryGreen: #007300;
 }
 
 body {
   overflow: hidden;
-  color: white;
+  color: var(--White);
   align-items: center;
   min-height: fit-content;
-  background: #000000;
+  background: #000;
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   /* font-family: "Pixelify Sans", sans-serif; */
 }
 html /* Very useful simple line of code down below ✔*/ {
@@ -38,8 +43,8 @@ html /* Very useful simple line of code down below ✔*/ {
   height: 100vh;
   width: 100%;
   position: fixed;
-  z-index: 1000000; /* hehe I know 🤣😅*/
-  color: #0f0;
+  z-index: 10000;
+  color: var(--brightGreen);
   text-align: center;
   align-items: center;
   display: grid;
@@ -212,7 +217,7 @@ h1 span {
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
-  border: #0f0 1.25em soild;
+  border: var(--brightGreen) 1.25em soild;
   color: #ffffff;
   padding: 2%;
   border-radius: 10em;
@@ -251,7 +256,7 @@ h1 span {
 }
 .Contactbtn:hover,
 .Contactbtn:focus {
-  background: #0f0;
+  background: var(--brightGreen);
   transform: scale(1.1);
 }
 .AboutMe {
@@ -333,104 +338,122 @@ h1 span {
 .Programming {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  color: #0f0;
+  color: var(--brightGreen);
   gap: 2px;
 }
 #TechStack {
   margin-right: 20px;
   cursor: pointer;
   font-family: 'Pixelify Sans', sans-serif;
+  width: 200px;
+  font-size: 1rem;
 }
 #Education {
   margin-right: 20px;
   cursor: pointer;
   font-family: 'Pixelify Sans', sans-serif;
+  width: 200px;
+  font-size: 1rem;
 }
 #Experience {
   margin-right: 20px;
   cursor: pointer;
   font-family: 'Pixelify Sans', sans-serif;
+  width: 200px;
+  font-size: 1rem;
 }
 .View span {
   font-family: 'Pixelify Sans', sans-serif;
 }
-
-.Viewpoint::after {
-  content: '';
-  width: 0px;
-  height: 3px;
-  background: #0f0;
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  transition: 0.5s;
-}
-.Viewpoint.Activepoint::after {
-  width: 100%;
-}
 .View ul {
   list-style: none;
 }
-.Skills {
-  text-align: start;
-  width: 100vw;
-  height: fit-content;
-  color: white;
-  opacity: 0;
-  transition: all 1s;
-  filter: blur(5px);
-  transform: translateX(-100%);
-}
-.SkillsList {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.skills-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
   text-align: center;
-  grid-gap: 1rem;
-  margin-top: 50px;
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--white);
+}
+
+/* Skills container */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Skill card */
+.skill-card {
+  background-color: var(--darkGreen);
+  box-shadow: 4px 4px 8px var(--brightGreen);
+  padding: 20px;
+  text-align: center;
   width: 100%;
+  max-width: 300px;
+ 
+  margin: 5px;
+  transition: background 0.5s;
+  cursor: pointer;
 }
-.SkillsList div {
-  width: fit-content;
-  position: relative;
-  background-color: #001908;
-  padding: 30px;
-  font-size: 20px;
-  font-weight: 300;
-  border-radius: 10px;
-  cursor: default;
-  transition: background-color 0.5s, transform 0.5s;
-  margin-right: 40px;
+.skill-card:hover {
+  background-color: var(--black);
 }
-.SkillsList div ion-icon {
-  font-size: 50px;
+.bounce
+{
+  animation: bounce 2s infinite ease-in-out;
+  animation-delay: var(--delay, 0s);
+}
+/* Icon styling */
+.icon {
+  font-size: 2.5rem;
+  color: #0f0;
   margin-bottom: 10px;
-  color: #0f0;
 }
-.SkillsList div h2 {
-  font-size: 30px;
-  font-weight: 100;
-  color: #fff;
-  font-family: 'Pixelify Sans', sans-serif;
+
+/* Skill heading */
+.skill-card h3 {
+  font-size: 1.5rem;
+  margin: 10px 0 0;
+  color: var(--white);
 }
-.SkillsList div a {
-  text-decoration: none;
-  color: #0f0;
-  font-size: 12px;
-  display: inline-block;
-  transition: border 0.5s; /*This is not working the way I want it to*/
+
+/* Bounce animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
-.SkillsList div a:hover {
-  border-bottom: solid 1px green;
+
+/* Row-based synchronization */
+.row-1 {
+  --delay: 0s;
 }
-.SkillsList div:hover {
-  background-color: #000713;
-  transform: translateY(-10px);
+
+.row-2 {
+  --delay: 1s;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .skill-card {
+    padding: 15px;
+  }
 }
 .Projects {
   background-color: rgb(0, 0, 0);
   padding: 2px 0;
-  text-align: start;
+  text-align: center;
   height: fit-content;
   color: white;
   flex-wrap: wrap;
@@ -449,6 +472,7 @@ h1 span {
   border-radius: 10px;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 .project img {
   width: 100%;
@@ -490,14 +514,19 @@ h1 span {
   line-height: 70px;
   width: 60px;
   height: 60px;
-  background-color: #0f0;
+  background-color: var(--brightGreen);
   text-align: center;
   border-radius: 50%;
   cursor: pointer;
+  transition: background-color 0.5s;
+}
+.eye:hover {
+  background-color: #000;
+  color: var(--brightGreen);
 }
 .person {
   text-decoration: none;
-  color: #0f0;
+  color: var(--brightGreen);
   font-family: 'Pixelify Sans', sans-serif;
 }
 .project:hover img {
@@ -510,7 +539,7 @@ h1 span {
   display: block;
   margin: 30px auto;
   width: fit-content;
-  border: 1px solid #0f0;
+  border: 1px solid var(--brightGreen);
   padding: 14px;
   border-radius: 6px;
   text-decoration: none;
@@ -524,7 +553,7 @@ h1 span {
   margin: 10px;
 }
 .btn:hover {
-  background-color: #0f0;
+  background-color: var(--brightGreen);
 }
 .Contact {
   background-color: #001908;
@@ -587,7 +616,7 @@ h1 span {
 #checklist {
   --background: #00000065;
   --text: #fff;
-  --check: #0f0;
+  --check: var(--brightGreen);
   --disabled: #c3c8de;
   --width: 100%;
   --height: 180px;
@@ -779,8 +808,9 @@ h1 span {
 @keyframes firework {
   0% {
     opacity: 1;
-    box-shadow: 0 0 0 -2px #0f0, 0 0 0 -2px #0f0, 0 0 0 -2px #0f0,
-      0 0 0 -2px #0f0, 0 0 0 -2px #0f0, 0 0 0 -2px #0f0;
+    box-shadow: 0 0 0 -2px var(--brightGreen), 0 0 0 -2px var(--brightGreen),
+      0 0 0 -2px var(--brightGreen), 0 0 0 -2px var(--brightGreen),
+      0 0 0 -2px var(--brightGreen), 0 0 0 -2px var(--brightGreen);
   }
 
   30% {
@@ -789,8 +819,10 @@ h1 span {
 
   100% {
     opacity: 0;
-    box-shadow: 0 -15px 0 0px #0f0, 14px -8px 0 0px #0f0, 14px 8px 0 0px #0f0,
-      0 15px 0 0px #0f0, -14px 8px 0 0px #0f0, -14px -8px 0 0px #0f0;
+    box-shadow: 0 -15px 0 0px var(--brightGreen),
+      14px -8px 0 0px var(--brightGreen), 14px 8px 0 0px var(--brightGreen),
+      0 15px 0 0px var(--brightGreen), -14px 8px 0 0px var(--brightGreen),
+      -14px -8px 0 0px var(--brightGreen);
   }
 }
 /*------------------------------------Responsive Design--------------------------------------------------------*/
@@ -953,7 +985,7 @@ h1 span {
   .Programming {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    color: #0f0;
+    color: var(--brightGreen);
     gap: 2px;
   }
   .SkillsList {
@@ -966,7 +998,7 @@ h1 span {
 /* From Uiverse.io by eduardo-amaro-maciel */
 .actionBtn {
   margin: 10px;
-  width: 150px;
+  width: 300px;
   height: 50px;
   border: 1px solid #333;
   font-size: 20px;
@@ -1043,7 +1075,7 @@ h1 span {
 }
 .card svg {
   width: 48px;
-  fill: #0f0;
+  fill: var(--brightGreen);
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -1084,7 +1116,7 @@ h1 span {
 .card__title {
   margin: 0;
   font-size: 24px;
-  color: #0f0;
+  color: var(--brightGreen);
   font-weight: 700;
 }
 
@@ -1109,7 +1141,7 @@ h1 span {
   --btn-animation-duration: 1.2s;
   --btn-shadow-color: rgba(0, 0, 0, 0.137);
   --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
-  --hover-btn-color: #0f0;
+  --hover-btn-color: var(--brightGreen);
   --default-btn-color: #fff;
   --font-size: 16px;
   --font-weight: 600;
@@ -1132,8 +1164,8 @@ h1 span {
   overflow: hidden;
   box-shadow: var(--btn-shadow);
   border-radius: 10px;
-  border: 2px solid #2a2b3a;
-  width: 20%;
+  border: 2px solid var(--White);
+  width: 40%;
 }
 
 .ui-btn span {
@@ -1154,8 +1186,8 @@ h1 span {
 .ui-btn:hover,
 .ui-btn:focus {
   background: var(--btn-default-bg);
-  box-shadow: 0px 0px 10px 0px #0f0;
-  border: 2px solid #0f0;
+  box-shadow: 0px 0px 10px 0px var(--brightGreen);
+  border: 2px solid var(--brightGreen);
 }
 
 .ui-btn:hover span,
@@ -1323,7 +1355,7 @@ a {
 .modal-container-title svg {
   width: 32px;
   height: 32px;
-  color: #0f0;
+  color: var(--brightGreen);
 }
 
 .modal-container-body {
@@ -1392,13 +1424,13 @@ h6 {
 }
 
 .button.is-primary {
-  background-color: #0f0;
+  background-color: var(--brightGreen);
   color: #fff;
 }
 
 .button.is-primary:hover,
 .button.is-primary:focus {
-  background-color: #0f0;
+  background-color: var(--brightGreen);
 }
 
 #closeToS {

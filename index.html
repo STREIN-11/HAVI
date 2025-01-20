@@ -322,11 +322,11 @@
         </div>
         <!-- /* From Uiverse.io by eduardo-amaro-maciel */ -->
         <div class="flexBox">
-          <div class="actionBtn" id="Anime">
-            <span class="noselect">Animations</span>
+          <div class="actionBtn ui-btn" id="Anime">
+            <span>Animations</span>
           </div>
-          <div class="actionBtn" id="ToSbtn" onclick="showToS()">
-            <span class="noselect">Terms</span>
+          <div class="ui-btn actionBtn" id="ToSbtn" onclick="showToS()">
+            <span>Terms</span>
           </div>
         </div>
       </div>
@@ -402,31 +402,38 @@
           <div class="AboutC2">
             <h3 class="subTitle">About Me</h3>
             <p>
-              I am student currently pursuing a Bachelor of Information
-              Technology degree. My journey in Information Technology began in
-              high school, where I established a strong foundation in the field.
-              I have programmed in numerous developing environments using
-              various languages but my strength lies with C#. To me, programming
-              is the process of overcoming a video game boss: seldom do you get
-              it the initial attempts, but through persistence, you level up ⬆
-              and succeed. I am here to help you overcome the problem.
+              Final year Bachelor of Information Technology student, JavaScript
+              developer and Open Source contributer. Creating my first software
+              program in high school established a deep connection for solving
+              problems with code. To me, programming is like conquering a
+              challenging video game boss—success often requires persistence,
+              learning, and adaptability. Each attempt sharpens my skills and
+              brings me closer to success.
             </p>
             <div class="Extra">
-              <p
-                class="Viewpoint Activepoint"
+              <button
+                class="actionBtn ui-btn Viewpoint Activepoint"
                 id="TechStack"
                 onclick="show('Skills')">
-                Tech Stack
+                <span>Tech Stack</span>
                 <ion-icon name="layers-outline"></ion-icon>
-              </p>
-              <p class="Viewpoint" id="Education" onclick="show('School')">
-                Education
+              </button>
+
+              <button
+                class="actionBtn ui-btn Viewpoint Activepoint"
+                id="Education"
+                onclick="show('School')">
+                <span>Education</span>
                 <ion-icon name="book-outline"></ion-icon>
-              </p>
-              <p class="Viewpoint" id="Experience" onclick="show('Work')">
-                Experience
+              </button>
+
+              <button
+                class="actionBtn ui-btn Viewpoint Activepoint"
+                id="Experience"
+                onclick="show('Work')">
+                <span>Experience</span>
                 <ion-icon name="ribbon-outline"></ion-icon>
-              </p>
+              </button>
             </div>
             <div class="View Activeview" id="Skills">
               <ul class="Programming">
@@ -443,6 +450,13 @@
                     src="https://skillicons.dev/icons?i=css"
                     alt="This is CSS" />
                   CSS3
+                </li>
+                <li>
+                  <img
+                    class="Icon language animate"
+                    src="https://skillicons.dev/icons?i=firebase"
+                    alt="This is Firebase" />
+                  Firebase
                 </li>
                 <li>
                   <img
@@ -471,6 +485,13 @@
                     src="https://skillicons.dev/icons?i=mysql"
                     alt="This is MySQL" />
                   MySQL
+                </li>
+                <li>
+                  <img
+                    class="Icon language animate"
+                    src="https://skillicons.dev/icons?i=react"
+                    alt="This is React" />
+                  React
                 </li>
                 <li>
                   <img
@@ -550,74 +571,32 @@
         </div>
       </section>
       <!-------------------------------------------Skills--------------------------------------------------------------------------------------------->
-      <section class="Skills" id="SkillsSection">
-        <h3 class="subTitle">My Skills</h3>
-        <div class="SkillsList">
-          <div>
-            <ion-icon name="game-controller-outline"></ion-icon>
-            <h2>Basic Game Development</h2>
-            <p>
-              Game development is the art of creating innovative applications
-              that offer a level of challenge and reward the Player for
-              overcoming that challenge. I do not offer this service
-              professionally rather as a hobby, I craft story driven concepts
-              into entertaining creations.
-            </p>
-            <a
-              href="https://www.freecodecamp.org/news/what-is-game-development/"
-              target="_blank"
-              title="This is a link to a freecodecamp webpage that describes game development">
-              Learn More about game development
-            </a>
+      <section class="skills-section" id="SkillsSection">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-container">
+          <div class="skill-card row-1 bounce">
+            <ion-icon name="cloud-download-outline" class="icon"></ion-icon>
+            <h3>Database Development</h3>
           </div>
-          <div>
-            <ion-icon name="cloud-upload-outline"></ion-icon>
-            <h2>Database Development</h2>
-            <p>
-              In a data centered age, Databases facilitate the storage,
-              retrieval and manipulation of Important Information to ensure the
-              results are obtained timeously. As a Database administrator, I
-              ensure that the data warehousing of your entity is optimised and
-              operational at all times.
-            </p>
-            <a
-              href="https://webheadtech.com/blog/database-development/#:~:text=Database%20development%20is%20designing%2C%20creating,meet%20the%20needs%20of%20business."
-              target="_blank"
-              title="This is a link to a webheadtech webpage that describes database development">
-              Learn More about database development
-            </a>
+          <div class="skill-card row-1 bounce">
+            <ion-icon name="desktop-outline" class="icon"></ion-icon>
+            <h3>Desktop Applications Development</h3>
           </div>
-          <div>
-            <ion-icon name="logo-windows"></ion-icon>
-            <h2>Windows Applications Development</h2>
-            <p>
-              Windows is the most used operating system currently and the
-              software that is available for Windows grows extensively by the
-              minute. Modernise your business entity by including desktop
-              application for a more professional experience.
-            </p>
-            <a
-              href="https://syndelltech.com/steps-to-develop-windows-application/#:~:text=Windows%20application%20development%20refers%20to,systems%20and%20immersive%20multimedia%20experiences."
-              target="_blank"
-              title="This is a link to a syndeltech webpage that defines what windows applications development is">
-              Learn More about windows app development
-            </a>
+          <div class="skill-card row-1 bounce">
+            <ion-icon name="game-controller-outline" class="icon"></ion-icon>
+            <h3>Game Development</h3>
           </div>
-          <div>
-            <ion-icon name="earth-outline"></ion-icon>
-            <h2>Web Applications Development</h2>
-            <p>
-              A crucial factor in a business's digital presence is a website. A
-              website is not merely a page lost on the internet, It is a hub for
-              your daily transactions and a selling point for your entity. Allow
-              me to sell your idea for you... digitally.
-            </p>
-            <a
-              href="https://www.sumologic.com/glossary/web-application-development/#:~:text=Web%20application%20development%20describes%20the,or%20customers%20via%20the%20internet."
-              target="_blank"
-              title="A sumologic webpage that describes web applications development">
-              Learn More about web app development
-            </a>
+          <div class="skill-card row-2 bounce">
+            <ion-icon name="game-controller-outline" class="icon"></ion-icon>
+            <h3>Quality Assurance</h3>
+          </div>
+          <div class="skill-card row-2 bounce">
+            <ion-icon name="fitness-outline" class="icon"></ion-icon>
+            <h3>Unity Testing</h3>
+          </div>
+          <div class="skill-card row-2 bounce">
+            <ion-icon name="logo-chrome" class="icon"></ion-icon>
+            <h3>Web Applications Development</h3>
           </div>
         </div>
       </section>
@@ -712,7 +691,7 @@
             </div>
           </div>
           <div class="flexBox">
-            <button class="ui-btn" id="Git" onclick="openGitHub()">
+            <button class="actionBtn ui-btn" id="Git" onclick="openGitHub()">
               <span>All Projects</span>
               <ion-icon name="logo-github"></ion-icon>
             </button>
