@@ -385,7 +385,7 @@ h1 span {
 /* Skill card */
 .skill-card {
   background-color: var(--darkGreen);
-  box-shadow: 4px 4px 8px var(--brightGreen);
+  box-shadow: 6px 4px 8px var(--brightGreen);
   padding: 20px;
   text-align: center;
   width: 100%;
@@ -871,6 +871,11 @@ h1 span {
     font-size: 0.8rem;
     align-items: center;
     justify-content: center;
+  }
+ #contactContainer{
+  display: grid;
+  grid-template-columns: auto auto auto;
+ }
   }
   .View {
     font-size: 0.5rem;
@@ -1461,7 +1466,7 @@ h6 {
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Contact btns<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 /* From Uiverse.io by SalladShooter */
 .light-button {
-  margin: 10px;
+  margin: 20px;
 }
 .light-button button.bt {
   position: relative;
@@ -1481,18 +1486,18 @@ h6 {
   justify-content: center;
   height: 100px;
   width: 100px;
-  background-color: #0a0a0a;
+  background-color: #0f0f0f;
   border-radius: 5px;
-  color: #0f0f0f;
+  color: #444444;
   font-weight: 700;
   transition: 300ms;
-  outline: #0f0f0f 2px solid;
+  outline: #444444 2px solid;
   outline-offset: 20;
 }
 
 .light-button button.bt .button-holder ion-icon {
   font-size: 3rem;
-  fill: #0f0f0f;
+  fill: #444444;
 }
 
 .light-button button.bt .light-holder {

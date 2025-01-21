@@ -112,6 +112,11 @@ function openDevTo() {
 function openLinkedIn() {
   navigateToSite('https://www.linkedin.com/in/tinotenda-mhedziso/');
 }
+function openProjects() {
+  document.getElementById('GitHubTask').checked = true;
+  navigateToSite(`https://github.com/Passion-Over-Pain?tab=repositories`);
+  checkQuests();
+}
 function navigateToSite(fileUrl) {
   const link = document.createElement('a');
   link.href = fileUrl;
