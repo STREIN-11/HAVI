@@ -1519,9 +1519,6 @@ h6 {
     width: 12vw;
     float: none;
   }
-  .skills-container {
-    grid-template-columns: auto auto;
-  }
   .skill-card {
     width: 200px;
     height: 150px;
