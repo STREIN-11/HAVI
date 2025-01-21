@@ -24,6 +24,7 @@ const abutton = document.getElementById('Anime');
 abutton.addEventListener('click', animate);
 let Icons = document.querySelectorAll('.Icon');
 let skillCards = document.querySelectorAll('.skill-card');
+let titles = document.querySelectorAll('.subTitle');
 function animate() {
   document.getElementById('AnimationsTask').checked = true;
   checkQuests();
@@ -34,6 +35,9 @@ function animate() {
     for (s = 0; s < skillCards.length; ++s) {
       skillCards[s].classList.remove('bounce');
     }
+    for (t = 0; t < titles.length; ++t) {
+      titles[t].classList.remove('bounce');
+    }
     anime = false;
     window.location.assign(`#ContactSection`);
     setTimeout(backHome, 2000);
@@ -43,6 +47,9 @@ function animate() {
     }
     for (s = 0; s < skillCards.length; ++s) {
       skillCards[s].classList.add('bounce');
+    }
+    for (t = 0; t < titles.length; ++t) {
+      titles[t].classList.add('bounce');
     }
     anime = true;
 
