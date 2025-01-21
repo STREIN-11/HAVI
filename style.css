@@ -15,6 +15,7 @@
 
 body {
   overflow: hidden;
+  overflow-x: hidden;
   color: var(--White);
   align-items: center;
   min-height: fit-content;
