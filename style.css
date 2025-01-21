@@ -1354,6 +1354,9 @@ h6 {
   align-items: center;
   text-align: center;
 }
+#FooterSection {
+  font-size: 1rem;
+}
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Contact btns<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 /* From Uiverse.io by SalladShooter */
 .light-button {
@@ -1506,6 +1509,9 @@ h6 {
     width: 12vw;
     float: none;
   }
+  #FooterSection {
+    font-size: 0.6rem;
+  }
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1000px) {
@@ -1546,5 +1552,8 @@ h6 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     justify-content: center;
+  }
+  #FooterSection {
+    font-size: 0.8rem;
   }
 }
