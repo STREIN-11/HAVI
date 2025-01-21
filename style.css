@@ -817,192 +817,83 @@ h1 span {
       -14px -8px 0 0px var(--brightGreen);
   }
 }
-/*------------------------------------Responsive Design--------------------------------------------------------*/
-@media only screen and (min-width: 251px) and (max-width: 600px) /* 250px optimisation to come */ {
-  .header {
-    display: inline-block;
-  }
-  #Me {
-    font-size: 0.9em;
-    text-align: center;
-  }
-  .ui-btn {
-    width: fit-content;
-  }
-  .menu {
-    left: 88vw;
-    bottom: 0vh;
-  }
-  .menu li {
-    transform-origin: 125px;
-  }
-  .menu.active .menuToggle {
-    left: 500%;
-  }
-  .menu.active {
-    left: 15vw;
-    top: 30vh;
-    font-size: 0.9em;
-  }
-  .menu.active li a::before {
-    width: 40px;
-    height: 40px;
-  }
-  .menu li a::after {
-    display: none;
-  }
-
-  .row img {
-    width: 35vw;
-    border-radius: 50%;
-  }
-  .subTitle {
-    font-size: 1.9em;
-  }
-  .row {
-    display: inline-block;
-    justify-content: center;
-    width: 100vw;
-    text-align: center;
-    height: fit-content;
-  }
-  .Extra {
-    width: 100vw;
-    font-size: 0.8rem;
-    align-items: center;
-    justify-content: center;
-  }
- #contactContainer{
+#Skills {
+  margin-left: 15px;
+}
+.AboutMe {
+  width: 100%;
+  height: fit-content;
+}
+.AboutC1,
+.AboutC2 {
+  flex-basis: 100%; /*This is used to make the columns stack on top of each other*/
+}
+.AboutMe {
+  font-size: 0.9rem;
+}
+#Tino {
+  width: 300px;
+}
+#TechStack,
+#Education,
+#Experience {
+  font-size: 0.7rem;
+}
+.View {
+  font-size: 0.9rem;
+}
+.View img {
+  width: 5vw;
+  float: none;
+}
+.Skills {
+  text-align: center;
+  height: fit-content;
+}
+.SkillsList {
+  margin-left: 15px;
+  justify-content: center;
+}
+.Projects {
+  text-align: center;
+  height: fit-content;
+}
+.project {
+  width: 100%;
+  height: fit-content;
+}
+.SkillsList {
   display: grid;
-  grid-template-columns: auto auto auto;
- }
-  }
-  .View {
-    font-size: 0.5rem;
-  }
-  #Skills {
-    margin-left: 15px;
-  }
-  .AboutMe {
-    width: 100%;
-    height: fit-content;
-  }
-  .AboutC1,
-  .AboutC2 {
-    flex-basis: 100%; /*This is used to make the columns stack on top of each other*/
-  }
-  .AboutMe {
-    font-size: 0.9rem;
-  }
-  #Tino {
-    width: 300px;
-  }
-  #TechStack,
-  #Education,
-  #Experience {
-    font-size: 0.7rem;
-  }
-  .View {
-    font-size: 0.7rem;
-  }
-  .View img {
-    width: 10vw;
-    float: none;
-  }
-  .Skills {
-    text-align: center;
-    height: fit-content;
-  }
-  .SkillsList {
-    margin-left: 15px;
-    justify-content: center;
-  }
-  .Projects {
-    text-align: center;
-    height: fit-content;
-  }
-  .project {
-    width: 100%;
-    height: fit-content;
-  }
-  .SkillsList {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    place-content: center;
-    margin-right: 50px;
-    grid-gap: 1rem;
-  }
-  .SkillsList div {
-    display: inline-block;
-    padding: 10px;
-    font-size: 0.7em;
-    width: fit-content;
-  }
-  .SkillsList div ion-icon {
-    font-size: 40px;
-  }
-  .SkillsList div h2 {
-    font-size: 20px;
-  }
-  .Contact {
-    position: relative;
-    font-size: 0.6rem;
-  }
-  .project img {
-    height: 65vh;
-  }
-  #preloader {
-    background-size: 40%;
-  }
-  #thankYouCard {
-    width: 80vw;
-    height: 75vh;
-  }
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  place-content: center;
+  margin-right: 50px;
+  grid-gap: 1rem;
 }
-
-@media only screen and (min-width: 601px) and (max-width: 1000px) {
-  /* Preloader text */
-  #Loading {
-    font-size: 2em;
-  }
-
-  /* Menu Position */
-  .menu {
-    left: 85vw;
-    top: -10vh;
-  }
-
-  #Me {
-    font-size: 1.5em;
-  }
-
-  .AboutMe .row {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-  .row img {
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    object-position: top;
-  }
-
-  .Programming {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    color: var(--brightGreen);
-    gap: 2px;
-  }
-  .SkillsList {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    justify-content: center;
-  }
+.SkillsList div {
+  display: inline-block;
+  padding: 10px;
+  font-size: 0.7em;
+  width: fit-content;
 }
-
+.SkillsList div h2 {
+  font-size: 20px;
+}
+.Contact {
+  position: relative;
+  font-size: 0.6rem;
+}
+.project img {
+  height: 65vh;
+}
+#preloader {
+  background-size: 40%;
+}
+#thankYouCard {
+  width: 80vw;
+  height: 75vh;
+}
 /* From Uiverse.io by eduardo-amaro-maciel */
 .actionBtn {
   margin: 10px;
@@ -1546,4 +1437,114 @@ h6 {
     rgba(255, 255, 255, 0) 75%,
     rgba(255, 255, 255, 0) 100%
   );
+}
+
+/*------------------------------------Responsive Design--------------------------------------------------------*/
+@media only screen and (min-width: 251px) and (max-width: 600px) /* 250px optimisation to come */ {
+  .header {
+    display: inline-block;
+  }
+  #Me {
+    font-size: 0.9em;
+    text-align: center;
+  }
+  .ui-btn {
+    width: fit-content;
+  }
+  .menu {
+    left: 88vw;
+    bottom: 0vh;
+  }
+  .menu li {
+    transform-origin: 125px;
+  }
+  .menu.active .menuToggle {
+    left: 500%;
+  }
+  .menu.active {
+    left: 15vw;
+    top: 30vh;
+    font-size: 0.9em;
+  }
+  .menu.active li a::before {
+    width: 40px;
+    height: 40px;
+  }
+  .menu li a::after {
+    display: none;
+  }
+
+  .row img {
+    width: 35vw;
+    border-radius: 50%;
+  }
+  .subTitle {
+    font-size: 1.9em;
+  }
+  .row {
+    display: inline-block;
+    justify-content: center;
+    width: 100vw;
+    text-align: center;
+    height: fit-content;
+  }
+  .Extra {
+    width: 100vw;
+    font-size: 0.8rem;
+    align-items: center;
+    justify-content: center;
+  }
+  #contactContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
+  .View {
+    font-size: 0.9rem;
+  }
+  .View img {
+    width: 12vw;
+    float: none;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1000px) {
+  /* Preloader text */
+  #Loading {
+    font-size: 2em;
+  }
+
+  /* Menu Position */
+  .menu {
+    left: 85vw;
+    top: -10vh;
+  }
+
+  #Me {
+    font-size: 1.5em;
+  }
+
+  .AboutMe .row {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .row img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .Programming {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    color: var(--brightGreen);
+    gap: 2px;
+  }
+  .SkillsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    justify-content: center;
+  }
 }
