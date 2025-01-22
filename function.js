@@ -62,7 +62,7 @@ function backHome() {
 }
 //This is an Intersection Observer ... Duh🤣, in plain english, a method (function) of checking if each section is currently visisble
 // on the user's screen, if not the item is hidden, if so then it loads in//
-var observer = new IntersectionObserver((entries) => {
+let observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (anime) {
       if (entry.isIntersecting) {
@@ -75,9 +75,9 @@ var observer = new IntersectionObserver((entries) => {
     }
   });
 });
-var hiddenElements = document.querySelectorAll('.Projects, .AboutMe, .Skills');
+let hiddenElements = document.querySelectorAll('.Projects, .AboutMe, .Skills');
 hiddenElements.forEach((el) => observer.observe(el));
-var loader = document.getElementById('preloader');
+let loader = document.getElementById('preloader');
 window.addEventListener('load', function (load) {
   // Lazy Loading :) //
   this.window.removeEventListener('load', load, false);

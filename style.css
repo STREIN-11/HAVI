@@ -25,7 +25,9 @@ body {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   /* font-family: "Pixelify Sans", sans-serif; */
 }
+
 html /* Very useful simple line of code down below ✔*/ {
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 .flexBox {
@@ -371,7 +373,7 @@ h1 span {
   opacity: 0;
   transition: all 1s;
   filter: blur(5px);
-  transform: translateX(-100%);
+  transform: translateX(100%);
   overflow-x: hidden;
 }
 
