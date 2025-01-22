@@ -15,7 +15,6 @@
 
 body {
   overflow: hidden;
-  overflow-x: hidden;
   width: 100vw;
   color: var(--White);
   align-items: center;
@@ -826,9 +825,7 @@ h1 span {
       -14px -8px 0 0px var(--brightGreen);
   }
 }
-#Skills {
-  margin-left: 15px;
-}
+
 .AboutMe {
   width: 100%;
   height: fit-content;
@@ -855,14 +852,7 @@ h1 span {
   width: 5vw;
   float: none;
 }
-.Skills {
-  text-align: center;
-  height: fit-content;
-}
-.SkillsList {
-  margin-left: 15px;
-  justify-content: center;
-}
+
 .Projects {
   text-align: center;
   height: fit-content;
@@ -870,24 +860,6 @@ h1 span {
 .project {
   width: 100%;
   height: fit-content;
-}
-.SkillsList {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  place-content: center;
-  margin-right: 50px;
-  grid-gap: 1rem;
-}
-.SkillsList div {
-  display: inline-block;
-  padding: 10px;
-  font-size: 0.7em;
-  width: fit-content;
-}
-.SkillsList div h2 {
-  font-size: 20px;
 }
 .Contact {
   position: relative;
