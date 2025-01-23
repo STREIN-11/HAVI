@@ -35,7 +35,7 @@ html /* Very useful simple line of code down below ✔*/ {
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 #preloader {
   background-color: #000;
@@ -1467,6 +1467,27 @@ h6 {
   .ui-btn {
     width: fit-content;
   }
+  .actionBtn {
+    margin: 2px;
+    width: 100px;
+    height: 50px;
+    border: 1px solid #333;
+    font-size: 0.8rem;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+    transition: 1s;
+    color: #fff;
+  }
+
+  .actionBtn::after {
+    width: 100px;
+    height: 30px;
+  }
   .menu {
     left: 88vw;
     bottom: 0vh;
@@ -1529,6 +1550,7 @@ h6 {
   .skill-card h3 {
     font-size: 1rem;
   }
+
   #FooterSection {
     font-size: 0.6rem;
   }
@@ -1536,18 +1558,56 @@ h6 {
 
 @media only screen and (min-width: 601px) and (max-width: 1000px) {
   /* Preloader text */
+  #Me h3,
+  #Me h4 {
+    font-size: 1rem;
+  }
   #Loading {
     font-size: 2em;
   }
+  #checklist {
+    font-size: 1rem;
+    margin: 10px;
+  }
+  #Me {
+    font-size: 0.9em;
+    text-align: center;
+  }
+  .AboutC2 {
+    margin: 20px;
+  }
+  .ui-btn {
+    width: fit-content;
+  }
+  .actionBtn {
+    margin: 2px;
+    width: 100px;
+    height: 30px;
+    border: 1px solid #333;
+    font-size: 0.8rem;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+    transition: 1s;
+    color: #fff;
+  }
 
+  .actionBtn::before {
+    width: 100px;
+    height: 30px;
+  }
+  .actionBtn::after {
+    width: 100px;
+    height: 30px;
+  }
   /* Menu Position */
   .menu {
     left: 85vw;
     top: -10vh;
-  }
-
-  #Me {
-    font-size: 1.5em;
   }
 
   .AboutMe .row {
