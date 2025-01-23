@@ -186,6 +186,12 @@ function hidePopUp() {
 function showToS() {
   document.getElementById('ToS').style.display = 'flex';
 }
+function toggleCheckList() {
+  let checkList = document.getElementById('checkCon');
+  checkList.classList.toggle('hidden');
+  checkList.classList.toggle('visible');
+}
+
 function hideToS(acceptance) {
   if (acceptance) {
     document.getElementById('ToSTask').checked = true;

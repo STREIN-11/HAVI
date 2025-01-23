@@ -298,31 +298,38 @@
           I'm
           <span style="color: #0f0">Tinotenda Mhedziso</span>
         </h1>
-        <h4 style="margin-bottom: 5%">
-          A Fullstack | Indie | Software Developer
-        </h4>
+        <h4>Fullstack | Game | Software Developer</h4>
         <!-- /* From Uiverse.io by JkHuger */  -->
-        <p style="color: white">Your current Quests:</p>
-        <div id="checklist">
-          <input name="r" type="checkbox" id="NavigationTask" disabled />
-          <label for="NavigationTask">Open nav menu</label>
-          <input name="r" type="checkbox" id="CVTask" disabled />
-          <label for="CVTask">Download my CV</label>
-          <input name="r" type="checkbox" id="AnimationsTask" disabled />
-          <label for="AnimationsTask">Toggle Animations</label>
-          <input name="r" type="checkbox" id="ToSTask" disabled />
-          <label for="ToSTask">Accept ToS</label>
-          <input name="r" type="checkbox" id="TalktoPassionTask" disabled />
-          <label for="TalktoPassionTask">Talk to Passion</label>
-          <input name="r" type="checkbox" id="GitHubTask" disabled />
-          <label for="GitHubTask">Follow me on GitHub</label>
+        <!-- From Uiverse.io by 00Kubi -->
+        <div id="checkCon" class="visible flexBox">
+          <p style="color: white">Your current Quests:</p>
+          <div id="checklist">
+            <input name="r" type="checkbox" id="NavigationTask" disabled />
+            <label for="NavigationTask">Open nav menu</label>
+            <input name="r" type="checkbox" id="CVTask" disabled />
+            <label for="CVTask">Download my CV</label>
+            <input name="r" type="checkbox" id="AnimationsTask" disabled />
+            <label for="AnimationsTask">Toggle Animations</label>
+            <input name="r" type="checkbox" id="ToSTask" disabled />
+            <label for="ToSTask">Accept ToS</label>
+            <input name="r" type="checkbox" id="TalktoPassionTask" disabled />
+            <label for="TalktoPassionTask">Talk to Passion</label>
+            <input name="r" type="checkbox" id="GitHubTask" disabled />
+            <label for="GitHubTask">Follow me on GitHub</label>
+          </div>
         </div>
         <!-- /* From Uiverse.io by eduardo-amaro-maciel */ -->
         <div class="flexBox">
-          <div class="actionBtn ui-btn" id="Anime">
+          <div class="actionBtn" id="Anime">
             <span>Animations</span>
           </div>
-          <div class="ui-btn actionBtn" id="ToSbtn" onclick="showToS()">
+          <div class="actionBtn" id="ToSbtn" onclick="toggleCheckList()">
+            <span>CheckList</span>
+          </div>
+          <div class="actionBtn" id="ToSbtn" onclick="openEmail()">
+            <span>Contact</span>
+          </div>
+          <div class="actionBtn" id="ToSbtn" onclick="showToS()">
             <span>Terms</span>
           </div>
         </div>
