@@ -177,10 +177,10 @@ function checkQuests() {
   }
 }
 function showPopUp() {
-  document.getElementById('thankYouCard').style.display = 'flex';
+  document.getElementById('passionModal').style.display = 'flex';
 }
 function hidePopUp() {
-  document.getElementById('thankYouCard').style.display = 'none';
+  document.getElementById('passionModal').style.display = 'none';
 }
 
 function showToS() {

@@ -913,9 +913,10 @@ h1 span {
 #preloader {
   background-size: 40%;
 }
-#thankYouCard {
+#passionModal {
   width: 80vw;
   height: 75vh;
+  display: flex;
 }
 /* From Uiverse.io by eduardo-amaro-maciel */
 .actionBtn {
@@ -994,9 +995,10 @@ h1 span {
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 300;
   color: #fff;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.card svg {
-  width: 48px;
+.card ion-icon {
+  font-size: 5rem;
   fill: var(--brightGreen);
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -1685,6 +1687,68 @@ body {
     background-color: var(--online-status);
   }
 }
+.messageCard {
+  width: 100%;
+  max-width: 290px;
+  height: 70px;
+  background: var(--darkGreen);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  backdrop-filter: blur(10px);
+  transition: 0.5s ease-in-out;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  position: fixed;
+  top: 10%;
+  left: 40%;
+  transition: all 0.5s;
+  z-index: 200;
+}
+
+.messageCard:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.messageCard .img {
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+  border-radius: 10px;
+  background: url(Images/Passion.webp);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.messageCard .textBox {
+  width: calc(100% - 90px);
+  margin-left: 10px;
+  color: white;
+  font-family: 'Poppins' sans-serif;
+}
+
+.messageCard .textContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.messageCard .span {
+  font-size: 10px;
+}
+
+.messageCard .h1 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.messageCard .p {
+  font-size: 12px;
+  font-weight: lighter;
+}
+
 /*-----------------------------------Responsive Design--------------------------------------------------------*/
 @media only screen and (min-width: 251px) and (max-width: 600px) /* 250px optimisation to come */ {
   .header {
