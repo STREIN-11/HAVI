@@ -245,6 +245,7 @@ function toggleCheckList() {
   let checkList = document.getElementById('checkCon');
   checkList.classList.toggle('hidden');
   checkList.classList.toggle('visible');
+  backHome();
 }
 
 function hideToS(acceptance) {
