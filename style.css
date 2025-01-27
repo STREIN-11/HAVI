@@ -592,16 +592,7 @@ h1 span {
 .btn:hover {
   background-color: var(--brightGreen);
 }
-.footer {
-  background-image: linear-gradient(90deg, #001908, #000000, #001908);
-  padding: 2px 0;
-  height: fit-content;
-  color: white;
-  display: block;
-  text-align: center;
-  position: relative;
-  text-decoration: none;
-}
+
 .Contact h3 {
   margin-bottom: 0;
   display: block;
@@ -1391,9 +1382,7 @@ h6 {
   text-align: center;
   padding: 20px;
 }
-#FooterSection {
-  font-size: 1rem;
-}
+
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Contact btns<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 /* From Uiverse.io by SalladShooter */
 .light-button {
@@ -1759,6 +1748,113 @@ body {
   font-size: 12px;
   font-weight: lighter;
 }
+.footer {
+  background-color: var(--darkGreen);
+  color: #fff;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.footer-column h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin: 5px 0;
+}
+
+.footer-column ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #fff;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons li a {
+  color: #ccc;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons li a:hover {
+  color: var(--brightGreen);
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #444;
+  margin-top: 20px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.back-to-top {
+  color: var(--brightGreen);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.back-to-top:hover {
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column ul li {
+    text-align: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
 
 /*-----------------------------------Responsive Design--------------------------------------------------------*/
 @media only screen and (min-width: 251px) and (max-width: 600px) /* 250px optimisation to come */ {
@@ -1858,10 +1954,6 @@ body {
   .skill-card h3 {
     font-size: 1rem;
   }
-
-  #FooterSection {
-    font-size: 0.6rem;
-  }
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1000px) {
@@ -1935,8 +2027,5 @@ body {
     grid-template-columns: repeat(2, 1fr);
     color: var(--brightGreen);
     gap: 2px;
-  }
-  #FooterSection {
-    font-size: 0.8rem;
   }
 }
