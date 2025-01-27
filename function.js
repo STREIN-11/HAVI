@@ -25,6 +25,7 @@ abutton.addEventListener('click', animate);
 let Icons = document.querySelectorAll('.Icon');
 let skillCards = document.querySelectorAll('.skill-card');
 let titles = document.querySelectorAll('.subTitle');
+let shownWelcome = false;
 function animate() {
   document.getElementById('AnimationsTask').checked = true;
   checkQuests();
@@ -60,6 +61,10 @@ function animate() {
 function backHome() {
   window.location.assign(`#`);
 }
+function showWelcome() {
+  const notification = document.getElementById('notification');
+  notification.style.display = 'flex';
+}
 //This is an Intersection Observer ... Duh🤣, in plain english, a method (function) of checking if each section is currently visisble
 // on the user's screen, if not the item is hidden, if so then it loads in//
 let observer = new IntersectionObserver((entries) => {
@@ -67,6 +72,10 @@ let observer = new IntersectionObserver((entries) => {
     if (anime) {
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
+        if (entry.target.classList.contains('AboutMe') && !shownWelcome) {
+          showWelcome();
+          shownWelcome = true;
+        }
       } else {
         entry.target.classList.remove('show');
       }
@@ -172,12 +181,58 @@ function checkQuests() {
     }
   });
   if (complete && !shown) {
-    showPopUp();
+    showPopUp(3);
     shown = true;
   }
 }
-function showPopUp() {
+function showPopUp(message) {
   document.getElementById('passionModal').style.display = 'flex';
+  const cardIcon = document.getElementById('passionCardIcon');
+  const cardContent = document.getElementById('passionCardContent');
+  const notification = document.getElementById('notification');
+  switch (message) {
+    case 1:
+      {
+        cardIcon.localName = 'logo-github';
+        cardContent.innerHTML = `<div class="flexBox">
+              <img src="Images/Passion.webp" alt="" />
+            </div>
+            <p class="card__title">Welcome</p>
+            <p class="card__description">
+              Hey there! I'm Passion, Tino's personalized AI chatbot. Welcome to
+              our portfolio website. Here are a few things to keep in mind as
+              you explore:
+            </p>
+            <ol class="leftText">
+              <li>
+                The sunshine-like icon at the top right is your navigation menu.
+              </li>
+              <li>
+                I've prepared some optional quest-like tasks to help you
+                familiarize yourself with the site, along with some personal
+                requests.
+              </li>
+              <li>
+                You can access these tasks through the to-do or checklist icon.
+              </li>
+              <li>
+                Feel free to interact with me anytime using the message icon at
+                the bottom right corner.
+              </li>
+            </ol>
+            <div class="flexBox">
+              <button class="ui-btn" onclick="hidePopUp()">
+                <span>Return</span>
+              </button>
+            </div>`;
+      }
+
+      break;
+
+    default:
+      break;
+  }
+  notification.style.display = 'none';
 }
 function hidePopUp() {
   document.getElementById('passionModal').style.display = 'none';

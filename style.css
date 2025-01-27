@@ -916,11 +916,18 @@ h1 span {
 #preloader {
   background-size: 40%;
 }
-#passionModal {
-  width: 80vw;
-  height: 75vh;
-  display: flex;
+.modalBackground {
+  position: fixed;
+  z-index: 400;
+  color: #fff;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000080;
 }
+
 /* From Uiverse.io by eduardo-amaro-maciel */
 .actionBtn {
   margin: 10px;
@@ -983,13 +990,13 @@ h1 span {
 }
 /* <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Thank you card<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< --> */
 /* From Uiverse.io by gharsh11032000 */
-.card {
+#passionCard {
+  width: 80vw;
+  height: 75vh;
   position: fixed;
-  width: 60%;
-  height: 80%;
   background-color: #000;
   border-radius: 10px;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -1000,13 +1007,13 @@ h1 span {
   color: #fff;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.card ion-icon {
+#passionCard ion-icon {
   font-size: 5rem;
   fill: var(--brightGreen);
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.card:hover {
+#passionCard:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
 }
@@ -1036,7 +1043,7 @@ h1 span {
   border-radius: 100%;
   object-fit: cover;
 }
-.card:hover .card__content {
+#passionCard:hover .card__content {
   transform: rotateX(0deg);
 }
 
@@ -1044,10 +1051,10 @@ h1 span {
   margin: 0;
   font-size: 24px;
   color: var(--brightGreen);
-  font-weight: 700;
+  font-weight: bolder;
 }
 
-.card:hover svg {
+#passionCard:hover svg {
   scale: 0;
 }
 
@@ -1696,7 +1703,7 @@ body {
   height: 70px;
   background: var(--darkGreen);
   border-radius: 20px;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: left;
   backdrop-filter: blur(10px);
@@ -1711,6 +1718,7 @@ body {
 
 .messageCard:hover {
   cursor: pointer;
+  background-color: var(--black);
   transform: scale(1.05);
 }
 

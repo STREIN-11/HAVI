@@ -24,43 +24,11 @@
 
     <!-------------------------------------------Header Start----------------------------------------------------------------------------------->
     <header>
-      <div class="card" id="passionModal">
-        <!-- <ion-icon name="gift-sharp"></ion-icon> -->
-        <ion-icon name="help-circle-sharp"></ion-icon>
-        <div class="card__content">
-          <div class="flexBox">
-            <img src="Images/Passion.webp" alt="" />
-          </div>
-          <p class="card__title">Welcome</p>
-          <p class="card__description">
-            Hey there! I'm Passion, Tino's personalized AI chatbot. Welcome to
-            our portfolio website. Here are a few things to keep in mind as you
-            explore:
-          </p>
-          <ol class="leftText">
-            <li>
-              The sunshine-like icon at the top right is your navigation menu.
-            </li>
-            <li>
-              I've prepared some optional quest-like tasks to help you
-              familiarize yourself with the site, along with some personal
-              requests.
-            </li>
-            <li>
-              You can access these tasks through the to-do or checklist icon.
-            </li>
-            <li>
-              Feel free to interact with me anytime using the message icon at
-              the bottom right corner.
-            </li>
-          </ol>
-
-          <!-- /* From Uiverse.io by devanshsatwara */ -->
-          <div class="flexBox">
-            <button class="ui-btn" onclick="hidePopUp()">
-              <span>Return</span>
-            </button>
-          </div>
+      <div class="modalBackground" id="passionModal">
+        <div id="passionCard">
+          <!-- <ion-icon name="gift-sharp"></ion-icon> -->
+          <ion-icon name="help-circle-sharp" id="passionCardIcon"></ion-icon>
+          <div class="card__content" id="passionCardContent"></div>
         </div>
       </div>
       <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>.Passion Modal<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
@@ -290,14 +258,17 @@
       </div>
       <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>Passion Notification<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
       <!-- From Uiverse.io by JohnnyCSilva -->
-      <div class="messageCard row-1 bounce">
+      <div
+        class="messageCard row-1 bounce"
+        onclick="showPopUp(1)"
+        id="notification">
         <div class="img"></div>
         <div class="textBox">
           <div class="textContent">
             <p class="h1">New Message</p>
             <span class="span">10 min ago</span>
           </div>
-          <p class="p">Welcome esteemed guest!</p>
+          <p class="p">Welcome esteemed guest...</p>
           <div></div>
         </div>
       </div>
