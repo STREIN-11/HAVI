@@ -64,6 +64,7 @@ function backHome() {
 function showWelcome() {
   const notification = document.getElementById('notification');
   notification.style.display = 'flex';
+  startCountingTime();
 }
 //This is an Intersection Observer ... Duh🤣, in plain english, a method (function) of checking if each section is currently visisble
 // on the user's screen, if not the item is hidden, if so then it loads in//
@@ -190,6 +191,7 @@ function showPopUp(message) {
   const cardIcon = document.getElementById('passionCardIcon');
   const cardContent = document.getElementById('passionCardContent');
   const notification = document.getElementById('notification');
+  stopCountingTime();
   switch (message) {
     case 1:
       {
@@ -256,4 +258,25 @@ function hideToS(acceptance) {
     checkQuests();
   }
   document.getElementById('ToS').style.display = 'none';
+}
+
+let intervalId;
+let timeElapsed = 0;
+
+e;
+function startCountingTime() {
+  const timeElement = document.getElementById('timeSent');
+
+  intervalId = setInterval(() => {
+    timeElapsed++;
+    timeElement.textContent = `${timeElapsed} minute${
+      timeElapsed > 1 ? 's' : ''
+    } ago`;
+  }, 60000);
+
+  timeElement.textContent = 'Just now';
+}
+
+function stopCountingTime() {
+  clearInterval(intervalId);
 }

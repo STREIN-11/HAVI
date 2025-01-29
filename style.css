@@ -148,7 +148,81 @@ html /* Very useful simple line of code down below ✔*/ {
 #Me h4 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
+#myNameTitle {
+  color: #0f0;
+}
+.socialIconsCon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+.social-Icon {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.5s;
+  color: var(--white);
+  list-style: none;
+}
+.social-Icon::before {
+  content: '';
+  position: absolute;
+  inset: 30px;
+  box-shadow: 0 0 0 10px var(--brightGreen), 0 0 0 20px var(--black),
+    0 0 0 22px var(--brightGreen);
+  transition: 0.5s;
+}
+.social-Icon:hover::before {
+  inset: 15px;
+}
+.social-Icon:hover::after {
+  inset: -10px;
+}
+.social-Icon a i,
+.social-Icon a span {
+  filter: drop-shadow(0 0 20px var(--brightGreen));
+}
+.social-Icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--black);
+  transform: rotate(45deg);
+  transition: 0.5s;
+}
+.social-Icon a {
+  position: relative;
+  text-decoration: none;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+.social-Icon a i {
+  font-size: 2rem;
+  transition: 0.5s;
+  color: var(--brightGreen);
+}
+.social-Icon:hover a i {
+  transform: translateY(-25%);
+}
+.social-Icon a span {
+  position: absolute;
+  color: var(--brightGreen);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  opacity: 0;
+  transition: 0.5s;
+  transform: scale(0) translateY(50%);
+}
+.social-Icon:hover a span {
+  opacity: 1;
+  transform: scale(1) translateY(100%);
+}
 .menu.active li:hover a::before {
   background: var(--clr);
   color: #000713;
@@ -1364,7 +1438,7 @@ h6 {
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Contact Section<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 .Contacts {
   width: 100vw;
-  height: fit-content;
+  height: 100vh;
   padding: 10px;
   display: grid;
   justify-content: center;

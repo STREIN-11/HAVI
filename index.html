@@ -266,7 +266,7 @@
         <div class="textBox">
           <div class="textContent">
             <p class="h1">New Message</p>
-            <span class="span">10 min ago</span>
+            <span class="span" id="timeSent">0</span>
           </div>
           <p class="p">Welcome esteemed guest...</p>
           <div></div>
@@ -277,7 +277,7 @@
         <h3>Hey,</h3>
         <h1 class="myName">
           I'm
-          <span style="color: #0f0">Tinotenda Mhedziso</span>
+          <span id="myNameTitle">Tinotenda Mhedziso</span>
         </h1>
         <h4>Fullstack | Game | Software Developer</h4>
         <!-- /* From Uiverse.io by JkHuger */  -->
@@ -417,7 +417,6 @@
                 id="TechStack"
                 onclick="show('Skills')">
                 <span>Tech Stack</span>
-                <ion-icon name="layers-outline"></ion-icon>
               </button>
 
               <button
@@ -425,7 +424,6 @@
                 id="Education"
                 onclick="show('School')">
                 <span>Education</span>
-                <ion-icon name="book-outline"></ion-icon>
               </button>
 
               <button
@@ -433,7 +431,6 @@
                 id="Experience"
                 onclick="show('Work')">
                 <span>Experience</span>
-                <ion-icon name="ribbon-outline"></ion-icon>
               </button>
             </div>
             <div class="View Activeview" id="Skills">
@@ -716,57 +713,32 @@
       <!------------------------------------------------Contact---------------------------------------------------------------------------------------->
       <section class="Contacts" id="ContactSection">
         <h3 class="subTitle bounce">Contact Me</h3>
-        <div id="contactContainer">
-          <!-- From Uiverse.io by SalladShooter -->
-          <div class="light-button">
-            <button class="bt">
-              <div class="light-holder">
-                <div class="dot"></div>
-                <div class="light"></div>
-              </div>
-              <div class="button-holder" onclick="openDevTo()">
-                <ion-icon name="reader-sharp"></ion-icon>
-                <p>Dev.to</p>
-              </div>
-            </button>
-          </div>
-          <div class="light-button">
-            <button class="bt">
-              <div class="light-holder">
-                <div class="dot"></div>
-                <div class="light"></div>
-              </div>
-              <div class="button-holder" onclick="openEmail()">
-                <ion-icon name="mail-sharp"></ion-icon>
-                <p>Email</p>
-              </div>
-            </button>
-          </div>
-          <div class="light-button">
-            <button class="bt">
-              <div class="light-holder">
-                <div class="dot"></div>
-                <div class="light"></div>
-              </div>
-              <div class="button-holder" onclick="openGitHub()">
-                <ion-icon name="logo-github"></ion-icon>
-                <p>GitHub</p>
-              </div>
-            </button>
-          </div>
-          <div class="light-button">
-            <button class="bt">
-              <div class="light-holder">
-                <div class="dot"></div>
-                <div class="light"></div>
-              </div>
-              <div class="button-holder" onclick="openLinkedIn()">
-                <ion-icon name="logo-linkedin"></ion-icon>
-                <p>LinkedIn</p>
-              </div>
-            </button>
-          </div>
-        </div>
+        <ul class="socialIconsCon">
+          <li class="social-Icon">
+            <a href="">
+              <i class="fa-brands fa-dev"></i>
+              <span>Dev.to</span>
+            </a>
+          </li>
+          <li class="social-Icon">
+            <a href="">
+              <i class="fa-solid fa-envelope-circle-check"></i>
+              <span>Email</span>
+            </a>
+          </li>
+          <li class="social-Icon">
+            <a href="">
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub</span>
+            </a>
+          </li>
+          <li class="social-Icon">
+            <a href="">
+              <i class="fa-brands fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </a>
+          </li>
+        </ul>
       </section>
     </main>
     <footer class="footer">
@@ -830,5 +802,11 @@
     <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
     <script src="https://files.bpcontent.cloud/2024/12/06/17/20241206170531-PJF493H8.js"></script>
     <script type="text/javascript" src="function.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
   </body>
 </html>
