@@ -29,6 +29,7 @@ https://github.com/user-attachments/assets/1cd2df61-130d-413f-950f-fa7363089fed
 - [Contributions](#contributions)
   - [Feedback Options](#feedback-options)
 - [Future Enhancements](#future-enhancements)
+- [Attribution](#attribution)
 - [Final Note](#final-note)
 
 ---
@@ -127,6 +128,14 @@ Planned updates for the portfolio:
 
 ---
 
+## Attribution
+- <details>
+  <summary>Icons</summary>
+   * Quote - Xinh Studio [FlatIcons]
+   
+</details>
+
+---
 ## Final Note
 This portfolio is a testament to my continuous learning and growth in web development. I hope it serves as both an inspiration and a functional showcase of my abilities.
 
