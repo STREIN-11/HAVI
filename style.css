@@ -21,7 +21,7 @@ body {
   color: var(--White);
   align-items: center;
   min-height: fit-content;
-  background: #000;
+  background: black;
   margin: 0;
   padding: 0;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -360,7 +360,7 @@ h1 span {
   height: fit-content;
   color: white;
   flex-wrap: wrap;
-  opacity: 0; /*Added this*/
+  opacity: 0;
   transition: all 1s;
   filter: blur(5px);
   transform: translateX(-100%);
@@ -390,13 +390,21 @@ h1 span {
 }
 .profile-box .profile-card {
   position: relative;
-  background: rgba(255, 255, 255, 0.5);
-  width: 300px;
-  min-height: 400px;
-  backdrop-filter: blur(10px);
+  background: transparent;
+  background-image: linear-gradient(
+    to bottom,
+    #021204,
+    #051506,
+    #081809,
+    #0b1b0b,
+    #0e1d0d
+  );
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.75);
   border-left: 1px solid rgba(255, 255, 255, 0.75);
+  width: 300px;
+  min-height: 400px;
+  backdrop-filter: blur(20px);
   border-radius: 20px;
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.05);
   transform-style: preserve-3d;
@@ -416,15 +424,89 @@ h1 span {
   border-radius: 10px;
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.05);
 }
-.profile-elements .bg::before {
+.profile-elements.bg::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: url(Images/Passion.png);
+  background: url(Images/quotes.png);
   background-size: 60px;
   background-position: center;
   background-repeat: no-repeat;
   transition: 0.5s;
+  opacity: 0;
+}
+
+.profile-box:hover .profile-elements.bg::before {
+  opacity: 1;
+}
+.profile-elements.imgBx {
+  top: 0;
+  left: 50%;
+  right: 60px;
+  width: 100px;
+  height: 140px;
+  padding: 10px;
+  transform: translateZ(80px);
+}
+.profile-elements.imgBx img {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.75);
+  border-left: 1px solid rgba(255, 255, 255, 0.75);
+  opacity: 0;
+  transform: translateX(200px);
+  transition: 0.5s;
+}
+.profile-box:hover .profile-elements.imgBx img {
+  transform: translateX(0px);
+  opacity: 1;
+}
+.profile-elements.name {
+  top: 235px;
+  left: initial;
+  right: 0;
+  width: 100%;
+  padding: 10px;
+  text-align: right;
+  transform: translateZ(100px);
+  background-color: transparent;
+  backdrop-filter: blur(0px);
+  border: none;
+  box-shadow: none;
+  transition: 0.5s;
+  transition-delay: 0.25s;
+  opacity: 0;
+}
+.profile-box:hover .profile-elements.name {
+  top: 135px;
+  opacity: 1;
+}
+.profile-elements.content {
+  top: 250px;
+  left: initial;
+  bottom: 0;
+  right: -20px;
+  width: 85%;
+  height: fit-content;
+  padding: 10px;
+  transform: translateZ(180px);
+  text-align: center;
+  align-items: center;
+}
+.profile-elements.content p {
+  position: relative;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+  opacity: 0;
+}
+.profile-box:hover .profile-elements.content p {
+  opacity: 1;
 }
 .AboutC2 {
   flex-basis: 70%;
@@ -441,7 +523,7 @@ h1 span {
   top: 0.5%;
   font-family: 'Pixelify Sans', sans-serif;
 }
-.AboutMe p {
+/* .AboutMe p {
   background-image: linear-gradient(45deg, #001908, #000000, #001908);
   padding: 15px;
   border-radius: 10px;
@@ -451,7 +533,7 @@ h1 span {
   font-size: 1.1rem;
   height: fit-content;
   margin-right: 10px;
-}
+} */
 .Extra {
   margin-top: 50px;
   margin-bottom: 30px;
