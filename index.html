@@ -389,15 +389,14 @@
       <section class="AboutMe" id="AboutSection">
         <div class="row">
           <div class="AboutC1">
-            <img
+            <!-- <img
               src="Images/Me.webp"
               alt="This is my webiste profile picture"
-              id="Tino" />
-
-            <i class="quote">
-              "Time is the gift that robs you of the present ~ Let me save you
-              some."
-            </i>
+              id="Tino" /> -->
+            <div class="profile-box">
+              <div class="profile-elements bg"></div>
+              <div class="profile-card"></div>
+            </div>
           </div>
           <div class="AboutC2">
             <h3 class="subTitle bounce">About Me</h3>
@@ -761,7 +760,7 @@
             </ul>
           </div>
           <div class="footer-column">
-            <h4>Follow Us</h4>
+            <h4>Follow Me</h4>
             <ul class="social-icons">
               <li>
                 <a onclick="openDevTo()">
@@ -808,5 +807,18 @@
       integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
+      integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"></script>
+    -->
+    <script>
+      VanillaTilt.init(document.querySelector('.profile-box'), {
+        max: 15,
+        speed: 400,
+        glare: true
+      });
+    </script>
   </body>
 </html>
