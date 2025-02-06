@@ -262,8 +262,6 @@ function hideToS(acceptance) {
 
 let intervalId;
 let timeElapsed = 0;
-
-e;
 function startCountingTime() {
   const timeElement = document.getElementById('timeSent');
 
@@ -280,3 +278,64 @@ function startCountingTime() {
 function stopCountingTime() {
   clearInterval(intervalId);
 }
+
+const musicPlayer = document.getElementById('myMusic');
+
+function playMusic() {
+  musicPlayer.play();
+}
+
+function pauseMusic() {
+  musicPlayer.pause();
+}
+
+// Expose music control functions to message events
+window.addEventListener('message', (event) => {
+  if (event.data && event.data.action === 'playMusic') {
+    musicPlayer.play();
+  } else if (event.data && event.data.action === 'pauseMusic') {
+    musicPlayer.pause();
+  }
+});
+
+// Express js logic
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+app.post('/play-music', (req, res) => {
+  const { sessionId } = req.body;
+  if (sessionId) {
+    // Send a message to the frontend with the specific sessionId
+    res
+      .status(200)
+      .send({ message: `Music request received for session: ${sessionId}` });
+  } else {
+    res.status(400).send({ error: 'Session ID is required.' });
+  }
+});
+
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
+
+// Frontend Stuff
+
+const sessionId =
+  localStorage.getItem('sessionId') || generateUniqueSessionId();
+localStorage.setItem('sessionId', sessionId);
+
+function generateUniqueSessionId() {
+  return 'session-' + Math.random().toString(36).substring(2);
+}
+
+window.addEventListener('message', (event) => {
+  if (event.data.sessionId === sessionId && event.data.action === 'playMusic') {
+    if (audioElement) {
+      musicPlayer.play();
+    }
+  }
+});
