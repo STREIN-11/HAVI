@@ -274,7 +274,7 @@
       </div>
       <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Terms of Service<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
       <div id="Me">
-        <h3>Hey,</h3>
+        <h3 onclick="playMusic()">Hey,</h3>
         <h1 class="myName">
           I'm
           <span id="myNameTitle">Tinotenda Mhedziso</span>
@@ -800,10 +800,60 @@
         <div class="footer-bottom">
           <p>&copy; 2025 Tinotenda Mhedziso. All Rights Reserved.</p>
           <a href="#" class="back-to-top">Back to Top</a>
-          <audio id="myMusic" controls>
-            <source src="Audio/Music/Goblin Encounter.mp3" type="audio/mpeg" />
-            Your browser does not support the audio element.
-          </audio>
+          <button
+            class="webchat-toggle"
+            onclick="toggleWebchat()"
+            id="webchatToggle">
+            💬
+          </button>
+          <div class="webchat">
+            <iframe
+              style="height: 100%; width: 100%; border: none"
+              srcdoc='
+              <!doctype html>
+              <html lang="en">
+                <head></head>
+                <body>
+                  <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+                  <script defer>
+                    window.botpress.on("webchat:ready", () => {
+                      botpress.open();
+                    });
+                    window.botpress.init({
+                      "botId": "2e1f3e65-ea48-48d4-bf96-eb204d7e61bb",
+                      "configuration": {
+                        "composerPlaceholder": "Talk to Passion",
+                        "botName": "Passion",
+                        "botAvatar": "https://files.bpcontent.cloud/2025/01/06/21/20250106210904-DJXTBL7U.webp",
+                        "botDescription": "My AI-powered personalized chatbot.",
+                        "website": {
+                          "title": "https://tinotenda-mhedziso.pages.dev/",
+                          "link": "https://tinotenda-mhedziso.pages.dev/"
+                        },
+                        "email": {
+                          "title": "tinomhedziso21@gmail.com",
+                          "link": "tinomhedziso21@gmail.com"
+                        },
+                        "color": "#056016",
+                        "variant": "soft",
+                        "themeMode": "dark",
+                        "fontFamily": "fira",
+                        "radius": 4,
+                        "showPoweredBy": false
+                      },
+                      "clientId": "9f986020-5681-4eb8-9351-55f5ff2d82f3"
+                    });
+                    window.botpress.on("customEvent", (event) => {
+                     if(event.action =="playMusic")
+                     {
+                      window.parent.postMessage({ action: "playMusic" }, "*");
+                     }
+                    });
+                  </script>
+                </body>
+              </html>'></iframe>
+          </div>
+          <audio id="myMusic" src="Audio/Music/Goblin.mp3"></audio>
         </div>
       </div>
     </footer>
@@ -814,8 +864,6 @@
     <script
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2024/12/06/17/20241206170531-PJF493H8.js"></script>
     <script type="text/javascript" src="function.js"></script>
     <link
       rel="stylesheet"

@@ -166,13 +166,13 @@ function handleChatbotOpen(mutationsList) {
     }
   });
 }
-const botpressWebchat = document.querySelector('iframe[name="webchat"]');
-if (botpressWebchat) {
-  const observer = new MutationObserver(handleChatbotOpen);
-  observer.observe(botpressWebchat, { attributes: true }); // Observe changes in attributes
-} else {
-  console.warn('Botpress Webchat iframe not found');
-}
+// const botpressWebchat = document.querySelector('iframe[name="webchat"]');
+// if (botpressWebchat) {
+//   const observer = new MutationObserver(handleChatbotOpen);
+//   observer.observe(botpressWebchat, { attributes: true }); // Observe changes in attributes
+// } else {
+//   console.warn('Botpress Webchat iframe not found');
+// }
 function checkQuests() {
   let complete = true;
   const quests = document.getElementsByName('r');
@@ -278,3 +278,24 @@ function startCountingTime() {
 function stopCountingTime() {
   clearInterval(intervalId);
 }
+
+// Botpress Logic
+// Toggle the webchat visibility
+function toggleWebchat() {
+  const webchat = document.querySelector('.webchat');
+  const webchatToggle = document.getElementById('webchatToggle');
+  webchatToggle.style.display = 'none';
+  webchat.style.display = webchat.style.display === 'block' ? 'none' : 'block';
+}
+
+let musicPlayer = document.getElementById('myMusic');
+
+function playMusic() {
+  alert('We are now playing');
+  musicPlayer.play();
+}
+window.addEventListener('message', (event) => {
+  if (event.data.action === 'playMusic') {
+    playMusic();
+  }
+});
