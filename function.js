@@ -291,7 +291,6 @@ function toggleWebchat() {
 let musicPlayer = document.getElementById('myMusic');
 
 function playMusic() {
-  alert('We are now playing');
   musicPlayer.play();
 }
 window.addEventListener('message', (event) => {
@@ -299,3 +298,11 @@ window.addEventListener('message', (event) => {
     playMusic();
   }
 });
+
+function sendMessageToBot() {
+  const botIframe = document.querySelector('.webchat iframe');
+  if (botIframe) {
+    botIframe.contentWindow.postMessage({ action: 'contactMe' }, '*');
+    alert('Message Sent');
+  }
+}
