@@ -155,17 +155,17 @@ function openNavMenu() {
   navMenu.click();
 }
 // Function to check the checkbox when the chatbot opens
-function handleChatbotOpen(mutationsList) {
-  mutationsList.forEach((mutation) => {
-    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-      const botpressWebchat = mutation.target;
-      if (botpressWebchat.classList.contains('bpOpen')) {
-        document.getElementById('TalktoPassionTask').checked = true;
-        checkQuests();
-      }
-    }
-  });
-}
+// function handleChatbotOpen(mutationsList) {
+//   mutationsList.forEach((mutation) => {
+//     if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+//       const botpressWebchat = mutation.target;
+//       if (botpressWebchat.classList.contains('bpOpen')) {
+//         document.getElementById('TalktoPassionTask').checked = true;
+//         checkQuests();
+//       }
+//     }
+//   });
+// }
 // const botpressWebchat = document.querySelector('iframe[name="webchat"]');
 // if (botpressWebchat) {
 //   const observer = new MutationObserver(handleChatbotOpen);
@@ -296,13 +296,19 @@ function playMusic() {
 window.addEventListener('message', (event) => {
   if (event.data.action === 'playMusic') {
     playMusic();
+  } else if (event.data.action === 'checkPassion') {
+    document.getElementById('TalktoPassionTask').checked = true;
   }
 });
 
 function sendMessageToBot() {
   const botIframe = document.querySelector('.webchat iframe');
   if (botIframe) {
+    toggleWebchat();
     botIframe.contentWindow.postMessage({ action: 'contactMe' }, '*');
-    alert('Message Sent');
   }
+}
+
+function contactMe() {
+  sendMessageToBot();
 }

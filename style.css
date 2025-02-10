@@ -63,16 +63,14 @@ html /* Very useful simple line of code down below ✔*/ {
   top: 40%;
 }
 /* Webchat container styling */
-.webchat {
-  position: fixed;
+.webchat iframe {
   bottom: 20px;
   right: 20px;
   height: 600px;
   width: 400px;
   max-width: 90%;
   max-height: 90%;
-  background-color: transparent;
-  display: none; /* Initially hidden */
+  display: none;
   z-index: 9999;
 }
 

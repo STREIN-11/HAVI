@@ -274,7 +274,7 @@
       </div>
       <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Terms of Service<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
       <div id="Me">
-        <h3 onclick="sendMessageToBot()">Hey,</h3>
+        <h3>Hey,</h3>
         <h1 class="myName">
           I'm
           <span id="myNameTitle">Tinotenda Mhedziso</span>
@@ -847,11 +847,16 @@
                      {
                       window.parent.postMessage({ action: "playMusic" }, "*");
                      }
+                     else
+                     if(event.action =="checkPassion")
+                     {
+                      window.parent.postMessage({ action: "checkPassion" }, "*");
+                     }
                     });
                     window.addEventListener("message", (event) => {
                       if (event.data.action === "contactMe") {
                         window.botpress.sendEvent({
-                           event
+                          "action" : "contactMe"
                         });
                       }
                     });
