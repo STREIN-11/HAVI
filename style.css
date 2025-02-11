@@ -14,7 +14,7 @@
   --black: #000000;
   --complementaryGreen: #007300;
   --mainFont: 'Pixelify Sans', sans-serif;
-  --secondaryFont: 'Cambria, Cochin, Georgia, Times, ' Times New Roman ', serif';
+  --secondaryFont: 'Cambria, Cochin, Georgia, Times, serif';
 }
 
 body {
@@ -41,6 +41,7 @@ html /* Very useful simple line of code down below ✔*/ {
   margin-top: 10px;
 }
 .leftText {
+  font-family: var(--secondaryFont);
   text-align: start;
 }
 #preloader {
@@ -1219,83 +1220,156 @@ h1 span {
   color: #000;
 }
 /* <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Thank you card<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< --> */
-/* From Uiverse.io by gharsh11032000 */
+
 #passionCard {
-  width: 80vw;
-  height: 75vh;
+  width: 90%;
+  max-width: 600px;
+  height: 70%;
+  max-height: 500px;
   position: fixed;
-  background-color: #000;
-  border-radius: 10px;
+  background-color: #111;
+  border-radius: 12px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  perspective: 1000px;
-  box-shadow: 0 0 0 5px #ffffff80;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow-y: auto;
+  perspective: 100px;
+  box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 300;
   color: #fff;
   font-family: var(--secondaryFont);
-}
-#passionCard ion-icon {
-  font-size: 5rem;
-  fill: var(--brightGreen);
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 20px;
+  text-align: center;
 }
 
 #passionCard:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+  transform: scale(1.03);
 }
 
 .card__content {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  padding: 20px;
+  padding: 15px;
   box-sizing: border-box;
-  background-color: #000;
-  transform: rotateX(-90deg);
-  transform-origin: bottom;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: grid;
-  justify-content: center;
-  text-align: center;
+  grid-template-rows: auto 1fr;
+  justify-items: center;
   align-items: center;
-  color: #fff;
-}
-.card__content img {
-  width: 140px;
-  height: 140px;
-  border: 2px solid #fff;
-  border-radius: 100%;
-  object-fit: cover;
-}
-#passionCard:hover .card__content {
-  transform: rotateX(0deg);
+  font-family: var(--secondaryFont);
 }
 
 .card__title {
-  margin: 0;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: var(--brightGreen);
-  font-weight: bolder;
-}
-
-#passionCard:hover svg {
-  scale: 0;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .card__description {
-  margin: 10px 0 0;
-  font-size: 14px;
-  font-family: sans-serif;
-  line-height: 1.4;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-family: var(--secondaryFont);
+  color: #ccc;
 }
+
+/* Hover Effects */
+#passionCard:hover svg {
+  transform: scale(0);
+}
+
+.card__description:hover {
+  color: var(--brightGreen);
+}
+
+@media (max-width: 768px) {
+  #passionCard {
+    max-width: 90%;
+    height: 65%;
+  }
+
+  #passionCard ion-icon {
+    font-size: 3rem;
+  }
+
+  .card__title {
+    font-size: 1.25rem;
+  }
+
+  .card__description {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #passionCard {
+    max-width: 95%;
+    height: 60%;
+  }
+
+  #passionCard ion-icon {
+    font-size: 2.5rem;
+  }
+
+  .card__title {
+    font-size: 1.1rem;
+  }
+
+  .card__description {
+    font-size: 0.8rem;
+  }
+}
+.sitemap-table {
+  width: 100%;
+  max-width: 500px;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: var(--secondaryFont);
+  color: white;
+  position: relative;
+  display: grid;
+  align-items: center;
+}
+
+.sitemap-table tbody {
+  display: block;
+}
+
+.sitemap-table tr {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  align-items: center;
+  margin: 8px 0;
+  border-bottom: 1px solid #ffffff40;
+}
+
+.icon-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.icon-cell img {
+  width: 60px;
+  height: 60px;
+  fill: var(--brightGreen);
+}
+
+.description-cell p {
+  margin-left: 30px;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.sitemap-table tr:hover {
+  background-color: #ffffff10;
+}
+
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Thank You Button<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
-/* From Uiverse.io by devanshsatwara */
+
 .ui-btn {
   --btn-default-bg: #000;
   --btn-padding: 15px 20px;
@@ -1329,7 +1403,7 @@ h1 span {
   box-shadow: var(--btn-shadow);
   border-radius: 10px;
   border: 2px solid var(--White);
-  width: 40%;
+  width: fit-content;
 }
 
 .ui-btn span {

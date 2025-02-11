@@ -188,45 +188,13 @@ function checkQuests() {
 }
 function showPopUp(message) {
   document.getElementById('passionModal').style.display = 'flex';
-  const cardIcon = document.getElementById('passionCardIcon');
-  const cardContent = document.getElementById('passionCardContent');
+  const passionCard = document.getElementById('passionCard');
   const notification = document.getElementById('notification');
   stopCountingTime();
   switch (message) {
     case 1:
       {
-        cardIcon.localName = 'logo-github';
-        cardContent.innerHTML = `<div class="flexBox">
-              <img src="Images/Passion.webp" alt="" />
-            </div>
-            <p class="card__title">Welcome</p>
-            <p class="card__description">
-              Hey there! I'm Passion, Tino's personalized AI chatbot. Welcome to
-              our portfolio website. Here are a few things to keep in mind as
-              you explore:
-            </p>
-            <ol class="leftText">
-              <li>
-                The sunshine-like icon at the top right is your navigation menu.
-              </li>
-              <li>
-                I've prepared some optional quest-like tasks to help you
-                familiarize yourself with the site, along with some personal
-                requests.
-              </li>
-              <li>
-                You can access these tasks through the to-do or checklist icon.
-              </li>
-              <li>
-                Feel free to interact with me anytime using the message icon at
-                the bottom right corner.
-              </li>
-            </ol>
-            <div class="flexBox">
-              <button class="ui-btn" onclick="hidePopUp()">
-                <span>Return</span>
-              </button>
-            </div>`;
+        passionCard.style.display = 'block';
       }
 
       break;
