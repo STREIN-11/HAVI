@@ -63,7 +63,8 @@ html /* Very useful simple line of code down below ✔*/ {
   top: 40%;
 }
 /* Webchat container styling */
-.webchat iframe {
+.webchat {
+  position: fixed;
   bottom: 20px;
   right: 20px;
   height: 600px;
@@ -1988,7 +1989,15 @@ body {
   padding: 20px 10px;
   text-align: center;
 }
-
+.textBtn {
+  font-weight: bolder;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.5s;
+}
+.textBtn:hover {
+  color: var(--brightGreen);
+}
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
