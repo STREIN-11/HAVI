@@ -13,6 +13,8 @@
   --white: #ffffff;
   --black: #000000;
   --complementaryGreen: #007300;
+  --mainFont: 'Pixelify Sans', sans-serif;
+  --secondaryFont: 'Cambria, Cochin, Georgia, Times, ' Times New Roman ', serif';
 }
 
 body {
@@ -24,7 +26,7 @@ body {
   background: black;
   margin: 0;
   padding: 0;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: var(--secondaryFont);
 }
 
 html /* Very useful simple line of code down below ✔*/ {
@@ -81,7 +83,7 @@ html /* Very useful simple line of code down below ✔*/ {
 
 /* Fullscreen for mobile */
 @media (max-width: 768px) {
-  .webchat {
+  .webchat iframe {
     width: 100%;
     height: 100%;
     bottom: 0;
@@ -191,7 +193,7 @@ html /* Very useful simple line of code down below ✔*/ {
   color: #fff;
 }
 #Me h4 {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: var(--secondaryFont);
 }
 #myNameTitle {
   color: #0f0;
@@ -259,7 +261,7 @@ html /* Very useful simple line of code down below ✔*/ {
 .social-Icon a span {
   position: absolute;
   color: var(--brightGreen);
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: var(--secondaryFont);
   opacity: 0;
   transition: 0.5s;
   transform: scale(0) translateY(50%);
@@ -545,7 +547,7 @@ h1 span {
 }
 .profile-elements.content p {
   position: relative;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: var(--secondaryFont);
   transition: 0.5s;
   transition-delay: 0.5s;
   opacity: 0;
@@ -572,7 +574,7 @@ h1 span {
   background-image: linear-gradient(45deg, #001908, #000000, #001908);
   padding: 15px;
   border-radius: 10px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: var(--secondaryFont);
   position: relative;
   top: 5%;
   font-size: 1.1rem;
@@ -893,7 +895,7 @@ h1 span {
   --width: 100%;
   --height: 180px;
   --border-radius: 10px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: var(--secondaryFont);
   background: var(--background);
   width: var(--width);
   height: var(--height);
@@ -1233,7 +1235,7 @@ h1 span {
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 300;
   color: #fff;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: var(--secondaryFont);
 }
 #passionCard ion-icon {
   font-size: 5rem;
@@ -1523,7 +1525,7 @@ a {
 .modal-container-body {
   padding: 24px 32px 51px;
   overflow-y: auto;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: var(--secondaryFont);
   text-align: start;
   background-color: #011608;
   color: #fff;
@@ -1607,7 +1609,7 @@ h6 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: var(--secondaryFont);
   overflow-x: hidden;
 }
 #contactContainer {
@@ -1924,7 +1926,7 @@ body {
   }
 }
 .messageCard {
-  width: 100%;
+  width: 90%;
   max-width: 290px;
   height: 70px;
   background: var(--darkGreen);
@@ -1934,11 +1936,11 @@ body {
   justify-content: left;
   backdrop-filter: blur(10px);
   transition: 0.5s ease-in-out;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: var(--secondaryFont);
   position: fixed;
   top: 10%;
-  left: 40%;
-  transition: all 0.5s;
+  left: calc(50% - 150px);
+  transform: translateX(-50%);
   z-index: 200;
 }
 
@@ -1951,7 +1953,7 @@ body {
 .messageCard .img {
   width: 50px;
   height: 50px;
-  margin-left: 10px;
+  margin-left: 5px;
   border-radius: 10px;
   background: url(Images/Passion.webp);
   background-position: center;
@@ -1960,10 +1962,10 @@ body {
 }
 
 .messageCard .textBox {
-  width: calc(100% - 90px);
+  width: calc(100% - 70px);
   margin-left: 10px;
   color: white;
-  font-family: 'Poppins' sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .messageCard .textContent {
@@ -1973,18 +1975,60 @@ body {
 }
 
 .messageCard .span {
-  font-size: 10px;
+  font-size: 9px;
 }
 
 .messageCard .h1 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
 }
 
 .messageCard .p {
-  font-size: 12px;
+  font-size: 10px;
   font-weight: lighter;
 }
+
+@media (max-width: 768px) {
+  .messageCard {
+    max-width: 250px;
+    height: 60px;
+    left: calc(50% - 150px);
+  }
+
+  .messageCard .h1 {
+    font-size: 12px;
+  }
+
+  .messageCard .p {
+    font-size: 9px;
+  }
+
+  .messageCard .img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .messageCard {
+    max-width: 220px;
+    height: 55px;
+  }
+
+  .messageCard .h1 {
+    font-size: 10px;
+  }
+
+  .messageCard .p {
+    font-size: 8px;
+  }
+
+  .messageCard .img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
 .footer {
   background-color: var(--darkGreen);
   color: #fff;
@@ -2253,7 +2297,6 @@ body {
     width: 100px;
     height: 30px;
   }
-  /* Menu Position */
   .menu {
     left: 85vw;
     top: -10vh;
