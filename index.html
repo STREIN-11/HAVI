@@ -342,7 +342,7 @@
           </li>
           <li style="--i: 2; --clr: #04fc43">
             <a href="#SkillsSection">
-              <ion-icon name="people-outline" title="Skills"></ion-icon>
+              <ion-icon class="fa-solid fa-award" title="Skills"></ion-icon>
             </a>
           </li>
           <li style="--i: 3; --clr: #04fc43">
@@ -360,8 +360,8 @@
           <li style="--i: 5; --clr: #04fc43" onclick="toggleCheckList()">
             <a>
               <ion-icon
-                name="list-circle-sharp"
-                title="Get to know me Quests"></ion-icon>
+                class="fa-solid fa-list-check"
+                title="Checklist"></ion-icon>
             </a>
           </li>
           <li style="--i: 6; --clr: #04fc43" onclick="showToS()">
@@ -448,49 +448,49 @@
                 <li>
                   <img
                     class="Icon language animate"
-                    src="https://skillicons.dev/icons?i=cs"
+                    src="Images/Icons/cs.svg"
                     alt="This is C#" />
                   C#
                 </li>
                 <li>
                   <img
                     class="Icon language animate"
-                    src="https://skillicons.dev/icons?i=css"
+                    src="Images/Icons/css.svg"
                     alt="This is CSS" />
                   CSS3
                 </li>
                 <li>
                   <img
                     class="Icon language animate"
-                    src="https://skillicons.dev/icons?i=firebase"
+                    src="Images/Icons/firebase.svg"
                     alt="This is Firebase" />
                   Firebase
                 </li>
                 <li>
                   <img
                     class="Icon language animate"
-                    src="https://skillicons.dev/icons?i=github"
+                    src="Images/Icons/github.svg"
                     alt="This is GitHub" />
                   GitHub
                 </li>
                 <li>
                   <img
                     class="Icon language animate"
-                    src="https://skillicons.dev/icons?i=html"
+                    src="Images/Icons/html.svg"
                     alt="This is HTML" />
                   HTML5
                 </li>
                 <li>
                   <img
                     class="Icon language animate"
-                    src="https://skillicons.dev/icons?i=js"
+                    src="Images/Icons/javascript.svg"
                     alt="This is JavaScript" />
                   JavaScript
                 </li>
                 <li>
                   <img
                     class="Icon language animate"
-                    src="https://skillicons.dev/icons?i=mysql"
+                    src="Images/Icons/mysql.svg"
                     alt="This is MySQL" />
                   MySQL
                 </li>
@@ -504,28 +504,28 @@
                 <li>
                   <img
                     class="Icon language animate"
-                    src="https://skillicons.dev/icons?i=r"
+                    src="Images/Icons/r.svg"
                     alt="This is RStudio" />
                   RStudio
                 </li>
                 <li>
                   <img
                     class="Icon language animate"
-                    src="https://skillicons.dev/icons?i=unity"
+                    src="Images/Icons/unity.svg"
                     alt="This is Unity" />
                   Unity
                 </li>
                 <li>
                   <img
                     class="Icon language animate"
-                    src="https://skillicons.dev/icons?i=visualstudio"
+                    src="Images/Icons/vs.svg"
                     alt="This is Visual Sstudio" />
                   Visual Studio
                 </li>
                 <li>
                   <img
                     class="Icon language animate"
-                    src="https://skillicons.dev/icons?i=vscode"
+                    src="Images/Icons/vscode.svg"
                     alt="This is Visual Studio Code" />
                   Visual Studio Code
                 </li>
@@ -802,13 +802,12 @@
           <a href="#" class="back-to-top">Back to Top</a>
           <button
             class="webchat-toggle"
-            onclick="toggleWebchat()"
+            onclick="openWebchat()"
             id="webchatToggle">
             💬
           </button>
           <div class="webchat">
             <iframe
-              style="height: 100%; width: 100%; border: none"
               srcdoc='
               <!doctype html>
               <html lang="en">
@@ -817,8 +816,9 @@
                   <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
                   <script defer>
                     window.botpress.on("webchat:ready", () => {
-                      botpress.open();
+                    
                     });
+                    
                     window.botpress.init({
                       "botId": "2e1f3e65-ea48-48d4-bf96-eb204d7e61bb",
                       "configuration": {
@@ -843,6 +843,9 @@
                       },
                       "clientId": "9f986020-5681-4eb8-9351-55f5ff2d82f3"
                     });
+                    window.botpress.on("webchat:closed", () => {
+                      window.parent.postMessage({ action: "closeWebchat" }, "*");
+                    });
                     window.botpress.on("customEvent", (event) => {
                      if(event.action =="playMusic")
                      {
@@ -859,6 +862,9 @@
                         window.botpress.sendEvent({
                           "action" : "contactMe"
                         });
+                      }
+                      if (event.data.action === "openWebchat") {
+                        botpress.open();
                       }
                     });
                     

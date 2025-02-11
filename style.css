@@ -62,17 +62,21 @@ html /* Very useful simple line of code down below ✔*/ {
   position: relative;
   top: 40%;
 }
-/* Webchat container styling */
 .webchat {
+  display: none;
+}
+/* Webchat container styling */
+.webchat iframe {
+  width: 400px;
+  height: 95vh;
+  border: none;
   position: fixed;
   bottom: 20px;
   right: 20px;
-  height: 600px;
-  width: 400px;
-  max-width: 90%;
-  max-height: 90%;
-  display: none;
-  z-index: 9999;
+  z-index: 1000;
+}
+.webchat-hidden {
+  display: none !important;
 }
 
 /* Fullscreen for mobile */
@@ -85,26 +89,24 @@ html /* Very useful simple line of code down below ✔*/ {
     border: none;
   }
 }
-
-/* Toggle button for webchat */
 .webchat-toggle {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: #056016;
+  background-color: var(--darkGreen);
   color: white;
-  border: none;
+  font-size: 1.5rem;
   padding: 10px 15px;
-  font-size: 16px;
-  border-radius: 50%;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  z-index: 10000;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  transition: transform 0.5s;
 }
 
 .webchat-toggle:hover {
-  background-color: #044e12;
+  transform: scale(1.1);
 }
-
 .myName {
   color: white;
 }

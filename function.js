@@ -281,12 +281,6 @@ function stopCountingTime() {
 
 // Botpress Logic
 // Toggle the webchat visibility
-function toggleWebchat() {
-  const webchat = document.querySelector('.webchat');
-  const webchatToggle = document.getElementById('webchatToggle');
-  webchatToggle.style.display = 'none';
-  webchat.style.display = webchat.style.display === 'block' ? 'none' : 'block';
-}
 
 let musicPlayer = document.getElementById('myMusic');
 
@@ -298,17 +292,25 @@ window.addEventListener('message', (event) => {
     playMusic();
   } else if (event.data.action === 'checkPassion') {
     document.getElementById('TalktoPassionTask').checked = true;
+  } else if (event.data.action === 'closeWebchat') {
+    document.querySelector('.webchat').style.display = 'none';
+    document.querySelector('.webchat-toggle').style.display = 'block';
   }
 });
 
-function sendMessageToBot() {
+function sendMessageToBot(message) {
   const botIframe = document.querySelector('.webchat iframe');
   if (botIframe) {
-    toggleWebchat();
-    botIframe.contentWindow.postMessage({ action: 'contactMe' }, '*');
+    botIframe.contentWindow.postMessage({ action: `${message}` }, '*');
   }
 }
 
 function contactMe() {
-  sendMessageToBot();
+  openWebchat();
+  sendMessageToBot('contactMe');
+}
+function openWebchat() {
+  document.querySelector('.webchat').style.display = 'block';
+  document.querySelector('.webchat-toggle').style.display = 'none';
+  sendMessageToBot('openWebchat');
 }
