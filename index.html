@@ -27,53 +27,145 @@
       <div class="modalBackground" id="passionModal">
         <div id="passionCard">
           <div class="card__content">
-            <h2 class="card__title">Site Navigation Guide</h2>
+            <img
+              src="Images/Passion.webp"
+              alt="Passion's image"
+              class="card__propic" />
+            <h2 class="card__title">Site Navigation</h2>
             <p>
-              Hey there! I'm Passion, Tino's personalized AI chatbot. Welcome to
-              our portfolio website. Here are a few things to keep in mind as
-              you explore:
+              Hello! I'm Passion, Tino's personalized AI chatbot. Welcome to our
+              portfolio website. Here are some helpful tips to navigate the
+              site. If you’re ready to start exploring, feel free to
+              <u onclick="hidePopUp()" class="textBtn">skip this guide.</u>
             </p>
             <table class="sitemap-table">
               <tbody>
                 <tr>
                   <td class="icon-cell">
-                    <img src="Images/computer.svg" alt="" />
+                    <img
+                      src="Images/Icons/about.svg"
+                      alt="The about me section icon" />
                   </td>
                   <td class="description-cell">
                     <p>
-                      This is the Home section, clicking here will take you back
-                      to the homepage.
+                      The
+                      <strong>About Me</strong>
+                      section provides a professional overview of Tinotenda
+                      Mhedziso, highlighting his background and expertise.
                     </p>
                   </td>
                 </tr>
                 <tr>
                   <td class="icon-cell">
-                    <img src="Images/computer.svg" alt="" />
+                    <img
+                      src="Images/Icons/computer.svg"
+                      alt="The projects section icon" />
                   </td>
                   <td class="description-cell">
                     <p>
-                      This is the Projects section, where you can explore my
-                      work.
+                      The
+                      <strong>My Projects</strong>
+                      section showcases Tino's work. While not an exhaustive
+                      list, it features his most noteworthy projects.
                     </p>
                   </td>
                 </tr>
                 <tr>
                   <td class="icon-cell">
-                    <img src="Images/computer.svg" alt="" />
+                    <img
+                      src="Images/Icons/navigate.svg"
+                      alt="The navigation icon" />
                   </td>
                   <td class="description-cell">
                     <p>
-                      This is the Contact section, where you can reach out to
-                      me.
+                      The sunshine icon at the top right is the
+                      <strong>Navigation Menu</strong>
+                      . Use it to easily explore other sections of the website.
                     </p>
                   </td>
                 </tr>
                 <tr>
                   <td class="icon-cell">
-                    <img src="Images/computer.svg" alt="" />
+                    <img
+                      src="Images/Icons/animation.svg"
+                      alt="The animation toggle  icon" />
                   </td>
                   <td class="description-cell">
-                    <p>Click here to scroll back to the top of the page.</p>
+                    <p>
+                      Website animations are enabled by default. If preferred,
+                      you can disable them through the
+                      <strong>Navigation Menu</strong>
+                      .
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="icon-cell">
+                    <img src="Images/Icons/ai.svg" alt="The AI chatbot icon" />
+                  </td>
+                  <td class="description-cell">
+                    <span>
+                      You can interact with me by clicking the conversation icon
+                      at the bottom right corner. I operate in three modes:
+                      <ul style="list-style: none">
+                        <li>
+                          <strong>Story Mode:</strong>
+                          A guided flow with predefined questions and choices.
+                        </li>
+                        <li>
+                          <strong>Sandbox Mode:</strong>
+                          An open-ended Q&A experience.
+                        </li>
+                        <li>
+                          <strong>Action Mode:</strong>
+                          Special functionalities that go beyond the
+                          conversation flow.
+                        </li>
+                      </ul>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="icon-cell">
+                    <img src="Images/Icons/checklist.svg" alt="" />
+                  </td>
+                  <td class="description-cell">
+                    <p>
+                      I have created a selection of
+                      <strong>Checklist Quests</strong>
+                      which can be found in the Navigation Menu. These are
+                      designed to help you learn more about Tino and some
+                      personal requests he made.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="icon-cell">
+                    <img src="Images/Icons/cookie.svg" alt="" />
+                  </td>
+                  <td class="description-cell">
+                    <p>
+                      This website uses cookies to enhance functionality,
+                      including chatbot interactions and quest tracking. By
+                      continuing to browse, you consent to the use of cookies
+                      for these purposes.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="icon-cell">
+                    <img src="Images/Icons/privacy.svg" alt="" />
+                  </td>
+                  <td class="description-cell">
+                    <p>
+                      <strong>Privacy Notice:</strong>
+                      All data processed on this website, including chatbot
+                      conversations, is protected under our
+                      <u onclick="openToS()">Terms of Service</u>
+                      . Conversation data is kept confidential and will not be
+                      distributed. By using this site, you agree to our terms
+                      and privacy policy.
+                    </p>
                   </td>
                 </tr>
               </tbody>
@@ -86,6 +178,7 @@
           </div>
         </div>
       </div>
+
       <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>.Passion Modal<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
       <div class="modal" id="ToS">
         <article class="modal-container">
@@ -312,7 +405,6 @@
         </article>
       </div>
       <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>Passion Notification<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
-      <!-- From Uiverse.io by JohnnyCSilva -->
       <div
         class="messageCard row-1 bounce"
         onclick="showPopUp(1)"
@@ -335,8 +427,6 @@
           <span id="myNameTitle">Tinotenda Mhedziso</span>
         </h1>
         <h4>Fullstack | Game | Software Developer</h4>
-        <!-- /* From Uiverse.io by JkHuger */  -->
-        <!-- From Uiverse.io by 00Kubi -->
         <div id="checkCon" class="flexBox hidden">
           <p style="color: white">Your current Quests:</p>
           <div id="checklist">
@@ -354,11 +444,7 @@
             <label for="GitHubTask">Follow me: GitHub</label>
           </div>
         </div>
-        <!-- /* From Uiverse.io by eduardo-amaro-maciel */ -->
-
         <div class="flexBox">
-          <!-- From Uiverse.io by Li-Deheng -->
-
           <button id="btn-message" class="button-message" onclick="contactMe()">
             <div class="content-avatar">
               <div class="status-user"></div>

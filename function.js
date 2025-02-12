@@ -92,8 +92,7 @@ window.addEventListener('load', function (load) {
   // Lazy Loading :) //
   this.window.removeEventListener('load', load, false);
   if (window.location.hash === '#tos') {
-    // Display the ToS modal
-    document.getElementById('ToS').style.display = 'flex';
+    openToS();
   }
   this.setTimeout(function () {
     loader.style.display = 'none';
@@ -101,6 +100,9 @@ window.addEventListener('load', function (load) {
   }, 3000);
 });
 
+function openToS() {
+  document.getElementById('ToS').style.display = 'flex';
+}
 function downloadCV() {
   downloadFile('Documents/TinotendaMhedzisoCV.pdf', 'TinotendaMhedzisoCV.pdf');
   document.getElementById('CVTask').checked = true;

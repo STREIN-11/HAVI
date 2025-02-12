@@ -881,7 +881,6 @@ h1 span {
   transform: scale(1.1);
 }
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Checkbox list<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
-/* From Uiverse.io by JkHuger */
 #checkBox {
   place-content: center;
   text-align: center;
@@ -1159,7 +1158,6 @@ h1 span {
   background-color: #00000080;
 }
 
-/* From Uiverse.io by eduardo-amaro-maciel */
 .actionBtn {
   margin: 10px;
   width: 150px;
@@ -1227,7 +1225,7 @@ h1 span {
   height: 70%;
   max-height: 500px;
   position: fixed;
-  background-color: #111;
+  background-color: var(--black);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -1243,11 +1241,6 @@ h1 span {
   padding: 20px;
   text-align: center;
 }
-
-#passionCard:hover {
-  transform: scale(1.03);
-}
-
 .card__content {
   width: 100%;
   padding: 15px;
@@ -1265,22 +1258,11 @@ h1 span {
   font-weight: bold;
   margin-bottom: 10px;
 }
-
-.card__description {
-  margin-top: 8px;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  font-family: var(--secondaryFont);
-  color: #ccc;
-}
-
-/* Hover Effects */
-#passionCard:hover svg {
-  transform: scale(0);
-}
-
-.card__description:hover {
-  color: var(--brightGreen);
+.card__propic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 @media (max-width: 768px) {
@@ -1289,10 +1271,13 @@ h1 span {
     height: 65%;
   }
 
-  #passionCard ion-icon {
-    font-size: 3rem;
+  .icon-cell img {
+    width: 30px;
+    height: 30px;
   }
-
+  .sitemap-table .description-cell {
+    margin-left: 40px;
+  }
   .card__title {
     font-size: 1.25rem;
   }
@@ -1342,6 +1327,8 @@ h1 span {
   align-items: center;
   margin: 8px 0;
   border-bottom: 1px solid #ffffff40;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .icon-cell {
@@ -1362,10 +1349,6 @@ h1 span {
   font-size: 14px;
   line-height: 1.4;
   text-align: left;
-}
-
-.sitemap-table tr:hover {
-  background-color: #ffffff10;
 }
 
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Thank You Button<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
@@ -1530,7 +1513,6 @@ h1 span {
 }
 
 /* <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Terms of Service<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< --> */
-/* From Uiverse.io by Admin12121 */
 .button,
 .input,
 .select,
@@ -1662,8 +1644,9 @@ h6 {
 }
 
 .button.is-primary {
-  background-color: var(--brightGreen);
+  background-color: var(--darkGreen);
   color: #fff;
+  transition: background 0.5s;
 }
 
 .button.is-primary:hover,
@@ -1697,7 +1680,6 @@ h6 {
 }
 
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Contact btns<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
-/* From Uiverse.io by SalladShooter */
 .light-button {
   margin: 20px;
 }
@@ -1787,36 +1769,30 @@ h6 {
   display: block;
 }
 ::-webkit-scrollbar {
-  width: 8px; /* Make the scrollbar thinner */
-  height: 8px; /* For horizontal scrollbars */
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent; /* Keep the track transparent */
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: black; /* Black scrollbar thumb */
-  border-radius: 4px; /* Smooth edges for the scrollbar thumb */
+  background-color: black;
+  border-radius: 4px;
 }
 
-/* Hover effect for the thumb */
 ::-webkit-scrollbar-thumb:hover {
-  background-image: linear-gradient(
-    45deg,
-    #001908,
-    #0f0,
-    #001908
-  ); /* Lighter black when hovered */
+  background-image: linear-gradient(45deg, #001908, #0f0, #001908);
   cursor: pointer;
 }
 
 /* Firefox (uses default native scrollbar) */
 body {
-  scrollbar-width: thin; /* Make it thinner */
-  scrollbar-color: black transparent; /* Black thumb, transparent track */
+  scrollbar-width: thin;
+  scrollbar-color: black transparent;
 }
-/* From Uiverse.io by Li-Deheng */
+
 #btn-message {
   --text-color: rgb(255, 255, 255);
   --bg-color-sup: #5e5e5e;
