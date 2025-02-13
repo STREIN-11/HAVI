@@ -85,7 +85,7 @@ let observer = new IntersectionObserver((entries) => {
     }
   });
 });
-let hiddenElements = document.querySelectorAll('.Projects, .AboutMe, .Skills');
+let hiddenElements = document.querySelectorAll('.AboutMe, .Skills');
 hiddenElements.forEach((el) => observer.observe(el));
 let loader = document.getElementById('preloader');
 window.addEventListener('load', function (load) {
@@ -97,6 +97,7 @@ window.addEventListener('load', function (load) {
   this.setTimeout(function () {
     loader.style.display = 'none';
     this.document.body.style.overflowY = 'scroll';
+    sendMessageToBot('isWebsite');
   }, 3000);
 });
 

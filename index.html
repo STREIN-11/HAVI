@@ -161,7 +161,9 @@
                       <strong>Privacy Notice:</strong>
                       All data processed on this website, including chatbot
                       conversations, is protected under our
-                      <u onclick="openToS()">Terms of Service</u>
+                      <span onclick="openToS()" class="textBtn">
+                        Terms of Service
+                      </span>
                       . Conversation data is kept confidential and will not be
                       distributed. By using this site, you agree to our terms
                       and privacy policy.
@@ -638,7 +640,7 @@
                 <li>
                   <img
                     class="Icon language animate"
-                    src="https://skillicons.dev/icons?i=react"
+                    src="Images/Icons/react.svg"
                     alt="This is React" />
                   React
                 </li>
@@ -764,103 +766,132 @@
         </div>
       </section>
       <!------------------------------------------------Projects---------------------------------------------------------------------------------------->
-      <section class="Projects" id="ProjectsSection">
-        <div class="container">
-          <h3 class="subTitle row-2 bounce">My Projects</h3>
-          <div class="projectsList">
-            <div class="project">
-              <img
-                src="Images/SeventhFloorMedia.webp"
-                alt="This is a fictional newspaper publication company built by Tinotenda Mhedziso" />
-              <div class="layer">
-                <h3>Seventh Floor Media Limited</h3>
-                <p>
-                  A fictional company website built on the concept of modern
-                  newspaper publication through a dark lense.
-                  <br />
-                  Current Version: Released
-                  <br />
-                  Built with: HTML5,CSS and JavaScript
-                  <br />
-                  Development Environment: Visual Studio Code
-                  <br />
-                  Author:@PassionOverPain
-                </p>
-                <a class="eye" onclick="openGitHub()">
-                  <ion-icon name="eye-outline"></ion-icon>
-                </a>
-              </div>
+      <section class="ProjectsSection">
+        <h3 class="subTitle row-2 bounce">My Projects</h3>
+        <div class="project-item">
+          <div class="project-icon">
+            <img src="Images/Icons/projectX.svg" alt="Project X Icon" />
+          </div>
+          <div class="project-details">
+            <h2>Project X</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. This
+              project uses C#, React, and Database.
+            </p>
+            <p>
+              <strong>Version:</strong>
+              Released
+            </p>
+            <div class="project-tags">
+              <span class="tag">C#</span>
+              <span class="tag">React</span>
+              <span class="tag">Database</span>
             </div>
-            <div class="project">
-              <img
-                src="Images/TheLearningCurve.webp"
-                alt="This is a real Tutoring company built by Tinotenda Mhedziso" />
-              <div class="layer">
-                <h3>The Learning Curve</h3>
-                <p>
-                  The Learning Curve is a tutoring company owned by
-                  <a
-                    class="person"
-                    href="https://www.linkedin.com/in/lance-kupeta-19aa65105/"
-                    title="View Lance Kupeta's LinkedIn">
-                    Lance Kupeta
-                  </a>
-                  . Their team is loacated in Johannesburg and offer
-                  comprehensive academic classes. I have built The Learning
-                  Curve website and continue to integrate new functionality.
-                  <br />
-                  Current Version: Released
-                  <br />
-                  Built with: HTML5,CSS3, Email Js and JavaScript
-                  <br />
-                  Development Environment: Visual Studio Code
-                  <br />
-                  Author:@PassionOverPain, @LanceKupeta (Founder)
-                </p>
-                <a class="eye">
-                  <ion-icon
-                    name="eye-outline"
-                    onclick="openGitHub()"></ion-icon>
-                </a>
-              </div>
-            </div>
-            <div class="project">
-              <img
-                src="Images/CreateIT.webp"
-                alt="This is a budget friendly
-              application Prototype built by Tinotenda Mhedziso"
-                id="CreateIT" />
-              <div class="layer">
-                <h3>CreateIT</h3>
-                <p>
-                  CreateIT is a budget friendly application built on the concept
-                  that users can create reciepes based on ingriedents that they
-                  currently have.
-                  <br />
-                  Current Version: Prototype
-                  <br />
-                  Built with: C#
-                  <br />
-                  Development Environment: Visual Studio
-                  <br />
-                  Author:@PassionOverPain
-                </p>
-                <a class="eye">
-                  <ion-icon
-                    name="eye-outline"
-                    onclick="openGitHub()"></ion-icon>
-                </a>
-              </div>
+            <div class="project-buttons">
+              <a href="#" class="button">Source Code</a>
+              <a href="#" class="button">Live Site</a>
             </div>
           </div>
-          <div class="flexBox">
-            <button class="actionBtn ui-btn" id="Git" onclick="openProjects()">
-              <span>All Projects</span>
-              <ion-icon name="logo-github"></ion-icon>
-            </button>
+          <div class="project-preview">
+            <img src="" alt="Project 1 Preview" />
           </div>
         </div>
+
+        <div class="project-item">
+          <div class="project-icon">
+            <img src="Images/Icons/ai.svg" alt="Project 2 Icon" />
+          </div>
+          <div class="project-details">
+            <h2>Passion</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. This
+              project uses JavaScript, React, and Database.
+            </p>
+            <p>
+              <strong>Version:</strong>
+              Beta
+            </p>
+            <div class="project-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">React</span>
+              <span class="tag">Database</span>
+            </div>
+            <div class="project-buttons">
+              <a href="#" class="button">Source Code</a>
+              <a href="#" class="button">Live Site</a>
+            </div>
+          </div>
+          <div class="project-preview">
+            <img src="Images/Previews/project2.png" alt="Project 2 Preview" />
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-icon">
+            <img src="Images/Icons/createIT.svg" alt="Project 2 Icon" />
+          </div>
+          <div class="project-details">
+            <h2>CreateIT</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. This
+              project uses JavaScript, React, and Database.
+            </p>
+            <p>
+              <strong>Version:</strong>
+              Beta
+            </p>
+            <div class="project-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">React</span>
+              <span class="tag">Database</span>
+            </div>
+            <div class="project-buttons">
+              <a href="#" class="button">Source Code</a>
+              <a href="#" class="button">Live Site</a>
+            </div>
+          </div>
+          <div class="project-preview">
+            <img src="" alt="Project 3 Preview" />
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-icon">
+            <img src="Images/Icons/checklist.svg" alt="Project 3 Icon" />
+          </div>
+          <div class="project-details">
+            <h2>Project Management App</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. This
+              project uses JavaScript, React, and Database.
+            </p>
+            <p>
+              <strong>Version:</strong>
+              Beta
+            </p>
+            <div class="project-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">React</span>
+              <span class="tag">Database</span>
+            </div>
+            <div class="project-buttons">
+              <a href="#" class="button">Source Code</a>
+              <a href="#" class="button">Live Site</a>
+            </div>
+          </div>
+          <div class="project-preview">
+            <img src="Images/Previews/project2.png" alt="Project 4 Preview" />
+          </div>
+        </div>
+
+        <div class="flexBox">
+          <button class="actionBtn ui-btn" id="Git" onclick="openProjects()">
+            <span>All Projects</span>
+            <ion-icon name="logo-github"></ion-icon>
+          </button>
+        </div>
       </section>
+
       <!------------------------------------------------My Socials---------------------------------------------------------------------------------------->
       <section class="Socials" id="SocialsSection">
         <h3 class="subTitle bounce">My Socials</h3>
@@ -987,6 +1018,11 @@
                     window.botpress.on("webchat:closed", () => {
                       window.parent.postMessage({ action: "closeWebchat" }, "*");
                     });
+                    window.botpress.on("conversation", () => {
+                      window.botpress.sendEvent({
+                        "action" : "myWebsite"
+                      });
+                    });
                     window.botpress.on("customEvent", (event) => {
                      if(event.action =="playMusic")
                      {
@@ -1006,6 +1042,12 @@
                       }
                       if (event.data.action === "openWebchat") {
                         botpress.open();
+                      }
+                      else
+                      if (event.data.action === "isWebsite") {
+                        window.botpress.sendEvent({
+                          "action" : "myWebsite"
+                        });
                       }
                     });
                     
