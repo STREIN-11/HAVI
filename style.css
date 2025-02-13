@@ -1403,12 +1403,14 @@ h1 span {
   font: var(--font-weight) var(--font-size) var(--font-family);
   background: var(--btn-default-bg);
   cursor: pointer;
-  transition: var(--btn-transition);
+  transition: background 0.3s, color 0.3s, transform 0.3s;
   overflow: hidden;
   box-shadow: var(--btn-shadow);
   border-radius: 10px;
   border: 2px solid var(--White);
   width: fit-content;
+  /* Prevent size change on hover */
+  will-change: transform;
 }
 
 .ui-btn span {
@@ -1438,6 +1440,15 @@ h1 span {
   color: var(--hover-btn-color);
 }
 
+/* Due to sizing issues caused by box-shadow and border, had to remove them */
+.project-buttons .ui-btn:hover,
+.project-buttons .ui-btn:focus {
+  box-shadow: none;
+  border: none;
+  background: var(--btn-hover-bg);
+  color: var(--hover-btn-color);
+  transform: translateY(-2px);
+}
 .ui-btn:hover span::before,
 .ui-btn:focus span::before {
   animation: chitchat linear both var(--btn-animation-duration);
