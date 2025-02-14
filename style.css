@@ -1095,8 +1095,8 @@ h1 span {
 
 .project-tags .tag {
   display: inline-block;
-  background: var(--lightGray);
-  color: var(--darkText);
+  background: var(--darkGreen);
+  color: var(--white);
   padding: 4px 8px;
   border-radius: 3px;
   font-size: 0.85rem;
@@ -1378,7 +1378,7 @@ h1 span {
 .ui-btn {
   --btn-default-bg: #000;
   --btn-padding: 15px 20px;
-  --btn-hover-bg: #001908;
+  --btn-hover-bg: var(--darkGreen);
   --btn-transition: 0.3s;
   --btn-letter-spacing: 0.1rem;
   --btn-animation-duration: 1.2s;
@@ -1445,7 +1445,6 @@ h1 span {
 .project-buttons .ui-btn:focus {
   box-shadow: none;
   border: none;
-  background: var(--btn-hover-bg);
   color: var(--hover-btn-color);
   transform: translateY(-2px);
 }
