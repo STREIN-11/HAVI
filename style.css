@@ -16,6 +16,7 @@
   --complementaryGreen: #007300;
   --mainFont: 'Pixelify Sans', sans-serif;
   --secondaryFont: 'Cambria, Cochin, Georgia, Times, serif';
+  --fontSize: 1.2rem;
 }
 
 body {
@@ -566,6 +567,7 @@ h1 span {
 }
 .AboutC2 {
   flex-basis: 70%;
+  font-size: var(--fontSize);
 }
 .subTitle {
   -delay: 1.5s;
@@ -577,19 +579,8 @@ h1 span {
   padding: 0.5%;
   position: relative;
   top: 0.5%;
-  font-family: 'Pixelify Sans', sans-serif;
+  font-family: var(--mainFont);
 }
-/* .AboutMe p {
-  background-image: linear-gradient(45deg, #001908, #000000, #001908);
-  padding: 15px;
-  border-radius: 10px;
-  font-family: var(--secondaryFont);
-  position: relative;
-  top: 5%;
-  font-size: 1.1rem;
-  height: fit-content;
-  margin-right: 10px;
-} */
 .Extra {
   margin-top: 50px;
   margin-bottom: 30px;
@@ -600,11 +591,11 @@ h1 span {
 .View {
   display: none;
   position: relative;
-  font-size: 1.3rem;
+  font-size: var(--fontSize);
   justify-content: center;
 }
 .View.Activeview {
-  display: flex; /*Makes the selected area visible*/
+  display: flex; 
 }
 .language {
   filter: grayscale(1.2);
@@ -2040,11 +2031,12 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  margin: 5px;
 }
 
 .messageCard .textBox {
   width: calc(100% - 70px);
-  margin-left: 10px;
+  margin-left: 5px;
   color: white;
   font-family: 'Poppins', sans-serif;
 }
