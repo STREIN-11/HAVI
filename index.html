@@ -484,13 +484,13 @@
             </a>
           </li>
           <li style="--i: 2; --clr: #04fc43">
-            <a href="#SkillsSection">
-              <ion-icon class="fa-solid fa-award" title="Skills"></ion-icon>
+            <a href="#ProjectsSection">
+              <ion-icon name="desktop-outline" title="Projects"></ion-icon>
             </a>
           </li>
           <li style="--i: 3; --clr: #04fc43">
-            <a href="#ProjectsSection">
-              <ion-icon name="desktop-outline" title="Projects"></ion-icon>
+            <a href="#SkillsSection">
+              <ion-icon class="fa-solid fa-award" title="Skills"></ion-icon>
             </a>
           </li>
           <li style="--i: 4; --clr: #04fc43">
@@ -554,16 +554,18 @@
           </div>
           <div class="AboutC2">
             <h3 class="subTitle bounce">About Me</h3>
-            <p>
-              Final year Bachelor of Information Technology student who enjoys
-              programming in JavaScript and contributing to open-source.
-              Creating my first software program in high school established a
-              deep connection for solving problems with code. To me, programming
-              is similar to conquering a challenging video game boss: success
-              often requires persistence, learning, and adaptability. Each
-              attempt sharpens my skillset, whilst experience teaches me more
-              intricate concepts.
-            </p>
+            <div class="about-container">
+              <p>
+                Final year Bachelor of Information Technology student who enjoys
+                programming in JavaScript and contributing to open-source.
+                Creating my first software program in high school established a
+                deep connection for solving problems with code. To me,
+                programming is similar to conquering a challenging video game
+                boss: success often requires persistence, learning, and
+                adaptability. Each attempt sharpens my skillset, whilst
+                experience teaches me more intricate concepts.
+              </p>
+            </div>
             <div class="Extra">
               <button
                 class="actionBtn ui-btn Viewpoint Activepoint"
@@ -735,36 +737,6 @@
           </div>
         </div>
       </section>
-      <!-------------------------------------------Skills--------------------------------------------------------------------------------------------->
-      <section class="Skills" id="SkillsSection">
-        <h2 class="section-title subTitle bounce">My Skills</h2>
-        <div class="skills-container">
-          <div class="skill-card row-1 bounce">
-            <ion-icon name="cloud-download-outline" class="icon"></ion-icon>
-            <h3>Database Development</h3>
-          </div>
-          <div class="skill-card row-2 bounce">
-            <ion-icon name="desktop-outline" class="icon"></ion-icon>
-            <h3>Desktop Applications Development</h3>
-          </div>
-          <div class="skill-card row-1 bounce">
-            <ion-icon name="game-controller-sharp" class="icon"></ion-icon>
-            <h3>Game Development</h3>
-          </div>
-          <div class="skill-card row-2 bounce">
-            <ion-icon name="star-half-sharp" class="icon"></ion-icon>
-            <h3>Quality Assurance</h3>
-          </div>
-          <div class="skill-card row-1 bounce">
-            <ion-icon name="fitness-outline" class="icon"></ion-icon>
-            <h3>Unity Testing</h3>
-          </div>
-          <div class="skill-card row-2 bounce">
-            <ion-icon name="logo-chrome" class="icon"></ion-icon>
-            <h3>Web Applications Development</h3>
-          </div>
-        </div>
-      </section>
       <!------------------------------------------------Projects---------------------------------------------------------------------------------------->
       <section class="ProjectsSection">
         <h3 class="subTitle row-2 bounce">My Projects</h3>
@@ -773,7 +745,7 @@
             <img src="Images/Icons/projectX.svg" alt="Project X Icon" />
           </div>
           <div class="project-details">
-            <h2>Project X</h2>
+            <h2>The Atlas Six</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. This
               project uses C#, React, and Database.
@@ -792,7 +764,7 @@
             </div>
             <div class="project-buttons">
               <button class="ui-btn">
-                <span>Documentation</span>
+                <span>Source Code</span>
               </button>
 
               <button class="ui-btn">
@@ -801,7 +773,9 @@
             </div>
           </div>
           <div class="project-preview">
-            <img src="" alt="Project 1 Preview" />
+            <img
+              src="Images/Previews/The Atlas Six.png"
+              alt="Project 1 Preview" />
           </div>
         </div>
 
@@ -916,7 +890,7 @@
             </div>
           </div>
           <div class="project-preview">
-            <img src="Images/Previews/project2.png" alt="Project 4 Preview" />
+            <img src="Images/Previews/ProjectApp.png" alt="Project 4 Preview" />
           </div>
         </div>
 
@@ -928,6 +902,36 @@
         </div>
       </section>
 
+      <!-------------------------------------------Skills--------------------------------------------------------------------------------------------->
+      <section class="Skills" id="SkillsSection">
+        <h2 class="section-title subTitle bounce">My Skills</h2>
+        <div class="skills-container">
+          <div class="skill-card row-1 bounce">
+            <ion-icon name="cloud-download-outline" class="icon"></ion-icon>
+            <h3>Database Development</h3>
+          </div>
+          <div class="skill-card row-2 bounce">
+            <ion-icon name="desktop-outline" class="icon"></ion-icon>
+            <h3>Desktop Applications Development</h3>
+          </div>
+          <div class="skill-card row-1 bounce">
+            <ion-icon name="game-controller-sharp" class="icon"></ion-icon>
+            <h3>Game Development</h3>
+          </div>
+          <div class="skill-card row-2 bounce">
+            <ion-icon name="star-half-sharp" class="icon"></ion-icon>
+            <h3>Quality Assurance</h3>
+          </div>
+          <div class="skill-card row-1 bounce">
+            <ion-icon name="fitness-outline" class="icon"></ion-icon>
+            <h3>Unity Testing</h3>
+          </div>
+          <div class="skill-card row-2 bounce">
+            <ion-icon name="logo-chrome" class="icon"></ion-icon>
+            <h3>Web Applications Development</h3>
+          </div>
+        </div>
+      </section>
       <!------------------------------------------------My Socials---------------------------------------------------------------------------------------->
       <section class="Socials" id="SocialsSection">
         <h3 class="subTitle bounce">My Socials</h3>
