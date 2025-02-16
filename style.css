@@ -593,12 +593,13 @@ h1 span {
   font-family: var(--mainFont);
 }
 .Extra {
-  width: 100%;
+  width: 90%;
   margin-top: 50px;
   margin-bottom: 30px;
   display: flex;
-  justify-content: start;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
   font-size: var(--fontSize);
   color: #fff;
   padding: 0px;
@@ -1155,6 +1156,7 @@ h1 span {
   z-index: 0;
   transition: 1s;
   color: #fff;
+  width: fit-content;
 }
 
 .actionBtn::before,
@@ -1349,7 +1351,7 @@ h1 span {
   --default-btn-color: #fff;
   --font-size: var(--fontSize);
   --font-weight: 600;
-  --font-family: var(--mainFont);
+  --font-family: var(--secondaryFont);
 }
 
 /* button settings 👆 */
@@ -2243,7 +2245,7 @@ body {
   }
   .actionBtn {
     margin: 2px;
-    width: 100px;
+    width: 150px;
     height: 50px;
     border: 1px solid #333;
     font-size: var(--fontSize);
@@ -2259,8 +2261,8 @@ body {
   }
 
   .actionBtn::after {
-    width: 100px;
-    height: 30px;
+    width: 150px;
+    height: 50px;
   }
   .menu {
     left: 88vw;
@@ -2300,7 +2302,6 @@ body {
     height: fit-content;
   }
   .Extra {
-    width: 100vw;
     font-size: 0.8rem;
     align-items: center;
     justify-content: center;
@@ -2404,11 +2405,9 @@ body {
     width: fit-content;
   }
   .actionBtn {
-    margin: 2px;
-    width: 100px;
+    width: 120px;
     height: 30px;
     border: 1px solid #333;
-    font-size: 0.8rem;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     display: flex;
@@ -2421,11 +2420,11 @@ body {
   }
 
   .actionBtn::before {
-    width: 100px;
+    width: 120px;
     height: 30px;
   }
   .actionBtn::after {
-    width: 100px;
+    width: 120px;
     height: 30px;
   }
   .menu {
