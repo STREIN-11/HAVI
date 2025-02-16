@@ -20,7 +20,6 @@
 }
 
 body {
-  overflow: hidden;
   width: 100vw;
   color: var(--White);
   align-items: center;
@@ -31,10 +30,12 @@ body {
   font-family: var(--secondaryFont);
 }
 
-html /* Very useful simple line of code down below ✔*/ {
+html {
   overflow-x: hidden;
+  overflow-y: auto; /* Ensure vertical scrolling by default */
   scroll-behavior: smooth;
 }
+
 .flexBox {
   display: flex;
   justify-content: center;
@@ -405,12 +406,18 @@ h1 span {
   transform: scale(1.1);
 }
 .about-container {
-  width: fit-content;
+  font-size: var(--fontSize);
+  width: 90%;
   height: fit-content;
   border: 1px solid var(--grey);
   border-left: 5px solid var(--grey);
   padding: 20px;
 }
+.AboutC1,
+.AboutC2 {
+  flex-basis: 100%; /*This is used to make the columns stack on top of each other*/
+}
+
 .AboutMe {
   text-align: start;
   background-color: rgb(0, 0, 0);
@@ -421,6 +428,7 @@ h1 span {
   transition: all 1s;
   filter: blur(5px);
   transform: translateX(-100%);
+  font-size: var(--fontSize);
 }
 .row {
   display: flex;
@@ -1008,32 +1016,6 @@ h1 span {
   }
 }
 
-.AboutMe {
-  width: 100%;
-  height: fit-content;
-}
-.AboutC1,
-.AboutC2 {
-  flex-basis: 100%; /*This is used to make the columns stack on top of each other*/
-}
-.AboutMe {
-  font-size: 0.9rem;
-}
-#Tino {
-  width: 300px;
-}
-#TechStack,
-#Education,
-#Experience {
-  font-size: 0.7rem;
-}
-.View {
-  font-size: 0.9rem;
-}
-.View img {
-  width: 5vw;
-  float: none;
-}
 .ProjectsSection {
   display: flex;
   flex-direction: column;
@@ -2224,6 +2206,9 @@ body {
 
 /*-----------------------------------Responsive Design--------------------------------------------------------*/
 @media only screen and (min-width: 251px) and (max-width: 600px) /* 250px optimisation to come */ {
+  * {
+    --fontSize: 1rem;
+  }
   .header {
     display: inline-block;
   }
@@ -2235,6 +2220,7 @@ body {
     margin: 20px;
   }
   .ui-btn {
+    padding: 5px;
     width: fit-content;
   }
   .actionBtn {
@@ -2301,6 +2287,9 @@ body {
     align-items: center;
     justify-content: center;
   }
+  .Extra .button {
+    font-size: var(--fontSize);
+  }
   #contactContainer {
     display: grid;
     grid-template-columns: auto auto;
@@ -2328,6 +2317,9 @@ body {
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1000px) {
+  * {
+    --fontSize: 1rem;
+  }
   .socialIconsCon {
     display: grid;
     grid-template-columns: auto auto;
@@ -2353,6 +2345,7 @@ body {
     margin: 20px;
   }
   .ui-btn {
+    padding: 5px;
     width: fit-content;
   }
   .actionBtn {

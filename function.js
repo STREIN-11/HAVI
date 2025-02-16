@@ -92,18 +92,15 @@ window.addEventListener('load', function (load) {
   // Lazy Loading :) //
   this.window.removeEventListener('load', load, false);
   if (window.location.hash === '#tos') {
-    openToS();
+    showToS();
   }
   this.setTimeout(function () {
     loader.style.display = 'none';
-    this.document.body.style.overflowY = 'scroll';
+    unlockScreen();
     sendMessageToBot('isWebsite');
   }, 3000);
 });
 
-function openToS() {
-  document.getElementById('ToS').style.display = 'flex';
-}
 function downloadCV() {
   downloadFile('Documents/TinotendaMhedzisoCV.pdf', 'TinotendaMhedzisoCV.pdf');
   document.getElementById('CVTask').checked = true;
@@ -157,25 +154,6 @@ function openNavMenu() {
   const navMenu = document.getElementById('menuOpener');
   navMenu.click();
 }
-// Function to check the checkbox when the chatbot opens
-// function handleChatbotOpen(mutationsList) {
-//   mutationsList.forEach((mutation) => {
-//     if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-//       const botpressWebchat = mutation.target;
-//       if (botpressWebchat.classList.contains('bpOpen')) {
-//         document.getElementById('TalktoPassionTask').checked = true;
-//         checkQuests();
-//       }
-//     }
-//   });
-// }
-// const botpressWebchat = document.querySelector('iframe[name="webchat"]');
-// if (botpressWebchat) {
-//   const observer = new MutationObserver(handleChatbotOpen);
-//   observer.observe(botpressWebchat, { attributes: true }); // Observe changes in attributes
-// } else {
-//   console.warn('Botpress Webchat iframe not found');
-// }
 function checkQuests() {
   let complete = true;
   const quests = document.getElementsByName('r');
@@ -193,6 +171,7 @@ function showPopUp(message) {
   document.getElementById('passionModal').style.display = 'flex';
   const passionCard = document.getElementById('passionCard');
   const notification = document.getElementById('notification');
+  lockScreen();
   stopCountingTime();
   switch (message) {
     case 1:
@@ -208,10 +187,12 @@ function showPopUp(message) {
   notification.style.display = 'none';
 }
 function hidePopUp() {
+  unlockScreen();
   document.getElementById('passionModal').style.display = 'none';
 }
 
 function showToS() {
+  lockScreen();
   document.getElementById('ToS').style.display = 'flex';
 }
 function toggleCheckList() {
@@ -229,6 +210,7 @@ function hideToS(acceptance) {
     checkQuests();
   }
   document.getElementById('ToS').style.display = 'none';
+  unlockScreen();
 }
 
 let intervalId;
@@ -284,4 +266,12 @@ function openWebchat() {
   document.querySelector('.webchat').style.display = 'block';
   document.querySelector('.webchat-toggle').style.display = 'none';
   sendMessageToBot('openWebchat');
+}
+
+function lockScreen() {
+  document.documentElement.style.overflowY = 'hidden';
+}
+
+function unlockScreen() {
+  document.documentElement.style.overflowY = 'auto';
 }
