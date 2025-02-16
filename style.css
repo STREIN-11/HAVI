@@ -31,6 +31,7 @@ body {
 }
 
 html {
+  width: 100vw;
   overflow-x: hidden;
   overflow-y: auto; /* Ensure vertical scrolling by default */
   scroll-behavior: smooth;
@@ -2211,7 +2212,7 @@ body {
     --fontSize: 1rem;
   }
   .profile-box .profile-card {
-    width: 45vw;
+    width: 250px;
     min-height: 300px;
   }
 
