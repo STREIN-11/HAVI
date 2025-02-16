@@ -28,6 +28,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--secondaryFont);
+  overflow-x: hidden;
 }
 
 html {
@@ -592,11 +593,15 @@ h1 span {
   font-family: var(--mainFont);
 }
 .Extra {
+  width: 100%;
   margin-top: 50px;
   margin-bottom: 30px;
   display: flex;
-  font-size: 1.9rem;
+  justify-content: start;
+  text-align: center;
+  font-size: var(--fontSize);
   color: #fff;
+  padding: 0px;
 }
 .View {
   display: none;
@@ -623,30 +628,7 @@ h1 span {
   color: var(--brightGreen);
   gap: 2px;
 }
-#TechStack {
-  margin-right: 20px;
-  cursor: pointer;
-  font-family: 'Pixelify Sans', sans-serif;
-  width: 200px;
-  font-size: 1rem;
-}
-#Education {
-  margin-right: 20px;
-  cursor: pointer;
-  font-family: 'Pixelify Sans', sans-serif;
-  width: 200px;
-  font-size: 1rem;
-}
-#Experience {
-  margin-right: 20px;
-  cursor: pointer;
-  font-family: 'Pixelify Sans', sans-serif;
-  width: 200px;
-  font-size: 1rem;
-}
-.View span {
-  font-family: 'Pixelify Sans', sans-serif;
-}
+
 .View ul {
   list-style: none;
 }
@@ -1163,11 +1145,7 @@ h1 span {
 }
 
 .actionBtn {
-  margin: 10px;
-  width: 150px;
-  height: 50px;
   border: 1px solid #333;
-  font-size: 1rem;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   display: flex;
@@ -1369,8 +1347,9 @@ h1 span {
   --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
   --hover-btn-color: var(--brightGreen);
   --default-btn-color: #fff;
-  --font-size: 16px;
+  --font-size: var(--fontSize);
   --font-weight: 600;
+  --font-family: var(--mainFont);
 }
 
 /* button settings 👆 */
@@ -1394,12 +1373,12 @@ h1 span {
   width: fit-content;
   /* Prevent size change on hover */
   will-change: transform;
+  font-size: var(--fontSize);
 }
 
 .ui-btn span {
   letter-spacing: var(--btn-letter-spacing);
   transition: var(--btn-transition);
-  box-sizing: border-box;
   position: relative;
   background: inherit;
 }
@@ -2267,7 +2246,7 @@ body {
     width: 100px;
     height: 50px;
     border: 1px solid #333;
-    font-size: 0.8rem;
+    font-size: var(--fontSize);
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     display: flex;
