@@ -595,7 +595,7 @@ h1 span {
   justify-content: center;
 }
 .View.Activeview {
-  display: flex; 
+  display: flex;
 }
 .language {
   filter: grayscale(1.2);
@@ -1154,7 +1154,7 @@ h1 span {
   }
 
   .project-preview img {
-    width: 400px;
+    width: 300px;
     height: auto;
   }
 }
