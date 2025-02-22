@@ -599,7 +599,7 @@ h1 span {
   margin-top: 50px;
   margin-bottom: 30px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   text-align: start;
   font-size: var(--fontSize);
@@ -2247,10 +2247,10 @@ body {
   }
   .actionBtn {
     margin: 2px;
-    width: 150px;
-    height: 50px;
+    width: fit-content;
+    height: fit-content;
     border: 1px solid #333;
-    font-size: var(--fontSize);
+    font-size: 0.7rem;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     display: flex;
@@ -2260,11 +2260,16 @@ body {
     z-index: 0;
     transition: 1s;
     color: #fff;
+    padding: 20px;
+  }
+  .actionBtn::before {
+    width: fit-content;
+    height: fit-content;
   }
 
   .actionBtn::after {
-    width: 150px;
-    height: 50px;
+    width: fit-content;
+    height: fit-content;
   }
   .menu {
     left: 88vw;
@@ -2302,14 +2307,6 @@ body {
     width: 100vw;
     text-align: center;
     height: fit-content;
-  }
-  .Extra {
-    font-size: 0.8rem;
-    align-items: center;
-    justify-content: center;
-  }
-  .Extra .button {
-    font-size: var(--fontSize);
   }
   #contactContainer {
     display: grid;
@@ -2407,6 +2404,7 @@ body {
     width: fit-content;
   }
   .actionBtn {
+    font-size: var(--fontSize);
     width: 150px;
     height: 50px;
     border: 1px solid #333;
