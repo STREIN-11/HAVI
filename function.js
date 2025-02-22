@@ -40,7 +40,7 @@ function animate() {
       titles[t].classList.remove('bounce');
     }
     anime = false;
-    window.location.assign(`#ContactSection`);
+    window.location.assign(`#FooterSection`);
     setTimeout(backHome, 2000);
   } else {
     for (i = 0; i < Icons.length; ++i) {
@@ -98,7 +98,7 @@ window.addEventListener('load', function (load) {
     loader.style.display = 'none';
     unlockScreen();
     sendMessageToBot('isWebsite');
-  }, 3000);
+  }, 1000);
 });
 
 function downloadCV() {

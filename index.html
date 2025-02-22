@@ -471,48 +471,48 @@
           <div class="menuToggle" onclick="openNavMenu()">
             <ion-icon name="add-outline" id="menuOpener"></ion-icon>
           </div>
-          <li style="--i: 0; --clr: #04fc43">
+          <li style="--i: 0">
             <a href="#">
               <ion-icon name="home-outline" title="Home"></ion-icon>
             </a>
           </li>
-          <li style="--i: 1; --clr: #04fc43">
+          <li style="--i: 1">
             <a href="#AboutSection">
               <ion-icon name="person-outline" title="About Me"></ion-icon>
             </a>
           </li>
-          <li style="--i: 2; --clr: #04fc43">
+          <li style="--i: 2">
             <a href="#ProjectsSection">
               <ion-icon name="desktop-outline" title="Projects"></ion-icon>
             </a>
           </li>
-          <li style="--i: 3; --clr: #04fc43">
+          <li style="--i: 3">
             <a href="#SkillsSection">
               <ion-icon class="fa-solid fa-award" title="Skills"></ion-icon>
             </a>
           </li>
-          <li style="--i: 4; --clr: #04fc43">
+          <li style="--i: 4">
             <a id="Anime">
               <ion-icon
                 name="accessibility-sharp"
                 title="Toggle Animations"></ion-icon>
             </a>
           </li>
-          <li style="--i: 5; --clr: #04fc43" onclick="toggleCheckList()">
+          <li style="--i: 5" onclick="toggleCheckList()">
             <a>
               <ion-icon
                 class="fa-solid fa-list-check"
                 title="Checklist"></ion-icon>
             </a>
           </li>
-          <li style="--i: 6; --clr: #04fc43" onclick="showToS()">
+          <li style="--i: 6" onclick="showToS()">
             <a>
               <ion-icon
                 name="shield-checkmark-sharp"
                 title="My Terms of Service"></ion-icon>
             </a>
           </li>
-          <li style="--i: 7; --clr: #04fc43">
+          <li style="--i: 7">
             <a>
               <ion-icon
                 name="download-outline"
@@ -732,7 +732,7 @@
         </div>
       </section>
       <!------------------------------------------------Projects---------------------------------------------------------------------------------------->
-      <section class="ProjectsSection">
+      <section class="ProjectsSection" id="ProjectsSection">
         <h3 class="subTitle row-2 bounce">My Projects</h3>
         <div class="project-item">
           <div class="project-icon">
@@ -912,18 +912,6 @@
             <h3>Desktop Applications Development</h3>
           </div>
           <div class="skill-card row-1 bounce">
-            <ion-icon name="game-controller-sharp" class="icon"></ion-icon>
-            <h3>Game Development</h3>
-          </div>
-          <div class="skill-card row-2 bounce">
-            <ion-icon name="star-half-sharp" class="icon"></ion-icon>
-            <h3>Quality Assurance</h3>
-          </div>
-          <div class="skill-card row-1 bounce">
-            <ion-icon name="fitness-outline" class="icon"></ion-icon>
-            <h3>Unity Testing</h3>
-          </div>
-          <div class="skill-card row-2 bounce">
             <ion-icon name="logo-chrome" class="icon"></ion-icon>
             <h3>Web Applications Development</h3>
           </div>
@@ -932,6 +920,71 @@
       <!------------------------------------------------My Socials---------------------------------------------------------------------------------------->
       <section class="Socials" id="SocialsSection">
         <h3 class="subTitle bounce">My Socials</h3>
+        <div class="social-posts-container">
+          <div class="social-post">
+            <div class="social-post-header">
+              <img
+                src="Images/Me.webp"
+                alt="Profile Picture"
+                class="social-profile-pic" />
+              <h2>Version Control Class</h2>
+              <span class="social-platform-icon">🖤</span>
+            </div>
+            <p class="social-post-preview">
+              Finally... I got the opportunity to bring more people into
+              open-source projects through Git and GitHub😌. Something that
+              seems daunting at first but...
+            </p>
+            <img
+              src="Images/Posts/VCclass.webp"
+              alt="Post Preview"
+              class="social-post-image" />
+          </div>
+
+          <div class="social-post">
+            <div class="social-post-header">
+              <img
+                src="Images/Me.webp"
+                alt="Profile Picture"
+                class="social-profile-pic" />
+              <h2>Debugging Adventure</h2>
+              <span class="social-platform-icon">
+                <img src="Images/linkedin.svg" alt="LinkedIn Image" />
+              </span>
+            </div>
+            <p class="social-post-preview">
+              During your coding quest, you encounter a formidable enemy—an
+              unexpected bug in your project that brings everything to a halt.
+              What do you do...
+            </p>
+            <img
+              src="Images/Posts/Debugging Adventure.webp"
+              alt="Post Preview"
+              class="social-post-image" />
+          </div>
+
+          <div class="social-post">
+            <div class="social-post-header">
+              <img
+                src="Images/Me.webp"
+                alt="Profile Picture"
+                class="social-profile-pic" />
+              <h2>Centered Div: CSS Styles</h2>
+              <span class="social-platform-icon">🐦</span>
+            </div>
+            <p class="social-post-preview">
+              If you’re just starting out on your web development journey,
+              you’ve probably realized how frustrating CSS can be when you don’t
+              fully understand what you’re doing. Cascading Style Sheets (CSS)
+              is crucial for styling a web page, but...
+            </p>
+            <img
+              src="Images/Posts/CSS Styling.webp"
+              alt="Post Preview"
+              class="social-post-image" />
+          </div>
+        </div>
+
         <ul class="socialIconsCon">
           <li class="social-Icon">
             <a href="">
@@ -960,15 +1013,16 @@
         </ul>
       </section>
     </main>
-    <footer class="footer">
+    <footer class="footer" id="FooterSection">
       <div class="footer-container">
         <div class="footer-links">
           <div class="footer-column">
             <h4>Sections</h4>
             <ul>
-              <li><a href="#about">About Me</a></li>
+              <li><a href="#AboutSection">About Me</a></li>
+              <li><a href="#ProjectsSection">My Projects</a></li>
               <li><a href="#SkillsSection">My Skills</a></li>
-              <li><a href="#ProjectSection">My Projects</a></li>
+              <li><a href="#SocialsSection">My Socials</a></li>
             </ul>
           </div>
           <div class="footer-column">

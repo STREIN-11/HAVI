@@ -162,7 +162,7 @@ html {
   top: 30%;
 }
 .menu.active li a {
-  color: var(--clr);
+  color: var(--brightGreen);
 }
 .menu li a::before {
   content: '';
@@ -170,7 +170,7 @@ html {
   width: 20px;
   height: 2px;
   border-radius: 2px;
-  background-color: var(--clr);
+  background-color: var(--brightGreen);
   transform: rotate(calc(var(--i) * 90deg)) translate(0, 25px);
   transition: height 0.5s, width 0.5s, transform 0.5s;
   transition-delay: 0s, 0s, 0s;
@@ -178,7 +178,7 @@ html {
 .menu.active li a::before {
   width: 60px;
   height: 60px;
-  border: 2px solid var(--clr);
+  border: 2px solid var(--brightGreen);
   box-sizing: border-box;
   background: #000;
   transform: rotate(calc(var(--i) * 90deg)) translate(0px, 0px);
@@ -206,7 +206,81 @@ html {
 #myNameTitle {
   color: #0f0;
 }
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Social Stufff <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+.social-posts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  /* background-color: #0a0a0a; */
+  height: fit-content;
+}
+
+.social-post {
+  cursor: pointer;
+  background-color: #121212;
+  border: 1px solid var(--grey);
+  border-left: 5px solid var(--grey);
+  border-radius: 10px;
+  padding: 15px;
+  transition: transform 0.5s ease;
+}
+
+.social-post:hover {
+  transform: translateY(-5px);
+}
+
+.social-post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.social-post-header h2 {
+  color: var(--white);
+  font-size: 1.4rem;
+}
+
+.social-profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--grey);
+  color: var(--brightGreen);
+}
+
+.social-platform-icon {
+  font-size: var(--fontSize);
+  color: var(--grey);
+}
+
+.social-post-preview {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #fff;
+}
+
+.social-post-image {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .social-posts-container {
+    grid-template-columns: 1fr; /* 1 post per row on mobile */
+  }
+  .social-post-image {
+    width: 200px;
+  }
+}
+
 .socialIconsCon {
+  margin-top: 20px;
+  margin-bottom: 20px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -279,9 +353,10 @@ html {
   transform: scale(1) translateY(100%);
 }
 .menu.active li:hover a::before {
-  background: var(--clr);
+  background: var(--brightGreen);
   color: #000713;
-  box-shadow: 0 0 10px var(--clr), 0 0 30px var(--clr), 0 0 50px var(--clr);
+  box-shadow: 0 0 10px var(--brightGreen), 0 0 30px var(--brightGreen),
+    0 0 50px var(--brightGreen);
 }
 .menu.active li {
   transform: rotate(
@@ -294,7 +369,7 @@ html {
   left: 80%;
   width: 20px;
   height: 2px;
-  background: var(--clr);
+  background: var(--brightGreen);
   z-index: -1;
   transform: rotate(calc(var(--i) * 0deg)) translate(15px, 0px);
   transition: 0.5s;
@@ -352,7 +427,7 @@ header::before {
 h1 {
   position: relative;
   font-size: 2em;
-  cursor: pointer;
+  cursor: help;
   font-weight: 500;
 }
 h1 span {
@@ -665,8 +740,9 @@ h1 span {
 
 /* Skill card */
 .skill-card {
-  background-image: linear-gradient(45deg, #001908, #000000, #001908);
-  box-shadow: 6px 4px 8px var(--brightGreen);
+  background-color: #121212;
+  border: 1px solid var(--grey);
+  border-left: 5px solid var(--grey);
   padding: 20px;
   text-align: center;
   width: 100%;
@@ -1173,7 +1249,7 @@ h1 span {
 }
 
 .actionBtn::before {
-  height: 50px;
+  width: 150px;
   height: 50px;
 }
 
@@ -1658,7 +1734,7 @@ h6 {
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> My Socials Section<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 .Socials {
   width: 100vw;
-  height: 100vh;
+  height: 150vh;
   padding: 10px;
   display: grid;
   justify-content: center;
@@ -1763,16 +1839,15 @@ h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: black;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: black;
+  background-image: linear-gradient(45deg, #001908, #0f0, #001908);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-image: linear-gradient(45deg, #001908, #0f0, #001908);
   cursor: pointer;
 }
 
@@ -1949,19 +2024,19 @@ body {
 /*==============================================*/
 @keyframes active-status {
   0% {
-    background-color: var(--online-status);
+    background-color: red;
   }
 
   33.33% {
-    background-color: #93e200;
+    background-color: var(--online-status);
   }
 
   66.33% {
-    background-color: #93e200;
+    background-color: var(--online-status);
   }
 
   100% {
-    background-color: var(--online-status);
+    background-color: red;
   }
 }
 .messageCard {
@@ -2327,6 +2402,9 @@ body {
   .skill-card h3 {
     font-size: 1rem;
   }
+  .Socials {
+    height: 300vh;
+  }
   .socialIconsCon {
     display: grid;
     grid-template-columns: auto auto;
@@ -2449,5 +2527,8 @@ body {
     grid-template-columns: repeat(2, 1fr);
     color: var(--brightGreen);
     gap: 2px;
+  }
+  .Socials {
+    height: 300vh;
   }
 }
