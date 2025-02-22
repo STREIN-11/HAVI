@@ -16,7 +16,7 @@
   --complementaryGreen: #007300;
   --mainFont: 'Pixelify Sans', sans-serif;
   --secondaryFont: 'Cambria, Cochin, Georgia, Times, serif';
-  --fontSize: 1.2rem;
+  --fontSize: 1.5rem;
 }
 
 body {
@@ -218,8 +218,9 @@ html {
 }
 
 .social-post {
+  font-size: var(--fontSize);
   cursor: pointer;
-  background-color: #121212;
+  background-color: #000;
   border: 1px solid var(--grey);
   border-left: 5px solid var(--grey);
   border-radius: 10px;
@@ -243,20 +244,21 @@ html {
 }
 
 .social-profile-pic {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  border: 2px solid var(--grey);
+  border: 2px solid var(--white);
   color: var(--brightGreen);
 }
 
 .social-platform-icon {
-  font-size: var(--fontSize);
+  width: 30px;
+  height: 30px;
   color: var(--grey);
 }
 
 .social-post-preview {
-  font-size: 14px;
+  font-size: var(--fontSize);
   line-height: 1.4;
   color: #fff;
 }
@@ -274,7 +276,7 @@ html {
     grid-template-columns: 1fr; /* 1 post per row on mobile */
   }
   .social-post-image {
-    width: 200px;
+    width: 250px;
   }
 }
 
@@ -740,7 +742,7 @@ h1 span {
 
 /* Skill card */
 .skill-card {
-  background-color: #121212;
+  background-color: var(--black);
   border: 1px solid var(--grey);
   border-left: 5px solid var(--grey);
   padding: 20px;
@@ -752,9 +754,7 @@ h1 span {
   transition: background 0.5s;
   cursor: pointer;
 }
-.skill-card:hover {
-  background-color: var(--black);
-}
+
 .bounce {
   animation: bounce 2s infinite ease-in-out;
   animation-delay: var(--delay, 0s);
@@ -1091,6 +1091,7 @@ h1 span {
 }
 
 .project-item {
+  font-size: var(--fontSize);
   display: flex;
   border: 1px solid var(--grey);
   border-left: 5px solid var(--grey);
@@ -2205,22 +2206,25 @@ body {
   color: var(--brightGreen);
 }
 
-.social-icons {
+.footer-projects {
   display: flex;
-  gap: 10px;
+  gap: 15px;
 }
-
-.social-icons li a ion-icon {
-  color: #fff;
-  font-size: 2.5rem;
-  transition: color 0.3s ease;
+.footer-projects li {
   cursor: pointer;
 }
 
-.social-icons li a:hover ion-icon {
-  color: var(--brightGreen);
+.footer-projects img {
+  width: 50px;
+  height: 50px;
 }
-
+.footer-projects .project-name {
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+.footer-projects li:hover .project-name {
+  opacity: 1;
+}
 .footer-bottom {
   text-align: center;
   border-top: 1px solid #444;
@@ -2338,13 +2342,13 @@ body {
     padding: 20px;
   }
   .actionBtn::before {
-    width: fit-content;
-    height: fit-content;
+    width: 120px;
+    height: 30px;
   }
 
   .actionBtn::after {
-    width: fit-content;
-    height: fit-content;
+    width: 120px;
+    height: 30px;
   }
   .menu {
     left: 88vw;
