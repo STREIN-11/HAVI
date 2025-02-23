@@ -31,15 +31,26 @@
               src="Images/Passion.webp"
               alt="Passion's image"
               class="card__propic" />
-            <h2 class="card__title">Site Navigation</h2>
-            <p>
-              Hey! I'm Passion, Tino's personalized AI chatbot. Welcome to our
-              portfolio website. Here are some helpful tips to navigate the
-              site. If you’re ready to start exploring, feel free to
-              <u onclick="hidePopUp()" class="textBtn">skip this guide.</u>
-            </p>
-            <table class="sitemap-table">
+            <h2 class="card__title" id="cardTitle">Site Navigation</h2>
+            <div id="cardIntro">
+              <img src="Images/Icons/help.svg" />
+              <p id="cardDescription"></p>
+            </div>
+            <table class="sitemap-table" id="cardTable">
               <tbody>
+                <tr>
+                  <td class="icon-cell">
+                    <img src="Images/Icons/help.svg" alt="The help icon" />
+                  </td>
+                  <td class="description-cell">
+                    <p>
+                      If you ever need help, hover over an element—if you see
+                      the Help Icon, click it, and I'll pop up with relevant
+                      information.
+                    </p>
+                  </td>
+                </tr>
+
                 <tr>
                   <td class="icon-cell">
                     <img
@@ -170,11 +181,11 @@
                 </tr>
               </tbody>
             </table>
-          </div>
-          <div class="flexBox">
-            <button class="ui-btn" onclick="hidePopUp()">
-              <span>Return</span>
-            </button>
+            <div class="flexBox">
+              <button class="ui-btn" onclick="hidePopUp()" id="cardClose">
+                <span>Return</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -405,17 +416,14 @@
         </article>
       </div>
       <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>Passion Notification<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
-      <div
-        class="messageCard row-1 bounce"
-        onclick="showPopUp(1)"
-        id="notification">
+      <div class="messageCard row-1 bounce" id="notification">
         <div class="img"></div>
         <div class="textBox">
           <div class="textContent">
             <p class="h1">New Message</p>
             <span class="span" id="timeSent">0</span>
           </div>
-          <p class="p">Welcome esteemed guest...</p>
+          <p class="p" id="notificationText"></p>
           <div></div>
         </div>
       </div>
@@ -424,7 +432,11 @@
         <h3>Hey,</h3>
         <h1 class="myName">
           I'm
-          <span id="myNameTitle">Tinotenda Mhedziso</span>
+          <span
+            id="myNameTitle"
+            onclick="showNotification(`How to pronounce this name...`,2)">
+            Tinotenda Mhedziso
+          </span>
         </h1>
         <h4>Fullstack | Game | Software Developer</h4>
         <div id="checkCon" class="flexBox hidden">
@@ -837,11 +849,22 @@
             </div>
             <div class="project-buttons">
               <button class="ui-btn">
-                <span>Source Code</span>
+                <span>
+                  <a
+                    href="https://github.com/Passion-Over-Pain/CreateIT"
+                    target="_blank">
+                    Source Code
+                  </a>
+                </span>
               </button>
 
               <button class="ui-btn">
-                <span>Live Site</span>
+                <span>
+                  <a
+                    href="https://github.com/Passion-Over-Pain/CreateIT/releases/download/Initial-Release/CreateIT.zip">
+                    Download
+                  </a>
+                </span>
               </button>
             </div>
           </div>
@@ -878,11 +901,17 @@
             </div>
             <div class="project-buttons">
               <button class="ui-btn">
-                <span>Source Code</span>
+                <span>
+                  <a
+                    href="https://github.com/Passion-Over-Pain/ProjectManagementApp-Assignment"
+                    target="_blank">
+                    Source Code
+                  </a>
+                </span>
               </button>
 
               <button class="ui-btn">
-                <span>Live Site</span>
+                <span>Download</span>
               </button>
             </div>
           </div>
@@ -922,7 +951,8 @@
         <h3 class="subTitle bounce">My Socials</h3>
         <div class="social-posts-container">
           <a
-            href="https://www.linkedin.com/posts/tinotenda-mhedziso_studentdevelopers-nmustudents-nmucomputersociety-activity-7233195999819649024-cC6M?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEWDhyYB0fsz2ir802fc1jcJgodtwAgEVmE" target="_blank">
+            href="https://www.linkedin.com/posts/tinotenda-mhedziso_studentdevelopers-nmustudents-nmucomputersociety-activity-7233195999819649024-cC6M?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEWDhyYB0fsz2ir802fc1jcJgodtwAgEVmE"
+            target="_blank">
             <div class="social-post">
               <div class="social-post-header">
                 <img
@@ -947,7 +977,8 @@
             </div>
           </a>
           <a
-            href="https://dev.to/passionoverpain/debugging-adventure-day-1-what-to-do-when-your-code-doesnt-work-2ji2" target="_blank">
+            href="https://dev.to/passionoverpain/debugging-adventure-day-1-what-to-do-when-your-code-doesnt-work-2ji2"
+            target="_blank">
             <div class="social-post">
               <div class="social-post-header">
                 <img
@@ -973,31 +1004,34 @@
             </div>
           </a>
 
-          <a href="https://dev.to/passionoverpain/unlocking-the-secret-gem-inside-a-centered-div-4d9j" target="_blank">
-          <div class="social-post">
-            <div class="social-post-header">
+          <a
+            href="https://dev.to/passionoverpain/unlocking-the-secret-gem-inside-a-centered-div-4d9j"
+            target="_blank">
+            <div class="social-post">
+              <div class="social-post-header">
+                <img
+                  src="Images/Me.webp"
+                  alt="Profile Picture"
+                  class="social-profile-pic" />
+                <h2>CSS Styles</h2>
+                <img
+                  src="Images/Icons/dev.svg"
+                  alt="Dev.to Icon"
+                  class="social-platform-icon" />
+              </div>
+              <p class="social-post-preview">
+                If you’re just starting out on your web development journey,
+                you’ve probably realized how frustrating CSS can be when you
+                don’t fully understand...
+              </p>
               <img
-                src="Images/Me.webp"
-                alt="Profile Picture"
-                class="social-profile-pic" />
-              <h2>CSS Styles</h2>
-              <img
-                src="Images/Icons/dev.svg"
-                alt="Dev.to Icon"
-                class="social-platform-icon" />
+                src="Images/Posts/CSS Styling.webp"
+                alt="Post Preview"
+                class="social-post-image" />
             </div>
-            <p class="social-post-preview">
-              If you’re just starting out on your web development journey,
-              you’ve probably realized how frustrating CSS can be when you don’t
-              fully understand...
-            </p>
-            <img
-              src="Images/Posts/CSS Styling.webp"
-              alt="Post Preview"
-              class="social-post-image" />
-          </div>
+          </a>
         </div>
-      </a>
+
         <ul class="socialIconsCon">
           <li class="social-Icon">
             <a href="">

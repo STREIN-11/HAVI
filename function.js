@@ -26,6 +26,12 @@ let Icons = document.querySelectorAll('.Icon');
 let skillCards = document.querySelectorAll('.skill-card');
 let titles = document.querySelectorAll('.subTitle');
 let shownWelcome = false;
+const notification = document.getElementById('notification');
+const notificationText = document.getElementById('notificationText');
+const welcomeHTML = document.getElementById('passionModal').innerHTML;
+let cardTitle = document.getElementById('cardTitle');
+let cardDescription = document.getElementById('cardDescription');
+
 function animate() {
   document.getElementById('AnimationsTask').checked = true;
   checkQuests();
@@ -54,17 +60,32 @@ function animate() {
     }
     anime = true;
 
-    window.location.assign(`#ContactSection`);
+    window.location.assign(`#FooterSection`);
     setTimeout(backHome, 2000);
   }
 }
 function backHome() {
   window.location.assign(`#`);
 }
-function showWelcome() {
-  const notification = document.getElementById('notification');
+
+function checkNotifications() {
+  if (notification.style.display == 'flex') {
+    return true;
+  } else {
+    startCountingTime();
+  }
   notification.style.display = 'flex';
-  startCountingTime();
+  return false;
+}
+function showNotification(text, number) {
+  if (checkNotifications()) {
+    return;
+  } else {
+    notificationText.textContent = `${text}`;
+    notification.addEventListener('click', () => showPopUp(number), {
+      once: true
+    });
+  }
 }
 //This is an Intersection Observer ... Duh🤣, in plain english, a method (function) of checking if each section is currently visisble
 // on the user's screen, if not the item is hidden, if so then it loads in//
@@ -74,7 +95,7 @@ let observer = new IntersectionObserver((entries) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
         if (entry.target.classList.contains('AboutMe') && !shownWelcome) {
-          showWelcome();
+          showNotification('Welcome esteemed guest...', 1);
           shownWelcome = true;
         }
       } else {
@@ -170,25 +191,39 @@ function checkQuests() {
 function showPopUp(message) {
   document.getElementById('passionModal').style.display = 'flex';
   const passionCard = document.getElementById('passionCard');
-  const notification = document.getElementById('notification');
   lockScreen();
   stopCountingTime();
   switch (message) {
     case 1:
       {
-        passionCard.style.display = 'block';
+        cardTitle.textContent = 'Site Navigation';
+        cardDescription.textContent = ` Hey! I'm Passion, Tino's personalized AI chatbot. Welcome to ourportfolio website. Here are some helpful tips to navigate thesite. If you’re ready to start exploring, feel free to skip this guide.`;
+        document.getElementById('cardTable').style.display = 'grid';
       }
-
+      break;
+    case 2:
+      {
+        cardTitle.textContent = 'Name Pronounciation';
+        cardDescription.textContent = `Tinotenda Mhedziso, or Tino for short, is pronounced Tea-no-ten-da. His name translates to "Thank you."`;
+      }
+      break;
+    case 2:
+      {
+        cardTitle.textContent = 'Quests Complete !';
+        cardDescription.textContent = `Yayyy, You completed all the quests and for that I now promote you from internet guest to a friend of ours.`;
+      }
       break;
 
     default:
       break;
   }
+  passionCard.style.display = 'flex';
   notification.style.display = 'none';
 }
 function hidePopUp() {
   unlockScreen();
   document.getElementById('passionModal').style.display = 'none';
+  document.getElementById('cardTable').style.display = 'none';
 }
 
 function showToS() {

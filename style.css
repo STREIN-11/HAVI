@@ -39,6 +39,7 @@ html {
 }
 
 .flexBox {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1175,6 +1176,9 @@ h1 span {
   align-items: start;
   padding: 5px;
 }
+.project-buttons a {
+  text-decoration: none;
+}
 
 .project-buttons .ui-btn {
   padding: 8px 15px;
@@ -1298,9 +1302,6 @@ h1 span {
   align-items: center;
   justify-content: center;
   overflow-y: auto;
-  perspective: 100px;
-  box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.5);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 300;
   color: #fff;
   font-family: var(--secondaryFont);
@@ -1309,6 +1310,7 @@ h1 span {
 }
 .card__content {
   width: 100%;
+  height: 100%;
   padding: 15px;
   box-sizing: border-box;
   display: grid;
@@ -1371,6 +1373,29 @@ h1 span {
     font-size: 0.8rem;
   }
 }
+#cardIntro {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--grey);
+  padding: 15px;
+  gap: 15px;
+  max-width: 100%;
+}
+#cardIntro img {
+  width: 40px;
+  height: auto;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  #cardIntro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #cardIntro img {
+    width: 35px;
+  }
+}
 .sitemap-table {
   width: 100%;
   max-width: 500px;
@@ -1379,7 +1404,7 @@ h1 span {
   font-family: var(--secondaryFont);
   color: white;
   position: relative;
-  display: grid;
+  display: none;
   align-items: center;
 }
 
@@ -2524,13 +2549,6 @@ body {
     aspect-ratio: 1/1;
     object-fit: cover;
     object-position: top;
-  }
-
-  .Programming {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    color: var(--brightGreen);
-    gap: 2px;
   }
   .Socials {
     height: 300vh;
