@@ -30,6 +30,7 @@ const notification = document.getElementById('notification');
 const notificationText = document.getElementById('notificationText');
 const welcomeHTML = document.getElementById('passionModal').innerHTML;
 let cardTitle = document.getElementById('cardTitle');
+let cardImage = document.getElementById('cardImage');
 let cardDescription = document.getElementById('cardDescription');
 
 function animate() {
@@ -199,12 +200,14 @@ function showPopUp(message) {
         cardTitle.textContent = 'Site Navigation';
         cardDescription.textContent = ` Hey! I'm Passion, Tino's personalized AI chatbot. Welcome to ourportfolio website. Here are some helpful tips to navigate thesite. If you’re ready to start exploring, feel free to skip this guide.`;
         document.getElementById('cardTable').style.display = 'grid';
+        cardImage.src = 'Images/Icons/speak.svg';
       }
       break;
     case 2:
       {
-        cardTitle.textContent = 'Name Pronounciation';
+        cardTitle.textContent = 'Name Pronunciation';
         cardDescription.textContent = `Tinotenda Mhedziso, or Tino for short, is pronounced Tea-no-ten-da. His name translates to "Thank you."`;
+        cardImage.src = 'Images/Icons/speak.svg';
       }
       break;
     case 2:
