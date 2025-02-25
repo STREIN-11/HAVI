@@ -125,7 +125,7 @@ html {
   margin: 0;
   position: fixed;
   left: 92vw;
-  top: -10vh;
+  top: -5vh;
   width: 20px;
   height: 260px;
   display: flex;
@@ -211,7 +211,7 @@ html {
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Social Stufff <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 .social-posts-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 20px;
   padding: 20px;
   /* background-color: #0a0a0a; */
@@ -576,7 +576,7 @@ h1 span {
   content: '';
   position: absolute;
   inset: 0;
-  background: url(Images/quotes.png);
+  background: url(Images/Icons/time.svg);
   background-size: 60px;
   background-position: center;
   background-repeat: no-repeat;
@@ -760,21 +760,19 @@ h1 span {
   animation: bounce 2s infinite ease-in-out;
   animation-delay: var(--delay, 0s);
 }
-/* Icon styling */
-.icon {
-  font-size: 2.5rem;
-  color: #0f0;
+
+.skill-icon {
+  width: 60px;
+  height: 60px;
   margin-bottom: 10px;
 }
 
-/* Skill heading */
 .skill-card h3 {
   font-size: 1.5rem;
   margin: 10px 0 0;
   color: var(--white);
 }
 
-/* Bounce animation */
 @keyframes bounce {
   0%,
   100% {
@@ -1229,6 +1227,10 @@ h1 span {
   align-items: center;
   background-color: #00000080;
 }
+#cardClose {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 .actionBtn {
   border: 1px solid #333;
@@ -1382,7 +1384,7 @@ h1 span {
   max-width: 100%;
 }
 #cardIntro img {
-  width: 40px;
+  width: 60px;
   height: auto;
 }
 /* Responsive Design */
@@ -1393,7 +1395,7 @@ h1 span {
   }
 
   #cardIntro img {
-    width: 35px;
+    width: 30px;
   }
 }
 .sitemap-table {

@@ -198,9 +198,9 @@ function showPopUp(message) {
     case 1:
       {
         cardTitle.textContent = 'Site Navigation';
-        cardDescription.textContent = ` Hey! I'm Passion, Tino's personalized AI chatbot. Welcome to ourportfolio website. Here are some helpful tips to navigate thesite. If you’re ready to start exploring, feel free to skip this guide.`;
+        cardDescription.textContent = ` Hey! I'm Passion, Tino's personalized AI chatbot. Welcome to our portfolio website. Here are some helpful tips while navigating the site. If know you're ready, feel free to skip this guide.`;
         document.getElementById('cardTable').style.display = 'grid';
-        cardImage.src = 'Images/Icons/speak.svg';
+        cardImage.src = 'Images/Icons/her.svg';
       }
       break;
     case 2:
