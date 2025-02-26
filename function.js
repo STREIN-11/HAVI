@@ -34,6 +34,7 @@ let cardDescription = document.getElementById('cardDescription');
 
 function animate() {
   document.getElementById('AnimationsTask').checked = true;
+  updateQuestStatus('AnimationsTask', true);
   checkQuests();
   if (anime) {
     for (i = 0; i < Icons.length; ++i) {
@@ -127,12 +128,14 @@ window.addEventListener('load', function (load) {
     showNotification('Welcome esteemed guest...', 1);
     shownWelcome = true;
     sendMessageToBot('isWebsite');
+    loadQuestStatus();
   }, 1000);
 });
 
 function downloadCV() {
   downloadFile('Documents/TinotendaMhedzisoCV.pdf', 'TinotendaMhedzisoCV.pdf');
   document.getElementById('CVTask').checked = true;
+  updateQuestStatus('CVTask', true);
   checkQuests();
 }
 function downloadFile(fileUrl, fileName) {
@@ -146,6 +149,7 @@ function downloadFile(fileUrl, fileName) {
 function openGitHub() {
   document.getElementById('GitHubTask').checked = true;
   navigateToSite('https://github.com/Passion-Over-Pain');
+  updateQuestStatus('GitHubTask', true);
   checkQuests();
 }
 
@@ -175,6 +179,7 @@ document.getElementById('menuOpener').addEventListener(
   'click',
   () => {
     document.getElementById('NavigationTask').checked = true;
+    updateQuestStatus('NavigationTask', true);
     checkQuests();
   },
   { once: true }
@@ -183,6 +188,31 @@ function openNavMenu() {
   const navMenu = document.getElementById('menuOpener');
   navMenu.click();
 }
+function loadQuestStatus() {
+  const questsStatus = JSON.parse(localStorage.getItem('questsStatus')) || {};
+
+  document.getElementById('NavigationTask').checked =
+    questsStatus.NavigationTask || false;
+  document.getElementById('CVTask').checked = questsStatus.CVTask || false;
+  document.getElementById('AnimationsTask').checked =
+    questsStatus.AnimationsTask || false;
+  document.getElementById('ToSTask').checked = questsStatus.ToSTask || false;
+  document.getElementById('TalktoPassionTask').checked =
+    questsStatus.TalktoPassionTask || false;
+  document.getElementById('GitHubTask').checked =
+    questsStatus.GitHubTask || false;
+
+  // Enable the checkboxes once the status is loaded
+  document.querySelectorAll('#checklist input').forEach((checkbox) => {
+    checkbox.disabled = false; // Enable checkboxes after loading status
+  });
+}
+function updateQuestStatus(questId, status) {
+  const questsStatus = JSON.parse(localStorage.getItem('questsStatus')) || {};
+  questsStatus[questId] = status;
+  localStorage.setItem('questsStatus', JSON.stringify(questsStatus));
+}
+
 function checkQuests() {
   let complete = true;
   const quests = document.getElementsByName('r');
@@ -192,7 +222,7 @@ function checkQuests() {
     }
   });
   if (complete && !shown) {
-    showPopUp(3);
+    showPopUp(3); // Assuming this function shows a pop-up when all quests are completed
     shown = true;
   }
 }
@@ -252,6 +282,7 @@ function hideToS(acceptance) {
     document.getElementById('ToSTask').checked = true;
     document.getElementById('acceptanceBtns').style.display = 'none';
     document.getElementById('closeToS').style.display = 'block';
+    updateQuestStatus('ToSTask', true);
     checkQuests();
   }
   document.getElementById('ToS').style.display = 'none';
@@ -294,6 +325,8 @@ window.addEventListener('message', (event) => {
     playMusic();
   } else if (event.data.action === 'checkPassion') {
     document.getElementById('TalktoPassionTask').checked = true;
+    updateQuestStatus('TalktoPassionTask', true);
+    checkQuests();
   } else if (event.data.action === 'closeWebchat') {
     document.querySelector('.webchat').style.display = 'none';
     document.querySelector('.webchat-toggle').style.display = 'block';
