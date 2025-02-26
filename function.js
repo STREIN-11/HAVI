@@ -362,6 +362,26 @@ const notyf = new Notyf({
     }
   ]
 });
+
+// GSAP animation for programming languages (fade in from the bottom)
+let programmingLanguages = document.querySelectorAll('.Programming .language');
+
+gsap.utils.toArray(programmingLanguages).forEach((item, index) => {
+  gsap.from(item, {
+    opacity: 0, // Start invisible
+    y: 50, // Start 50px below the original position
+    duration: 1, // Animation duration
+    delay: index * 0.3, // Stagger delay for each item
+    ease: 'power2.out', // Ease effect for smoothness
+    scrollTrigger: {
+      trigger: item, // Trigger the animation for each programming language item
+      start: 'top 95%', // Start animation when the top of the item reaches 95% of the viewport height
+      toggleActions: 'play none none none', // Play when in view, reverse when out of view
+      once: true // Animation triggers only once
+    }
+  });
+});
+
 let projectItems = document.querySelectorAll('.project-item');
 
 gsap.utils.toArray(projectItems).forEach((item) => {
