@@ -14,6 +14,12 @@
       content="Tinotenda Mhedziso, porfolio website, PassionOverPain" />
     <meta name="author" content="Tinotenda Mhedziso" />
     <link rel="shortcut icon" href="Images/Favicon.png" type="image/x-icon" />
+    <!-- Notyf CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" />
+    <!-- Notyf JS -->
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 
     <title>Tinotenda Mhedziso's portfolio website</title>
   </head>
@@ -416,7 +422,7 @@
         </article>
       </div>
       <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>Passion Notification<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
-      <div class="messageCard row-1 bounce" id="notification">
+      <div class="messageCard" id="notification">
         <div class="img"></div>
         <div class="textBox">
           <div class="textContent">
@@ -745,7 +751,7 @@
       </section>
       <!------------------------------------------------Projects---------------------------------------------------------------------------------------->
       <section class="ProjectsSection" id="ProjectsSection">
-        <h3 class="subTitle row-2 bounce">My Projects</h3>
+        <h2 class="section-title subTitle bounce">My Projects</h2>
         <div class="project-item" id="TheAtlasSix">
           <div class="project-icon">
             <img src="Images/Icons/theAtlasSix.svg" alt="The Atlas Six Icon" />
@@ -958,7 +964,7 @@
       </section>
       <!------------------------------------------------My Socials---------------------------------------------------------------------------------------->
       <section class="Socials" id="SocialsSection">
-        <h3 class="subTitle bounce">My Socials</h3>
+        <h3 class="subTitle bounce section-title">My Socials</h3>
         <div class="social-posts-container">
           <a
             href="https://www.linkedin.com/posts/tinotenda-mhedziso_studentdevelopers-nmustudents-nmucomputersociety-activity-7233195999819649024-cC6M?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEWDhyYB0fsz2ir802fc1jcJgodtwAgEVmE"
@@ -1044,25 +1050,27 @@
 
         <ul class="socialIconsCon">
           <li class="social-Icon">
-            <a href="">
+            <a href="https://dev.to/passionoverpain" target="_blank">
               <i class="fa-brands fa-dev"></i>
               <span>Dev.to</span>
             </a>
           </li>
           <li class="social-Icon">
-            <a href="">
+            <a href="mailto:tinomhedziso21@gmail.com" target="_blank">
               <i class="fa-solid fa-envelope-circle-check"></i>
               <span>Email</span>
             </a>
           </li>
           <li class="social-Icon">
-            <a href="">
+            <a onclick="openGitHub()">
               <i class="fa-brands fa-github"></i>
               <span>GitHub</span>
             </a>
           </li>
           <li class="social-Icon">
-            <a href="">
+            <a
+              href="https://za.linkedin.com/in/tinotenda-mhedziso"
+              target="_blank">
               <i class="fa-brands fa-linkedin"></i>
               <span>LinkedIn</span>
             </a>

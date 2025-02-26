@@ -8,8 +8,7 @@ menuToggle.onclick = function () {
 };
 var viewpoints = document.getElementsByClassName('Viewpoint');
 var views = document.getElementsByClassName('View');
-function show(thingy) {
-  /* YeS... I am naming this variable thingy😀*/
+function show(viewObj) {
   for (viewpoint of viewpoints) {
     viewpoint.classList.remove('Activepoint');
   }
@@ -17,7 +16,7 @@ function show(thingy) {
     view.classList.remove('Activeview');
   }
   event.currentTarget.classList.add('Activepoint');
-  document.getElementById(thingy).classList.add('Activeview');
+  document.getElementById(viewObj).classList.add('Activeview');
 }
 let anime = true;
 const abutton = document.getElementById('Anime');
@@ -71,6 +70,7 @@ function backHome() {
 
 function checkNotifications() {
   if (notification.style.display == 'flex') {
+    notyf.error('You already have a message.');
     return true;
   } else {
     startCountingTime();
@@ -83,6 +83,7 @@ function showNotification(text, number) {
     return;
   } else {
     notificationText.textContent = `${text}`;
+    notification.classList.add('show');
     notification.addEventListener('click', () => showPopUp(number), {
       once: true
     });
@@ -95,10 +96,6 @@ let observer = new IntersectionObserver((entries) => {
     if (anime) {
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
-        if (entry.target.classList.contains('AboutMe') && !shownWelcome) {
-          showNotification('Welcome esteemed guest...', 1);
-          shownWelcome = true;
-        }
       } else {
         entry.target.classList.remove('show');
       }
@@ -119,6 +116,8 @@ window.addEventListener('load', function (load) {
   this.setTimeout(function () {
     loader.style.display = 'none';
     unlockScreen();
+    showNotification('Welcome esteemed guest...', 1);
+    shownWelcome = true;
     sendMessageToBot('isWebsite');
   }, 1000);
 });
@@ -277,6 +276,7 @@ let musicPlayer = document.getElementById('myMusic');
 
 function playMusic() {
   musicPlayer.play();
+  notyf.success('Music has been enabled.');
 }
 window.addEventListener('message', (event) => {
   if (event.data.action === 'playMusic') {
@@ -313,3 +313,41 @@ function lockScreen() {
 function unlockScreen() {
   document.documentElement.style.overflowY = 'auto';
 }
+
+const notyf = new Notyf({
+  duration: 5000,
+  dismissible: true,
+  position: {
+    x: 'right',
+    y: 'top'
+  },
+  types: [
+    {
+      type: 'success',
+      background: '#28a745',
+      icon: {
+        className: 'fas fa-check-circle',
+        tagName: 'i',
+        color: 'white'
+      }
+    },
+    {
+      type: 'error',
+      background: '#db1a00',
+      icon: {
+        className: 'fas fa-times-circle',
+        tagName: 'i',
+        color: 'white'
+      }
+    },
+    {
+      type: 'warning',
+      background: '#db6300',
+      icon: {
+        className: 'fas fa-exclamation-triangle',
+        tagName: 'i',
+        color: 'black'
+      }
+    }
+  ]
+});

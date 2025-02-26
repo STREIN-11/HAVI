@@ -662,7 +662,6 @@ h1 span {
 }
 .subTitle {
   -delay: 1.5s;
-  display: block;
   color: white;
   font-size: 3em;
   font-weight: 600;
@@ -728,9 +727,12 @@ h1 span {
 }
 
 .section-title {
+  display: inline-block;
+  text-align: center;
   font-size: 3rem;
   margin-bottom: 20px;
   color: var(--white);
+  cursor: help;
 }
 
 /* Skills container */
@@ -2067,6 +2069,33 @@ body {
     background-color: red;
   }
 }
+@keyframes slideInBounce {
+  0% {
+    transform: translateX(-120%) scale(0.9);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(10%) scale(1.02);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(0%) scale(1);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes bounceEffect {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
 .messageCard {
   width: 90%;
   max-width: 290px;
@@ -2082,8 +2111,13 @@ body {
   position: fixed;
   top: 10%;
   left: calc(50% - 150px);
-  transform: translateX(-50%);
   z-index: 200;
+}
+
+.messageCard.show {
+  display: flex;
+  animation: slideInBounce 0.7s ease-out,
+    bounceEffect 1.5s infinite ease-in-out 0.7s;
 }
 
 .messageCard:hover {
@@ -2555,4 +2589,12 @@ body {
   .Socials {
     height: 300vh;
   }
+}
+
+.notyf__toast--success {
+  font-family: var(--secondaryFont);
+  background-color: var(
+    --darkGreen
+  ) !important; /* Change to your desired color */
+  color: white !important; /* Text color */
 }
