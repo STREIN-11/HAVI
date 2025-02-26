@@ -53,9 +53,10 @@ Access the live site: [tinotenda-mhedziso.pages.dev](https://tinotenda-mhedziso.
 ---
 
 ## Preview 
-Below is a sneak peek of the portfolio's user interface and visual elements:
+Below is a sneak peek of the my portfolio website:
 
-![Portfolio Screenshot](https://github.com/user-attachments/assets/0db51d8a-5676-4967-a256-daeb57e7c042)
+![image](https://github.com/user-attachments/assets/dd38dad8-af35-4a30-8ebe-29171dae45e9)
+
 
 ---
 
@@ -121,10 +122,10 @@ I welcome feedback and collaboration! Feel free to:
 
 ## Future Enhancements
 Planned updates for the portfolio:
-1. Add a blog section to share insights and tutorials.
-2. Integrate more advanced animations using libraries like **GSAP**.
-3. Enhance the chatbot with natural language processing for deeper interactions.
-4. Include a dedicated section for certifications and recognitions.
+1. Add a blog section to share insights and tutorials. ✅
+2. Integrate more advanced animations using libraries like **GSAP**. ❌
+3. Enhance the chatbot with natural language processing for deeper interactions. ✅
+4. Include a dedicated section for certifications and recognitions. ❌
 
 ---
 
@@ -140,7 +141,7 @@ Planned updates for the portfolio:
 This portfolio is a testament to my continuous learning and growth in web development. I hope it serves as both an inspiration and a functional showcase of my abilities.
 
 > [!TIP]
-> "Passion Over Pain." - A reminder to always keep moving forward.
+> _Success is a measure of the growth I’ve achieved through my own failures._
 
 <p align="center" style="font-family: 'Times New Roman', serif;">
   <a href="https://dev.to/passionoverpain">Dev.to</a> |
