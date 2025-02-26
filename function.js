@@ -188,6 +188,16 @@ function openNavMenu() {
   const navMenu = document.getElementById('menuOpener');
   navMenu.click();
 }
+function resetQuestStatuses() {
+  localStorage.removeItem('questsStatus');
+  const quests = document.querySelectorAll('#checklist input');
+  quests.forEach((checkbox) => {
+    checkbox.checked = false;
+    checkbox.disabled = true;
+  });
+
+  shown = false;
+}
 function loadQuestStatus() {
   const questsStatus = JSON.parse(localStorage.getItem('questsStatus')) || {};
 
@@ -444,7 +454,7 @@ gsap.utils.toArray(socialPosts).forEach((post, index) => {
     ease: 'power2.out', // Ease effect for smoothness
     scrollTrigger: {
       trigger: post, // Trigger the animation for each social post
-      start: 'top 50%', // Start animation when the top of the post reaches 50% of the viewport height
+      start: 'top 80%', // Start animation when the top of the post reaches 80% of the viewport height
       toggleActions: 'play none none none', // Play when in view, reverse when out of view
       once: true // Animation triggers only once
     }
