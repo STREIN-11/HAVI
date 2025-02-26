@@ -124,8 +124,10 @@ I welcome feedback and collaboration! Feel free to:
 Planned updates for the portfolio:
 1. Add a blog section to share insights and tutorials. ✅
 2. Integrate more advanced animations using libraries like **GSAP**. ✅
-3. Enhance the chatbot with natural language processing for deeper interactions. ✅
-4. Include a dedicated section for certifications and recognitions. ❌
+3. Add more quests, advancing levels to atleast 3. ❌
+4. Enhance the chatbot with natural language processing for deeper interactions. ✅
+5. Include a dedicated section for certifications and recognitions. ❌
+6. Possibly add a testimonal section. ❌
 
 ---
 
