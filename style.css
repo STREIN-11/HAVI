@@ -661,6 +661,7 @@ h1 span {
   font-size: var(--fontSize);
 }
 .subTitle {
+  width: fit-content;
   -delay: 1.5s;
   color: white;
   font-size: 3em;
@@ -1082,7 +1083,7 @@ h1 span {
   }
 }
 
-.ProjectsSection {
+.Projects {
   display: flex;
   flex-direction: column;
   gap: 30px;

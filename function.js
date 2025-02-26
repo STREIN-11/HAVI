@@ -96,6 +96,12 @@ let observer = new IntersectionObserver((entries) => {
     if (anime) {
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
+
+        // Check if the element has the class 'Projects'
+        // if (entry.target.classList.contains('Projects')) {
+        //   notyf.success('Found you :)');
+        //   playCode();
+        // }
       } else {
         entry.target.classList.remove('show');
       }
@@ -104,8 +110,10 @@ let observer = new IntersectionObserver((entries) => {
     }
   });
 });
-let hiddenElements = document.querySelectorAll('.AboutMe, .Skills');
+
+let hiddenElements = document.querySelectorAll('.Projects, .AboutMe, .Skills');
 hiddenElements.forEach((el) => observer.observe(el));
+
 let loader = document.getElementById('preloader');
 window.addEventListener('load', function (load) {
   // Lazy Loading :) //
@@ -247,7 +255,10 @@ function hideToS(acceptance) {
     checkQuests();
   }
   document.getElementById('ToS').style.display = 'none';
-  unlockScreen();
+  const passionDisplay = document.getElementById('passionModal').style.display;
+  if (passionDisplay == 'none') {
+    unlockScreen();
+  }
 }
 
 let intervalId;
@@ -350,4 +361,57 @@ const notyf = new Notyf({
       }
     }
   ]
+});
+let projectItems = document.querySelectorAll('.project-item');
+
+gsap.utils.toArray(projectItems).forEach((item) => {
+  gsap.from(item, {
+    opacity: 0,
+    y: 50, // Start 50px lower
+    duration: 1, // Animation duration
+    stagger: 0.5, // Delay between each item's animation
+    ease: 'power2.out', // Smooth ease
+    scrollTrigger: {
+      trigger: item, // The element itself
+      start: 'top 80%', // Trigger when the top of the item is 80% from the top of the viewport
+      toggleActions: 'play none none none',
+      once: true // Only trigger the animation once
+    }
+  });
+});
+
+let socialPosts = document.querySelectorAll('.social-post');
+
+gsap.utils.toArray(socialPosts).forEach((post, index) => {
+  gsap.from(post, {
+    opacity: 0, // Start invisible
+    y: 50, // Start 50px lower
+    duration: 1, // Animation duration
+    delay: index * 0.3, // Stagger delay for each post
+    ease: 'power2.out', // Ease effect for smoothness
+    scrollTrigger: {
+      trigger: post, // Trigger the animation for each social post
+      start: 'top 50%', // Start animation when the top of the post reaches 50% of the viewport height
+      toggleActions: 'play none none none', // Play when in view, reverse when out of view
+      once: true // Animation triggers only once
+    }
+  });
+});
+
+let socialIcons = document.querySelectorAll('.social-Icon');
+
+gsap.utils.toArray(socialIcons).forEach((icon, index) => {
+  gsap.from(icon, {
+    opacity: 0, // Start invisible
+    x: -50, // Start 50px to the left
+    duration: 1, // Animation duration
+    delay: index * 0.3, // Stagger delay for each icon
+    ease: 'power2.out', // Ease effect for smoothness
+    scrollTrigger: {
+      trigger: icon, // Trigger the animation for each social icon
+      start: 'top 80%', // Start animation when the top of the icon reaches 80% of the viewport height
+      toggleActions: 'play none none none', // Play when in view, reverse when out of view
+      once: true // Animation triggers only once
+    }
+  });
 });
