@@ -123,7 +123,7 @@ I welcome feedback and collaboration! Feel free to:
 ## Future Enhancements
 Planned updates for the portfolio:
 1. Add a blog section to share insights and tutorials. ✅
-2. Integrate more advanced animations using libraries like **GSAP**. ❌
+2. Integrate more advanced animations using libraries like **GSAP**. ✅
 3. Enhance the chatbot with natural language processing for deeper interactions. ✅
 4. Include a dedicated section for certifications and recognitions. ❌
 
