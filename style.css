@@ -67,9 +67,11 @@ html {
   justify-content: center;
 }
 #Loading {
+  width: fit-content;
+  display: inline-block;
   font-family: 'Pixelify Sans', sans-serif;
   position: absolute;
-  top: 90vh;
+  top: 75vh;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -927,6 +929,7 @@ h1 span {
 }
 
 #checklist input[type='checkbox'] {
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   position: relative;
