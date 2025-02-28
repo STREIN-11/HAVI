@@ -90,31 +90,6 @@ function showNotification(text, number) {
     });
   }
 }
-//This is an Intersection Observer ... Duh🤣, in plain english, a method (function) of checking if each section is currently visisble
-// on the user's screen, if not the item is hidden, if so then it loads in//
-let observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (anime) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-
-        // Check if the element has the class 'Projects'
-        // if (entry.target.classList.contains('Projects')) {
-        //   notyf.success('Found you :)');
-        //   playCode();
-        // }
-      } else {
-        entry.target.classList.remove('show');
-      }
-    } else {
-      entry.target.classList.add('show');
-    }
-  });
-});
-
-let hiddenElements = document.querySelectorAll('.Projects, .AboutMe, .Skills');
-hiddenElements.forEach((el) => observer.observe(el));
-
 let loader = document.getElementById('preloader');
 window.addEventListener('load', function (load) {
   // Lazy Loading :) //
@@ -319,6 +294,7 @@ function startCountingTime() {
 
 function stopCountingTime() {
   clearInterval(intervalId);
+  timeElapsed = 0;
 }
 
 // Botpress Logic

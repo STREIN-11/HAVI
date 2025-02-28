@@ -509,10 +509,6 @@ h1 span {
   height: fit-content;
   color: white;
   flex-wrap: wrap;
-  opacity: 0;
-  transition: all 1s;
-  filter: blur(5px);
-  transform: translateX(-100%);
   font-size: var(--fontSize);
 }
 .row {
@@ -540,15 +536,7 @@ h1 span {
 }
 .profile-box .profile-card {
   position: relative;
-  background: transparent;
-  background-image: linear-gradient(
-    to bottom,
-    #021204,
-    #051506,
-    #081809,
-    #0b1b0b,
-    #0e1d0d
-  );
+  background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.75);
   border-left: 1px solid rgba(255, 255, 255, 0.75);
@@ -722,10 +710,8 @@ h1 span {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
-  opacity: 0;
+  opacity: 1;
   transition: all 1s;
-  filter: blur(5px);
-  transform: translateX(100%);
   overflow-x: hidden;
 }
 
