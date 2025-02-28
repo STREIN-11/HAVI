@@ -232,7 +232,14 @@ function showPopUp(message) {
         cardImage.src = 'Images/Icons/speak.svg';
       }
       break;
-    case 2:
+    case 3:
+      {
+        cardTitle.textContent = 'Portfolio Projects';
+        cardDescription.textContent = ``;
+        cardImage.src = 'Images/Icons/computer.svg';
+      }
+      break;
+    case 4:
       {
         cardTitle.textContent = 'Quests Complete !';
         cardDescription.textContent = `Yayyy, You completed all the quests and for that I now promote you from internet guest to a friend of ours.`;
