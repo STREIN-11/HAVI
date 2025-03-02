@@ -101,10 +101,10 @@ To ensure the portfolio is discoverable, the following strategies were implement
 |---------------------|-------------------------------------------------------------------------------------------------------------------|
 | **Home**           | A landing page with a bold background, my name, and an interactive to-do-like quest checklist.                    |
 | **About**          | A personal narrative including my background, career journey, and interests.                                      |
-| **Skills**         | A categorized list of my technical skills and proficiencies.                                                     |
 | **Projects**       | Featured projects with descriptions, screenshots, and GitHub links.                                              |
-| **Contact**        | Links to my social pages. My chatbot can also take and respond to emails.                                         |
-| **Social Links**   | Direct links to my profiles on LinkedIn, GitHub, and other platforms.                                             |
+| **Skills**         | A categorized list of my technical skills and proficiencies.                                                     |
+| **Socials**        | Some social posts, my social links and the section to contact me if needed. My chatbot can also take and respond to emails. |
+
 
 ---
 
@@ -134,7 +134,13 @@ Planned updates for the portfolio:
 ## Attribution
 - <details>
   <summary>Icons</summary>
-   * Quote - Xinh Studio [FlatIcons]
+  <b>FlatIcons</b> <br>
+   * Xinh Studio <br>
+   * Pericon <br>
+   * Freepik <br>
+   * Wanicon <br>
+   * Sympnoiaicon <br>
+   * itim2101 <br>
    
 </details>
 
