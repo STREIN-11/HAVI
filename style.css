@@ -2,7 +2,12 @@
 /* Fonts down below */
 @font-face {
   font-family: 'Pixelify Sans';
-  src: url(PixelifySans.ttf);
+  src: url('PixelifySans.woff2') format('truetype');
+}
+
+@font-face {
+  font-family: 'Quantico';
+  src: url('Quantico-Regular.woff2') format('truetype');
 }
 * {
   margin: 0;
@@ -15,7 +20,7 @@
   --grey: grey;
   --complementaryGreen: #007300;
   --mainFont: 'Pixelify Sans', sans-serif;
-  --secondaryFont: 'Cambria, Cochin, Georgia, Times, serif';
+  --secondaryFont: 'Quantico';
   --fontSize: 1.5rem;
 }
 
