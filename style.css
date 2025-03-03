@@ -210,6 +210,7 @@ html {
 }
 #Me h4 {
   font-family: var(--secondaryFont);
+  font-weight: normal;
 }
 #myNameTitle {
   color: #0f0;
@@ -2102,7 +2103,6 @@ body {
   justify-content: left;
   backdrop-filter: blur(10px);
   transition: 0.5s ease-in-out;
-  font-family: var(--secondaryFont);
   position: fixed;
   top: 10%;
   left: calc(50% - 150px);
@@ -2137,7 +2137,7 @@ body {
   width: calc(100% - 70px);
   margin-left: 5px;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--secondaryFont);
 }
 
 .messageCard .textContent {
@@ -2151,8 +2151,9 @@ body {
 }
 
 .messageCard .h1 {
+  color: var(--brightGreen);
   font-size: 14px;
-  font-weight: bold;
+  font-family: var(--secondaryFont);
 }
 
 .messageCard .p {
@@ -2576,8 +2577,14 @@ body {
 
 .notyf__toast--success {
   font-family: var(--secondaryFont);
-  background-color: var(
-    --darkGreen
-  ) !important; /* Change to your desired color */
-  color: white !important; /* Text color */
+  background-color: var(--darkGreen) !important;
+  color: white !important;
+}
+
+.custom-error-notyf {
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+  padding: 14px 18px;
 }

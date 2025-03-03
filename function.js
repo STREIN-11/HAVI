@@ -104,7 +104,7 @@ window.addEventListener('load', function (load) {
     shownWelcome = true;
     sendMessageToBot('isWebsite');
     loadQuestStatus();
-  }, 1000);
+  }, 500);
 });
 
 function downloadCV() {
@@ -235,8 +235,8 @@ function showPopUp(message) {
     case 3:
       {
         cardTitle.textContent = 'Portfolio Projects';
-        cardDescription.textContent = ``;
-        cardImage.src = 'Images/Icons/computer.svg';
+        cardDescription.textContent = `This is where Tino’s expertise truly shines! Each project here marks a significant milestone in his journey, showcasing his most advanced work to date. By clicking the "Source Code" button, you’ll be directed to the GitHub repository, where you can explore a detailed case study covering the project’s objectives, challenges, and key insights. The "Live Site" button lets you experience the project firsthand, but if it’s unavailable, simply download it to run locally. While some projects remain under wraps for now, Tino is eagerly preparing to release them soon — consider this a sneak peek of what's to come!`;
+        cardImage.src = 'Images/Icons/website.svg';
       }
       break;
     case 4:
@@ -354,6 +354,7 @@ function unlockScreen() {
 const notyf = new Notyf({
   duration: 5000,
   dismissible: true,
+  ripple: false,
   position: {
     x: 'right',
     y: 'top'
@@ -361,20 +362,21 @@ const notyf = new Notyf({
   types: [
     {
       type: 'success',
-      background: '#28a745',
+      background: '#1a8917',
       icon: {
         className: 'fas fa-check-circle',
         tagName: 'i',
-        color: 'white'
+        color: '#0f0'
       }
     },
     {
       type: 'error',
-      background: '#db1a00',
+      background: '#e60000', // Dark background
+      className: 'custom-error-notyf', // Custom class for extra styling
       icon: {
-        className: 'fas fa-times-circle',
+        className: 'fas fa-exclamation-circle',
         tagName: 'i',
-        color: 'white'
+        color: '#ff4c4c' // ChatGPT-like red accent
       }
     },
     {
