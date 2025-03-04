@@ -522,19 +522,32 @@ h1 span {
   height: fit-content;
 }
 .AboutC1 {
-  flex-basis: 55%;
+  /* flex-basis: 55%;
   display: grid;
   gap: 0x;
   row-gap: 0px;
   justify-content: center;
   align-items: center;
   place-items: center;
+  width: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+  max-width: 500px; /* Adjust as needed */
 }
+.about-illustration {
+  width: 100%;
+  max-width: 400px; /* Adjust as needed */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 #Tino {
   width: 100%;
 }
-.profile-box {
+/* .profile-box {
   user-select: none;
   cursor: grab;
   position: relative;
@@ -652,7 +665,7 @@ h1 span {
 }
 .profile-box:hover .profile-elements.content p {
   opacity: 1;
-}
+} */
 .AboutC2 {
   flex-basis: 70%;
   font-size: var(--fontSize);
@@ -1139,7 +1152,7 @@ h1 span {
 
 .project-tags .tag {
   display: inline-block;
-  background: var(--darkGreen);
+  background: var(--complementaryGreen);
   color: var(--white);
   padding: 4px 8px;
   border-radius: 3px;
@@ -2330,7 +2343,7 @@ body {
   * {
     --fontSize: 1rem;
   }
-  .profile-box .profile-card {
+  /* .profile-box .profile-card {
     width: 250px;
     min-height: 300px;
   }
@@ -2365,7 +2378,7 @@ body {
 
   .profile-elements.content p {
     font-size: 12px;
-  }
+  } */
 
   .header {
     display: inline-block;
@@ -2470,7 +2483,7 @@ body {
   * {
     --fontSize: 1rem;
   }
-  .profile-box .profile-card {
+  /* .profile-box .profile-card {
     width: 300px;
     min-height: 350px;
   }
@@ -2505,7 +2518,7 @@ body {
 
   .profile-elements.content p {
     font-size: 14px;
-  }
+  } */
 
   .socialIconsCon {
     display: grid;
