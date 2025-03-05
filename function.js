@@ -406,6 +406,9 @@ gsap.utils.toArray(programmingLanguages).forEach((item, index) => {
       start: 'top 95%', // Start animation when the top of the item reaches 95% of the viewport height
       toggleActions: 'play none none none', // Play when in view, reverse when out of view
       once: true // Animation triggers only once
+    },
+    onComplete: () => {
+      item.classList.add('bounce'); // Add a CSS animation trigger class
     }
   });
 });
