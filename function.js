@@ -478,35 +478,24 @@ document.getElementById('star-button').addEventListener('click', async () => {
 async function starRepo() {
   const urlParams = new URLSearchParams(window.location.search);
   const code = urlParams.get('code');
+  const repoOwner = 'Passion-Over-Pain';
+  const repoName = 'Portfolio-Backend';
 
   if (code) {
-    // Exchange code for access token
+    // Step 1: Pass the code, repoOwner, and repoName to the callback API
     const tokenResponse = await fetch(
-      `https://portfolio-backend-pi-three.vercel.app/api/auth/callback?code=${code}`
+      `https://portfolio-backend-pi-three.vercel.app/api/auth/callback?code=${code}&repoOwner=${repoOwner}&repoName=${repoName}`
     );
-    const { token } = await tokenResponse.json();
 
-    if (token) {
-      // Star the repo
-      const starResponse = await fetch(
-        'https://portfolio-backend-pi-three.vercel.app/api/star',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            accessToken: token,
-            repo: 'Passion-Over-Pain/Portfolio-Backend'
-          })
-        }
-      );
+    const { access_token } = await tokenResponse.json(); // Get the access token from the response
 
-      const starData = await starResponse.json();
-
-      if (starData.success) {
-        alert('Successfully starred the repo!');
-      } else {
-        alert('Failed to star the repo.');
-      }
+    if (access_token) {
+      // Step 2: Show success message after the backend stars the repo
+      alert('Successfully starred the repo!');
+    } else {
+      alert('Failed to retrieve access token or star the repo.');
     }
+  } else {
+    alert('Authorization code is missing.');
   }
 }
