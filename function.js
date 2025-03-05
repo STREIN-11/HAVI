@@ -469,17 +469,27 @@ gsap.utils.toArray(socialIcons).forEach((icon, index) => {
 
 // Starring features:
 document.getElementById('star-button').addEventListener('click', async () => {
-  // Redirect user to GitHub for authentication
-  window.location.href =
-    'https://portfolio-backend-pi-three.vercel.app/api/auth/login';
+  // Define the repository details dynamically or statically
+  const repoOwner = 'Passion-Over-Pain'; // Can be dynamically set based on user selection
+  const repoName = 'Portfolio-Backend'; // Can be dynamically set based on user selection
+
+  // Redirect user to GitHub for authentication with repo details in the query params
+  window.location.href = `https://portfolio-backend-pi-three.vercel.app/api/auth/login?repoOwner=${repoOwner}&repoName=${repoName}`;
 });
 
 // After GitHub login, extract the code and star the repo
 async function starRepo() {
   const urlParams = new URLSearchParams(window.location.search);
   const code = urlParams.get('code');
-  const repoOwner = 'Passion-Over-Pain';
-  const repoName = 'Portfolio-Backend';
+
+  // Extract repoOwner and repoName from query params after GitHub redirects back
+  const repoOwner = urlParams.get('repoOwner');
+  const repoName = urlParams.get('repoName');
+
+  if (!repoOwner || !repoName) {
+    alert('Repository details (repoOwner or repoName) are missing.');
+    return;
+  }
 
   if (code) {
     // Step 1: Pass the code, repoOwner, and repoName to the callback API
