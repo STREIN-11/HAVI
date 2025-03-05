@@ -466,3 +466,47 @@ gsap.utils.toArray(socialIcons).forEach((icon, index) => {
     }
   });
 });
+
+// Starring features:
+document.getElementById('star-button').addEventListener('click', async () => {
+  // Redirect user to GitHub for authentication
+  window.location.href =
+    'https://portfolio-backend-pi-three.vercel.app/api/auth/login';
+});
+
+// After GitHub login, extract the code and star the repo
+async function starRepo() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const code = urlParams.get('code');
+
+  if (code) {
+    // Exchange code for access token
+    const tokenResponse = await fetch(
+      `https://portfolio-backend-pi-three.vercel.app/api/auth/callback?code=${code}`
+    );
+    const { token } = await tokenResponse.json();
+
+    if (token) {
+      // Star the repo
+      const starResponse = await fetch(
+        'https://portfolio-backend-pi-three.vercel.app/api/star',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            accessToken: token,
+            repo: 'Passion-Over-Pain/Portfolio-Backend'
+          })
+        }
+      );
+
+      const starData = await starResponse.json();
+
+      if (starData.success) {
+        alert('Successfully starred the repo!');
+      } else {
+        alert('Failed to star the repo.');
+      }
+    }
+  }
+}
