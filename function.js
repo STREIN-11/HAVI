@@ -472,19 +472,13 @@ function starRepository(repoName) {
   const repoOwner = 'Passion-Over-Pain';
   const backendUrl =
     'https://portfolio-backend-pi-three.vercel.app/api/auth/login';
-
-  // Redirect to the backend login endpoint with repoOwner and repoName as query parameters
   window.location.href = `${backendUrl}?repoOwner=${encodeURIComponent(
     repoOwner
   )}&repoName=${encodeURIComponent(repoName)}`;
 }
-
-// After GitHub login, extract the code and star the repo
 async function starRepo() {
   const urlParams = new URLSearchParams(window.location.search);
   const code = urlParams.get('code');
-
-  // Extract repoOwner and repoName from query params after GitHub redirects back
   const repoOwner = urlParams.get('repoOwner');
   const repoName = urlParams.get('repoName');
 
