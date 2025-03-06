@@ -223,9 +223,8 @@ html {
   gap: 20px;
   padding: 20px;
   height: fit-content;
-
 }
-.social-posts-container a{
+.social-posts-container a {
   text-decoration: none;
 }
 
@@ -239,7 +238,7 @@ html {
   transition: transform 0.3s ease-in-out;
   color: #555;
 }
-.social-post a{
+.social-post a {
   text-decoration: none;
 }
 
@@ -371,9 +370,7 @@ html {
     0 0 50px var(--brightGreen);
 }
 .menu.active li {
-  transform: rotate(
-    calc(360deg / 8 * var(--i))
-  ); 
+  transform: rotate(calc(360deg / 8 * var(--i)));
 }
 .menu li a::after {
   content: '';
@@ -536,11 +533,11 @@ h1 span {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 600px; 
+  max-width: 600px;
 }
 .illustration {
   width: 100%;
-  max-width: 500px; 
+  max-width: 500px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -639,8 +636,6 @@ h1 span {
   transform: translateY(-5px);
 }
 
-
-
 .skill-card h3 {
   color: #222;
   font-size: 1.5rem;
@@ -663,15 +658,10 @@ h1 span {
   }
 }
 
-
-
 .bounce {
   animation: bounce 2s infinite ease-in-out;
   animation-delay: var(--delay, 0s);
 }
-
-
-
 
 @keyframes bounce {
   0%,
@@ -2312,8 +2302,7 @@ body {
     width: 12vw;
     float: none;
   }
-  
-  
+
   .Socials {
     height: 300vh;
   }
@@ -2328,7 +2317,6 @@ body {
   * {
     --fontSize: 1rem;
   }
-
 
   .socialIconsCon {
     display: grid;

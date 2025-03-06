@@ -468,14 +468,16 @@ gsap.utils.toArray(socialIcons).forEach((icon, index) => {
 });
 
 // Starring features:
-document.getElementById('star-button').addEventListener('click', async () => {
-  // Define the repository details dynamically or statically
-  const repoOwner = 'Passion-Over-Pain'; // Can be dynamically set based on user selection
-  const repoName = 'Portfolio-Backend'; // Can be dynamically set based on user selection
+function starRepository(repoName) {
+  const repoOwner = 'Passion-Over-Pain';
+  const backendUrl =
+    'https://portfolio-backend-pi-three.vercel.app/api/auth/login';
 
-  // Redirect user to GitHub for authentication with repo details in the query params
-  window.location.href = `https://portfolio-backend-pi-three.vercel.app/api/auth/login?repoOwner=${repoOwner}&repoName=${repoName}`;
-});
+  // Redirect to the backend login endpoint with repoOwner and repoName as query parameters
+  window.location.href = `${backendUrl}?repoOwner=${encodeURIComponent(
+    repoOwner
+  )}&repoName=${encodeURIComponent(repoName)}`;
+}
 
 // After GitHub login, extract the code and star the repo
 async function starRepo() {
