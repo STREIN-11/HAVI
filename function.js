@@ -207,7 +207,7 @@ function checkQuests() {
     }
   });
   if (complete && !shown) {
-    showPopUp(3); // Assuming this function shows a pop-up when all quests are completed
+    showPopUp(3);
     shown = true;
   }
 }
@@ -305,7 +305,6 @@ function stopCountingTime() {
 }
 
 // Botpress Logic
-// Toggle the webchat visibility
 
 let musicPlayer = document.getElementById('myMusic');
 
