@@ -417,10 +417,6 @@ html {
 .social-Icon:hover::after {
   inset: -10px;
 }
-.social-Icon a i,
-.social-Icon a span {
-  filter: drop-shadow(0 0 20px var(--brightGreen));
-}
 .social-Icon::after {
   content: '';
   position: absolute;
