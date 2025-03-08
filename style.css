@@ -222,6 +222,55 @@ html {
 .myName {
   color: white;
 }
+/* Tooltip Styling */
+.tooltip {
+  font-family: var(--secondaryFont);
+  position: absolute;
+  top: -35px; /* Position above icon */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px;
+  font-size: calc(var(--fontSize) - 0.8rem);
+  color: white;
+  background: var(--black);
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Tooltips only appear when toggle is active */
+.tooltips-visible .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px);
+}
+/* Tooltip Toggle Button */
+#tooltipToggle {
+  position: absolute;
+  top: -40px; /* Position above the menu */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 102;
+}
+
+/* Show the toggle button only when the menu is active */
+.menu.active #tooltipToggle {
+  opacity: 1;
+  visibility: visible;
+}
+
+#tooltipToggle:hover {
+  transform: translateX(-50%) scale(1.1);
+}
+
 .menu {
   margin: 0;
   position: fixed;
@@ -2348,7 +2397,7 @@ body {
     bottom: 0vh;
   }
   .menu li {
-    transform-origin: 125px;
+    transform-origin: 145px;
   }
   .menu.active .menuToggle {
     left: 500%;
@@ -2365,7 +2414,11 @@ body {
   .menu li a::after {
     display: none;
   }
-
+  .tooltip {
+    top: -25px;
+    left: 50%;
+    font-size: calc(var(--fontSize) - 0.4rem);
+  }
   .row img {
     width: 35vw;
     border-radius: 50%;
@@ -2458,6 +2511,11 @@ body {
   .menu {
     left: 85vw;
     top: -10vh;
+  }
+  .tooltip {
+    top: -25px;
+    left: 50%;
+    font-size: calc(var(--fontSize) - 0.2rem);
   }
 
   .AboutMe .row {

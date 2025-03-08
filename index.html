@@ -496,53 +496,59 @@
           <div class="menuToggle" onclick="openNavMenu()">
             <ion-icon name="add-outline" id="menuOpener"></ion-icon>
           </div>
+          <img
+            src="Images/Icons/inspect.svg"
+            id="tooltipToggle"
+            alt="Toggle tooltips" />
+
           <li style="--i: 0">
             <a href="#">
-              <ion-icon name="home-outline" title="Home"></ion-icon>
+              <ion-icon name="home-outline"></ion-icon>
+              <span class="tooltip">Home</span>
             </a>
           </li>
           <li style="--i: 1">
             <a href="#AboutSection">
-              <ion-icon name="person-outline" title="About Me"></ion-icon>
+              <ion-icon name="person-outline"></ion-icon>
+              <span class="tooltip">About Me</span>
             </a>
           </li>
           <li style="--i: 2">
             <a href="#ProjectsSection">
-              <ion-icon name="desktop-outline" title="Projects"></ion-icon>
+              <ion-icon name="desktop-outline"></ion-icon>
+              <span class="tooltip">Projects</span>
             </a>
           </li>
           <li style="--i: 3">
             <a href="#SkillsSection">
-              <ion-icon class="fa-solid fa-award" title="Skills"></ion-icon>
+              <ion-icon class="fa-solid fa-award"></ion-icon>
+              <span class="tooltip">Skills</span>
             </a>
           </li>
           <li style="--i: 4">
             <a id="Anime">
-              <ion-icon
-                name="accessibility-sharp"
-                title="Toggle Animations"></ion-icon>
+              <ion-icon name="accessibility-sharp"></ion-icon>
+              <span class="tooltip">Toggle Animations</span>
             </a>
           </li>
           <li style="--i: 5" onclick="toggleCheckList()">
             <a>
-              <ion-icon
-                class="fa-solid fa-list-check"
-                title="Checklist"></ion-icon>
+              <ion-icon class="fa-solid fa-list-check"></ion-icon>
+              <span class="tooltip">Checklist</span>
             </a>
           </li>
           <li style="--i: 6" onclick="showToS()">
             <a>
-              <ion-icon
-                name="shield-checkmark-sharp"
-                title="My Terms of Service"></ion-icon>
+              <ion-icon name="shield-checkmark-sharp"></ion-icon>
+              <span class="tooltip">My Terms of Service</span>
             </a>
           </li>
           <li style="--i: 7">
             <a>
               <ion-icon
                 name="download-outline"
-                title="Download My CV"
                 onclick="downloadCV()"></ion-icon>
+              <span class="tooltip">Download My CV</span>
             </a>
           </li>
         </ul>

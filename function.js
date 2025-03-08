@@ -504,3 +504,8 @@ async function starRepo() {
     alert('Authorization code is missing.');
   }
 }
+
+// Tooltip toggle function
+document.getElementById('tooltipToggle').addEventListener('click', function () {
+  document.querySelector('.menu').classList.toggle('tooltips-visible');
+});
