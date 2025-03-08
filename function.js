@@ -5,9 +5,12 @@ let menu = document.querySelector('.menu');
 let shown = false;
 menuToggle.onclick = function () {
   menu.classList.toggle('active');
+  if (!menu.classList.contains('active')) {
+    menu.classList.toggle('tooltips-visible');
+  }
 };
-var viewpoints = document.getElementsByClassName('Viewpoint');
-var views = document.getElementsByClassName('View');
+let viewpoints = document.getElementsByClassName('Viewpoint');
+let views = document.getElementsByClassName('View');
 function show(viewObj) {
   for (viewpoint of viewpoints) {
     viewpoint.classList.remove('Activepoint');
@@ -100,7 +103,7 @@ window.addEventListener('load', function (load) {
   this.setTimeout(function () {
     loader.style.display = 'none';
     unlockScreen();
-    showNotification('Welcome esteemed guest...', 1);
+    showNotification(`Hey ! I'm Passion...`, 1);
     shownWelcome = true;
     sendMessageToBot('isWebsite');
     loadQuestStatus();
@@ -235,7 +238,7 @@ function showPopUp(message) {
     case 3:
       {
         cardTitle.textContent = 'Portfolio Projects';
-        cardDescription.textContent = `This is where Tino’s expertise truly shines! Each project here marks a significant milestone in his journey, showcasing his most advanced work to date. By clicking the "Source Code" button, you’ll be directed to the GitHub repository, where you can explore a detailed case study covering the project’s objectives, challenges, and key insights. The "Live Site" button lets you experience the project firsthand, but if it’s unavailable, simply download it to run locally. While some projects remain under wraps for now, Tino is eagerly preparing to release them soon — consider this a sneak peek of what's to come!`;
+        cardDescription.textContent = `By clicking the <Code> button, you’ll be directed to the GitHub repository, where you can explore a detailed case study covering the project’s objectives, challenges, and key insights. The <Site> button lets you experience the project firsthand, but if it’s unavailable, simply download it to run locally. While some projects are hidden for now, Tino is eagerly preparing to release them soon — consider this a sneak peek of what's to come!`;
         cardImage.src = 'Images/Icons/website.svg';
       }
       break;

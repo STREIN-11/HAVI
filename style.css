@@ -239,7 +239,6 @@ html {
   transition: opacity 0.3s ease, transform 0.3s ease;
   white-space: nowrap;
 }
-
 /* Tooltips only appear when toggle is active */
 .tooltips-visible .tooltip {
   opacity: 1;
