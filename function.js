@@ -6,7 +6,7 @@ let shown = false;
 menuToggle.onclick = function () {
   menu.classList.toggle('active');
   if (!menu.classList.contains('active')) {
-    menu.classList.toggle('tooltips-visible');
+    menu.classList.remove('tooltips-visible');
   }
 };
 let viewpoints = document.getElementsByClassName('Viewpoint');

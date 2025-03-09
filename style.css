@@ -239,16 +239,16 @@ html {
   transition: opacity 0.3s ease, transform 0.3s ease;
   white-space: nowrap;
 }
-/* Tooltips only appear when toggle is active */
+
 .tooltips-visible .tooltip {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(-5px);
 }
-/* Tooltip Toggle Button */
+
 #tooltipToggle {
   position: absolute;
-  top: -40px; /* Position above the menu */
+  top: -40px;
   left: 50%;
   transform: translateX(-50%);
   width: 60px;
@@ -260,7 +260,6 @@ html {
   z-index: 102;
 }
 
-/* Show the toggle button only when the menu is active */
 .menu.active #tooltipToggle {
   opacity: 1;
   visibility: visible;
