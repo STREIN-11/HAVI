@@ -469,46 +469,29 @@ gsap.utils.toArray(socialIcons).forEach((icon, index) => {
   });
 });
 
-// Starring features:
-function starRepository(repoName) {
+function authenticateGitHub(intent, repoName = null) {
+  //Intents specify the action the user wants to undertake
   const repoOwner = 'Passion-Over-Pain';
   const backendUrl =
     'https://portfolio-backend-pi-three.vercel.app/api/auth/login';
-  window.location.href = `${backendUrl}?repoOwner=${encodeURIComponent(
-    repoOwner
-  )}&repoName=${encodeURIComponent(repoName)}`;
-}
-async function starRepo() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const code = urlParams.get('code');
-  const repoOwner = urlParams.get('repoOwner');
-  const repoName = urlParams.get('repoName');
 
-  if (!repoOwner || !repoName) {
-    alert('Repository details (repoOwner or repoName) are missing.');
-    return;
+  let url = `${backendUrl}?intent=${encodeURIComponent(intent)}`;
+
+  if (repoName) {
+    url += `&repoOwner=${encodeURIComponent(
+      repoOwner
+    )}&repoName=${encodeURIComponent(repoName)}`;
   }
 
-  if (code) {
-    // Step 1: Pass the code, repoOwner, and repoName to the callback API
-    const tokenResponse = await fetch(
-      `https://portfolio-backend-pi-three.vercel.app/api/auth/callback?code=${code}&repoOwner=${repoOwner}&repoName=${repoName}`
-    );
-
-    const { access_token } = await tokenResponse.json(); // Get the access token from the response
-
-    if (access_token) {
-      // Step 2: Show success message after the backend stars the repo
-      alert('Successfully starred the repo!');
-    } else {
-      alert('Failed to retrieve access token or star the repo.');
-    }
-  } else {
-    alert('Authorization code is missing.');
-  }
+  window.location.href = url;
 }
 
-// Tooltip toggle function
-document.getElementById('tooltipToggle').addEventListener('click', function () {
-  document.querySelector('.menu').classList.toggle('tooltips-visible');
-});
+// Call this for starring
+function starRepository(repoName) {
+  authenticateGitHub('star', repoName);
+}
+
+// Call this for following
+function followUser() {
+  authenticateGitHub('follow');
+}
