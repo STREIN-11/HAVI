@@ -115,7 +115,6 @@ window.addEventListener('load', function (load) {
   }, 500);
 });
 function followedGitHub() {
-  showNotification(`Thanks for following...`, 4);
   document.getElementById('GitHubTask').checked = true;
   updateQuestStatus('GitHubTask', true);
   checkQuests();
