@@ -97,14 +97,24 @@ let loader = document.getElementById('preloader');
 window.addEventListener('load', function (load) {
   // Lazy Loading :) //
   this.window.removeEventListener('load', load, false);
-  if (window.location.hash === '#tos') {
-    showToS();
-  } else if (window.location.hash === '#follow') {
-    showNotification(`Thanks for following...`, 4);
-    followedGitHub();
-  } else if (window.location.hash === '#star') {
-    showNotification(`Thanks for starring...`, 5);
+  switch (window.location.hash) {
+    case '#tos':
+      showToS();
+      break;
+    case '#follow':
+      showNotification(`Thanks for following...`, 4);
+      followedGitHub();
+      break;
+    case '#star':
+      showNotification(`Thanks for starring...`, 5);
+      break;
   }
+  history.replaceState(
+    null,
+    null,
+    window.location.pathname + window.location.search
+  );
+
   this.setTimeout(function () {
     loader.style.display = 'none';
     unlockScreen();
@@ -250,15 +260,15 @@ function showPopUp(message) {
     case 4:
       {
         cardTitle.textContent = 'GitHub Follow';
-        cardDescription.textContent = `Thanks for following :).`;
-        cardImage.src = 'Images/Icons/website.svg';
+        cardDescription.textContent = `Thanks for following! Stay tuned for exciting updates and new features coming your way.`;
+        cardImage.src = 'Images/Icons/follow.svg';
       }
       break;
     case 5:
       {
         cardTitle.textContent = 'GitHub Star';
-        cardDescription.textContent = `Thanks for starring :).`;
-        cardImage.src = 'Images/Icons/website.svg';
+        cardDescription.textContent = `You're an absolute star! ⭐Get it? because you starred a repo?... listen: blame Tino — he forgot to delete his bad jokes from my database. Anyway, thanks for the support😊! .`;
+        cardImage.src = 'Images/Icons/star.svg';
       }
       break;
     case 7:
