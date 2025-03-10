@@ -99,16 +99,26 @@ window.addEventListener('load', function (load) {
   this.window.removeEventListener('load', load, false);
   if (window.location.hash === '#tos') {
     showToS();
+  } else if (window.location.hash === '#follow') {
+    showNotification(`Thanks for following...`, 4);
+  } else if (window.location.hash === '#star') {
+    showNotification(`Thanks for starring...`, 5);
   }
   this.setTimeout(function () {
     loader.style.display = 'none';
     unlockScreen();
-    showNotification(`Hey ! I'm Passion...`, 1);
+    // showNotification(`Hey ! I'm Passion...`, 1);
     shownWelcome = true;
     sendMessageToBot('isWebsite');
     loadQuestStatus();
   }, 500);
 });
+function followedGitHub() {
+  showNotification(`Thanks for following...`, 4);
+  document.getElementById('GitHubTask').checked = true;
+  updateQuestStatus('GitHubTask', true);
+  checkQuests();
+}
 
 function downloadCV() {
   downloadFile('Documents/TinotendaMhedzisoCV.pdf', 'TinotendaMhedzisoCV.pdf');
@@ -125,10 +135,7 @@ function downloadFile(fileUrl, fileName) {
   document.body.removeChild(link);
 }
 function openGitHub() {
-  document.getElementById('GitHubTask').checked = true;
   navigateToSite('https://github.com/Passion-Over-Pain');
-  updateQuestStatus('GitHubTask', true);
-  checkQuests();
 }
 
 function openEmail() {
@@ -141,9 +148,7 @@ function openLinkedIn() {
   navigateToSite('https://www.linkedin.com/in/tinotenda-mhedziso/');
 }
 function openProjects() {
-  document.getElementById('GitHubTask').checked = true;
   navigateToSite(`https://github.com/Passion-Over-Pain?tab=repositories`);
-  checkQuests();
 }
 function navigateToSite(fileUrl) {
   const link = document.createElement('a');
@@ -243,6 +248,20 @@ function showPopUp(message) {
       }
       break;
     case 4:
+      {
+        cardTitle.textContent = 'GitHub Follow';
+        cardDescription.textContent = `Thanks for following :).`;
+        cardImage.src = 'Images/Icons/website.svg';
+      }
+      break;
+    case 5:
+      {
+        cardTitle.textContent = 'GitHub Star';
+        cardDescription.textContent = `Thanks for starring :).`;
+        cardImage.src = 'Images/Icons/website.svg';
+      }
+      break;
+    case 7:
       {
         cardTitle.textContent = 'Quests Complete !';
         cardDescription.textContent = `Yayyy, You completed all the quests and for that I now promote you from internet guest to a friend of ours.`;
