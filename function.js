@@ -101,6 +101,7 @@ window.addEventListener('load', function (load) {
     showToS();
   } else if (window.location.hash === '#follow') {
     showNotification(`Thanks for following...`, 4);
+    followedGitHub();
   } else if (window.location.hash === '#star') {
     showNotification(`Thanks for starring...`, 5);
   }
