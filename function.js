@@ -498,6 +498,10 @@ gsap.utils.toArray(socialIcons).forEach((icon, index) => {
   });
 });
 
+document.getElementById('tooltipToggle').addEventListener('click', function () {
+  document.querySelector('.menu').classList.toggle('tooltips-visible');
+});
+
 function authenticateGitHub(intent, repoName = null) {
   //Intents specify the action the user wants to undertake
   const repoOwner = 'Passion-Over-Pain';
