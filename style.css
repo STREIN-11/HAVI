@@ -2650,40 +2650,52 @@ body {
 
 /* Volume Control */
 .music-volume {
-  position: relative;
+  position: absolute;
+  bottom: 40px; /* Move it above the controls */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
   opacity: 0;
-  transition: 0.2s;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.music-volume_button:hover + .music-volume,
+.music-volume:hover {
+  opacity: 1;
 }
 
 .music-volume .slider {
   height: 4px;
   background-color: #5e5e5e;
-  width: 80%;
+  width: 80px;
   border-radius: 2px;
-  margin: 8px auto 0 auto;
+  position: relative;
 }
 
 .music-volume .slider .green {
-  position: relative;
-  background-color: var(--darkGreen);
+  position: absolute;
+  background-color: var(--brightGreen);
   height: 100%;
-  width: 80%;
+  width: 50%;
   border-radius: 3px;
 }
 
 .music-volume .circle {
   background-color: white;
-  height: 6px;
-  width: 6px;
-  border-radius: 3px;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
   position: absolute;
-  right: 20%;
-  top: 60%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
 }
 
-.music-volume_button:hover ~ .music-volume {
-  opacity: 1;
-}
 .music-playing {
   display: flex;
   justify-content: center;

@@ -528,3 +528,145 @@ function starRepository(repoName) {
 function followUser() {
   authenticateGitHub('follow');
 }
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Music Functionality <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+let songs = [];
+let currentSongIndex = 0;
+const audioPlayer = document.getElementById('myMusic');
+const titleElement = document.querySelector('.title-1');
+const artistElement = document.querySelector('.title-2');
+const elapsedTimeElement = document.querySelector('.music-time_now');
+const fullTimeElement = document.querySelector('.music-time_full');
+const progressBar = document.querySelector('.music-elapsed');
+
+const playButton = document.querySelector(
+  ".music-controls img[src*='play.svg']"
+);
+const nextButton = document.querySelector(
+  ".music-controls img[src*='next.svg']"
+);
+const prevButton = document.querySelector(
+  ".music-controls img[src*='previous.svg']"
+);
+const closeButton = document.querySelector(
+  ".music-controls img[src*='close.svg']"
+);
+const volumeSlider = document.querySelector('.music-volume .slider');
+const volumeFill = document.querySelector('.music-volume .slider .green');
+const volumeCircle = document.querySelector('.music-volume .circle');
+
+// Set initial volume level
+audioPlayer.volume = 0.5;
+volumeFill.style.width = '50%';
+volumeCircle.style.left = '50%';
+
+// Adjust volume when clicking the slider
+volumeSlider.addEventListener('click', (event) => {
+  const rect = volumeSlider.getBoundingClientRect();
+  const offsetX = event.clientX - rect.left;
+  const newVolume = offsetX / rect.width;
+
+  audioPlayer.volume = newVolume;
+  volumeFill.style.width = `${newVolume * 100}%`;
+  volumeCircle.style.left = `${newVolume * 100}%`;
+});
+
+async function loadSongs() {
+  try {
+    const response = await fetch('songs.json');
+    songs = await response.json();
+    loadSong(0);
+  } catch (error) {
+    console.error('Error loading songs:', error);
+  }
+}
+
+function loadSong(index) {
+  if (index < 0 || index >= songs.length) return;
+  currentSongIndex = index;
+  const song = songs[currentSongIndex];
+
+  audioPlayer.src = song.src;
+  titleElement.textContent = song.title;
+  artistElement.textContent = song.artist;
+
+  progressBar.style.width = '0%';
+  elapsedTimeElement.textContent = '0:00';
+
+  audioPlayer.addEventListener('loadedmetadata', () => {
+    fullTimeElement.textContent = formatTime(audioPlayer.duration);
+  });
+}
+
+function togglePlay() {
+  if (audioPlayer.paused) {
+    playMusic();
+  } else {
+    pauseMusic();
+  }
+}
+
+function playMusic() {
+  audioPlayer.play();
+  playButton.src = 'Images/Icons/pause.svg';
+}
+
+function pauseMusic() {
+  audioPlayer.pause();
+  playButton.src = 'Images/Icons/play.svg';
+}
+
+function nextSong() {
+  currentSongIndex = (currentSongIndex + 1) % songs.length;
+  loadSong(currentSongIndex);
+}
+
+function prevSong() {
+  currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+  loadSong(currentSongIndex);
+}
+
+audioPlayer.addEventListener('timeupdate', () => {
+  const currentTime = audioPlayer.currentTime;
+  const duration = audioPlayer.duration;
+
+  elapsedTimeElement.textContent = formatTime(currentTime);
+
+  if (duration) {
+    const progressPercent = (currentTime / duration) * 100;
+    progressBar.style.width = `${progressPercent}%`;
+  }
+});
+
+document.querySelector('.music-time').addEventListener('click', (event) => {
+  const progressBarWidth = event.currentTarget.offsetWidth;
+  const clickX = event.offsetX;
+  const duration = audioPlayer.duration;
+
+  if (duration) {
+    audioPlayer.currentTime = (clickX / progressBarWidth) * duration;
+  }
+});
+
+volumeSlider.addEventListener('click', (event) => {
+  const volume = event.offsetX / volumeSlider.offsetWidth;
+  audioPlayer.volume = volume;
+  volumeSlider.style.width = `${volume * 100}%`;
+});
+
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+closeButton.addEventListener('click', () => {
+  audioPlayer.pause();
+  document.querySelector('.music-card').style.display = 'none';
+});
+
+playButton.addEventListener('click', togglePlay);
+nextButton.addEventListener('click', nextSong);
+prevButton.addEventListener('click', prevSong);
+
+loadSongs();
