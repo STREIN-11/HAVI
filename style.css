@@ -2648,10 +2648,9 @@ body {
   transform: scale(1.1);
 }
 
-/* Volume Control */
 .music-volume {
   position: absolute;
-  bottom: 40px; /* Move it above the controls */
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.8);
@@ -2664,36 +2663,8 @@ body {
   transition: opacity 0.2s ease-in-out;
 }
 
-.music-volume_button:hover + .music-volume,
-.music-volume:hover {
+.music-volume_button:hover {
   opacity: 1;
-}
-
-.music-volume .slider {
-  height: 4px;
-  background-color: #5e5e5e;
-  width: 80px;
-  border-radius: 2px;
-  position: relative;
-}
-
-.music-volume .slider .green {
-  position: absolute;
-  background-color: var(--brightGreen);
-  height: 100%;
-  width: 50%;
-  border-radius: 3px;
-}
-
-.music-volume .circle {
-  background-color: white;
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 50%;
 }
 
 .music-playing {

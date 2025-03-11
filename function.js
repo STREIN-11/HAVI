@@ -538,7 +538,7 @@ const artistElement = document.querySelector('.title-2');
 const elapsedTimeElement = document.querySelector('.music-time_now');
 const fullTimeElement = document.querySelector('.music-time_full');
 const progressBar = document.querySelector('.music-elapsed');
-
+const volumeSlider = document.querySelector('.music-volume .slider .green');
 const playButton = document.querySelector(
   ".music-controls img[src*='play.svg']"
 );
@@ -551,24 +551,19 @@ const prevButton = document.querySelector(
 const closeButton = document.querySelector(
   ".music-controls img[src*='close.svg']"
 );
-const volumeSlider = document.querySelector('.music-volume .slider');
-const volumeFill = document.querySelector('.music-volume .slider .green');
-const volumeCircle = document.querySelector('.music-volume .circle');
 
-// Set initial volume level
-audioPlayer.volume = 0.5;
-volumeFill.style.width = '50%';
-volumeCircle.style.left = '50%';
+const volumeButton = document.querySelector('.music-volume_button');
 
-// Adjust volume when clicking the slider
-volumeSlider.addEventListener('click', (event) => {
-  const rect = volumeSlider.getBoundingClientRect();
-  const offsetX = event.clientX - rect.left;
-  const newVolume = offsetX / rect.width;
+let isMuted = false;
 
-  audioPlayer.volume = newVolume;
-  volumeFill.style.width = `${newVolume * 100}%`;
-  volumeCircle.style.left = `${newVolume * 100}%`;
+// Toggle mute/unmute
+volumeButton.addEventListener('click', () => {
+  isMuted = !isMuted;
+  audioPlayer.muted = isMuted;
+
+  volumeButton.src = isMuted
+    ? 'Images/Icons/mute.svg'
+    : 'Images/Icons/volume.svg';
 });
 
 async function loadSongs() {
