@@ -340,10 +340,6 @@ function stopCountingTime() {
 
 let musicPlayer = document.getElementById('myMusic');
 
-function playMusic() {
-  musicPlayer.play();
-  notyf.success('Music has been enabled.');
-}
 window.addEventListener('message', (event) => {
   if (event.data.action === 'playMusic') {
     playMusic();
@@ -593,11 +589,20 @@ function loadSong(index) {
   });
 }
 
+function toggleMusicAnimation(pause) {
+  const elements = document.querySelectorAll('.music-greenline');
+  elements.forEach((el) => {
+    el.style.animationPlayState = pause ? 'paused' : 'running';
+  });
+}
+
 function togglePlay() {
   if (audioPlayer.paused) {
     playMusic();
+    toggleMusicAnimation(false);
   } else {
     pauseMusic();
+    toggleMusicAnimation(true);
   }
 }
 
