@@ -491,7 +491,7 @@
           </button>
         </div>
         <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.. Music Player <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
-        <div class="music-card">
+        <div class="music-card" id="musicCard">
           <div class="music-top">
             <div class="music-pfp">
               <div class="music-playing">
@@ -503,7 +503,7 @@
               </div>
             </div>
             <div class="music-texts">
-              <p class="title-1">Music title here</p>
+              <p class="title-1" onclick="playMusic()">Music title here</p>
               <p class="title-2">Music Artist here</p>
             </div>
           </div>
@@ -531,7 +531,18 @@
             <img src="Images/Icons/next.svg" alt="Next" class="music-icon" />
 
             <div class="music-air"></div>
-            <img src="Images/Icons/close.svg" alt="Close" class="music-icon" />
+
+            <img
+              src="Images/Icons/visualizer.svg"
+              alt="Toggle Visualizer"
+              class="music-icon visualizer-toggle"
+              onclick="toggleVisualizer()" />
+
+            <img
+              src="Images/Icons/close.svg"
+              alt="Close"
+              class="music-icon"
+              onclick="hideMusicCard()" />
           </div>
 
           <div class="music-time">
@@ -541,6 +552,12 @@
           <p class="music-timetext music-time_now">1:31</p>
           <p class="music-timetext music-time_full">3:46</p>
         </div>
+        <button id="musicToggle" class="music-toggle" onclick="showMusicCard()">
+          <img
+            src="Images/Icons/music.svg"
+            alt="Music Toggle"
+            id="musicToggleIcon" />
+        </button>
       </div>
       <nav>
         <ul class="menu">
@@ -1166,58 +1183,96 @@
           <h3 class="subTitle bounce section-title">My Socials</h3>
         </div>
         <div class="social-posts-container">
-          <a href="https://www.linkedin.com/posts/tinotenda-mhedziso_studentdevelopers-nmustudents-nmucomputersociety-activity-7233195999819649024-cC6M?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEWDhyYB0fsz2ir802fc1jcJgodtwAgEVmE" target="_blank">
+          <a
+            href="https://www.linkedin.com/posts/tinotenda-mhedziso_studentdevelopers-nmustudents-nmucomputersociety-activity-7233195999819649024-cC6M?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEWDhyYB0fsz2ir802fc1jcJgodtwAgEVmE"
+            target="_blank">
             <div class="social-post">
-              <img src="Images/Posts/VCclass.webp" alt="Post Preview" class="social-post-image" />
+              <img
+                src="Images/Posts/VCclass.webp"
+                alt="Post Preview"
+                class="social-post-image" />
               <div class="social-post-header">
-                <img src="Images/Me.webp" alt="Profile Picture" class="social-profile-pic" />
+                <img
+                  src="Images/Me.webp"
+                  alt="Profile Picture"
+                  class="social-profile-pic" />
                 <div class="social-post-info">
                   <h2>Version Control</h2>
                   <p class="social-post-meta">LinkedIn • 2 min read</p>
                 </div>
-                <img src="Images/Icons/linkedin-dark.svg" alt="LinkedIn Icon" class="social-platform-icon" />
+                <img
+                  src="Images/Icons/linkedin-dark.svg"
+                  alt="LinkedIn Icon"
+                  class="social-platform-icon" />
               </div>
               <p class="social-post-preview">
-                Finally... I got the opportunity to bring more people into open-source projects through Git and GitHub😌. Something that seems daunting at first but...
+                Finally... I got the opportunity to bring more people into
+                open-source projects through Git and GitHub😌. Something that
+                seems daunting at first but...
               </p>
             </div>
           </a>
-        
-          <a href="https://dev.to/passionoverpain/debugging-adventure-day-1-what-to-do-when-your-code-doesnt-work-2ji2" target="_blank">
+
+          <a
+            href="https://dev.to/passionoverpain/debugging-adventure-day-1-what-to-do-when-your-code-doesnt-work-2ji2"
+            target="_blank">
             <div class="social-post">
-              <img src="Images/Posts/Debugging Adventure.webp" alt="Post Preview" class="social-post-image" />
+              <img
+                src="Images/Posts/Debugging Adventure.webp"
+                alt="Post Preview"
+                class="social-post-image" />
               <div class="social-post-header">
-                <img src="Images/Me.webp" alt="Profile Picture" class="social-profile-pic" />
+                <img
+                  src="Images/Me.webp"
+                  alt="Profile Picture"
+                  class="social-profile-pic" />
                 <div class="social-post-info">
                   <h2>Debugging Adventure</h2>
                   <p class="social-post-meta">Dev.to • 3 min read</p>
                 </div>
-                <img src="Images/Icons/dev-dark.svg" alt="Dev.to Icon" class="social-platform-icon" />
+                <img
+                  src="Images/Icons/dev-dark.svg"
+                  alt="Dev.to Icon"
+                  class="social-platform-icon" />
               </div>
               <p class="social-post-preview">
-                During your coding quest, you encounter a formidable enemy — an unexpected bug in your project that brings everything to a halt...
+                During your coding quest, you encounter a formidable enemy — an
+                unexpected bug in your project that brings everything to a
+                halt...
               </p>
             </div>
           </a>
-        
-          <a href="https://dev.to/passionoverpain/unlocking-the-secret-gem-inside-a-centered-div-4d9j" target="_blank">
+
+          <a
+            href="https://dev.to/passionoverpain/unlocking-the-secret-gem-inside-a-centered-div-4d9j"
+            target="_blank">
             <div class="social-post">
-              <img src="Images/Posts/CSS Styling.webp" alt="Post Preview" class="social-post-image" />
+              <img
+                src="Images/Posts/CSS Styling.webp"
+                alt="Post Preview"
+                class="social-post-image" />
               <div class="social-post-header">
-                <img src="Images/Me.webp" alt="Profile Picture" class="social-profile-pic" />
+                <img
+                  src="Images/Me.webp"
+                  alt="Profile Picture"
+                  class="social-profile-pic" />
                 <div class="social-post-info">
                   <h2>CSS Styles</h2>
                   <p class="social-post-meta">Dev.to • 4 min read</p>
                 </div>
-                <img src="Images/Icons/dev-dark.svg" alt="Dev.to Icon" class="social-platform-icon" />
+                <img
+                  src="Images/Icons/dev-dark.svg"
+                  alt="Dev.to Icon"
+                  class="social-platform-icon" />
               </div>
               <p class="social-post-preview">
-                If you’re just starting out on your web development journey, you’ve probably realized how frustrating CSS can be when you don’t fully understand...
+                If you’re just starting out on your web development journey,
+                you’ve probably realized how frustrating CSS can be when you
+                don’t fully understand...
               </p>
             </div>
           </a>
         </div>
-        
 
         <ul class="socialIconsCon">
           <li class="social-Icon">
@@ -1409,6 +1464,10 @@
       </div>
     </footer>
 
+    <script type="text/javascript" src="p5.min.js"></script>
+
+    <script type="text/javascript" src="p5.sound.min.js"></script>
+
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -1427,11 +1486,5 @@
       integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"></script>
-    <script>
-      VanillaTilt.init(document.querySelector('.profile-box'), {
-        max: 15,
-        speed: 400
-      });
-    </script>
   </body>
 </html>

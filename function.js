@@ -205,7 +205,6 @@ function loadQuestStatus() {
   document.getElementById('GitHubTask').checked =
     questsStatus.GitHubTask || false;
 
-  // Enable the checkboxes once the status is loaded
   document.querySelectorAll('#checklist input').forEach((checkbox) => {
     checkbox.disabled = false; // Enable checkboxes after loading status
   });
@@ -336,12 +335,13 @@ function stopCountingTime() {
   timeElapsed = 0;
 }
 
-// Botpress Logic
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>/ Botpress Logic<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 let musicPlayer = document.getElementById('myMusic');
 
 window.addEventListener('message', (event) => {
   if (event.data.action === 'playMusic') {
+    showMusicCard();
     playMusic();
   } else if (event.data.action === 'checkPassion') {
     document.getElementById('TalktoPassionTask').checked = true;
@@ -398,12 +398,12 @@ const notyf = new Notyf({
     },
     {
       type: 'error',
-      background: '#e60000', // Dark background
-      className: 'custom-error-notyf', // Custom class for extra styling
+      background: '#e60000',
+      className: 'custom-error-notyf',
       icon: {
         className: 'fas fa-exclamation-circle',
         tagName: 'i',
-        color: '#ff4c4c' // ChatGPT-like red accent
+        color: '#ff4c4c'
       }
     },
     {
@@ -418,24 +418,24 @@ const notyf = new Notyf({
   ]
 });
 
-// GSAP animation for programming languages (fade in from the bottom)
+// GSAP animations
 let programmingLanguages = document.querySelectorAll('.Programming .language');
 
 gsap.utils.toArray(programmingLanguages).forEach((item, index) => {
   gsap.from(item, {
-    opacity: 0, // Start invisible
-    y: 50, // Start 50px below the original position
-    duration: 1, // Animation duration
-    delay: index * 0.3, // Stagger delay for each item
-    ease: 'power2.out', // Ease effect for smoothness
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    delay: index * 0.3,
+    ease: 'power2.out',
     scrollTrigger: {
-      trigger: item, // Trigger the animation for each programming language item
-      start: 'top 95%', // Start animation when the top of the item reaches 95% of the viewport height
-      toggleActions: 'play none none none', // Play when in view, reverse when out of view
-      once: true // Animation triggers only once
+      trigger: item,
+      start: 'top 95%',
+      toggleActions: 'play none none none',
+      once: true
     },
     onComplete: () => {
-      item.classList.add('bounce'); // Add a CSS animation trigger class
+      item.classList.add('bounce');
     }
   });
 });
@@ -445,33 +445,33 @@ let projectItems = document.querySelectorAll('.project-item');
 gsap.utils.toArray(projectItems).forEach((item) => {
   gsap.from(item, {
     opacity: 0,
-    y: 50, // Start 50px lower
-    duration: 1, // Animation duration
-    stagger: 0.5, // Delay between each item's animation
-    ease: 'power2.out', // Smooth ease
+    y: 50,
+    duration: 1,
+    stagger: 0.5,
+    ease: 'power2.out',
     scrollTrigger: {
-      trigger: item, // The element itself
-      start: 'top 80%', // Trigger when the top of the item is 80% from the top of the viewport
+      trigger: item,
+      start: 'top 80%',
       toggleActions: 'play none none none',
-      once: true // Only trigger the animation once
+      once: true
     }
   });
 });
 
-let socialPosts = document.querySelectorAll('.social-post');
+let postLikeCards = document.querySelectorAll('.social-post,.skill-card');
 
-gsap.utils.toArray(socialPosts).forEach((post, index) => {
+gsap.utils.toArray(postLikeCards).forEach((post, index) => {
   gsap.from(post, {
-    opacity: 0, // Start invisible
-    y: 50, // Start 50px lower
-    duration: 1, // Animation duration
-    delay: index * 0.3, // Stagger delay for each post
-    ease: 'power2.out', // Ease effect for smoothness
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    delay: index * 0.3,
+    ease: 'power2.out',
     scrollTrigger: {
-      trigger: post, // Trigger the animation for each social post
-      start: 'top 80%', // Start animation when the top of the post reaches 80% of the viewport height
-      toggleActions: 'play none none none', // Play when in view, reverse when out of view
-      once: true // Animation triggers only once
+      trigger: post,
+      start: 'top 80%',
+      toggleActions: 'play none none none',
+      once: true
     }
   });
 });
@@ -480,16 +480,16 @@ let socialIcons = document.querySelectorAll('.social-Icon');
 
 gsap.utils.toArray(socialIcons).forEach((icon, index) => {
   gsap.from(icon, {
-    opacity: 0, // Start invisible
-    x: -50, // Start 50px to the left
-    duration: 1, // Animation duration
-    delay: index * 0.3, // Stagger delay for each icon
-    ease: 'power2.out', // Ease effect for smoothness
+    opacity: 0,
+    x: -50,
+    duration: 1,
+    delay: index * 0.3,
+    ease: 'power2.out',
     scrollTrigger: {
-      trigger: icon, // Trigger the animation for each social icon
-      start: 'top 80%', // Start animation when the top of the icon reaches 80% of the viewport height
-      toggleActions: 'play none none none', // Play when in view, reverse when out of view
-      once: true // Animation triggers only once
+      trigger: icon,
+      start: 'top 80%',
+      toggleActions: 'play none none none',
+      once: true
     }
   });
 });
@@ -525,10 +525,111 @@ function followUser() {
   authenticateGitHub('follow');
 }
 
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Music Vis <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+let fft;
+let song;
+let particles = [];
+let amp = 0;
+let playing = false;
+
+function preload() {
+  song = loadSound(`Audio/Music/Shogun's Shadow Trap.mp3`);
+}
+
+function setup() {
+  let cnv = createCanvas(windowWidth, windowHeight);
+  cnv.position(0, 0);
+  cnv.style('position', 'fixed');
+  cnv.style('top', '0');
+  cnv.style('left', '0');
+  cnv.style('z-index', '100'); // Above everything that I created but under the music-card
+  cnv.style('display', 'none');
+
+  angleMode(DEGREES);
+  rectMode(CENTER);
+
+  // Initialize FFT
+  fft = new p5.FFT();
+  fft.setInput(song);
+}
+
+function draw() {
+  background(10, 10, 10, 100);
+
+  stroke('#0f0');
+  strokeWeight(1.5);
+  noFill();
+
+  translate(width / 2, height / 2);
+
+  fft.analyze();
+  amp = fft.getEnergy(20, 200);
+  let wave = fft.waveform();
+
+  for (let t = -1; t <= 1; t += 2) {
+    beginShape();
+    for (let i = 0; i < width; i++) {
+      let index = floor(map(i, 0, width, 0, wave.length - 1));
+
+      let r = map(wave[index], -1, 1, 150, 350);
+      let x = r * sin(i) * t;
+      let y = r * cos(i);
+      vertex(x, y);
+    }
+    endShape();
+  }
+
+  let p = new Particle();
+  particles.push(p);
+  for (let i = particles.length - 1; i >= 0; --i) {
+    if (!particles[i].edges()) {
+      particles[i].update(amp > 230);
+      particles[i].show();
+    } else {
+      particles.splice(i, 1);
+    }
+  }
+}
+
+class Particle {
+  constructor() {
+    this.pos = p5.Vector.random2D().mult(250);
+    this.vel = createVector(0, 0);
+    this.acc = this.pos.copy().mult(random(0.0003));
+    this.w = random(3, 5);
+  }
+
+  update(cond) {
+    this.vel.add(this.acc);
+    this.pos.add(this.vel);
+
+    if (cond) {
+      this.pos.add(this.vel);
+      this.pos.add(this.vel);
+      this.pos.add(this.vel);
+    }
+  }
+
+  edges() {
+    return (
+      this.pos.x < -width / 2 ||
+      this.pos.x > width / 2 ||
+      this.pos.y < -height / 2 ||
+      this.pos.y > height / 2
+    );
+  }
+
+  show() {
+    noStroke();
+    fill('#0f0');
+    ellipse(this.pos.x, this.pos.y, this.w);
+  }
+}
+
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Music Functionality <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 let songs = [];
 let currentSongIndex = 0;
-const audioPlayer = document.getElementById('myMusic');
+let audioPlayer = document.getElementById('myMusic');
 const titleElement = document.querySelector('.title-1');
 const artistElement = document.querySelector('.title-2');
 const elapsedTimeElement = document.querySelector('.music-time_now');
@@ -547,7 +648,6 @@ const prevButton = document.querySelector(
 const closeButton = document.querySelector(
   ".music-controls img[src*='close.svg']"
 );
-
 const volumeButton = document.querySelector('.music-volume_button');
 
 let isMuted = false;
@@ -555,13 +655,13 @@ let isMuted = false;
 // Toggle mute/unmute
 volumeButton.addEventListener('click', () => {
   isMuted = !isMuted;
-  audioPlayer.muted = isMuted;
-
+  song.setVolume(isMuted ? 0 : 1);
   volumeButton.src = isMuted
     ? 'Images/Icons/mute.svg'
     : 'Images/Icons/volume.svg';
 });
 
+// Load Songs from JSON
 async function loadSongs() {
   try {
     const response = await fetch('songs.json');
@@ -572,86 +672,107 @@ async function loadSongs() {
   }
 }
 
+// Load a New Song (switching)
 function loadSong(index) {
   if (index < 0 || index >= songs.length) return;
   currentSongIndex = index;
-  const song = songs[currentSongIndex];
+  const localsong = songs[currentSongIndex];
 
-  audioPlayer.src = song.src;
-  titleElement.textContent = song.title;
-  artistElement.textContent = song.artist;
+  audioPlayer.src = localsong.src;
+  titleElement.textContent = localsong.title;
+  artistElement.textContent = localsong.artist;
 
   progressBar.style.width = '0%';
   elapsedTimeElement.textContent = '0:00';
 
-  audioPlayer.addEventListener('loadedmetadata', () => {
-    fullTimeElement.textContent = formatTime(audioPlayer.duration);
+  if (song) {
+    song.stop(); // Stop current song if playing
+  }
+
+  song = loadSound(localsong.src, () => {
+    fullTimeElement.textContent = formatTime(song.duration());
   });
+
+  playing = false;
+  playButton.src = 'Images/Icons/play.svg';
 }
 
+// Toggle Music Animation
 function toggleMusicAnimation(pause) {
-  const elements = document.querySelectorAll('.music-greenline');
-  elements.forEach((el) => {
+  document.querySelectorAll('.music-greenline').forEach((el) => {
     el.style.animationPlayState = pause ? 'paused' : 'running';
   });
 }
 
+// Toggle Play/Pause
 function togglePlay() {
-  if (audioPlayer.paused) {
+  if (!playing) {
     playMusic();
-    toggleMusicAnimation(false);
   } else {
     pauseMusic();
+  }
+}
+
+// Play Song
+function playMusic() {
+  if (song && !song.isPlaying()) {
+    song.play();
+    playing = true;
+    playButton.src = 'Images/Icons/pause.svg';
+    toggleMusicAnimation(false);
+  }
+}
+
+// Pause Song
+function pauseMusic() {
+  if (song && song.isPlaying()) {
+    song.pause();
+    playing = false;
+    playButton.src = 'Images/Icons/play.svg';
     toggleMusicAnimation(true);
   }
 }
 
-function playMusic() {
-  audioPlayer.play();
-  playButton.src = 'Images/Icons/pause.svg';
-}
-
-function pauseMusic() {
-  audioPlayer.pause();
-  playButton.src = 'Images/Icons/play.svg';
-}
-
+// Next Song
 function nextSong() {
   currentSongIndex = (currentSongIndex + 1) % songs.length;
   loadSong(currentSongIndex);
+  playMusic();
 }
 
+// Previous Song
 function prevSong() {
   currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
   loadSong(currentSongIndex);
+  playMusic();
 }
 
-audioPlayer.addEventListener('timeupdate', () => {
-  const currentTime = audioPlayer.currentTime;
-  const duration = audioPlayer.duration;
+// Progress Bar Updates
+function updateProgressBar() {
+  if (song && song.isPlaying()) {
+    const currentTime = song.currentTime();
+    const duration = song.duration();
 
-  elapsedTimeElement.textContent = formatTime(currentTime);
+    elapsedTimeElement.textContent = formatTime(currentTime);
 
-  if (duration) {
-    const progressPercent = (currentTime / duration) * 100;
-    progressBar.style.width = `${progressPercent}%`;
+    if (duration) {
+      const progressPercent = (currentTime / duration) * 100;
+      progressBar.style.width = `${progressPercent}%`;
+    }
   }
-});
+}
 
+// Click to Seek Song Position
 document.querySelector('.music-time').addEventListener('click', (event) => {
+  if (!song) return;
+
   const progressBarWidth = event.currentTarget.offsetWidth;
   const clickX = event.offsetX;
-  const duration = audioPlayer.duration;
+  const duration = song.duration();
 
   if (duration) {
-    audioPlayer.currentTime = (clickX / progressBarWidth) * duration;
+    song.jump((clickX / progressBarWidth) * duration);
   }
-});
-
-volumeSlider.addEventListener('click', (event) => {
-  const volume = event.offsetX / volumeSlider.offsetWidth;
-  audioPlayer.volume = volume;
-  volumeSlider.style.width = `${volume * 100}%`;
 });
 
 function formatTime(seconds) {
@@ -660,13 +781,63 @@ function formatTime(seconds) {
   return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
 }
 
-closeButton.addEventListener('click', () => {
-  audioPlayer.pause();
-  document.querySelector('.music-card').style.display = 'none';
-});
+function hideMusicCard() {
+  gsap.to('#musicCard', {
+    duration: 0.5,
+    opacity: 0,
+    scale: 0.9,
+    ease: 'power2.in',
+    onComplete: () => {
+      document.getElementById('musicCard').style.display = 'none'; // Hide music card after animation
+    }
+  });
+
+  gsap.to('#musicToggle', {
+    duration: 0.5,
+    opacity: 1,
+    scale: 1,
+    ease: 'power2.out',
+    onStart: () => {
+      document.getElementById('musicToggle').style.display = 'block'; // Show toggle before animation
+    }
+  });
+}
 
 playButton.addEventListener('click', togglePlay);
 nextButton.addEventListener('click', nextSong);
 prevButton.addEventListener('click', prevSong);
 
+setInterval(updateProgressBar, 1000);
+
+// Load First Song
 loadSongs();
+function toggleVisualizer() {
+  let cnv = document.querySelector('canvas'); // Get the canvas element
+  if (cnv.style.display === 'none') {
+    cnv.style.display = 'block';
+    lockScreen();
+  } else {
+    cnv.style.display = 'none';
+    unlockScreen();
+  }
+}
+
+function showMusicCard() {
+  gsap.to('#musicCard', {
+    duration: 0.5,
+    opacity: 1,
+    scale: 1,
+    display: 'block',
+    ease: 'power2.out'
+  });
+
+  gsap.to('#musicToggle', {
+    duration: 0.5,
+    opacity: 0,
+    scale: 0.5,
+    ease: 'power2.out',
+    onComplete: () => {
+      document.getElementById('musicToggle').style.display = 'none';
+    }
+  });
+}
