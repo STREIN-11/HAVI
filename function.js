@@ -433,10 +433,10 @@ gsap.utils.toArray(programmingLanguages).forEach((item, index) => {
       start: 'top 95%',
       toggleActions: 'play none none none',
       once: true
-    },
-    onComplete: () => {
-      item.classList.add('bounce');
     }
+    // onComplete: () => {
+    //   item.classList.add('floaty');
+    // }
   });
 });
 
@@ -563,7 +563,7 @@ function draw() {
   translate(width / 2, height / 2);
 
   fft.analyze();
-  amp = fft.getEnergy(20, 200);
+  amp = fft.getEnergy(20, 100);
   let wave = fft.waveform();
 
   for (let t = -1; t <= 1; t += 2) {

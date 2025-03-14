@@ -34,6 +34,8 @@ body {
   padding: 0;
   font-family: var(--secondaryFont);
   overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: black transparent;
 }
 
 html {
@@ -711,14 +713,6 @@ h1 span {
   height: fit-content;
 }
 .AboutC1 {
-  /* flex-basis: 55%;
-  display: grid;
-  gap: 0x;
-  row-gap: 0px;
-  justify-content: center;
-  align-items: center;
-  place-items: center;
-  width: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -731,10 +725,6 @@ h1 span {
   height: auto;
   display: block;
   margin: 0 auto;
-}
-
-#Tino {
-  width: 100%;
 }
 .AboutC2 {
   flex-basis: 70%;
@@ -843,9 +833,6 @@ h1 span {
   .skills-container {
     grid-template-columns: 1fr;
   }
-  .skill-illustration {
-    width: 100px; /* Adjust for smaller screens */
-  }
 }
 
 .bounce {
@@ -870,22 +857,6 @@ h1 span {
 
 .row-2 {
   --delay: 1s;
-}
-
-.btn {
-  display: block;
-  margin: 30px auto;
-  width: fit-content;
-  border: 1px solid var(--brightGreen);
-  padding: 14px;
-  border-radius: 6px;
-  text-decoration: none;
-  color: white;
-  transition: background-color 0.5s;
-}
-
-.btn:hover {
-  background-color: var(--brightGreen);
 }
 
 .Contact h3 {
@@ -918,22 +889,6 @@ h1 span {
   opacity: 1;
   filter: blur(0);
   transform: translateX(0);
-}
-.btn {
-  position: relative;
-  width: 50%;
-  size: 10%;
-  background-color: transparent;
-  font-size: 1rem;
-  display: inline-block;
-  cursor: pointer;
-  border: #001908 1.25em soild;
-  color: #ffffff;
-  padding: 2%;
-  border-radius: 10em;
-}
-.btn:hover {
-  transform: scale(1.1);
 }
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Checkbox list<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 #checkBox {
@@ -1330,14 +1285,6 @@ h1 span {
   z-index: -1;
   transition: 1s;
   content: '';
-}
-
-.actionBtn::before {
-  width: 150px;
-  height: 50px;
-}
-
-.actionBtn::after {
   width: 150px;
   height: 50px;
 }
@@ -1851,88 +1798,7 @@ h6 {
 }
 
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Contact btns<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
-.light-button {
-  margin: 20px;
-}
-.light-button button.bt {
-  position: relative;
-  height: 200px;
-  display: flex;
-  align-items: flex-end;
-  outline: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
 
-.light-button button.bt .button-holder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  width: 100px;
-  background-color: #0f0f0f;
-  border-radius: 5px;
-  color: #444444;
-  font-weight: 700;
-  transition: 300ms;
-  outline: #444444 2px solid;
-  outline-offset: 20;
-}
-
-.light-button button.bt .button-holder ion-icon {
-  font-size: 3rem;
-  fill: #444444;
-}
-
-.light-button button.bt .light-holder {
-  position: absolute;
-  height: 200px;
-  width: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.light-button button.bt .light-holder .dot {
-  position: absolute;
-  top: 0;
-  width: 10px;
-  height: 10px;
-  background-color: #0a0a0a;
-  border-radius: 10px;
-  z-index: 2;
-}
-
-.light-button button.bt .light-holder .light {
-  position: absolute;
-  top: 0;
-  width: 200px;
-  height: 200px;
-  clip-path: polygon(50% 0%, 25% 100%, 75% 100%);
-  background: transparent;
-}
-
-.light-button button.bt:hover .button-holder ion-icon {
-  fill: var(--brightGreen);
-}
-
-.light-button button.bt:hover .button-holder {
-  color: var(--brightGreen);
-  outline: var(--brightGreen) 2px solid;
-  outline-offset: 2px;
-}
-
-.light-button button.bt:hover .light-holder .light {
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    180deg,
-    var(--brightGreen),
-    rgba(255, 255, 255, 0) 75%,
-    rgba(255, 255, 255, 0) 100%
-  );
-}
 .hidden {
   display: none;
 }
@@ -1956,13 +1822,6 @@ h6 {
 ::-webkit-scrollbar-thumb:hover {
   cursor: pointer;
 }
-
-/* Firefox (uses default native scrollbar) */
-body {
-  scrollbar-width: thin;
-  scrollbar-color: black transparent;
-}
-
 #btn-message {
   --text-color: rgb(255, 255, 255);
   --bg-color-sup: #5e5e5e;
@@ -2410,7 +2269,6 @@ body {
   * {
     --fontSize: 1rem;
   }
-
   .header {
     display: inline-block;
   }
@@ -2471,10 +2329,6 @@ body {
     left: 50%;
     font-size: calc(var(--fontSize) - 0.4rem);
   }
-  .row img {
-    width: 35vw;
-    border-radius: 50%;
-  }
   .subTitle {
     font-size: 1.9em;
   }
@@ -2491,7 +2345,7 @@ body {
   }
 
   .View {
-    font-size: 0.9rem;
+    font-size: var(--fontSize);
   }
   .View img {
     width: 12vw;
