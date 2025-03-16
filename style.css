@@ -770,11 +770,7 @@ h1 span {
   width: 5vw;
   display: block;
 }
-@keyframes floaty {
-  50% {
-    transform: rotate(360deg);
-  }
-}
+
 .Programming {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -874,12 +870,6 @@ h1 span {
   font-size: 70px;
   display: inline-block;
   margin-top: 1%;
-}
-.animate {
-  animation-name: floaty;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-delay: 2s;
 }
 .Copyright {
   color: white;

@@ -40,9 +40,6 @@ function animate() {
   updateQuestStatus('AnimationsTask', true);
   checkQuests();
   if (anime) {
-    for (i = 0; i < Icons.length; ++i) {
-      Icons[i].classList.remove('animate');
-    }
     for (s = 0; s < skillCards.length; ++s) {
       skillCards[s].classList.remove('bounce');
     }
@@ -53,9 +50,6 @@ function animate() {
     window.location.assign(`#FooterSection`);
     setTimeout(backHome, 2000);
   } else {
-    for (i = 0; i < Icons.length; ++i) {
-      Icons[i].classList.add('animate');
-    }
     for (s = 0; s < skillCards.length; ++s) {
       skillCards[s].classList.add('bounce');
     }
@@ -434,9 +428,6 @@ gsap.utils.toArray(programmingLanguages).forEach((item, index) => {
       toggleActions: 'play none none none',
       once: true
     }
-    // onComplete: () => {
-    //   item.classList.add('floaty');
-    // }
   });
 });
 
