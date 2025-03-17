@@ -22,6 +22,7 @@ function show(viewObj) {
   document.getElementById(viewObj).classList.add('Activeview');
 }
 let anime = true;
+let sentFirst = false;
 const abutton = document.getElementById('Anime');
 abutton.addEventListener('click', animate);
 let Icons = document.querySelectorAll('.Icon');
@@ -112,9 +113,8 @@ window.addEventListener('load', function (load) {
   this.setTimeout(function () {
     loader.style.display = 'none';
     unlockScreen();
-    // showNotification(`Hey ! I'm Passion...`, 1);
+    showNotification(`Hey ! I'm Passion...`, 1);
     shownWelcome = true;
-    sendMessageToBot('isWebsite');
     loadQuestStatus();
   }, 500);
 });
@@ -359,6 +359,10 @@ function contactMe() {
   sendMessageToBot('contactMe');
 }
 function openWebchat() {
+  if (!sentFirst) {
+    sentFirst = true;
+    sendMessageToBot('isWebsite');
+  }
   document.querySelector('.webchat').style.display = 'block';
   document.querySelector('.webchat-toggle').style.display = 'none';
   sendMessageToBot('openWebchat');
