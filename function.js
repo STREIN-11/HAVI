@@ -853,7 +853,7 @@ function showMusicCard() {
 const stories = {
   life: [
     { type: 'image', src: 'Images/cyberspace.webp', duration: 2000 },
-    { type: 'video', src: 'Images/Portfolio-Trailer.mp4', duration: 7000 }
+    { type: 'video', src: 'Images/Portfolio-Trailer.mp4', duration: 55000 }
   ],
   casual: []
 };
