@@ -53,6 +53,9 @@ html {
   text-align: center;
   margin-top: 10px;
 }
+.flexBox .ui-btn {
+  margin: 10px;
+}
 .leftText {
   font-family: var(--secondaryFont);
   text-align: start;
@@ -762,6 +765,7 @@ h1 span {
   font-size: var(--fontSize);
   justify-content: center;
 }
+
 .View.Activeview {
   display: flex;
 }
@@ -1463,7 +1467,7 @@ h1 span {
 
 .ui-btn {
   --btn-default-bg: #000;
-  --btn-padding: 15px 20px;
+  --btn-padding: 8px 16px;
   --btn-hover-bg: var(--darkGreen);
   --btn-transition: 0.3s;
   --btn-letter-spacing: 0.1rem;
@@ -1473,11 +1477,9 @@ h1 span {
   --hover-btn-color: var(--brightGreen);
   --default-btn-color: #fff;
   --font-size: var(--fontSize);
-  --font-weight: 600;
+  --font-weight: normal;
   --font-family: var(--secondaryFont);
 }
-
-/* button settings 👆 */
 
 .ui-btn {
   text-align: center;
@@ -1488,7 +1490,7 @@ h1 span {
   justify-content: center;
   color: var(--default-btn-color);
   font: var(--font-weight) var(--font-size) var(--font-family);
-  background: var(--btn-default-bg);
+  background: var(--darkGreen);
   cursor: pointer;
   transition: background 0.3s, color 0.3s, transform 0.3s;
   overflow: hidden;
@@ -1496,7 +1498,6 @@ h1 span {
   border-radius: 10px;
   border: 2px solid var(--White);
   width: fit-content;
-  /* Prevent size change on hover */
   will-change: transform;
   font-size: var(--fontSize);
 }
@@ -1785,6 +1786,69 @@ h6 {
   text-align: center;
   font-family: var(--secondaryFont);
   overflow-x: hidden;
+}
+.stories-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.story-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+  border: 3px solid white;
+  transition: transform 0.2s ease-in-out;
+}
+
+.story-icon:hover {
+  transform: scale(1.1);
+}
+
+.story-viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.story-progress-bar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  width: 0%;
+}
+
+.story-content {
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-story {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Contact btns<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
@@ -2270,7 +2334,7 @@ h6 {
     margin: 20px;
   }
   .ui-btn {
-    padding: 5px;
+    padding: 2px 4px;
     width: fit-content;
   }
   .actionBtn {
@@ -2343,7 +2407,7 @@ h6 {
   }
 
   .Socials {
-    height: 300vh;
+    height: fit-content;
   }
   .socialIconsCon {
     display: grid;
@@ -2426,7 +2490,7 @@ h6 {
     object-position: top;
   }
   .Socials {
-    height: 300vh;
+    height: fit-content;
   }
 }
 

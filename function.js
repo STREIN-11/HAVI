@@ -113,11 +113,22 @@ window.addEventListener('load', function (load) {
   this.setTimeout(function () {
     loader.style.display = 'none';
     unlockScreen();
-    showNotification(`Hey ! I'm Passion...`, 1);
+    let greet = localStorage.getItem('greeted');
+    if (!greet) {
+      showNotification(`Hey ! I'm Passion...`, 1);
+      document
+        .getElementById('cardClose')
+        .addEventListener('click', greetedUser);
+    }
+
     shownWelcome = true;
     loadQuestStatus();
   }, 500);
 });
+
+function greetedUser() {
+  localStorage.setItem('greeted', true);
+}
 function followedGitHub() {
   document.getElementById('GitHubTask').checked = true;
   updateQuestStatus('GitHubTask', true);
@@ -835,4 +846,100 @@ function showMusicCard() {
       document.getElementById('musicToggle').style.display = 'none';
     }
   });
+}
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Story Functionality<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+//USE THIS:
+const stories = {
+  life: [
+    { type: 'image', src: 'Images/cyberspace.webp', duration: 2000 },
+    { type: 'video', src: 'Images/Portfolio-Trailer.mp4', duration: 7000 }
+  ],
+  casual: []
+};
+
+const storyIcons = document.querySelectorAll('.story-icon');
+const storyViewer = document.querySelector('.story-viewer');
+const storyProgressBar = document.querySelector('.story-progress-bar');
+const storyContent = document.querySelector('.story-content');
+const closeStoryBtn = document.querySelector('.close-story');
+
+let storyQueue = [];
+let storyIndex = 0;
+let progressInterval;
+
+storyIcons.forEach((icon) => {
+  icon.addEventListener('click', (e) => {
+    const storyType = e.target.dataset.story;
+    storyQueue = stories[storyType];
+    storyIndex = 0;
+    showStory();
+  });
+});
+
+closeStoryBtn.addEventListener('click', hideStory);
+
+function hideStory() {
+  unlockScreen();
+  storyViewer.classList.add('hidden');
+  clearInterval(progressInterval);
+}
+
+function showStory() {
+  lockScreen();
+  if (storyIndex >= storyQueue.length) {
+    storyViewer.classList.add('hidden');
+    return;
+  }
+
+  storyViewer.classList.remove('hidden');
+  storyContent.innerHTML = '';
+
+  const currentStory = storyQueue[storyIndex];
+
+  if (currentStory.type === 'image') {
+    const img = document.createElement('img');
+    img.src = currentStory.src;
+    img.style.width = '100vw';
+    img.style.height = '100vh';
+    img.style.objectFit = 'cover';
+    storyContent.appendChild(img);
+  } else if (currentStory.type === 'video') {
+    const video = document.createElement('video');
+    video.src = currentStory.src;
+    video.autoplay = true;
+    video.muted = false;
+    video.controls = false;
+    video.style.width = '100vw';
+    video.style.height = '100vh';
+    video.style.objectFit = 'cover';
+    storyContent.appendChild(video);
+  } else if (currentStory.type === 'text') {
+    const textElement = document.createElement('p');
+    textElement.innerText = currentStory.content;
+    textElement.style.fontSize = '24px';
+    textElement.style.color = 'white';
+    textElement.style.display = 'flex';
+    textElement.style.justifyContent = 'center';
+    textElement.style.alignItems = 'center';
+    textElement.style.width = '100vw';
+    textElement.style.height = '100vh';
+    textElement.style.textAlign = 'center';
+    textElement.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'; // Slight dark overlay
+    storyContent.appendChild(textElement);
+  }
+
+  storyProgressBar.style.width = '0%';
+  let elapsedTime = 0;
+  const storyDuration = currentStory.duration;
+
+  progressInterval = setInterval(() => {
+    elapsedTime += 50;
+    storyProgressBar.style.width = `${(elapsedTime / storyDuration) * 100}%`;
+    if (elapsedTime >= storyDuration) {
+      clearInterval(progressInterval);
+      storyIndex++;
+      showStory();
+    }
+  }, 50);
 }
