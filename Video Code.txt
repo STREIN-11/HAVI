@@ -1,0 +1,19 @@
+This VID Functionality works:
+else if (currentStory.type === 'video') {
+    const video = document.createElement('video');
+    video.className = 'video-js vjs-default-skin';
+    video.src = currentStory.src;
+    video.autoplay = true;
+    video.controls = false;
+    video.style.width = '100vw';
+    video.style.height = '100vh';
+    video.style.objectFit = 'cover';
+
+    currentVideo = video;
+    storyContent.appendChild(video);
+
+    progressDuration = currentStory.duration;
+
+    video.addEventListener('ended', nextStory, { once: true });
+
+    startProgressBar();

@@ -955,15 +955,36 @@ function showStory() {
     video.style.width = '100vw';
     video.style.height = '100vh';
     video.style.objectFit = 'cover';
+    const loadingText = document.createElement('p');
+    loadingText.innerText = 'Loading video...';
+    loadingText.classList.add('loading-message');
+    loadingText.style.position = 'absolute';
+    loadingText.style.top = '50%';
+    loadingText.style.left = '50%';
+    loadingText.style.transform = 'translate(-50%, -50%)';
+    loadingText.style.fontSize = '20px';
+    loadingText.style.color = 'white';
+    storyContent.appendChild(loadingText);
 
     currentVideo = video;
     storyContent.appendChild(video);
 
     progressDuration = currentStory.duration;
 
-    video.addEventListener('ended', nextStory, { once: true });
+    // Handle when the video is ready to play
+    video.addEventListener(
+      'canplay',
+      () => {
+        // Remove loading message once the video is ready
+        loadingText.remove();
 
-    startProgressBar();
+        // Start progress bar
+        startProgressBar();
+      },
+      { once: true }
+    );
+
+    video.addEventListener('ended', nextStory, { once: true });
   } else if (currentStory.type === 'text') {
     const textElement = document.createElement('p');
     textElement.innerText = currentStory.content;
