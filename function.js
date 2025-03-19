@@ -640,7 +640,7 @@ const titleElement = document.querySelector('.title-1');
 const artistElement = document.querySelector('.title-2');
 const elapsedTimeElement = document.querySelector('.music-time_now');
 const fullTimeElement = document.querySelector('.music-time_full');
-const progressBar = document.querySelector('.music-elapsed');
+const musicProgressBar = document.querySelector('.music-elapsed');
 const volumeSlider = document.querySelector('.music-volume .slider .green');
 const playButton = document.querySelector(
   ".music-controls img[src*='play.svg']"
@@ -688,7 +688,7 @@ function loadSong(index) {
   titleElement.textContent = localsong.title;
   artistElement.textContent = localsong.artist;
 
-  progressBar.style.width = '0%';
+  musicProgressBar.style.width = '0%';
   elapsedTimeElement.textContent = '0:00';
 
   if (song) {
@@ -754,7 +754,7 @@ function prevSong() {
 }
 
 // Progress Bar Updates
-function updateProgressBar() {
+function updateMusicProgressBar() {
   if (song && song.isPlaying()) {
     const currentTime = song.currentTime();
     const duration = song.duration();
@@ -763,7 +763,7 @@ function updateProgressBar() {
 
     if (duration) {
       const progressPercent = (currentTime / duration) * 100;
-      progressBar.style.width = `${progressPercent}%`;
+      musicProgressBar.style.width = `${progressPercent}%`;
     }
   }
 }
@@ -772,12 +772,12 @@ function updateProgressBar() {
 document.querySelector('.music-time').addEventListener('click', (event) => {
   if (!song) return;
 
-  const progressBarWidth = event.currentTarget.offsetWidth;
+  const musicProgressBarWidth = event.currentTarget.offsetWidth;
   const clickX = event.offsetX;
   const duration = song.duration();
 
   if (duration) {
-    song.jump((clickX / progressBarWidth) * duration);
+    song.jump((clickX / musicProgressBarWidth) * duration);
   }
 });
 
@@ -813,7 +813,7 @@ playButton.addEventListener('click', togglePlay);
 nextButton.addEventListener('click', nextSong);
 prevButton.addEventListener('click', prevSong);
 
-setInterval(updateProgressBar, 1000);
+setInterval(updateMusicProgressBar, 1000);
 
 // Load First Song
 loadSongs();
@@ -945,7 +945,7 @@ function showStory() {
     img.style.objectFit = 'cover';
     storyContent.appendChild(img);
     progressDuration = currentStory.duration;
-    startProgressBar();
+    startStoryProgressBar();
   } else if (currentStory.type === 'video') {
     const video = document.createElement('video');
     video.className = 'video-js vjs-default-skin';
@@ -979,7 +979,7 @@ function showStory() {
         loadingText.remove();
 
         // Start progress bar
-        startProgressBar();
+        startStoryProgressBar();
       },
       { once: true }
     );
@@ -999,7 +999,7 @@ function showStory() {
     textElement.style.backgroundColor = currentStory.background;
     storyContent.appendChild(textElement);
     progressDuration = currentStory.duration;
-    startProgressBar();
+    startStoryProgressBar();
   }
 }
 
@@ -1023,13 +1023,13 @@ function removeLoadingMessage() {
   }
 }
 
-function startProgressBar() {
+function startStoryProgressBar() {
   // Initialize the progress start time, accounting for any previous progress (e.g., resume)
   progressStartTime = Date.now() - currentProgress;
-  animationFrameId = requestAnimationFrame(updateProgressBar);
+  animationFrameId = requestAnimationFrame(updateStoryProgressBar);
 }
 
-function updateProgressBar() {
+function updateStoryProgressBar() {
   if (isPaused) return; // If paused, exit and wait for resume
 
   const elapsedTime = Date.now() - progressStartTime;
@@ -1039,7 +1039,7 @@ function updateProgressBar() {
   }%`;
 
   if (currentProgress < progressDuration) {
-    animationFrameId = requestAnimationFrame(updateProgressBar);
+    animationFrameId = requestAnimationFrame(updateStoryProgressBar);
   } else {
     nextStory();
   }
@@ -1064,7 +1064,7 @@ function resumeStory() {
   if (currentVideo) currentVideo.play();
   // Adjust the start time so the progress resumes correctly
   progressStartTime = Date.now() - currentProgress;
-  animationFrameId = requestAnimationFrame(updateProgressBar);
+  animationFrameId = requestAnimationFrame(updateStoryProgressBar);
 }
 
 function stopAllMedia() {
