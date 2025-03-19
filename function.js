@@ -851,20 +851,21 @@ function showMusicCard() {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Story Functionality<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 //USE THIS:
 const stories = {
-  life: [
+  professional: [
     {
       type: 'text',
       content: 'Professional Statuses will appear here😄',
       duration: 5000,
       background: '#001908'
     },
-    {
-      type: 'text',
-      content: 'My Portfolio Trailer 👉🏿',
-      duration: 5000,
-      background: '#001908'
-    },
-    { type: 'video', src: 'Images/Portfolio-Trailer.mp4', duration: 55000 }
+    // {
+    //   type: 'text',
+    //   content: 'My Portfolio Trailer 👉🏿',
+    //   duration: 5000,
+    //   background: '#001908'
+    // },
+
+    { type: 'video', src: 'Images/Portfolio-Trailer.mp4', duration: 55000 } // Video duration auto-handled
   ],
   casual: [
     {
@@ -884,8 +885,15 @@ const closeStoryBtn = document.querySelector('.close-story');
 
 let storyQueue = [];
 let storyIndex = 0;
-let progressInterval;
+let isPaused = false;
+let currentVideo = null;
+let currentProgress = 0;
+let progressStartTime = 0;
+let progressDuration = 0;
+let animationFrameId = null;
+let videoLoaded = false;
 
+// Start a story when an icon is clicked
 storyIcons.forEach((icon) => {
   icon.addEventListener('click', (e) => {
     const storyType = e.target.dataset.story;
@@ -895,21 +903,35 @@ storyIcons.forEach((icon) => {
   });
 });
 
+// Close the story when the close button is clicked
 closeStoryBtn.addEventListener('click', hideStory);
+
+// Pause/resume on mouse or touch events
+storyViewer.addEventListener('mousedown', pauseStory);
+storyViewer.addEventListener('mouseup', resumeStory);
+storyViewer.addEventListener('touchstart', pauseStory);
+storyViewer.addEventListener('touchend', resumeStory);
 
 function hideStory() {
   unlockScreen();
   storyViewer.classList.add('hidden');
-  clearInterval(progressInterval);
+  stopAllMedia();
 }
 
 function showStory() {
-  lockScreen();
+  currentProgress = 0;
+  progressDuration = 0;
+  isPaused = false;
+  cancelAnimationFrame(animationFrameId);
+
   if (storyIndex >= storyQueue.length) {
+    unlockScreen();
     storyViewer.classList.add('hidden');
+    stopAllMedia();
     return;
   }
 
+  lockScreen();
   storyViewer.classList.remove('hidden');
   storyContent.innerHTML = '';
 
@@ -922,6 +944,8 @@ function showStory() {
     img.style.height = '100vh';
     img.style.objectFit = 'cover';
     storyContent.appendChild(img);
+    progressDuration = currentStory.duration;
+    startProgressBar();
   } else if (currentStory.type === 'video') {
     const video = document.createElement('video');
     video.className = 'video-js vjs-default-skin';
@@ -932,15 +956,14 @@ function showStory() {
     video.style.height = '100vh';
     video.style.objectFit = 'cover';
 
+    currentVideo = video;
     storyContent.appendChild(video);
 
-    // Initialize Video.js
-    const player = videojs(video);
+    progressDuration = currentStory.duration;
 
-    player.ready(() => {
-      const storyDuration = player.duration() * 1000 || 7000; // Default to 7s if duration isn't available
-      startProgressBar(storyDuration);
-    });
+    video.addEventListener('ended', nextStory, { once: true });
+
+    startProgressBar();
   } else if (currentStory.type === 'text') {
     const textElement = document.createElement('p');
     textElement.innerText = currentStory.content;
@@ -952,21 +975,83 @@ function showStory() {
     textElement.style.width = '100vw';
     textElement.style.height = '100vh';
     textElement.style.textAlign = 'center';
-    textElement.style.backgroundColor = `${currentStory.background}`; // Slight dark overlay
+    textElement.style.backgroundColor = currentStory.background;
     storyContent.appendChild(textElement);
+    progressDuration = currentStory.duration;
+    startProgressBar();
   }
+}
 
-  storyProgressBar.style.width = '0%';
-  let elapsedTime = 0;
-  const storyDuration = currentStory.duration;
+function showLoadingMessage() {
+  const loadingText = document.createElement('p');
+  loadingText.innerText = 'Loading...';
+  loadingText.classList.add('loading-message');
+  loadingText.style.position = 'absolute';
+  loadingText.style.top = '50%';
+  loadingText.style.left = '50%';
+  loadingText.style.transform = 'translate(-50%, -50%)';
+  loadingText.style.fontSize = '20px';
+  loadingText.style.color = 'white';
+  storyContent.appendChild(loadingText);
+}
 
-  progressInterval = setInterval(() => {
-    elapsedTime += 50;
-    storyProgressBar.style.width = `${(elapsedTime / storyDuration) * 100}%`;
-    if (elapsedTime >= storyDuration) {
-      clearInterval(progressInterval);
-      storyIndex++;
-      showStory();
-    }
-  }, 50);
+function removeLoadingMessage() {
+  const loadingText = document.querySelector('.loading-message');
+  if (loadingText) {
+    loadingText.remove();
+  }
+}
+
+function startProgressBar() {
+  // Initialize the progress start time, accounting for any previous progress (e.g., resume)
+  progressStartTime = Date.now() - currentProgress;
+  animationFrameId = requestAnimationFrame(updateProgressBar);
+}
+
+function updateProgressBar() {
+  if (isPaused) return; // If paused, exit and wait for resume
+
+  const elapsedTime = Date.now() - progressStartTime;
+  currentProgress = Math.min(elapsedTime, progressDuration);
+  storyProgressBar.style.width = `${
+    (currentProgress / progressDuration) * 100
+  }%`;
+
+  if (currentProgress < progressDuration) {
+    animationFrameId = requestAnimationFrame(updateProgressBar);
+  } else {
+    nextStory();
+  }
+}
+
+function nextStory() {
+  cancelAnimationFrame(animationFrameId);
+  currentProgress = 0;
+  storyIndex++;
+  showStory();
+}
+
+function pauseStory() {
+  isPaused = true;
+  if (currentVideo) currentVideo.pause();
+  cancelAnimationFrame(animationFrameId);
+}
+
+function resumeStory() {
+  if (!isPaused) return;
+  isPaused = false;
+  if (currentVideo) currentVideo.play();
+  // Adjust the start time so the progress resumes correctly
+  progressStartTime = Date.now() - currentProgress;
+  animationFrameId = requestAnimationFrame(updateProgressBar);
+}
+
+function stopAllMedia() {
+  if (currentVideo) {
+    currentVideo.pause();
+    currentVideo.currentTime = 0;
+    currentVideo = null;
+  }
+  cancelAnimationFrame(animationFrameId);
+  currentProgress = 0;
 }
