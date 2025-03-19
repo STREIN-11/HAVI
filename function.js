@@ -852,10 +852,28 @@ function showMusicCard() {
 //USE THIS:
 const stories = {
   life: [
-    { type: 'image', src: 'Images/cyberspace.webp', duration: 2000 },
+    {
+      type: 'text',
+      content: 'Professional Statuses will appear here😄',
+      duration: 5000,
+      background: '#001908'
+    },
+    {
+      type: 'text',
+      content: 'My Portfolio Trailer 👉🏿',
+      duration: 5000,
+      background: '#001908'
+    },
     { type: 'video', src: 'Images/Portfolio-Trailer.mp4', duration: 55000 }
   ],
-  casual: []
+  casual: [
+    {
+      type: 'text',
+      content: 'Personal Statuses will appear here😎',
+      duration: 5000,
+      background: '#001908'
+    }
+  ]
 };
 
 const storyIcons = document.querySelectorAll('.story-icon');
@@ -906,14 +924,23 @@ function showStory() {
     storyContent.appendChild(img);
   } else if (currentStory.type === 'video') {
     const video = document.createElement('video');
+    video.className = 'video-js vjs-default-skin';
     video.src = currentStory.src;
     video.autoplay = true;
-    video.muted = false;
     video.controls = false;
     video.style.width = '100vw';
     video.style.height = '100vh';
     video.style.objectFit = 'cover';
+
     storyContent.appendChild(video);
+
+    // Initialize Video.js
+    const player = videojs(video);
+
+    player.ready(() => {
+      const storyDuration = player.duration() * 1000 || 7000; // Default to 7s if duration isn't available
+      startProgressBar(storyDuration);
+    });
   } else if (currentStory.type === 'text') {
     const textElement = document.createElement('p');
     textElement.innerText = currentStory.content;
@@ -925,7 +952,7 @@ function showStory() {
     textElement.style.width = '100vw';
     textElement.style.height = '100vh';
     textElement.style.textAlign = 'center';
-    textElement.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'; // Slight dark overlay
+    textElement.style.backgroundColor = `${currentStory.background}`; // Slight dark overlay
     storyContent.appendChild(textElement);
   }
 

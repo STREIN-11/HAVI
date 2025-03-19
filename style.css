@@ -1825,6 +1825,7 @@ h6 {
   height: 5px;
   background: rgba(255, 255, 255, 0.5);
   width: 0%;
+  z-index: 300;
 }
 
 .story-content {
@@ -1833,6 +1834,12 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.story-content video {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
 }
 
 .close-story {
