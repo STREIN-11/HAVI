@@ -578,6 +578,9 @@ function draw() {
       let index = floor(map(i, 0, width, 0, wave.length - 1));
 
       let r = map(wave[index], -1, 1, 150, 350);
+      //       let scaleFactor = min(width, height) / 800; // Adjust 800 based on your preference
+      // let r = map(wave[index], -1, 1, 100 * scaleFactor, 250 * scaleFactor);
+
       let x = r * sin(i) * t;
       let y = r * cos(i);
       vertex(x, y);
