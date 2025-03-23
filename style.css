@@ -1472,8 +1472,6 @@ h1 span {
   --btn-transition: 0.3s;
   --btn-letter-spacing: 0.1rem;
   --btn-animation-duration: 1.2s;
-  --btn-shadow-color: rgba(0, 0, 0, 0.137);
-  --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
   --hover-btn-color: var(--brightGreen);
   --default-btn-color: #fff;
   --font-size: var(--fontSize);
@@ -1494,7 +1492,6 @@ h1 span {
   cursor: pointer;
   transition: background 0.3s, color 0.3s, transform 0.3s;
   overflow: hidden;
-  box-shadow: var(--btn-shadow);
   border-radius: 10px;
   border: 2px solid var(--White);
   width: fit-content;
