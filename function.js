@@ -233,6 +233,10 @@ function checkQuests() {
     shown = true;
   }
 }
+
+function show404() {
+  showNotification('<Access Denied>', 6);
+}
 function showPopUp(message) {
   document.getElementById('passionModal').style.display = 'flex';
   const passionCard = document.getElementById('passionCard');
@@ -242,7 +246,7 @@ function showPopUp(message) {
     case 1:
       {
         cardTitle.textContent = 'Site Navigation';
-        cardDescription.textContent = ` Hey! I'm Passion, Tino's personalized AI chatbot. Welcome to our portfolio website. Here are some helpful tips while navigating the site. If you know you're ready, feel free to skip this guide.`;
+        cardDescription.textContent = ` Hey! I'm <Passion>, Tino's personalized AI chatbot. Welcome to our portfolio website. Here are some helpful tips while navigating the site. If you know you're ready, feel free to skip this guide.`;
         document.getElementById('cardTable').style.display = 'grid';
         cardImage.src = 'Images/Icons/her.svg';
       }
@@ -273,6 +277,13 @@ function showPopUp(message) {
         cardTitle.textContent = 'GitHub Star';
         cardDescription.textContent = `You're an absolute star! ⭐Get it? because you starred a repo?... listen: blame Tino — he forgot to delete his bad jokes from my database. Anyway, thanks for the support😊! .`;
         cardImage.src = 'Images/Icons/star.svg';
+      }
+      break;
+    case 6:
+      {
+        cardTitle.textContent = '404: Failed to load resource';
+        cardDescription.textContent = `This resource is currently hidden. Please check again later...Whenever that is. 😊`;
+        cardImage.src = 'Images/Icons/error.svg';
       }
       break;
     case 7:
@@ -861,14 +872,14 @@ const stories = {
       duration: 5000,
       background: '#001908'
     },
-    // {
-    //   type: 'text',
-    //   content: 'My Portfolio Trailer 👉🏿',
-    //   duration: 5000,
-    //   background: '#001908'
-    // },
+    {
+      type: 'text',
+      content: 'My Portfolio Trailer 👉🏿',
+      duration: 5000,
+      background: '#001908'
+    },
 
-    { type: 'video', src: 'Images/Portfolio-Trailer.mp4', duration: 55000 } // Video duration auto-handled
+    { type: 'video', src: 'Images/Portfolio-Trailer.mp4', duration: 107000 }
   ],
   casual: [
     {
@@ -1079,3 +1090,9 @@ function stopAllMedia() {
   cancelAnimationFrame(animationFrameId);
   currentProgress = 0;
 }
+gsap.from('#passionCard', {
+  scaleY: 0,
+  transformOrigin: 'top center',
+  duration: 0.6,
+  ease: 'power2.out'
+});
