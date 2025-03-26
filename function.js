@@ -356,7 +356,12 @@ function stopCountingTime() {
 let musicPlayer = document.getElementById('myMusic');
 
 window.addEventListener('message', (event) => {
-  if (event.data.action === 'playMusic') {
+  if (event.data.action === 'newUser') {
+    addNewUser(event.data.firstname, event.data.lastname);
+  } else if (event.data.action === 'awakenPassion') {
+    let username = searchForName();
+    awaken(username);
+  } else if (event.data.action === 'playMusic') {
     showMusicCard();
     playMusic();
   } else if (event.data.action === 'checkPassion') {
@@ -369,13 +374,44 @@ window.addEventListener('message', (event) => {
   }
 });
 
+function awaken(username) {
+  const botIframe = document.querySelector('.webchat iframe');
+  if (botIframe) {
+    botIframe.contentWindow.postMessage(
+      {
+        action: `awakened`,
+        username: `${username}`
+      },
+      '*'
+    );
+  }
+}
+function addNewUser(firstname, lastname) {
+  let username = '';
+  if (lastname != '') {
+    username = `${firstname} ${lastname}`;
+  } else {
+    username = `${firstname}`;
+  }
+
+  localStorage.setItem('username', username);
+  console.log(`Hello there ${username}`);
+}
+
+function searchForName() {
+  if (localStorage.getItem('username')) {
+    return localStorage.getItem('username');
+  } else {
+    return '';
+  }
+}
+
 function sendMessageToBot(message) {
   const botIframe = document.querySelector('.webchat iframe');
   if (botIframe) {
     botIframe.contentWindow.postMessage({ action: `${message}` }, '*');
   }
 }
-
 function contactMe() {
   openWebchat();
   sendMessageToBot('contactMe');
@@ -383,7 +419,6 @@ function contactMe() {
 function openWebchat() {
   if (!sentFirst) {
     sentFirst = true;
-    sendMessageToBot('isWebsite');
   }
   document.querySelector('.webchat').style.display = 'block';
   document.querySelector('.webchat-toggle').style.display = 'none';
