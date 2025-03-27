@@ -227,11 +227,13 @@ html {
 .myName {
   color: white;
 }
-/* Tooltip Styling */
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Old Navigation Menu <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+/* 
 .tooltip {
   font-family: var(--secondaryFont);
   position: absolute;
-  top: -35px; /* Position above icon */
+  top: -35px; 
   left: 50%;
   transform: translateX(-50%);
   padding: 8px;
@@ -306,7 +308,7 @@ html {
   border-radius: 50%;
   transform: rotate(
     calc(360deg / -8 * var(--i))
-  ); /*Might need to change 8 items*/
+  ); 
   color: transparent;
   transition: 1s;
   transition-delay: 0.5s;
@@ -340,6 +342,186 @@ html {
   transition-delay: 1s, 1.5s, 1.5s;
   rotate: 135deg;
 }
+  .menu.active li:hover a::before {
+  background: var(--brightGreen);
+  color: #000713;
+  box-shadow: 0 0 10px var(--brightGreen), 0 0 30px var(--brightGreen),
+    0 0 50px var(--brightGreen);
+}
+.menu.active li {
+  transform: rotate(calc(360deg / 8 * var(--i)));
+}
+.menu li a::after {
+  content: '';
+  position: absolute;
+  left: 80%;
+  width: 20px;
+  height: 2px;
+  background: var(--brightGreen);
+  z-index: -1;
+  transform: rotate(calc(var(--i) * 0deg)) translate(15px, 0px);
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.menu.active li:hover a ion-icon {
+  position: relative;
+  color: #000713;
+  z-index: 100000;
+}
+.menuToggle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 2em;
+  transition: transform 1.5s;
+}
+.menu li {
+  cursor: pointer;
+}
+.menu.active .menuToggle {
+  transform: rotate(315deg);
+  left: 800%;
+} */
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> New Navigation Menu <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+/* Navigation Toggle Button */
+/* Navigation Toggle Button (Styled like Webchat Toggle) */
+.nav-toggle {
+  background-color: var(--darkGreen); /* Same color as webchat toggle */
+  color: white;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1100; /* Higher than most elements */
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Fullscreen Overlay */
+#nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+/* Navigation Panel */
+#nav-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100%;
+  background: var(--darkGreen);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  z-index: 1200;
+  font-family: var(--secondaryFont);
+}
+
+/* Profile Section */
+.nav-profile {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.5);
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+  border: 1px solid white;
+}
+
+.profile-info {
+  flex-grow: 1;
+}
+
+.username {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.user-level {
+  font-size: 14px;
+}
+
+/* Close Button */
+#nav-close {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  width: 100%;
+  text-align: left;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-left: 4px solid transparent;
+  transition: border-left 0.3s ease-in-out;
+}
+
+.nav-links li:hover {
+  border-left: 4px solid #0f0;
+}
+
+.nav-links img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  #nav-panel {
+    width: 100%;
+  }
+}
+
 #Me {
   display: grid;
   justify-content: center;
@@ -558,54 +740,7 @@ html {
   opacity: 1;
   transform: scale(1) translateY(100%);
 }
-.menu.active li:hover a::before {
-  background: var(--brightGreen);
-  color: #000713;
-  box-shadow: 0 0 10px var(--brightGreen), 0 0 30px var(--brightGreen),
-    0 0 50px var(--brightGreen);
-}
-.menu.active li {
-  transform: rotate(calc(360deg / 8 * var(--i)));
-}
-.menu li a::after {
-  content: '';
-  position: absolute;
-  left: 80%;
-  width: 20px;
-  height: 2px;
-  background: var(--brightGreen);
-  z-index: -1;
-  transform: rotate(calc(var(--i) * 0deg)) translate(15px, 0px);
-  transition: 0.5s;
-  transition-delay: 0.5s;
-}
 
-.menu.active li:hover a ion-icon {
-  position: relative;
-  color: #000713;
-  z-index: 100000;
-}
-.menuToggle {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 2em;
-  transition: transform 1.5s;
-}
-.menu li {
-  cursor: pointer;
-}
-.menu.active .menuToggle {
-  transform: rotate(315deg);
-  left: 800%;
-}
 header {
   display: flex;
   justify-content: center;
@@ -2355,7 +2490,7 @@ h6 {
     width: 120px;
     height: 30px;
   }
-  .menu {
+  /* .menu {
     left: 88vw;
     bottom: 0vh;
   }
@@ -2381,7 +2516,7 @@ h6 {
     top: -25px;
     left: 50%;
     font-size: calc(var(--fontSize) - 0.4rem);
-  }
+  } */
   .subTitle {
     font-size: 1.9em;
   }
@@ -2467,7 +2602,7 @@ h6 {
     width: 150px;
     height: 50px;
   }
-  .menu {
+  /* .menu {
     left: 85vw;
     top: -10vh;
   }
@@ -2475,7 +2610,7 @@ h6 {
     top: -25px;
     left: 50%;
     font-size: calc(var(--fontSize) - 0.2rem);
-  }
+  } */
 
   .AboutMe .row {
     justify-content: center;

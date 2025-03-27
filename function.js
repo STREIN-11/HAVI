@@ -1,14 +1,14 @@
 /** @format */
 
-let menuToggle = document.querySelector('.menuToggle');
-let menu = document.querySelector('.menu');
+// let menuToggle = document.querySelector('.menuToggle');
+// let menu = document.querySelector('.menu');
 let shown = false;
-menuToggle.onclick = function () {
-  menu.classList.toggle('active');
-  if (!menu.classList.contains('active')) {
-    menu.classList.remove('tooltips-visible');
-  }
-};
+// menuToggle.onclick = function () {
+//   menu.classList.toggle('active');
+//   if (!menu.classList.contains('active')) {
+//     menu.classList.remove('tooltips-visible');
+//   }
+// };
 let viewpoints = document.getElementsByClassName('Viewpoint');
 let views = document.getElementsByClassName('View');
 function show(viewObj) {
@@ -23,8 +23,8 @@ function show(viewObj) {
 }
 let anime = true;
 let sentFirst = false;
-const abutton = document.getElementById('Anime');
-abutton.addEventListener('click', animate);
+// const abutton = document.getElementById('Anime');
+// abutton.addEventListener('click', animate);
 let Icons = document.querySelectorAll('.Icon');
 let skillCards = document.querySelectorAll('.skill-card');
 let titles = document.querySelectorAll('.subTitle');
@@ -36,33 +36,33 @@ let cardTitle = document.getElementById('cardTitle');
 let cardImage = document.getElementById('cardImage');
 let cardDescription = document.getElementById('cardDescription');
 
-function animate() {
-  document.getElementById('AnimationsTask').checked = true;
-  updateQuestStatus('AnimationsTask', true);
-  checkQuests();
-  if (anime) {
-    for (s = 0; s < skillCards.length; ++s) {
-      skillCards[s].classList.remove('bounce');
-    }
-    for (t = 0; t < titles.length; ++t) {
-      titles[t].classList.remove('bounce');
-    }
-    anime = false;
-    window.location.assign(`#FooterSection`);
-    setTimeout(backHome, 2000);
-  } else {
-    for (s = 0; s < skillCards.length; ++s) {
-      skillCards[s].classList.add('bounce');
-    }
-    for (t = 0; t < titles.length; ++t) {
-      titles[t].classList.add('bounce');
-    }
-    anime = true;
+// function animate() {
+//   document.getElementById('AnimationsTask').checked = true;
+//   updateQuestStatus('AnimationsTask', true);
+//   checkQuests();
+//   if (anime) {
+//     for (s = 0; s < skillCards.length; ++s) {
+//       skillCards[s].classList.remove('bounce');
+//     }
+//     for (t = 0; t < titles.length; ++t) {
+//       titles[t].classList.remove('bounce');
+//     }
+//     anime = false;
+//     window.location.assign(`#FooterSection`);
+//     setTimeout(backHome, 2000);
+//   } else {
+//     for (s = 0; s < skillCards.length; ++s) {
+//       skillCards[s].classList.add('bounce');
+//     }
+//     for (t = 0; t < titles.length; ++t) {
+//       titles[t].classList.add('bounce');
+//     }
+//     anime = true;
 
-    window.location.assign(`#FooterSection`);
-    setTimeout(backHome, 2000);
-  }
-}
+//     window.location.assign(`#FooterSection`);
+//     setTimeout(backHome, 2000);
+//   }
+// }
 function backHome() {
   window.location.assign(`#`);
 }
@@ -109,7 +109,7 @@ window.addEventListener('load', function (load) {
     null,
     window.location.pathname + window.location.search
   );
-
+  initializeNavigation();
   this.setTimeout(function () {
     loader.style.display = 'none';
     unlockScreen();
@@ -126,6 +126,27 @@ window.addEventListener('load', function (load) {
   }, 500);
 });
 
+function initializeNavigation() {
+  const navToggle = document.getElementById('nav-toggle');
+  const navPanel = document.getElementById('nav-panel');
+  const navClose = document.getElementById('nav-close');
+  const navOverlay = document.getElementById('nav-overlay');
+
+  // Open Navigation Panel
+  navToggle.addEventListener('click', () => {
+    gsap.to(navPanel, { right: '0%', duration: 0.5, ease: 'power3.out' });
+    gsap.to(navOverlay, { opacity: 1, visibility: 'visible', duration: 0.3 });
+  });
+
+  // Close Navigation Panel
+  navClose.addEventListener('click', closeNav);
+  navOverlay.addEventListener('click', closeNav);
+
+  function closeNav() {
+    gsap.to(navPanel, { right: '-100%', duration: 0.5, ease: 'power3.in' });
+    gsap.to(navOverlay, { opacity: 0, visibility: 'hidden', duration: 0.3 });
+  }
+}
 function greetedUser() {
   localStorage.setItem('greeted', true);
 }
@@ -173,19 +194,19 @@ function navigateToSite(fileUrl) {
   link.click();
   document.body.removeChild(link);
 }
-document.getElementById('menuOpener').addEventListener(
-  'click',
-  () => {
-    document.getElementById('NavigationTask').checked = true;
-    updateQuestStatus('NavigationTask', true);
-    checkQuests();
-  },
-  { once: true }
-);
-function openNavMenu() {
-  const navMenu = document.getElementById('menuOpener');
-  navMenu.click();
-}
+// document.getElementById('menuOpener').addEventListener(
+//   'click',
+//   () => {
+//     document.getElementById('NavigationTask').checked = true;
+//     updateQuestStatus('NavigationTask', true);
+//     checkQuests();
+//   },
+//   { once: true }
+// );
+// function openNavMenu() {
+//   const navMenu = document.getElementById('menuOpener');
+//   navMenu.click();
+// }
 function resetQuestStatuses() {
   localStorage.removeItem('questsStatus');
   const quests = document.querySelectorAll('#checklist input');
@@ -546,9 +567,9 @@ gsap.utils.toArray(socialIcons).forEach((icon, index) => {
   });
 });
 
-document.getElementById('tooltipToggle').addEventListener('click', function () {
-  document.querySelector('.menu').classList.toggle('tooltips-visible');
-});
+// document.getElementById('tooltipToggle').addEventListener('click', function () {
+//   document.querySelector('.menu').classList.toggle('tooltips-visible');
+// });
 
 function authenticateGitHub(intent, repoName = null) {
   //Intents specify the action the user wants to undertake

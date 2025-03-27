@@ -564,7 +564,7 @@
             id="musicToggleIcon" />
         </button>
       </div>
-      <nav>
+      <!-- <nav>
         <ul class="menu">
           <div class="menuToggle" onclick="openNavMenu()">
             <ion-icon name="add-outline" id="menuOpener"></ion-icon>
@@ -623,6 +623,59 @@
                 onclick="downloadCV()"></ion-icon>
               <span class="tooltip">Download My CV</span>
             </a>
+          </li>
+        </ul>
+      </nav> -->
+      <!-- Navigation Toggle Button (Styled like Webchat Toggle) -->
+      <button class="nav-toggle" id="nav-toggle" onclick="openNav()">📜</button>
+
+      <div id="nav-overlay"></div>
+
+      <!-- Navigation Panel -->
+      <nav id="nav-panel">
+        <!-- Profile Section -->
+        <div class="nav-profile">
+          <img src="Images/Me.webp" alt="Profile Picture" class="profile-pic" />
+          <div class="profile-info">
+            <p class="username">Guest</p>
+            <p class="user-level">Level: Acquaintance</p>
+          </div>
+          <button id="nav-close">&times;</button>
+        </div>
+
+        <!-- Navigation Items -->
+        <ul class="nav-links">
+          <li>
+            <img src="Images/Icons/home.svg" alt="Home Icon" />
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <img src="Images/Icons/about.svg" alt="About Icon" />
+            <a href="#">About</a>
+          </li>
+          <li>
+            <img src="Images/Icons/website.svg" alt="Projects Icon" />
+            <a href="#">Projects</a>
+          </li>
+          <li>
+            <img src="Images/Icons/star.svg" alt="Skills Icon" />
+            <a href="#">Skills</a>
+          </li>
+          <li>
+            <img src="Images/Icons/animation.svg" alt="Toggle Icon" />
+            <a href="#">Toggle Animations</a>
+          </li>
+          <li>
+            <img src="Images/Icons/checklist.svg" alt="Quest Icon" />
+            <a href="#">Quest Checklist</a>
+          </li>
+          <li>
+            <img src="Images/Icons/privacy.svg" alt="Terms Icon" />
+            <a href="#">Terms of Service</a>
+          </li>
+          <li>
+            <img src="Images/Icons/cv.svg" alt="Download Icon" />
+            <a href="#">Download CV</a>
           </li>
         </ul>
       </nav>
