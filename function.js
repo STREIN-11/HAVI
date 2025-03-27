@@ -268,8 +268,16 @@ function show404() {
   showNotification('<Access Denied>', 6);
 }
 function showPopUp(message) {
-  document.getElementById('passionModal').style.display = 'flex';
+  const modalBg = document.getElementById('passionModal');
   const passionCard = document.getElementById('passionCard');
+
+  modalBg.style.display = 'flex'; // Show the modal background
+
+  gsap.fromTo(
+    passionCard,
+    { y: '-100%', opacity: 0 }, // Start position (above screen)
+    { y: '0%', opacity: 1, duration: 0.6, ease: 'power2.out' } // Slide down smoothly
+  );
   lockScreen();
   stopCountingTime();
   switch (message) {
@@ -358,6 +366,36 @@ function showPopUp(message) {
   passionCard.style.display = 'flex';
   notification.style.display = 'none';
 }
+
+function hidePopUp() {
+  const modalBg = document.getElementById('passionModal');
+  const passionCard = document.getElementById('passionCard');
+
+  gsap.to(passionCard, {
+    y: '-100%',
+    opacity: 0,
+    duration: 0.5,
+    ease: 'power2.in',
+    onComplete: () => {
+      modalBg.style.display = 'none'; // Hide the modal after animation
+    }
+  });
+}
+
+// function hidePopUp() {
+//   gsap.to('#passionCard', {
+//     scaleY: 0,
+//     opacity: 0,
+//     duration: 0.4,
+//     ease: 'power2.in',
+//     onComplete: () => {
+//       document.getElementById('passionModal').style.display = 'none';
+//     }
+//   });
+
+//   gsap.to('#passionModal', { opacity: 0, duration: 0.2 });
+// }
+
 function hidePopUp() {
   unlockScreen();
   document.getElementById('passionModal').style.display = 'none';
