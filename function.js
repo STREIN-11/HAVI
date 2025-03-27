@@ -106,12 +106,17 @@ window.addEventListener('load', function (load) {
     case '#star':
       showNotification(`Thanks for starring...`, 5);
       break;
+    case '#ban':
+      showNotification(`Hope you learnt your lesson...`, 10);
   }
   history.replaceState(
     null,
     null,
     window.location.pathname + window.location.search
   );
+  if (this.localStorage.getItem('banned')) {
+    showNotification(`Hope you learnt your lesson...`, 10);
+  }
   initializeNavigation();
   this.setTimeout(function () {
     loader.style.display = 'none';
@@ -334,6 +339,14 @@ function showPopUp(message) {
           .addEventListener('click', kickUserOut);
       }
       break;
+    case 10:
+      {
+        cardTitle.textContent = 'Unacceptable behaviour';
+        cardDescription.textContent = `Hope you learned your lesson... 😏 You can't escape that easily. Welcome back, but next time, maybe think twice before declining those Terms of Service!`;
+        cardImage.src = 'Images/Icons/error.svg';
+        localStorage.removeItem('banned');
+      }
+      break;
 
     default:
       {
@@ -442,15 +455,18 @@ function addNewUser(firstname, lastname) {
   }
 
   localStorage.setItem('username', username);
-  console.log(`Hello there ${username}`);
+  document.getElementById('user-name').textContent = `${username}`;
 }
 
 function searchForName() {
-  if (localStorage.getItem('username')) {
-    return localStorage.getItem('username');
+  let name = localStorage.getItem('username');
+  if (name) {
+    alert(` Found You ${name}`);
+    document.getElementById('user-name').textContent = `${name}`;
   } else {
-    return '';
+    name = 'nope';
   }
+  return name;
 }
 
 function sendMessageToBot(message) {
@@ -471,11 +487,12 @@ function declineToS() {
 }
 function kickUserOut() {
   alert('Error 403: Access Denied. Disconnecting...');
+  localStorage.setItem('banned', true);
   setTimeout(() => {
-    window.location.href = 'https://thispagedoesnotexist.tino';
+    window.location.href = 'https://thispagedoesnotexist.bye';
   }, 2000);
   setTimeout(() => {
-    window.location.href = 'https://tinotenda-mhedziso.pages.dev';
+    window.location.href = 'https://tinotenda-mhedziso.pages.dev/#ban';
   }, 7000);
 }
 
