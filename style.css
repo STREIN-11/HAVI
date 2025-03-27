@@ -1385,21 +1385,6 @@ button img {
 #preloader {
   background-size: 40%;
 }
-.modalBackground {
-  position: fixed;
-  z-index: 400;
-  color: #fff;
-  width: 100vw;
-  height: 100vh;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background-color: #00000080;
-}
-#cardClose {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
 
 .actionBtn {
   cursor: pointer;
@@ -1449,7 +1434,21 @@ button img {
   color: #000;
 }
 /* <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Thank you card<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< --> */
-
+.modalBackground {
+  position: fixed;
+  z-index: 400;
+  color: #fff;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000080;
+}
+#cardClose {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 #passionCard {
   border-radius: 10px;
   border: 1px solid var(--grey);

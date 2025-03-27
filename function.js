@@ -553,7 +553,8 @@ const notyf = new Notyf({
   ]
 });
 
-// GSAP animations
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>GSAP animations <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 let programmingLanguages = document.querySelectorAll('.Programming .language');
 
 gsap.utils.toArray(programmingLanguages).forEach((item, index) => {
