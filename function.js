@@ -317,8 +317,29 @@ function showPopUp(message) {
         cardDescription.textContent = `Yayyy, You completed all the quests and for that I now promote you from internet guest to a friend of ours.`;
       }
       break;
+    case 8:
+      {
+        cardTitle.textContent = 'Supporting Tino';
+        cardDescription.textContent = `Oh? You want to support Tino? That’s awesome! 😄 He doesn’t take donations, but you can help by offering him a developer job at your company 😉. What ... No company? No problem! A simple follow on GitHub means a lot. Thanks! 💚`;
+        cardImage.src = 'Images/Icons/support.svg';
+      }
+      break;
+    case 9:
+      {
+        cardTitle.textContent = 'Unacceptable behaviour';
+        cardDescription.textContent = `Wait… did you just decline the Terms of Service? 🤨 You do realize that without agreement, you can’t access any of Tino’s amazing creations, right? Well, if that’s your final decision… I’m afraid I have no choice but to escort you out. 👋`;
+        cardImage.src = 'Images/Icons/error.svg';
+        document
+          .getElementById('cardClose')
+          .addEventListener('click', kickUserOut);
+      }
+      break;
 
     default:
+      {
+        cardTitle.textContent = 'Error Found';
+        cardDescription.textContent = `Uhmmmm - something went wrong. What do you mean do I know ? You are the one pressing things... Okay Okay remain calm, I'm sure if we just close our eyes it will go away.`;
+      }
       break;
   }
   passionCard.style.display = 'flex';
@@ -354,6 +375,7 @@ function hideToS(acceptance) {
   if (passionDisplay == 'none') {
     unlockScreen();
   }
+  declineToS();
 }
 
 let intervalId;
@@ -441,6 +463,22 @@ function contactMe() {
   openWebchat();
   sendMessageToBot('contactMe');
 }
+function supportMe() {
+  showNotification('Oh, You want to support Tino ...', 8);
+}
+function declineToS() {
+  showNotification('Did you just decline ...', 9);
+}
+function kickUserOut() {
+  alert('Error 403: Access Denied. Disconnecting...');
+  setTimeout(() => {
+    window.location.href = 'https://thispagedoesnotexist.tino';
+  }, 2000);
+  setTimeout(() => {
+    window.location.href = 'https://tinotenda-mhedziso.pages.dev';
+  }, 7000);
+}
+
 function openWebchat() {
   if (!sentFirst) {
     sentFirst = true;
