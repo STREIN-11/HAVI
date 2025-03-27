@@ -429,6 +429,7 @@ html {
 
 /* Navigation Panel */
 #nav-panel {
+  border: 1px solid white;
   position: fixed;
   top: 0;
   right: -100%;
@@ -460,6 +461,7 @@ html {
   margin-right: 10px;
   object-fit: cover;
   border: 1px solid white;
+  cursor: pointer;
 }
 
 .profile-info {
