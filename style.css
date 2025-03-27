@@ -190,7 +190,7 @@ html {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1000;
+  z-index: 1500;
 }
 .webchat-hidden {
   display: none !important;
@@ -395,7 +395,7 @@ html {
 /* Navigation Toggle Button */
 /* Navigation Toggle Button (Styled like Webchat Toggle) */
 .nav-toggle {
-  background-color: var(--darkGreen); /* Same color as webchat toggle */
+  background-color: var(--darkGreen);
   color: white;
   font-size: 1.5rem;
   padding: 10px 15px;
@@ -405,7 +405,7 @@ html {
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 1100; /* Higher than most elements */
+  z-index: 1100;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -451,7 +451,7 @@ html {
   align-items: center;
   width: 100%;
   padding-bottom: 20px;
-  border-bottom: 1px solid rgba(0, 255, 0, 0.5);
+  border-bottom: 1px solid white;
 }
 
 .profile-pic {
@@ -468,7 +468,7 @@ html {
   flex-grow: 1;
 }
 
-.username {
+.user-name {
   font-size: 18px;
   font-weight: bold;
 }
@@ -499,12 +499,14 @@ html {
   display: flex;
   align-items: center;
   padding: 10px;
-  border-left: 4px solid transparent;
-  transition: border-left 0.3s ease-in-out;
+  background: transparent;
+  border-radius: 50px;
+  transition: background 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 .nav-links li:hover {
-  border-left: 4px solid #0f0;
+  background-color: #05ec0557;
 }
 
 .nav-links img {
@@ -1351,6 +1353,9 @@ h1 span {
   transition: background 0.3s;
   font-size: 0.9rem;
 }
+button img {
+  width: 40px;
+}
 
 @media screen and (max-width: 1024px) {
   .project-item {
@@ -1948,7 +1953,7 @@ h6 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  z-index: 999;
+  z-index: 1300;
 }
 
 .story-progress-bar {
@@ -1959,7 +1964,6 @@ h6 {
   height: 5px;
   background: rgba(255, 255, 255, 0.5);
   width: 0%;
-  z-index: 300;
 }
 
 .story-content {
