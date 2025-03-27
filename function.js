@@ -23,8 +23,9 @@ function show(viewObj) {
 }
 let anime = true;
 let sentFirst = false;
-// const abutton = document.getElementById('Anime');
-// abutton.addEventListener('click', animate);
+const animationBtn = document.getElementById('Anime');
+let animeText = document.getElementById('animeText');
+animationBtn.addEventListener('click', animate);
 let Icons = document.querySelectorAll('.Icon');
 let skillCards = document.querySelectorAll('.skill-card');
 let titles = document.querySelectorAll('.subTitle');
@@ -36,33 +37,35 @@ let cardTitle = document.getElementById('cardTitle');
 let cardImage = document.getElementById('cardImage');
 let cardDescription = document.getElementById('cardDescription');
 
-// function animate() {
-//   document.getElementById('AnimationsTask').checked = true;
-//   updateQuestStatus('AnimationsTask', true);
-//   checkQuests();
-//   if (anime) {
-//     for (s = 0; s < skillCards.length; ++s) {
-//       skillCards[s].classList.remove('bounce');
-//     }
-//     for (t = 0; t < titles.length; ++t) {
-//       titles[t].classList.remove('bounce');
-//     }
-//     anime = false;
-//     window.location.assign(`#FooterSection`);
-//     setTimeout(backHome, 2000);
-//   } else {
-//     for (s = 0; s < skillCards.length; ++s) {
-//       skillCards[s].classList.add('bounce');
-//     }
-//     for (t = 0; t < titles.length; ++t) {
-//       titles[t].classList.add('bounce');
-//     }
-//     anime = true;
+function animate() {
+  document.getElementById('AnimationsTask').checked = true;
+  updateQuestStatus('AnimationsTask', true);
+  checkQuests();
+  if (anime) {
+    animeText.textContent = 'Enable Animations';
+    for (s = 0; s < skillCards.length; ++s) {
+      skillCards[s].classList.remove('bounce');
+    }
+    for (t = 0; t < titles.length; ++t) {
+      titles[t].classList.remove('bounce');
+    }
+    anime = false;
+    window.location.assign(`#FooterSection`);
+    setTimeout(backHome, 2000);
+  } else {
+    animeText.textContent = 'Disable Animations';
+    for (s = 0; s < skillCards.length; ++s) {
+      skillCards[s].classList.add('bounce');
+    }
+    for (t = 0; t < titles.length; ++t) {
+      titles[t].classList.add('bounce');
+    }
+    anime = true;
 
-//     window.location.assign(`#FooterSection`);
-//     setTimeout(backHome, 2000);
-//   }
-// }
+    window.location.assign(`#FooterSection`);
+    setTimeout(backHome, 2000);
+  }
+}
 function backHome() {
   window.location.assign(`#`);
 }
@@ -131,6 +134,7 @@ function initializeNavigation() {
   const navPanel = document.getElementById('nav-panel');
   const navClose = document.getElementById('nav-close');
   const navOverlay = document.getElementById('nav-overlay');
+  const navLinks = document.querySelectorAll(`.nav-links li`);
 
   // Open Navigation Panel
   navToggle.addEventListener('click', () => {
@@ -138,9 +142,22 @@ function initializeNavigation() {
     gsap.to(navOverlay, { opacity: 1, visibility: 'visible', duration: 0.3 });
   });
 
+  navToggle.addEventListener(
+    'click',
+    () => {
+      document.getElementById('NavigationTask').checked = true;
+      updateQuestStatus('NavigationTask', true);
+      checkQuests();
+    },
+    { once: true }
+  );
+
   // Close Navigation Panel
   navClose.addEventListener('click', closeNav);
   navOverlay.addEventListener('click', closeNav);
+  navLinks.forEach((navLink) => {
+    navLink.addEventListener('click', closeNav);
+  });
 
   function closeNav() {
     gsap.to(navPanel, { right: '-100%', duration: 0.5, ease: 'power3.in' });
@@ -194,19 +211,6 @@ function navigateToSite(fileUrl) {
   link.click();
   document.body.removeChild(link);
 }
-// document.getElementById('menuOpener').addEventListener(
-//   'click',
-//   () => {
-//     document.getElementById('NavigationTask').checked = true;
-//     updateQuestStatus('NavigationTask', true);
-//     checkQuests();
-//   },
-//   { once: true }
-// );
-// function openNavMenu() {
-//   const navMenu = document.getElementById('menuOpener');
-//   navMenu.click();
-// }
 function resetQuestStatuses() {
   localStorage.removeItem('questsStatus');
   const quests = document.querySelectorAll('#checklist input');

@@ -468,12 +468,12 @@ html {
   flex-grow: 1;
 }
 
-.user-name {
+#user-name {
   font-size: 18px;
   font-weight: bold;
 }
 
-.user-level {
+#user-level {
   font-size: 14px;
 }
 

@@ -627,7 +627,7 @@
         </ul>
       </nav> -->
       <!-- Navigation Toggle Button (Styled like Webchat Toggle) -->
-      <button class="nav-toggle" id="nav-toggle" onclick="openNav()">📜</button>
+      <button class="nav-toggle" id="nav-toggle">📜</button>
 
       <div id="nav-overlay"></div>
 
@@ -637,49 +637,71 @@
         <div class="nav-profile">
           <img src="Images/Me.webp" alt="Profile Picture" class="profile-pic" />
           <div class="profile-info">
-            <p class="user-name">Guest</p>
-            <p class="user-level">Level: Guest</p>
+            <p id="user-name">Tinotenda Mhedziso</p>
+            <p id="user-level">Level: Master💚💚💚</p>
           </div>
           <button id="nav-close">&times;</button>
         </div>
 
         <!-- Navigation Items -->
         <ul class="nav-links">
-          <li>
-            <img src="Images/Icons/home.svg" alt="Home Icon" />
-            <a href="#">Home</a>
+          <a href="#">
+            <li>
+              <img src="Images/Icons/home.svg" alt="Home Icon" />
+              Home
+            </li>
+          </a>
+          <a href="#AboutSection">
+            <li>
+              <img src="Images/Icons/about.svg" alt="About Icon" />
+              About
+            </li>
+          </a>
+          <a href="#ProjectsSection">
+            <li>
+              <img src="Images/Icons/website.svg" alt="Projects Icon" />
+              Projects
+            </li>
+          </a>
+          <a href="#SkillsSection">
+            <li>
+              <img src="Images/Icons/star.svg" alt="Skills Icon" />
+              Skills
+            </li>
+          </a>
+          <a href="#SocialsSection">
+            <li>
+              <img src="Images/Icons/follow.svg" alt="Skills Icon" />
+              Socials
+            </li>
+          </a>
+          <li onclick="contactMe()">
+            <img src="Images/Icons/contact.svg" alt="Download Icon" />
+            <a>Contact Tino</a>
           </li>
-          <li>
-            <img src="Images/Icons/about.svg" alt="About Icon" />
-            <a href="#">About</a>
-          </li>
-          <li>
-            <img src="Images/Icons/website.svg" alt="Projects Icon" />
-            <a href="#">Projects</a>
-          </li>
-          <li>
-            <img src="Images/Icons/star.svg" alt="Skills Icon" />
-            <a href="#">Skills</a>
-          </li>
-          <li>
-            <img src="Images/Icons/follow.svg" alt="Skills Icon" />
-            <a href="#">Socials</a>
-          </li>
-          <li>
+          <li id="Anime">
             <img src="Images/Icons/animation.svg" alt="Toggle Icon" />
-            <a href="#">Toggle Animations</a>
+            <a id="animeText">Disable Animations</a>
           </li>
-          <li>
+          <li onclick="toggleCheckList()">
             <img src="Images/Icons/checklist.svg" alt="Quest Icon" />
-            <a href="#">Quest Checklist</a>
+            <a>Quest Checklist</a>
           </li>
-          <li>
+          <li onclick="showToS()">
             <img src="Images/Icons/privacy.svg" alt="Terms Icon" />
-            <a href="#">Terms of Service</a>
+            <a>Terms of Service</a>
           </li>
-          <li>
+          <li onclick="downloadCV()">
             <img src="Images/Icons/cv.svg" alt="Download Icon" />
-            <a href="#">Download CV</a>
+            <a>Download CV</a>
+          </li>
+          <li onclick="starRepository('Tinotenda-Mhedziso')">
+            <img src="Images/Icons/like-website.svg" alt="Download Icon" />
+            <a>Like Website</a>
+          </li>
+          <li onclick="supportMe()">
+            <img src="Images/Icons/support.svg" alt="Download Icon" />
+            <a>Support Tino</a>
           </li>
         </ul>
       </nav>
@@ -1562,12 +1584,12 @@
 
     <script type="text/javascript" src="p5.sound.min.js"></script>
 
-    <script
+    <!-- <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script
       nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> -->
     <script type="text/javascript" src="function.js"></script>
     <link
       rel="stylesheet"
