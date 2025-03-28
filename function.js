@@ -743,8 +743,7 @@ function draw() {
       let index = floor(map(i, 0, width, 0, wave.length - 1));
 
       // let r = map(wave[index], -1, 1, 150, 350);
-      let r = map(wave[index], -1, 1, 100, 250); // Reduced range from (150, 350) to (100, 250)
-
+      let r = map(wave[index], -1, 1, 100, 250);
       let x = r * sin(i) * t;
       let y = r * cos(i);
       vertex(x, y);
@@ -825,7 +824,6 @@ const volumeButton = document.querySelector('.music-volume_button');
 
 let isMuted = false;
 
-// Toggle mute/unmute
 volumeButton.addEventListener('click', () => {
   isMuted = !isMuted;
   song.setVolume(isMuted ? 0 : 1);
@@ -834,14 +832,13 @@ volumeButton.addEventListener('click', () => {
     : 'Images/Icons/volume.svg';
 });
 
-// Load Songs from JSON
 async function loadSongs() {
   try {
     const response = await fetch('songs.json');
     songs = await response.json();
     loadSong(0);
   } catch (error) {
-    console.error('Error loading songs:', error);
+    notyf.error('Error loading songs. Try refresh page');
   }
 }
 
