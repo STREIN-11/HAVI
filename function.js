@@ -845,7 +845,6 @@ async function loadSongs() {
   }
 }
 
-// Load a New Song (switching)
 function loadSong(index) {
   if (index < 0 || index >= songs.length) return;
   currentSongIndex = index;
@@ -859,7 +858,7 @@ function loadSong(index) {
   elapsedTimeElement.textContent = '0:00';
 
   if (song) {
-    song.stop(); // Stop current song if playing
+    song.stop();
   }
 
   song = loadSound(localsong.src, () => {
