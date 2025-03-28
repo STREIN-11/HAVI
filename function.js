@@ -845,35 +845,6 @@ async function loadSongs() {
   }
 }
 
-// function loadSong(index) {
-//   if (index < 0 || index >= songs.length) return;
-//   currentSongIndex = index;
-//   const localsong = songs[currentSongIndex];
-
-//   audioPlayer.src = localsong.src;
-//   titleElement.textContent = localsong.title;
-//   artistElement.textContent = localsong.artist;
-
-//   musicProgressBar.style.width = '0%';
-//   elapsedTimeElement.textContent = '0:00';
-
-//   if (song) {
-//     song.stop();
-//   }
-
-//   song = loadSound(localsong.src, () => {
-//     fullTimeElement.textContent = formatTime(song.duration());
-//   });
-
-//   playing = false;
-//   playButton.src = 'Images/Icons/play.svg';
-// }
-
-// function toggleMusicAnimation(pause) {
-//   document.querySelectorAll('.music-greenline').forEach((el) => {
-//     el.style.animationPlayState = pause ? 'paused' : 'running';
-//   });
-// }
 function loadSong(index) {
   if (index < 0 || index >= songs.length) return;
   currentSongIndex = index;
