@@ -702,6 +702,7 @@ let song;
 let particles = [];
 let amp = 0;
 let playing = false;
+let isLoading = false;
 
 function preload() {
   song = loadSound(`Audio/Music/Shogun's Shadow Trap.mp3`);
@@ -726,6 +727,13 @@ function setup() {
 
 function draw() {
   background(10, 10, 10, 100);
+  if (isLoading) {
+    textAlign(CENTER, CENTER);
+    textSize(32);
+    fill(255);
+    text('Loading...', 50, 50);
+    return;
+  }
 
   stroke('#0f0');
   strokeWeight(1.5);
@@ -833,19 +841,16 @@ volumeButton.addEventListener('click', () => {
 });
 
 async function loadSongs() {
-  try {
-    const response = await fetch('songs.json');
-    songs = await response.json();
-    loadSong(0);
-  } catch (error) {
-    notyf.error('Error loading songs. Try refresh page');
-  }
+  const response = await fetch('./songs.json');
+  songs = await response.json();
+  loadSong(0);
 }
 
 function loadSong(index) {
   if (index < 0 || index >= songs.length) return;
   currentSongIndex = index;
   const localsong = songs[currentSongIndex];
+  isLoading = false;
 
   audioPlayer.src = localsong.src;
   titleElement.textContent = localsong.title;
@@ -861,10 +866,9 @@ function loadSong(index) {
   song = loadSound(localsong.src, () => {
     fullTimeElement.textContent = formatTime(song.duration());
 
-    // 🔥 Reattach FFT to the new song
     fft.setInput(song);
+    isLoading = false;
 
-    // 🔥 Start playing automatically after loading
     playMusic();
   });
 
