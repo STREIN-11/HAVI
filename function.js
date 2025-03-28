@@ -870,14 +870,12 @@ function loadSong(index) {
   playButton.src = 'Images/Icons/play.svg';
 }
 
-// Toggle Music Animation
 function toggleMusicAnimation(pause) {
   document.querySelectorAll('.music-greenline').forEach((el) => {
     el.style.animationPlayState = pause ? 'paused' : 'running';
   });
 }
 
-// Toggle Play/Pause
 function togglePlay() {
   if (!playing) {
     playMusic();
@@ -886,7 +884,6 @@ function togglePlay() {
   }
 }
 
-// Play Song
 function playMusic() {
   if (song && !song.isPlaying()) {
     song.play();
@@ -896,7 +893,6 @@ function playMusic() {
   }
 }
 
-// Pause Song
 function pauseMusic() {
   if (song && song.isPlaying()) {
     song.pause();
@@ -906,18 +902,16 @@ function pauseMusic() {
   }
 }
 
-// Next Song
 function nextSong() {
   currentSongIndex = (currentSongIndex + 1) % songs.length;
   loadSong(currentSongIndex);
-  playMusic();
+  song.onloadedmetadata = () => playMusic();
 }
 
-// Previous Song
 function prevSong() {
   currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
   loadSong(currentSongIndex);
-  playMusic();
+  song.onloadedmetadata = () => playMusic();
 }
 
 // Progress Bar Updates
