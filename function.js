@@ -714,7 +714,7 @@ function setup() {
   cnv.style('position', 'fixed');
   cnv.style('top', '0');
   cnv.style('left', '0');
-  cnv.style('z-index', '100'); // Above everything that I created but under the music-card
+  cnv.style('z-index', '1500'); // Above everything that I created but under the music-card
   cnv.style('display', 'none');
 
   angleMode(DEGREES);
@@ -841,7 +841,7 @@ volumeButton.addEventListener('click', () => {
 });
 
 async function loadSongs() {
-  const response = await fetch('./songs.json');
+  const response = await fetch('songs.json');
   songs = await response.json();
   loadSong(0);
 }
