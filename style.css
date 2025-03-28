@@ -2686,7 +2686,7 @@ h6 {
   display: none;
   flex-direction: column;
   gap: 10px;
-  z-index: 300;
+  z-index: 1600;
 }
 .music-top {
   display: flex;
