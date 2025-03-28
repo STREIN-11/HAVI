@@ -742,9 +742,8 @@ function draw() {
     for (let i = 0; i < width; i++) {
       let index = floor(map(i, 0, width, 0, wave.length - 1));
 
-      let r = map(wave[index], -1, 1, 150, 350);
-      //       let scaleFactor = min(width, height) / 800; // Adjust 800 based on your preference
-      // let r = map(wave[index], -1, 1, 100 * scaleFactor, 250 * scaleFactor);
+      // let r = map(wave[index], -1, 1, 150, 350);
+      let r = map(wave[index], -1, 1, 100, 250); // Reduced range from (150, 350) to (100, 250)
 
       let x = r * sin(i) * t;
       let y = r * cos(i);
@@ -767,7 +766,7 @@ function draw() {
 
 class Particle {
   constructor() {
-    this.pos = p5.Vector.random2D().mult(250);
+    this.pos = p5.Vector.random2D().mult(200);
     this.vel = createVector(0, 0);
     this.acc = this.pos.copy().mult(random(0.0003));
     this.w = random(3, 5);
