@@ -902,10 +902,10 @@ function togglePlay() {
     pauseMusic();
   }
 }
-function toggleMusicAnimation(pause) {
+function toggleMusicAnimation(play) {
   const elements = document.querySelectorAll('.music-greenline');
   elements.forEach((el) => {
-    el.style.animationPlayState = pause ? 'paused' : 'running';
+    el.style.animationPlayState = play ? 'running' : 'paused';
   });
 }
 function playMusic() {
@@ -932,7 +932,7 @@ function pauseMusic() {
     song.pause();
     playing = false;
     playButton.src = 'Images/Icons/play.svg';
-    toggleMusicAnimation(true);
+    toggleMusicAnimation(false);
   }
 }
 
