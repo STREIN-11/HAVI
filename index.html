@@ -1583,8 +1583,11 @@
     </footer>
 
     <script type="text/javascript" src="p5.min.js"></script>
-
     <script type="text/javascript" src="p5.sound.min.js"></script>
+    <script>
+      window.p5 = p5; // Ensure p5 is globally available
+    </script>
+    <script type="text/javascript" src="function.js" defer></script>
 
     <!-- <script
       type="module"
@@ -1592,7 +1595,7 @@
     <script
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> -->
-    <script type="text/javascript" src="function.js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"

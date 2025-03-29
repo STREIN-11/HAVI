@@ -704,9 +704,22 @@ let amp = 0;
 let playing = false;
 let isLoading = false;
 
-function preload() {
-  song = loadSound(`Audio/Music/Shogun's Shadow Trap.mp3`);
-}
+// function preload() {
+//   song = loadSound(`Audio/Music/Shogun's Shadow Trap.mp3`);
+// }
+
+window.onload = function () {
+  if (window.p5 && window.p5.prototype && window.p5.prototype.loadSound) {
+    song = p5.prototype.loadSound(
+      `Audio/Music/Shogun's Shadow Trap.mp3`,
+      () => {
+        console.log('Sound loaded successfully!');
+      }
+    );
+  } else {
+    console.error('p5.sound is not available.');
+  }
+};
 
 function setup() {
   let cnv = createCanvas(windowWidth, windowHeight);
@@ -976,8 +989,12 @@ prevButton.addEventListener('click', prevSong);
 
 setInterval(updateMusicProgressBar, 1000);
 
-// Load First Song
-loadSongs();
+// // Load First Song
+// loadSongs();
+window.onload = function () {
+  loadSongs();
+};
+
 function toggleVisualizer() {
   let cnv = document.querySelector('canvas'); // Get the canvas element
   if (cnv.style.display === 'none') {
