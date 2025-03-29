@@ -881,8 +881,6 @@ function loadSong(index) {
 
     fft.setInput(song);
     isLoading = false;
-
-    playMusic();
   });
 
   playing = false;
@@ -896,7 +894,12 @@ function togglePlay() {
     pauseMusic();
   }
 }
-
+function toggleMusicAnimation(pause) {
+  const elements = document.querySelectorAll('.music-greenline');
+  elements.forEach((el) => {
+    el.style.animationPlayState = pause ? 'paused' : 'running';
+  });
+}
 function playMusic() {
   if (song && !song.isPlaying()) {
     song.play();
