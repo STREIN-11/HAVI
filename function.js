@@ -886,6 +886,8 @@ function loadSong(index) {
     fft.setInput(song);
     isLoading = false;
     playButton.disabled = false;
+
+    notyf.success(`${localsong.title} is ready to play!`);
   });
 
   playButton.disabled = true;
