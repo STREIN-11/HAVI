@@ -821,6 +821,7 @@ class Particle {
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Music Functionality <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 let songs = [];
+let clickedMusic = false;
 let currentSongIndex = 0;
 let audioPlayer = document.getElementById('myMusic');
 const titleElement = document.querySelector('.title-1');
@@ -864,6 +865,7 @@ async function loadSongs() {
 }
 
 function loadSong(index) {
+  toggleMusicAnimation(false);
   if (index < 0 || index >= songs.length) return;
   currentSongIndex = index;
   const localsong = songs[currentSongIndex];
@@ -887,7 +889,11 @@ function loadSong(index) {
     isLoading = false;
     playButton.disabled = false;
 
-    notyf.success(`${localsong.title} is ready to play!`);
+    if (clickedMusic) {
+      playMusic();
+    } else {
+      notyf.sucess(`First song loaded. Music ready to play.`);
+    }
   });
 
   playButton.disabled = true;
@@ -924,6 +930,7 @@ function playMusic() {
     playing = true;
     playButton.src = 'Images/Icons/pause.svg';
     toggleMusicAnimation(true);
+    clickedMusic = true;
   }
 }
 
@@ -937,12 +944,14 @@ function pauseMusic() {
 }
 
 function nextSong() {
+  toggleMusicAnimation(false);
   currentSongIndex = (currentSongIndex + 1) % songs.length;
   loadSong(currentSongIndex);
   song.onloadedmetadata = () => playMusic();
 }
 
 function prevSong() {
+  toggleMusicAnimation(false);
   currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
   loadSong(currentSongIndex);
   song.onloadedmetadata = () => playMusic();
