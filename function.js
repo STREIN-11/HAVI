@@ -892,7 +892,7 @@ function loadSong(index) {
     if (clickedMusic) {
       playMusic();
     } else {
-      notyf.sucess(`First song loaded. Music ready to play.`);
+      notyf.success(`First song loaded. Music ready to play.`);
     }
   });
 

@@ -2660,7 +2660,7 @@ h6 {
   position: fixed;
   bottom: 20px;
   left: 20px; /* Positioned at the bottom-left */
-  z-index: 1000;
+  z-index: 1550;
   transition: transform 0.5s, opacity 0.3s;
 }
 
