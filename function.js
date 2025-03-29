@@ -854,9 +854,13 @@ volumeButton.addEventListener('click', () => {
 });
 
 async function loadSongs() {
-  const response = await fetch('songs.json');
-  songs = await response.json();
-  loadSong(0);
+  try {
+    const response = await fetch('songs.json');
+    songs = await response.json();
+    loadSong(0);
+  } catch (error) {
+    notyf.error(`${error}`);
+  }
 }
 
 function loadSong(index) {
@@ -881,8 +885,10 @@ function loadSong(index) {
 
     fft.setInput(song);
     isLoading = false;
+    playButton.disabled = false;
   });
 
+  playButton.disabled = true;
   playing = false;
   playButton.src = 'Images/Icons/play.svg';
 }
@@ -901,11 +907,21 @@ function toggleMusicAnimation(pause) {
   });
 }
 function playMusic() {
-  if (song && !song.isPlaying()) {
+  if (!song) {
+    notyf.error('No song loaded.');
+    return;
+  }
+
+  if (!song.isLoaded()) {
+    notyf.error('Song is still loading. Please wait...');
+    return;
+  }
+
+  if (!song.isPlaying()) {
     song.play();
     playing = true;
     playButton.src = 'Images/Icons/pause.svg';
-    toggleMusicAnimation(false);
+    toggleMusicAnimation(true);
   }
 }
 
