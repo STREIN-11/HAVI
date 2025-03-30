@@ -1526,14 +1526,14 @@
                     });
                   
                     window.botpress.on("customEvent", (event) => {
-                      if(event.action =="awakenPassion")
-                      {
-                       window.parent.postMessage({ action: "awakenPassion" }, "*");
-                      }
-                      else
                       if(event.action =="newUser")
                       {
                        window.parent.postMessage({ action: "newUser", firstname: event.firstname, lastname: event.lastname}, "*");
+                      }
+                      else
+                      if(event.action =="returningUser")
+                      {
+                       window.parent.postMessage({ action: "returningUser"}, "*");
                       }
                       else
                      if(event.action =="playMusic")
@@ -1553,21 +1553,14 @@
                         });
                       }
                       else
-                      if (event.data.action === "awakened") {
+                      if (event.data.action === "isWebsite") {
                         window.botpress.sendEvent({
-                          "action" : "awakened",
-                          "username": `${event.data.username}`,
+                          "action" : "isWebsite"
                         });
                       }
                       else
                       if (event.data.action === "openWebchat") {
                         botpress.open();
-                      }
-                      else
-                      if (event.data.action === "isWebsite") {
-                        window.botpress.sendEvent({
-                          "action" : "myWebsite"
-                        });
                       }
                     });
                     

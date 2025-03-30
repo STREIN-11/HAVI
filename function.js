@@ -128,6 +128,10 @@ window.addEventListener('load', function (load) {
         .getElementById('cardClose')
         .addEventListener('click', greetedUser);
     }
+    if (localStorage.getItem('username')) {
+      document.getElementById('user-name').textContent =
+        localStorage.getItem('username');
+    }
 
     shownWelcome = true;
     loadQuestStatus();
@@ -456,9 +460,8 @@ let musicPlayer = document.getElementById('myMusic');
 window.addEventListener('message', (event) => {
   if (event.data.action === 'newUser') {
     addNewUser(event.data.firstname, event.data.lastname);
-  } else if (event.data.action === 'awakenPassion') {
-    let username = searchForName();
-    awaken(username);
+  } else if (event.data.action === 'returningUser') {
+    sendMessageToBot(`isWebsite`);
   } else if (event.data.action === 'playMusic') {
     showMusicCard();
     playMusic();
@@ -471,19 +474,6 @@ window.addEventListener('message', (event) => {
     document.querySelector('.webchat-toggle').style.display = 'block';
   }
 });
-
-function awaken(username) {
-  const botIframe = document.querySelector('.webchat iframe');
-  if (botIframe) {
-    botIframe.contentWindow.postMessage(
-      {
-        action: `awakened`,
-        username: `${username}`
-      },
-      '*'
-    );
-  }
-}
 function addNewUser(firstname, lastname) {
   let username = '';
   if (lastname != '') {
@@ -491,22 +481,10 @@ function addNewUser(firstname, lastname) {
   } else {
     username = `${firstname}`;
   }
-
   localStorage.setItem('username', username);
   document.getElementById('user-name').textContent = `${username}`;
+  sendMessageToBot(`isWebsite`);
 }
-
-function searchForName() {
-  let name = localStorage.getItem('username');
-  if (name) {
-    alert(` Found You ${name}`);
-    document.getElementById('user-name').textContent = `${name}`;
-  } else {
-    name = 'nope';
-  }
-  return name;
-}
-
 function sendMessageToBot(message) {
   const botIframe = document.querySelector('.webchat iframe');
   if (botIframe) {
