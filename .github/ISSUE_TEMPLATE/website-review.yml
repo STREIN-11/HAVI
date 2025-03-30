@@ -1,0 +1,84 @@
+name: "🌐 Website Review: HQ"
+description: "Share your thoughts and experiences with the HQ portfolio website!"
+title: "[Review]: HQ Portfolio"
+labels: ["review", "feedback"]
+assignees:
+  - Passion-Over-Pain
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 🌐 HQ Portfolio Review
+        Thank you for checking out my portfolio website!  
+        Your feedback helps me improve the experience for future visitors.  
+        Please answer the questions below to share your thoughts.
+
+  - type: dropdown
+    id: rating
+    attributes:
+      label: "🌟 Overall Experience"
+      description: "How would you rate your overall experience with the website?"
+      options:
+        - ⭐⭐⭐⭐⭐ (Amazing! Loved it.)
+        - ⭐⭐⭐⭐ (Great, but could use small improvements.)
+        - ⭐⭐⭐ (Good, but some areas need work.)
+        - ⭐⭐ (It was okay, but needs improvement.)
+        - ⭐ (I had a rough time navigating it.)
+    validations:
+      required: true
+
+  - type: textarea
+    id: navigation
+    attributes:
+      label: "🧭 Navigation & Usability"
+      description: "Was it easy to find what you were looking for? Was anything confusing?"
+      placeholder: "E.g., Everything was clear, or I struggled to find X page."
+
+  - type: textarea
+    id: design
+    attributes:
+      label: "🎨 Design & Aesthetics"
+      description: "Did the futuristic dark green and black theme enhance or hinder readability? Were any elements distracting?"
+      placeholder: "E.g., The design is sleek, but some animations were too much."
+
+  - type: textarea
+    id: content
+    attributes:
+      label: "📖 Content & Readability"
+      description: "Was the text easy to read and interact with? Did the site communicate information effectively?"
+      placeholder: "E.g., Some text was hard to read, or the layout made it easy to skim."
+
+  - type: textarea
+    id: chatbot
+    attributes:
+      label: "🤖 Passion (Chatbot)"
+      description: "Did the chatbot answer your questions about me? Was it self-explanatory?"
+      placeholder: "E.g., Passion was helpful but could explain X better."
+
+  - type: textarea
+    id: performance
+    attributes:
+      label: "⚡ Performance & Loading Speed"
+      description: "Did the site load quickly, or did you experience delays?"
+      placeholder: "E.g., It loaded fast, or some pages took a while."
+
+  - type: textarea
+    id: music
+    attributes:
+      label: "🎵 Music & Interactivity"
+      description: "Did the music player and visuals enhance the experience or feel unnecessary?"
+      placeholder: "E.g., The music was a cool touch, or I wish I could disable it more easily."
+
+  - type: textarea
+    id: suggestions
+    attributes:
+      label: "💡 Suggestions & Improvements"
+      description: "Anything else you think could make HQ even better?"
+      placeholder: "E.g., I’d love to see a projects filter or a contact form."
+
+  - type: textarea
+    id: dev-impression
+    attributes:
+      label: "🧑‍💻 Your Impression of Me as a Developer"
+      description: "Based on my portfolio, what do you think of my skills and creativity?"
+      placeholder: "E.g., You seem like an innovative developer, or I think you could showcase X more."
