@@ -460,14 +460,9 @@ let musicPlayer = document.getElementById('myMusic');
 window.addEventListener('message', (event) => {
   if (event.data.action === 'newUser') {
     addNewUser(event.data.firstname, event.data.lastname);
-  } else if (event.data.action === 'returningUser') {
   } else if (event.data.action === 'playMusic') {
     showMusicCard();
     playMusic();
-  } else if (event.data.action === 'checkPassion') {
-    document.getElementById('TalktoPassionTask').checked = true;
-    updateQuestStatus('TalktoPassionTask', true);
-    checkQuests();
   } else if (event.data.action === 'closeWebchat') {
     document.querySelector('.webchat').style.display = 'none';
     document.querySelector('.webchat-toggle').style.display = 'block';
@@ -482,6 +477,9 @@ function addNewUser(firstname, lastname) {
   }
   localStorage.setItem('username', username);
   document.getElementById('user-name').textContent = `${username}`;
+  document.getElementById('TalktoPassionTask').checked = true;
+  updateQuestStatus('TalktoPassionTask', true);
+  checkQuests();
 }
 function sendMessageToBot(message) {
   const botIframe = document.querySelector('.webchat iframe');

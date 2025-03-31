@@ -1531,19 +1531,9 @@
                        window.parent.postMessage({ action: "newUser", firstname: event.firstname, lastname: event.lastname}, "*");
                       }
                       else
-                      if(event.action =="returningUser")
-                      {
-                       window.parent.postMessage({ action: "returningUser"}, "*");
-                      }
-                      else
                      if(event.action =="playMusic")
                      {
                       window.parent.postMessage({ action: "playMusic" }, "*");
-                     }
-                     else
-                     if(event.action =="checkPassion")
-                     {
-                      window.parent.postMessage({ action: "checkPassion" }, "*");
                      }
                     });
                     window.addEventListener("message", (event) => {
