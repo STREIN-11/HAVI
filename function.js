@@ -461,7 +461,6 @@ window.addEventListener('message', (event) => {
   if (event.data.action === 'newUser') {
     addNewUser(event.data.firstname, event.data.lastname);
   } else if (event.data.action === 'returningUser') {
-    sendMessageToBot(`isWebsite`);
   } else if (event.data.action === 'playMusic') {
     showMusicCard();
     playMusic();
@@ -483,7 +482,6 @@ function addNewUser(firstname, lastname) {
   }
   localStorage.setItem('username', username);
   document.getElementById('user-name').textContent = `${username}`;
-  sendMessageToBot(`isWebsite`);
 }
 function sendMessageToBot(message) {
   const botIframe = document.querySelector('.webchat iframe');
