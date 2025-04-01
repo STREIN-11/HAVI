@@ -443,7 +443,7 @@ html {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  z-index: 1200;
+  z-index: 1650;
   font-family: var(--secondaryFont);
 }
 
@@ -1447,10 +1447,10 @@ button img {
   align-items: center;
   background-color: #00000080;
 }
-#cardClose {
+/* #cardClose {
   margin-top: 10px;
   margin-bottom: 10px;
-}
+} */
 #passionCard {
   border-radius: 10px;
   border: 1px solid var(--grey);
