@@ -918,6 +918,7 @@ function pauseMusic() {
 }
 
 function nextSong() {
+  clickedMusic = true;
   toggleMusicAnimation(false);
   currentSongIndex = (currentSongIndex + 1) % songs.length;
   loadSong(currentSongIndex);
@@ -925,6 +926,7 @@ function nextSong() {
 }
 
 function prevSong() {
+  clickedMusic = true; // Make this more efficient
   toggleMusicAnimation(false);
   currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
   loadSong(currentSongIndex);
