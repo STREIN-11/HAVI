@@ -432,11 +432,24 @@ function showPopUp(message) {
         localStorage.removeItem('banned');
       }
       break;
-
+    case 11:
+      {
+        cardTitle.textContent = 'Portfolio Skills';
+        cardDescription.textContent = `These are currently Tino's most knowledgeable domains. As they are primary in nature, some of these skills have secondary skills such as database development.`;
+        cardImage.src = 'Images/Icons/star.svg';
+      }
+      break;
+    case 12:
+      {
+        cardTitle.textContent = 'Portfolio Socials';
+        cardDescription.textContent = `Whenever Tino feels the need to he posts stuff about - well everything really. Since he is never online, I have collected his professional statuses <red> and casual ones for you here <green>.`;
+        cardImage.src = 'Images/Icons/follow.svg';
+      }
+      break;
     default:
       {
         cardTitle.textContent = 'Error Found';
-        cardDescription.textContent = `Uhmmmm - something went wrong. What do you mean do I know ? You are the one pressing things... Okay Okay remain calm, I'm sure if we just close our eyes it will go away.`;
+        cardDescription.textContent = `Uhmmmm - something went wrong. What do you mean don't I know ? You are the one pressing things... Okay Okay remain calm, I'm sure if we just close our eyes it will go away.`;
       }
       break;
   }
@@ -509,17 +522,17 @@ function toggleCheckList() {
 updateQuestStatus('ToSTask', true);
 function hideToS(acceptance) {
   if (acceptance) {
-    document.getElementById('ToSTask').checked = true;
     document.getElementById('acceptanceBtns').style.display = 'none';
     document.getElementById('closeToS').style.display = 'block';
     updateQuestStatus('ToSTask', true);
+  } else {
+    declineToS();
   }
   document.getElementById('ToS').style.display = 'none';
   const passionDisplay = document.getElementById('passionModal').style.display;
   if (passionDisplay == 'none') {
     unlockScreen();
   }
-  declineToS();
 }
 
 let intervalId;
