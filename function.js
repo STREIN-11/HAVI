@@ -11,6 +11,10 @@ let shown = false;
 // };
 let viewpoints = document.getElementsByClassName('Viewpoint');
 let views = document.getElementsByClassName('View');
+let questData = JSON.parse(localStorage.getItem('questsStatus')) || {
+  completedQuests: [],
+  currentLevel: 0
+};
 function show(viewObj) {
   for (viewpoint of viewpoints) {
     viewpoint.classList.remove('Activepoint');
@@ -36,7 +40,7 @@ const welcomeHTML = document.getElementById('passionModal').innerHTML;
 let cardTitle = document.getElementById('cardTitle');
 let cardImage = document.getElementById('cardImage');
 let cardDescription = document.getElementById('cardDescription');
-
+updateQuestStatus('AnimationsTask', true);
 function animate() {
   document.getElementById('AnimationsTask').checked = true;
   updateQuestStatus('AnimationsTask', true);
@@ -135,7 +139,6 @@ window.addEventListener('load', function (load) {
     }
 
     shownWelcome = true;
-    loadQuestStatus();
   }, 500);
 });
 
@@ -176,6 +179,7 @@ function initializeNavigation() {
 function greetedUser() {
   localStorage.setItem('greeted', true);
 }
+updateQuestStatus('GitHubTask', true);
 function followedGitHub() {
   document.getElementById('GitHubTask').checked = true;
   updateQuestStatus('GitHubTask', true);
@@ -227,24 +231,6 @@ function resetQuestStatuses() {
 
   shown = false;
 }
-function loadQuestStatus() {
-  const questsStatus = JSON.parse(localStorage.getItem('questsStatus')) || {};
-
-  document.getElementById('NavigationTask').checked =
-    questsStatus.NavigationTask || false;
-  document.getElementById('CVTask').checked = questsStatus.CVTask || false;
-  document.getElementById('AnimationsTask').checked =
-    questsStatus.AnimationsTask || false;
-  document.getElementById('ToSTask').checked = questsStatus.ToSTask || false;
-  document.getElementById('TalktoPassionTask').checked =
-    questsStatus.TalktoPassionTask || false;
-  document.getElementById('GitHubTask').checked =
-    questsStatus.GitHubTask || false;
-
-  document.querySelectorAll('#checklist input').forEach((checkbox) => {
-    checkbox.disabled = false; // Enable checkboxes after loading status
-  });
-}
 const levelNames = ['Guest', 'Acquaintance', 'Companion', 'Friend'];
 const quests = {
   Guest: [
@@ -273,24 +259,15 @@ const quests = {
   ]
 };
 function getUserLevel() {
-  const questsStatus = JSON.parse(localStorage.getItem('questsStatus')) || {};
+  let userlvl = questData.currentLevel;
 
-  let completedCount = Object.values(questsStatus).filter(
-    (status) => status
-  ).length;
-
-  if (completedCount >= 18) return 'Friend';
-  if (completedCount >= 12) return 'Companion';
-  if (completedCount >= 6) return 'Acquaintance';
+  if (userlvl >= 3) return 'Friend';
+  if (userlvl >= 2) return 'Companion';
+  if (userlvl >= 1) return 'Acquaintance';
   return 'Guest';
 }
 
 function checkQuests() {
-  let questData = JSON.parse(localStorage.getItem('questsStatus')) || {
-    completedQuests: [],
-    currentLevel: 0
-  };
-
   // Ensure completedQuests is an array
   if (!Array.isArray(questData.completedQuests)) {
     questData.completedQuests = [];
@@ -301,7 +278,6 @@ function checkQuests() {
     let checkbox = document.getElementById(questId);
     if (checkbox) {
       checkbox.checked = true;
-      alert(`Check quest`);
     }
   });
   document.getElementById('user-level').textContent = `Level: ${
@@ -311,10 +287,11 @@ function checkQuests() {
 
 function loadQuests() {
   const userLevel = getUserLevel();
+  alert(`Current Level : ${userLevel}`);
   const questContainer = document.getElementById('checklist');
 
   questContainer.innerHTML = '';
-
+  console.log(quests[userLevel]);
   // Load the current set of quests
   quests[userLevel].forEach((quest) => {
     const checkbox = document.createElement('input');
@@ -358,10 +335,11 @@ function updateQuestStatus(questId, status) {
 
   if (levelComplete && questData.currentLevel < 3) {
     questData.currentLevel++;
-    questData.completedQuests = [];
+    loadQuests();
     document.getElementById('user-level').textContent = `Level: ${
       levelNames[questData.currentLevel]
     }`;
+    questData.completedQuests = [];
   }
 
   // Save back to localStorage
@@ -516,7 +494,7 @@ function toggleCheckList() {
   checkList.classList.toggle('visible');
   backHome();
 }
-
+updateQuestStatus('ToSTask', true);
 function hideToS(acceptance) {
   if (acceptance) {
     document.getElementById('ToSTask').checked = true;
@@ -567,6 +545,7 @@ window.addEventListener('message', (event) => {
     document.querySelector('.webchat-toggle').style.display = 'block';
   }
 });
+updateQuestStatus('TalktoPassionTask', true);
 function addNewUser(firstname, lastname) {
   let username = '';
   if (lastname != '') {
