@@ -483,6 +483,19 @@ function showToS() {
   lockScreen();
   document.getElementById('ToS').style.display = 'flex';
 }
+function toggleHelpMode() {
+  let helpers = document.querySelectorAll(`.helper`);
+  let displayStyle = 'inline-block';
+  if (helpers[0].style.display != 'none') {
+    displayStyle = 'none';
+    document.getElementById('helperText').textContent = 'Enable Help Mode';
+  } else {
+    document.getElementById('helperText').textContent = 'Disable Help Mode';
+  }
+  helpers.forEach((helper) => {
+    helper.style.display = `${displayStyle}`;
+  });
+}
 function toggleCheckList() {
   let checkList = document.getElementById('checkCon');
   checkList.classList.toggle('hidden');

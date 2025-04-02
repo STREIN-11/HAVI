@@ -98,9 +98,12 @@
                   </td>
                   <td class="description-cell">
                     <p>
-                      If you ever need help, hover over an element—if you see
-                      the Help Icon, click it, and I'll pop up with relevant
-                      information.
+                      If you ever need help, enable
+                      <strong>Help Mode</strong>
+                      through the
+                      <strong>Navigation Menu</strong>
+                      . If you see a question mark, clicking it will summon me
+                      and I'll bring you the relative information.
                     </p>
                   </td>
                 </tr>
@@ -704,6 +707,10 @@
               Socials
             </li>
           </a>
+          <li onclick="toggleHelpMode()">
+            <img src="Images/Icons/help.svg" alt="Help Mode Icon" />
+            <a id="helperText">Enable Help Mode</a>
+          </li>
           <li onclick="downloadCV()">
             <img src="Images/Icons/cv.svg" alt="Download Icon" />
             <a>Download CV</a>
@@ -954,6 +961,7 @@
             class="section-title subTitle bounce"
             onclick="showNotification(`By clicking the ...`,3)">
             My Projects
+            <span class="helper">?</span>
           </h2>
         </div>
         <div class="project-item" id="TheAtlasSix">
@@ -1251,7 +1259,10 @@
       <!-------------------------------------------Skills--------------------------------------------------------------------------------------------->
       <section class="Skills" id="SkillsSection">
         <div class="flexBox">
-          <h2 class="section-title subTitle bounce">My Skills</h2>
+          <h2 class="section-title subTitle bounce">
+            My Skills
+            <span class="helper">?</span>
+          </h2>
         </div>
         <div class="skills-container">
           <div class="skill-card">
@@ -1293,7 +1304,10 @@
       <!------------------------------------------------My Socials---------------------------------------------------------------------------------------->
       <section class="Socials" id="SocialsSection">
         <div class="flexBox">
-          <h3 class="subTitle bounce section-title">My Socials</h3>
+          <h3 class="subTitle bounce section-title">
+            My Socials
+            <span class="helper">?</span>
+          </h3>
         </div>
         <div class="stories-container">
           <img
