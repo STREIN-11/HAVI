@@ -427,7 +427,7 @@ function showPopUp(message) {
     case 10:
       {
         cardTitle.textContent = 'Unacceptable behaviour';
-        cardDescription.textContent = `Hope you learned your lesson... 😏 You can't escape that easily. Welcome back, but next time, maybe think twice before declining those Terms of Service!`;
+        cardDescription.textContent = `Hope you learned your lesson... 😏 You can't escape me that easily. Welcome back, but next time, maybe think twice before declining those Terms of Service!`;
         cardImage.src = 'Images/Icons/error.svg';
         localStorage.removeItem('banned');
       }
@@ -435,14 +435,14 @@ function showPopUp(message) {
     case 11:
       {
         cardTitle.textContent = 'Portfolio Skills';
-        cardDescription.textContent = `These are currently Tino's most knowledgeable domains. As they are primary in nature, some of these skills have secondary skills such as database development.`;
+        cardDescription.textContent = `These are Tino's core areas of expertise. Some of these primary skills also encompass secondary abilities, such as database development.`;
         cardImage.src = 'Images/Icons/star.svg';
       }
       break;
     case 12:
       {
         cardTitle.textContent = 'Portfolio Socials';
-        cardDescription.textContent = `Whenever Tino feels the need to he posts stuff about - well everything really. Since he is never online, I have collected his professional statuses <red> and casual ones for you here <green>.`;
+        cardDescription.textContent = `Whenever Tino feels the need to he posts stuff about - well everything really. Since he is never online🙄, I have collected his professional insights <red> and casual statuses for you here <green>. You will also find some articles to read.`;
         cardImage.src = 'Images/Icons/follow.svg';
       }
       break;

@@ -509,7 +509,7 @@ html {
   padding-left: 10px;
   padding-right: 10px;
   background: transparent;
-  border-radius: 50px;
+  border-radius: 6px;
   transition: background 0.5s ease-in-out;
   cursor: pointer;
 }
