@@ -40,7 +40,6 @@ let cardDescription = document.getElementById('cardDescription');
 function animate() {
   document.getElementById('AnimationsTask').checked = true;
   updateQuestStatus('AnimationsTask', true);
-  checkQuests();
   if (anime) {
     animeText.textContent = 'Enable Animations';
     for (s = 0; s < skillCards.length; ++s) {
@@ -93,7 +92,7 @@ function showNotification(text, number) {
 }
 let loader = document.getElementById('preloader');
 window.addEventListener('load', function (load) {
-  // Lazy Loading :) //
+  // Initial Dom Loaded //
   this.window.removeEventListener('load', load, false);
   switch (window.location.hash) {
     case '#tos':
@@ -118,6 +117,8 @@ window.addEventListener('load', function (load) {
     showNotification(`Hope you learnt your lesson...`, 10);
   }
   initializeNavigation();
+  loadQuests();
+  checkQuests();
   this.setTimeout(function () {
     loader.style.display = 'none';
     unlockScreen();
@@ -156,7 +157,6 @@ function initializeNavigation() {
     () => {
       document.getElementById('NavigationTask').checked = true;
       updateQuestStatus('NavigationTask', true);
-      checkQuests();
     },
     { once: true }
   );
@@ -179,14 +179,11 @@ function greetedUser() {
 function followedGitHub() {
   document.getElementById('GitHubTask').checked = true;
   updateQuestStatus('GitHubTask', true);
-  checkQuests();
 }
-
 function downloadCV() {
   downloadFile('Documents/TinotendaMhedzisoCV.pdf', 'TinotendaMhedzisoCV.pdf');
   document.getElementById('CVTask').checked = true;
   updateQuestStatus('CVTask', true);
-  checkQuests();
 }
 function downloadFile(fileUrl, fileName) {
   const link = document.createElement('a');
@@ -248,24 +245,127 @@ function loadQuestStatus() {
     checkbox.disabled = false; // Enable checkboxes after loading status
   });
 }
-function updateQuestStatus(questId, status) {
+const levelNames = ['Guest', 'Acquaintance', 'Companion', 'Friend'];
+const quests = {
+  Guest: [
+    { id: 'NavigationTask', text: 'Open nav menu' },
+    { id: 'CVTask', text: 'Download my CV' },
+    { id: 'AnimationsTask', text: 'Toggle Animations' },
+    { id: 'ToSTask', text: 'Accept ToS' },
+    { id: 'TalktoPassionTask', text: 'Talk to Passion' },
+    { id: 'GitHubTask', text: 'Follow me: GitHub' }
+  ],
+  Acquaintance: [
+    { id: 'BlogTask', text: 'Read a blog post' },
+    { id: 'ProjectTask', text: 'View a project' },
+    { id: 'DarkModeTask', text: 'Enable Dark Mode' },
+    { id: 'LightModeTask', text: 'Switch back to Light Mode' },
+    { id: 'LikeTask', text: 'Like a project' },
+    { id: 'SocialsTask', text: 'Visit my LinkedIn profile' }
+  ],
+  Companion: [
+    { id: 'ReviewTask', text: 'Leave a review on GitHub' },
+    { id: 'PortfolioTask', text: 'Share my portfolio' },
+    { id: 'AIChatTask', text: 'Ask Passion about my projects' },
+    { id: 'MusicTask', text: 'Listen to a song on my player' },
+    { id: 'StatsTask', text: 'Check site stats' },
+    { id: 'SecretTask', text: 'Find the hidden Easter egg' }
+  ]
+};
+function getUserLevel() {
   const questsStatus = JSON.parse(localStorage.getItem('questsStatus')) || {};
-  questsStatus[questId] = status;
-  localStorage.setItem('questsStatus', JSON.stringify(questsStatus));
+
+  let completedCount = Object.values(questsStatus).filter(
+    (status) => status
+  ).length;
+
+  if (completedCount >= 18) return 'Friend';
+  if (completedCount >= 12) return 'Companion';
+  if (completedCount >= 6) return 'Acquaintance';
+  return 'Guest';
 }
 
 function checkQuests() {
-  let complete = true;
-  const quests = document.getElementsByName('r');
-  quests.forEach((quest) => {
-    if (!quest.checked) {
-      complete = false;
+  let questData = JSON.parse(localStorage.getItem('questsStatus')) || {
+    completedQuests: [],
+    currentLevel: 0
+  };
+
+  // Ensure completedQuests is an array
+  if (!Array.isArray(questData.completedQuests)) {
+    questData.completedQuests = [];
+  }
+
+  // Loop through completed quests and check their corresponding checkboxes
+  questData.completedQuests.forEach((questId) => {
+    let checkbox = document.getElementById(questId);
+    if (checkbox) {
+      checkbox.checked = true;
+      alert(`Check quest`);
     }
   });
-  if (complete && !shown) {
-    showPopUp(3);
-    shown = true;
+  document.getElementById('user-level').textContent = `Level: ${
+    levelNames[questData.currentLevel]
+  }`;
+}
+
+function loadQuests() {
+  const userLevel = getUserLevel();
+  const questContainer = document.getElementById('checklist');
+
+  questContainer.innerHTML = '';
+
+  // Load the current set of quests
+  quests[userLevel].forEach((quest) => {
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = quest.id;
+    checkbox.disabled = true;
+    checkbox.checked =
+      JSON.parse(localStorage.getItem('questsStatus'))?.[quest.id] || false;
+
+    const label = document.createElement('label');
+    label.htmlFor = quest.id;
+    label.textContent = quest.text;
+
+    questContainer.appendChild(checkbox);
+    questContainer.appendChild(label);
+  });
+}
+
+function updateQuestStatus(questId, status) {
+  let questData = JSON.parse(localStorage.getItem('questsStatus')) || {
+    completedQuests: [],
+    currentLevel: 0
+  };
+
+  // Ensure completedQuests is an array
+  if (!Array.isArray(questData.completedQuests)) {
+    questData.completedQuests = [];
   }
+
+  // Update quest status
+  if (status && !questData.completedQuests.includes(questId)) {
+    questData.completedQuests.push(questId);
+  } else if (!status) {
+    questData.completedQuests = questData.completedQuests.filter(
+      (q) => q !== questId
+    );
+  }
+
+  // Check if all quests in the current level are complete
+  let levelComplete = questData.completedQuests.length >= 6;
+
+  if (levelComplete && questData.currentLevel < 3) {
+    questData.currentLevel++;
+    questData.completedQuests = [];
+    document.getElementById('user-level').textContent = `Level: ${
+      levelNames[questData.currentLevel]
+    }`;
+  }
+
+  // Save back to localStorage
+  localStorage.setItem('questsStatus', JSON.stringify(questData));
 }
 
 function show404() {
@@ -423,7 +523,6 @@ function hideToS(acceptance) {
     document.getElementById('acceptanceBtns').style.display = 'none';
     document.getElementById('closeToS').style.display = 'block';
     updateQuestStatus('ToSTask', true);
-    checkQuests();
   }
   document.getElementById('ToS').style.display = 'none';
   const passionDisplay = document.getElementById('passionModal').style.display;
@@ -479,7 +578,6 @@ function addNewUser(firstname, lastname) {
   document.getElementById('user-name').textContent = `${username}`;
   document.getElementById('TalktoPassionTask').checked = true;
   updateQuestStatus('TalktoPassionTask', true);
-  checkQuests();
 }
 function sendMessageToBot(message) {
   const botIframe = document.querySelector('.webchat iframe');
