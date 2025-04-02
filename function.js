@@ -287,11 +287,10 @@ function checkQuests() {
 
 function loadQuests() {
   const userLevel = getUserLevel();
-  alert(`Current Level : ${userLevel}`);
   const questContainer = document.getElementById('checklist');
 
   questContainer.innerHTML = '';
-  console.log(quests[userLevel]);
+
   // Load the current set of quests
   quests[userLevel].forEach((quest) => {
     const checkbox = document.createElement('input');
@@ -335,6 +334,7 @@ function updateQuestStatus(questId, status) {
       levelNames[questData.currentLevel]
     }`;
     questData.completedQuests = [];
+    notyf.success('New Level unlocked!');
   }
 
   // Save back to localStorage
