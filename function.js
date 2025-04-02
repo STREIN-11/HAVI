@@ -311,11 +311,6 @@ function loadQuests() {
 }
 
 function updateQuestStatus(questId, status) {
-  let questData = JSON.parse(localStorage.getItem('questsStatus')) || {
-    completedQuests: [],
-    currentLevel: 0
-  };
-
   // Ensure completedQuests is an array
   if (!Array.isArray(questData.completedQuests)) {
     questData.completedQuests = [];
