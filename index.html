@@ -492,6 +492,7 @@
             id="myNameTitle"
             onclick="showNotification(`How to pronounce this name...`,2)">
             Tinotenda Mhedziso
+            <span class="helper">?</span>
           </span>
         </h1>
         <h4>A Software Developer</h4>
@@ -660,7 +661,10 @@
       <nav id="nav-panel">
         <!-- Profile Section -->
         <div class="nav-profile">
-          <img src="Images/Me.webp" alt="Profile Picture" class="profile-pic" />
+          <img
+            src="Images/levelpic.webp"
+            alt="Level Profile Picture"
+            class="profile-pic" />
           <div class="profile-info">
             <p id="user-name">Unknown User</p>
             <p id="user-level">Level: Guest</p>
@@ -700,6 +704,10 @@
               Socials
             </li>
           </a>
+          <li onclick="downloadCV()">
+            <img src="Images/Icons/cv.svg" alt="Download Icon" />
+            <a>Download CV</a>
+          </li>
           <li onclick="contactMe()">
             <img src="Images/Icons/contact.svg" alt="Download Icon" />
             <a>Contact Tino</a>
@@ -715,10 +723,6 @@
           <li onclick="showToS()">
             <img src="Images/Icons/privacy.svg" alt="Terms Icon" />
             <a>Terms of Service</a>
-          </li>
-          <li onclick="downloadCV()">
-            <img src="Images/Icons/cv.svg" alt="Download Icon" />
-            <a>Download CV</a>
           </li>
           <li onclick="starRepository('Tinotenda-Mhedziso')">
             <img src="Images/Icons/like-website.svg" alt="Download Icon" />

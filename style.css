@@ -227,6 +227,9 @@ html {
 .myName {
   color: white;
 }
+.helper {
+  font-size: 1rem;
+}
 
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Old Navigation Menu <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 /* 
@@ -500,7 +503,10 @@ html {
 .nav-links li {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
   background: transparent;
   border-radius: 50px;
   transition: background 0.5s ease-in-out;
