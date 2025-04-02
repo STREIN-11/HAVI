@@ -484,18 +484,22 @@ function showToS() {
   document.getElementById('ToS').style.display = 'flex';
 }
 function toggleHelpMode() {
-  let helpers = document.querySelectorAll(`.helper`);
-  let displayStyle = 'inline-block';
-  if (helpers[0].style.display != 'none') {
-    displayStyle = 'none';
-    document.getElementById('helperText').textContent = 'Enable Help Mode';
-  } else {
-    document.getElementById('helperText').textContent = 'Disable Help Mode';
-  }
+  let helpers = document.querySelectorAll('.helper');
+  let firstHelper = helpers[0];
+
+  let isHidden =
+    firstHelper && window.getComputedStyle(firstHelper).display === 'none';
+
+  let displayStyle = isHidden ? 'inline-block' : 'none';
+  document.getElementById('helperText').textContent = isHidden
+    ? 'Disable Help Mode'
+    : 'Enable Help Mode';
+
   helpers.forEach((helper) => {
-    helper.style.display = `${displayStyle}`;
+    helper.style.display = displayStyle;
   });
 }
+
 function toggleCheckList() {
   let checkList = document.getElementById('checkCon');
   checkList.classList.toggle('hidden');
