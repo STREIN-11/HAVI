@@ -40,7 +40,7 @@ const welcomeHTML = document.getElementById('passionModal').innerHTML;
 let cardTitle = document.getElementById('cardTitle');
 let cardImage = document.getElementById('cardImage');
 let cardDescription = document.getElementById('cardDescription');
-updateQuestStatus('AnimationsTask', true);
+
 function animate() {
   document.getElementById('AnimationsTask').checked = true;
   updateQuestStatus('AnimationsTask', true);
@@ -179,7 +179,7 @@ function initializeNavigation() {
 function greetedUser() {
   localStorage.setItem('greeted', true);
 }
-updateQuestStatus('GitHubTask', true);
+
 function followedGitHub() {
   document.getElementById('GitHubTask').checked = true;
   updateQuestStatus('GitHubTask', true);
@@ -518,7 +518,7 @@ function toggleCheckList() {
   checkList.classList.toggle('visible');
   backHome();
 }
-updateQuestStatus('ToSTask', true);
+
 function hideToS(acceptance) {
   if (acceptance) {
     document.getElementById('acceptanceBtns').style.display = 'none';
@@ -569,7 +569,7 @@ window.addEventListener('message', (event) => {
     document.querySelector('.webchat-toggle').style.display = 'block';
   }
 });
-updateQuestStatus('TalktoPassionTask', true);
+
 function addNewUser(firstname, lastname) {
   let username = '';
   if (lastname != '') {
