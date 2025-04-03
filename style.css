@@ -2478,6 +2478,7 @@ h6 {
   cursor: pointer;
   z-index: 1700;
   transition: all 0.3s ease-in-out;
+  display: none;
 }
 .content {
   width: 100%;
@@ -2542,7 +2543,7 @@ h6 {
 }
 
 .level-icon {
-  width: 100px; /* Adjust as needed */
+  width: 100px;
   height: auto;
 }
 
@@ -2937,10 +2938,10 @@ h6 {
     grid-template-columns: auto auto;
     column-gap: 30px;
   }
-  .level-up-card {
+  /* .level-up-card {
     width: 95vw;
     height: 95vh;
-  }
+  } */
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1000px) {

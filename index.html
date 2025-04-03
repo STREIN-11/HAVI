@@ -27,7 +27,7 @@
       content="Explore Tinotenda Mhedziso's portfolio, projects, and expertise in software development." />
     <meta
       property="og:image"
-      content="https://tinotenda-mhedziso.pages.dev/Images/preview.png" />
+      content="https://tinotenda-mhedziso.pages.dev/Images/social-preview.png" />
     <meta
       property="og:image:alt"
       content="Tinotenda Mhedziso's portfolio preview image" />
@@ -665,6 +665,7 @@
         <!-- Profile Section -->
         <div class="nav-profile">
           <img
+            onclick="showLevelCard()"
             src="Images/levelpic.webp"
             alt="Level Profile Picture"
             class="profile-pic" />
@@ -1602,7 +1603,7 @@
             src="Audio/Music/Shogun's Shadow Trap.mp3"></audio>
         </div>
       </div>
-      <div class="level-up-card">
+      <div class="level-up-card" id="level-up-card">
         <div class="content">
           <div class="back">
             <div class="back-content">
@@ -1614,12 +1615,16 @@
             </div>
           </div>
           <div class="front">
-            <div class="close-btn">&times;</div>
-            <img class="level-image" src="Images/Me.webp" alt="Level Image" />
+            <div class="close-btn" onclick="closeLevelCard()">&times;</div>
+            <img
+              id="level-image"
+              class="level-image"
+              src="Images/Guest.webp"
+              alt="Level Image" />
             <div class="level-info">
               <p class="user-name">Unknown User</p>
             </div>
-            <p class="level-name">Level: Guest</p>
+            <p class="level-name" id="level-title">Level: Guest</p>
           </div>
         </div>
       </div>

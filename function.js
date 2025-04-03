@@ -131,7 +131,7 @@ window.addEventListener('load', function (load) {
       showNotification(`Hey ! I'm Passion...`, 1);
       document
         .getElementById('cardClose')
-        .addEventListener('click', greetedUser);
+        .addEventListener('click', greetedUser, { once: true });
     }
     if (localStorage.getItem('username')) {
       document.getElementById('user-name').textContent =
@@ -155,14 +155,16 @@ function initializeNavigation() {
     gsap.to(navOverlay, { opacity: 1, visibility: 'visible', duration: 0.3 });
   });
 
-  navToggle.addEventListener(
-    'click',
-    () => {
-      document.getElementById('NavigationTask').checked = true;
-      updateQuestStatus('NavigationTask', true);
-    },
-    { once: true }
-  );
+  if (questData.currentLevel == 0) {
+    navToggle.addEventListener(
+      'click',
+      () => {
+        document.getElementById('NavigationTask').checked = true;
+        updateQuestStatus('NavigationTask', true);
+      },
+      { once: true }
+    );
+  }
 
   // Close Navigation Panel
   navClose.addEventListener('click', closeNav);
@@ -178,11 +180,14 @@ function initializeNavigation() {
 }
 function greetedUser() {
   localStorage.setItem('greeted', true);
+  showLevelCard();
 }
 
 function followedGitHub() {
-  document.getElementById('GitHubTask').checked = true;
-  updateQuestStatus('GitHubTask', true);
+  if (questData.currentLevel == 0) {
+    document.getElementById('GitHubTask').checked = true;
+    updateQuestStatus('GitHubTask', true);
+  }
 }
 function downloadCV() {
   downloadFile('Documents/TinotendaMhedzisoCV.pdf', 'TinotendaMhedzisoCV.pdf');
@@ -334,12 +339,26 @@ function updateQuestStatus(questId, status) {
       levelNames[questData.currentLevel]
     }`;
     questData.completedQuests = [];
-    notyf.success('New Level unlocked!');
+    unlockLevel();
   }
 
   localStorage.setItem('questsStatus', JSON.stringify(questData));
 }
-
+function unlockLevel() {
+  let levelImg = document.getElementById('level-image');
+  let levelTitle = document.getElementById('level-title');
+  levelImg.src = `Images/${levelNames[questData.currentLevel]}.webp`;
+  levelTitle.textContent = `Level: ${levelNames[questData.currentLevel]}`;
+  showLevelCard();
+  notyf.success('New Level unlocked!');
+}
+function showLevelCard() {
+  const levelCard = document.getElementById('level-up-card');
+  levelCard.style.display = 'inline-block';
+}
+function closeLevelCard() {
+  document.getElementById('level-up-card').style.display = 'none';
+}
 function show404() {
   showNotification('<Access Denied>', 6);
 }
@@ -420,7 +439,7 @@ function showPopUp(message) {
         cardImage.src = 'Images/Icons/error.svg';
         document
           .getElementById('cardClose')
-          .addEventListener('click', kickUserOut);
+          .addEventListener('click', kickUserOut, { once: true });
       }
       break;
     case 10:
