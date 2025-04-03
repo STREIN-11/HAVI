@@ -1354,7 +1354,6 @@ h1 span {
 }
 
 .project-buttons .ui-btn {
-  padding: 8px 15px;
   margin-right: 10px;
   text-decoration: none;
   color: var(--white);
@@ -1630,20 +1629,22 @@ button img {
 }
 
 .ui-btn {
+  padding: 10px 15px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
   text-align: center;
   box-sizing: border-box;
-  padding: var(--btn-padding);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--default-btn-color);
   font: var(--font-weight) var(--font-size) var(--font-family);
-  background: var(--darkGreen);
   cursor: pointer;
   transition: background 0.3s, color 0.3s, transform 0.3s;
   overflow: hidden;
-  border-radius: 10px;
-  border: 2px solid var(--White);
   width: fit-content;
   will-change: transform;
   font-size: var(--fontSize);
@@ -2860,4 +2861,170 @@ h6 {
   100% {
     transform: scaleY(0.1);
   }
+}
+
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Level Up Card <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+
+.level-up-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 380px;
+  cursor: pointer;
+  z-index: 1700;
+  transition: all 0.3s ease-in-out;
+  display: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .level-up-card {
+    width: 90vw;
+    height: 90vh;
+  }
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 300ms;
+  box-shadow: 0px 0px 10px 1px #000000ee;
+  border-radius: 10px;
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.back {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.back::before {
+  position: absolute;
+  content: ' ';
+  display: block;
+  width: 160px;
+  height: 160%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--brightGreen),
+    var(--brightGreen),
+    var(--brightGreen),
+    var(--brightGreen),
+    transparent
+  );
+  animation: rotation_481 5000ms infinite linear;
+}
+
+.back-content {
+  position: absolute;
+  width: 99%;
+  height: 99%;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.level-icon {
+  width: 100px; /* Adjust as needed */
+  height: auto;
+}
+
+.level-up-card:hover .content {
+  transform: rotateY(180deg);
+}
+
+@keyframes rotation_481 {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.front {
+  transform: rotateY(180deg);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.level-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.level-info {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.user-name {
+  font-size: 14px;
+}
+
+.level-name {
+  position: absolute;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: white;
+  bottom: 10px;
+}
+.user-name,
+.level-name {
+  padding: 10px 15px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+  color: white;
+  text-align: center;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
 }
