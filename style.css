@@ -2466,182 +2466,161 @@ h6 {
     text-align: center;
   }
 }
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Level Up Card <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 
-/*-----------------------------------Responsive Design--------------------------------------------------------*/
-@media only screen and (min-width: 251px) and (max-width: 600px) /* 250px optimisation to come -- I think */ {
-  * {
-    --fontSize: 1rem;
-  }
-  .header {
-    display: inline-block;
-  }
-  #Me {
-    font-size: 0.9em;
-    text-align: center;
-  }
-  .AboutC2 {
-    margin: 20px;
-  }
-  .ui-btn {
-    width: fit-content;
-  }
-  .actionBtn {
-    margin: 2px;
-    width: fit-content;
-    height: fit-content;
-    font-size: 0.7rem;
-    -webkit-tap-highlight-color: transparent;
-    z-index: 0;
-    transition: 1s;
-    padding: 20px;
-  }
-  .actionBtn::before {
-    width: 120px;
-    height: 30px;
-  }
+.level-up-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 380px;
+  cursor: pointer;
+  z-index: 1700;
+  transition: all 0.3s ease-in-out;
+}
+.content {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 300ms;
+  box-shadow: 0px 0px 10px 1px #000000ee;
+  border-radius: 10px;
+}
 
-  .actionBtn::after {
-    width: 120px;
-    height: 30px;
-  }
-  /* .menu {
-    left: 88vw;
-    bottom: 0vh;
-  }
-  .menu li {
-    transform-origin: 145px;
-  }
-  .menu.active .menuToggle {
-    left: 500%;
-  }
-  .menu.active {
-    left: 15vw;
-    top: 30vh;
-    font-size: 0.9em;
-  }
-  .menu.active li a::before {
-    width: 40px;
-    height: 40px;
-  }
-  .menu li a::after {
-    display: none;
-  }
-  .tooltip {
-    top: -25px;
-    left: 50%;
-    font-size: calc(var(--fontSize) - 0.4rem);
-  } */
-  .subTitle {
-    font-size: 1.9em;
-  }
-  .row {
-    display: inline-block;
-    justify-content: center;
-    width: 100vw;
-    text-align: center;
-    height: fit-content;
-  }
-  #contactContainer {
-    display: grid;
-    grid-template-columns: auto auto;
-  }
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
 
-  .View {
-    font-size: var(--fontSize);
-  }
-  .View img {
-    width: 12vw;
-    float: none;
-  }
+.back {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
 
-  .Socials {
-    height: fit-content;
+.back::before {
+  position: absolute;
+  content: ' ';
+  display: block;
+  width: 160px;
+  height: 160%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--brightGreen),
+    var(--brightGreen),
+    var(--brightGreen),
+    var(--brightGreen),
+    transparent
+  );
+  animation: rotation_481 5000ms infinite linear;
+}
+
+.back-content {
+  position: absolute;
+  width: 99%;
+  height: 99%;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.level-icon {
+  width: 100px; /* Adjust as needed */
+  height: auto;
+}
+
+.level-up-card:hover .content {
+  transform: rotateY(180deg);
+}
+
+@keyframes rotation_481 {
+  0% {
+    transform: rotateZ(0deg);
   }
-  .socialIconsCon {
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 30px;
+  100% {
+    transform: rotateZ(360deg);
   }
 }
 
-@media only screen and (min-width: 601px) and (max-width: 1000px) {
-  * {
-    --fontSize: 1rem;
-  }
-
-  .socialIconsCon {
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 30px;
-  }
-  /* Preloader text */
-  #Me h3,
-  #Me h4 {
-    font-size: 1rem;
-  }
-  #Loading {
-    font-size: 2em;
-  }
-  #checklist {
-    font-size: 1rem;
-    margin: 10px;
-  }
-  #Me {
-    font-size: 0.9em;
-    text-align: center;
-  }
-  .AboutC2 {
-    margin: 20px;
-  }
-  .ui-btn {
-    padding: 5px;
-    width: fit-content;
-  }
-  .actionBtn {
-    font-size: var(--fontSize);
-    width: 150px;
-    height: 50px;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-    position: relative;
-    z-index: 0;
-    transition: 1s;
-  }
-
-  .actionBtn::before {
-    width: 150px;
-    height: 50px;
-  }
-  .actionBtn::after {
-    width: 150px;
-    height: 50px;
-  }
-  /* .menu {
-    left: 85vw;
-    top: -10vh;
-  }
-  .tooltip {
-    top: -25px;
-    left: 50%;
-    font-size: calc(var(--fontSize) - 0.2rem);
-  } */
-
-  .AboutMe .row {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-  .row img {
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    object-position: top;
-  }
-  .Socials {
-    height: fit-content;
-  }
+.front {
+  transform: rotateY(180deg);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.level-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.level-info {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.user-name {
+  font-size: 14px;
+}
+
+.level-name {
+  position: absolute;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: white;
+  bottom: 10px;
+}
+.user-name,
+.level-name {
+  padding: 10px 15px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+  color: white;
+  text-align: center;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
+}
 .notyf__toast--success {
   font-family: var(--secondaryFont);
   background-color: var(--darkGreen) !important;
@@ -2863,168 +2842,181 @@ h6 {
   }
 }
 
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Level Up Card <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+/*-----------------------------------Responsive Design--------------------------------------------------------*/
+@media only screen and (min-width: 251px) and (max-width: 600px) /* 250px optimisation to come -- I think */ {
+  * {
+    --fontSize: 1rem;
+  }
+  .header {
+    display: inline-block;
+  }
+  #Me {
+    font-size: 0.9em;
+    text-align: center;
+  }
+  .AboutC2 {
+    margin: 20px;
+  }
+  .ui-btn {
+    width: fit-content;
+  }
+  .actionBtn {
+    margin: 2px;
+    width: fit-content;
+    height: fit-content;
+    font-size: 0.7rem;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 0;
+    transition: 1s;
+    padding: 20px;
+  }
+  .actionBtn::before {
+    width: 120px;
+    height: 30px;
+  }
 
-.level-up-card {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 280px;
-  height: 380px;
-  cursor: pointer;
-  z-index: 1700;
-  transition: all 0.3s ease-in-out;
-  display: none;
-}
+  .actionBtn::after {
+    width: 120px;
+    height: 30px;
+  }
+  /* .menu {
+    left: 88vw;
+    bottom: 0vh;
+  }
+  .menu li {
+    transform-origin: 145px;
+  }
+  .menu.active .menuToggle {
+    left: 500%;
+  }
+  .menu.active {
+    left: 15vw;
+    top: 30vh;
+    font-size: 0.9em;
+  }
+  .menu.active li a::before {
+    width: 40px;
+    height: 40px;
+  }
+  .menu li a::after {
+    display: none;
+  }
+  .tooltip {
+    top: -25px;
+    left: 50%;
+    font-size: calc(var(--fontSize) - 0.4rem);
+  } */
+  .subTitle {
+    font-size: 1.9em;
+  }
+  .row {
+    display: inline-block;
+    justify-content: center;
+    width: 100vw;
+    text-align: center;
+    height: fit-content;
+  }
+  #contactContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
+  .View {
+    font-size: var(--fontSize);
+  }
+  .View img {
+    width: 12vw;
+    float: none;
+  }
+
+  .Socials {
+    height: fit-content;
+  }
+  .socialIconsCon {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 30px;
+  }
   .level-up-card {
-    width: 90vw;
-    height: 90vh;
+    width: 95vw;
+    height: 95vh;
   }
 }
 
-.content {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 300ms;
-  box-shadow: 0px 0px 10px 1px #000000ee;
-  border-radius: 10px;
-}
-
-.front,
-.back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.back {
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-.back::before {
-  position: absolute;
-  content: ' ';
-  display: block;
-  width: 160px;
-  height: 160%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--brightGreen),
-    var(--brightGreen),
-    var(--brightGreen),
-    var(--brightGreen),
-    transparent
-  );
-  animation: rotation_481 5000ms infinite linear;
-}
-
-.back-content {
-  position: absolute;
-  width: 99%;
-  height: 99%;
-  background-color: black;
-  border-radius: 10px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.level-icon {
-  width: 100px; /* Adjust as needed */
-  height: auto;
-}
-
-.level-up-card:hover .content {
-  transform: rotateY(180deg);
-}
-
-@keyframes rotation_481 {
-  0% {
-    transform: rotateZ(0deg);
+@media only screen and (min-width: 601px) and (max-width: 1000px) {
+  * {
+    --fontSize: 1rem;
   }
-  100% {
-    transform: rotateZ(360deg);
+
+  .socialIconsCon {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 30px;
   }
-}
+  /* Preloader text */
+  #Me h3,
+  #Me h4 {
+    font-size: 1rem;
+  }
+  #Loading {
+    font-size: 2em;
+  }
+  #checklist {
+    font-size: 1rem;
+    margin: 10px;
+  }
+  #Me {
+    font-size: 0.9em;
+    text-align: center;
+  }
+  .AboutC2 {
+    margin: 20px;
+  }
+  .ui-btn {
+    padding: 5px;
+    width: fit-content;
+  }
+  .actionBtn {
+    font-size: var(--fontSize);
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    z-index: 0;
+    transition: 1s;
+  }
 
-.front {
-  transform: rotateY(180deg);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
+  .actionBtn::before {
+    width: 150px;
+    height: 50px;
+  }
+  .actionBtn::after {
+    width: 150px;
+    height: 50px;
+  }
+  /* .menu {
+    left: 85vw;
+    top: -10vh;
+  }
+  .tooltip {
+    top: -25px;
+    left: 50%;
+    font-size: calc(var(--fontSize) - 0.2rem);
+  } */
 
-.level-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.level-info {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  color: white;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-}
-
-.user-name {
-  font-size: 14px;
-}
-
-.level-name {
-  position: absolute;
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: white;
-  bottom: 10px;
-}
-.user-name,
-.level-name {
-  padding: 10px 15px;
-  border-radius: 8px;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-  color: white;
-  text-align: center;
-}
-
-/* Close Button */
-.close-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 30px;
-  height: 30px;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 1001;
+  .AboutMe .row {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .row img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: top;
+  }
+  .Socials {
+    height: fit-content;
+  }
 }
