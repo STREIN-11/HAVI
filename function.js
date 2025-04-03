@@ -133,9 +133,10 @@ window.addEventListener('load', function (load) {
         .getElementById('cardClose')
         .addEventListener('click', greetedUser, { once: true });
     }
-    if (localStorage.getItem('username')) {
-      document.getElementById('user-name').textContent =
-        localStorage.getItem('username');
+    let currentname = localStorage.getItem('username');
+    if (currentname) {
+      document.getElementById('user-name').textContent = currentname;
+      document.getElementById('card-name').textContent = currentname;
     }
 
     shownWelcome = true;
@@ -346,7 +347,7 @@ function updateQuestStatus(questId, status) {
 }
 function unlockLevel() {
   let levelImg = document.getElementById('level-image');
-  let levelTitle = document.getElementById('level-title');
+  let levelTitle = document.getElementById('card-title');
   levelImg.src = `Images/${levelNames[questData.currentLevel]}.webp`;
   levelTitle.textContent = `Level: ${levelNames[questData.currentLevel]}`;
   showLevelCard();
