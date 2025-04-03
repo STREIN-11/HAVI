@@ -337,7 +337,6 @@ function updateQuestStatus(questId, status) {
     notyf.success('New Level unlocked!');
   }
 
-  // Save back to localStorage
   localStorage.setItem('questsStatus', JSON.stringify(questData));
 }
 
@@ -442,7 +441,7 @@ function showPopUp(message) {
     case 12:
       {
         cardTitle.textContent = 'Portfolio Socials';
-        cardDescription.textContent = `Whenever Tino feels the need to he posts stuff about - well everything really. Since he is never online🙄, I have collected his professional insights <red> and casual statuses for you here <green>. You will also find some articles to read.`;
+        cardDescription.textContent = `Whenever Tino feels the need to, he posts stuff about - well everything really. Since he is never online🙄, I have collected his professional insights <red> and casual updates <green>. for you here  You will also find some blogs to read.`;
         cardImage.src = 'Images/Icons/follow.svg';
       }
       break;
