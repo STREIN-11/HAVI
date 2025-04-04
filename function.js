@@ -149,6 +149,12 @@ function initializeNavigation() {
   const navClose = document.getElementById('nav-close');
   const navOverlay = document.getElementById('nav-overlay');
   const navLinks = document.querySelectorAll(`.nav-links li`);
+  const levelShower = document.getElementById('levelShower');
+
+  levelShower.addEventListener('click', () => {
+    showLevelCard();
+    closeNav();
+  });
 
   // Open Navigation Panel
   navToggle.addEventListener('click', () => {
