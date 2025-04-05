@@ -554,10 +554,7 @@ function hideToS(acceptance) {
     declineToS();
   }
   document.getElementById('ToS').style.display = 'none';
-  const passionDisplay = document.getElementById('passionModal').style.display;
-  if (passionDisplay == 'none') {
-    unlockScreen();
-  }
+  unlockScreen();
 }
 
 let intervalId;
