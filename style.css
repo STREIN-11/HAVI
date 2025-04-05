@@ -1453,10 +1453,6 @@ button img {
   align-items: center;
   background-color: #00000080;
 }
-/* #cardClose {
-  margin-top: 10px;
-  margin-bottom: 10px;
-} */
 #passionCard {
   border-radius: 10px;
   border: 1px solid var(--grey);
@@ -1632,7 +1628,7 @@ button img {
   padding: 10px 15px;
   border-radius: 8px;
   backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--darkGreen);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
   text-align: center;
