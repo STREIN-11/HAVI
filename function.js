@@ -247,27 +247,27 @@ const levelNames = ['Guest', 'Acquaintance', 'Companion', 'Friend'];
 const quests = {
   Guest: [
     { id: 'NavigationTask', text: 'Open nav menu' },
-    { id: 'CVTask', text: 'Download my CV' },
+    { id: 'HelpModeTask', text: 'Toggle Help Mode' },
     { id: 'AnimationsTask', text: 'Toggle Animations' },
     { id: 'ToSTask', text: 'Accept ToS' },
     { id: 'TalktoPassionTask', text: 'Talk to Passion' },
-    { id: 'GitHubTask', text: 'Follow me: GitHub' }
+    { id: 'SocialTask', text: 'View: Social post' }
   ],
   Acquaintance: [
-    { id: 'BlogTask', text: 'Read a blog post' },
-    { id: 'ProjectTask', text: 'View a project' },
-    { id: 'DarkModeTask', text: 'Enable Dark Mode' },
-    { id: 'LightModeTask', text: 'Switch back to Light Mode' },
+    { id: 'LinkedInTask', text: 'Visit my LinkedIn profile' },
+    { id: 'ProjectSiteTask', text: 'View: Project site' },
+    { id: 'ProjectCodeTask', text: 'View: Project code' },
     { id: 'LikeTask', text: 'Like a project' },
-    { id: 'SocialsTask', text: 'Visit my LinkedIn profile' }
+    { id: 'CVTask', text: 'Download my CV' },
+    { id: 'GitHubTask', text: 'Follow me: GitHub' }
   ],
   Companion: [
-    { id: 'ReviewTask', text: 'Leave a review on GitHub' },
-    { id: 'PortfolioTask', text: 'Share my portfolio' },
-    { id: 'AIChatTask', text: 'Ask Passion about my projects' },
-    { id: 'MusicTask', text: 'Listen to a song on my player' },
-    { id: 'StatsTask', text: 'Check site stats' },
-    { id: 'SecretTask', text: 'Find the hidden Easter egg' }
+    { id: 'MusicTask', text: 'Listen to a song' },
+    { id: 'ProStatusTask', text: 'View: Professional status' },
+    { id: 'CasStatusTask', text: 'View: Casual status' },
+    { id: 'GameTask', text: 'Coming Soon' },
+    { id: 'LikeWebsiteTask', text: 'Like this website' },
+    { id: 'SecretTask', text: 'Coming Soon' }
   ]
 };
 function getUserLevel() {
@@ -373,7 +373,6 @@ function showLevelCard() {
     y: 0,
     duration: 0.5,
     ease: 'ease.inOut'
-    // delay: 0.1
   });
 }
 
