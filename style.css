@@ -1039,6 +1039,10 @@ h1 span {
   align-content: center;
   place-items: center;
 }
+#checkConTitle {
+  color: white;
+  cursor: help;
+}
 #checklist {
   --background: #00000065;
   --text: #fff;

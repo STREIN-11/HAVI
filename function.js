@@ -494,6 +494,13 @@ function showPopUp(message) {
         cardImage.src = 'Images/Icons/follow.svg';
       }
       break;
+    case 13:
+      {
+        cardTitle.textContent = 'HQ Quest checklist';
+        cardDescription.textContent = `These tasks will help you get acquainted with Tino and address some personal requests he made. Completing 6 quests unlocks a new level, along with more challenging quests. To view your current level, simply click the <Navigation menu> and select the profile picture in the top left corner. Please make sure to complete all actions directly on this website so I can keep your profile updated. Thank you! 😄`;
+        cardImage.src = 'Images/Icons/checklist.svg';
+      }
+      break;
     default:
       {
         cardTitle.textContent = 'Error Found';
