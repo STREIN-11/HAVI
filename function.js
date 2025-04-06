@@ -136,6 +136,7 @@ window.addEventListener('load', function (load) {
     if (currentname) {
       document.getElementById('user-name').textContent = currentname;
       document.getElementById('card-name').textContent = currentname;
+      updateQuestStatus('TalktoPassionTask', true);
     }
 
     shownWelcome = true;
@@ -250,10 +251,10 @@ const quests = {
     { id: 'SocialTask', text: 'View: Social post' }
   ],
   Acquaintance: [
-    { id: 'LinkedInTask', text: 'Visit my LinkedIn profile' },
-    { id: 'ProjectSiteTask', text: 'View: Project site' },
-    { id: 'ProjectCodeTask', text: 'View: Project code' },
-    { id: 'LikeTask', text: 'Like a project' },
+    { id: 'LinkedInTask', text: 'View: LinkedIn profile' },
+    { id: 'ProjectSiteTask', text: 'View: A Project site' },
+    { id: 'ProjectCodeTask', text: 'View: A Project code' },
+    { id: 'LikeTask', text: 'Like A Project' },
     { id: 'CVTask', text: 'Download my CV' },
     { id: 'GitHubTask', text: 'Follow me: GitHub' }
   ],
@@ -353,6 +354,7 @@ function unlockLevel() {
   levelImg.src = `Images/${levelNames[questData.currentLevel]}.webp`;
   levelTitle.textContent = `Level: ${levelNames[questData.currentLevel]}`;
   showLevelCard();
+  notyf.success('New Quests unlocked!');
   notyf.success('New Level unlocked!');
 }
 function showLevelCard() {
@@ -512,6 +514,14 @@ socialPosts.forEach((socialPost) => {
     { once: true }
   );
 });
+const helpBtn = document.getElementById('helpModeBtn');
+helpBtn.addEventListener(
+  'click',
+  () => {
+    updateQuestStatus('HelpModeTask', true);
+  },
+  { once: true }
+);
 function hidePopUp() {
   const modalBg = document.getElementById('passionModal');
   const passionCard = document.getElementById('passionCard');

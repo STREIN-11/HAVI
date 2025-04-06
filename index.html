@@ -500,7 +500,10 @@
         </h1>
         <h4>A Software Developer</h4>
         <div id="checkCon" class="flexBox hidden">
-          <p style="color: white">Your current Quests:</p>
+          <p style="color: white">
+            Your current Quests:
+            <span class="helper">?</span>
+          </p>
           <div id="checklist"></div>
         </div>
         <div class="flexBox">
@@ -708,7 +711,7 @@
               Socials
             </li>
           </a>
-          <li onclick="toggleHelpMode()">
+          <li onclick="toggleHelpMode()" id="helpModeBtn">
             <img src="Images/Icons/help.svg" alt="Help Mode Icon" />
             <a id="helperText">Enable Help Mode</a>
           </li>
