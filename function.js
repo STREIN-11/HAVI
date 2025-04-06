@@ -361,18 +361,19 @@ function unlockLevel() {
 }
 function showLevelCard() {
   const levelCard = document.getElementById('level-up-card');
-
   levelCard.style.display = 'inline-block';
+
   gsap.set(levelCard, {
     opacity: 0,
-    y: 100
+    y: 500
   });
 
   gsap.to(levelCard, {
     opacity: 1,
     y: 0,
-    duration: 0.8,
-    ease: 'power3.out'
+    duration: 0.5,
+    ease: 'ease.inOut'
+    // delay: 0.1
   });
 }
 
