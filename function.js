@@ -42,7 +42,6 @@ let cardImage = document.getElementById('cardImage');
 let cardDescription = document.getElementById('cardDescription');
 
 function animate() {
-  document.getElementById('AnimationsTask').checked = true;
   updateQuestStatus('AnimationsTask', true);
   if (anime) {
     animeText.textContent = 'Enable Animations';
@@ -166,7 +165,6 @@ function initializeNavigation() {
     navToggle.addEventListener(
       'click',
       () => {
-        document.getElementById('NavigationTask').checked = true;
         updateQuestStatus('NavigationTask', true);
       },
       { once: true }
@@ -192,13 +190,11 @@ function greetedUser() {
 
 function followedGitHub() {
   if (questData.currentLevel == 0) {
-    document.getElementById('GitHubTask').checked = true;
     updateQuestStatus('GitHubTask', true);
   }
 }
 function downloadCV() {
   downloadFile('Documents/TinotendaMhedzisoCV.pdf', 'TinotendaMhedzisoCV.pdf');
-  document.getElementById('CVTask').checked = true;
   updateQuestStatus('CVTask', true);
 }
 function downloadFile(fileUrl, fileName) {
@@ -327,9 +323,9 @@ function updateQuestStatus(questId, status) {
     questData.completedQuests = [];
   }
 
-  // Update quest status
   if (status && !questData.completedQuests.includes(questId)) {
     questData.completedQuests.push(questId);
+    document.getElementById(`${questId}`).checked = true;
   } else if (!status) {
     questData.completedQuests = questData.completedQuests.filter(
       (q) => q !== questId
@@ -506,7 +502,16 @@ function showPopUp(message) {
   passionCard.style.display = 'flex';
   notification.style.display = 'none';
 }
-
+const socialPosts = document.querySelectorAll('.social-post');
+socialPosts.forEach((socialPost) => {
+  socialPost.addEventListener(
+    'click',
+    () => {
+      updateQuestStatus('SocialTask', true);
+    },
+    { once: true }
+  );
+});
 function hidePopUp() {
   const modalBg = document.getElementById('passionModal');
   const passionCard = document.getElementById('passionCard');
@@ -517,24 +522,10 @@ function hidePopUp() {
     duration: 0.5,
     ease: 'power2.in',
     onComplete: () => {
-      modalBg.style.display = 'none'; // Hide the modal after animation
+      modalBg.style.display = 'none';
     }
   });
 }
-
-// function hidePopUp() {
-//   gsap.to('#passionCard', {
-//     scaleY: 0,
-//     opacity: 0,
-//     duration: 0.4,
-//     ease: 'power2.in',
-//     onComplete: () => {
-//       document.getElementById('passionModal').style.display = 'none';
-//     }
-//   });
-
-//   gsap.to('#passionModal', { opacity: 0, duration: 0.2 });
-// }
 
 function hidePopUp() {
   unlockScreen();
@@ -627,7 +618,6 @@ function addNewUser(firstname, lastname) {
   }
   localStorage.setItem('username', username);
   document.getElementById('user-name').textContent = `${username}`;
-  document.getElementById('TalktoPassionTask').checked = true;
   updateQuestStatus('TalktoPassionTask', true);
 }
 function sendMessageToBot(message) {
