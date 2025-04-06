@@ -361,11 +361,36 @@ function unlockLevel() {
 }
 function showLevelCard() {
   const levelCard = document.getElementById('level-up-card');
+
   levelCard.style.display = 'inline-block';
+  gsap.set(levelCard, {
+    opacity: 0,
+    y: 100
+  });
+
+  gsap.to(levelCard, {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: 'power3.out'
+  });
 }
+
 function closeLevelCard() {
-  document.getElementById('level-up-card').style.display = 'none';
+  const levelCard = document.getElementById('level-up-card');
+
+  gsap.to(levelCard, {
+    y: -500,
+    opacity: 0,
+    duration: 0.5,
+    ease: 'ease.inOut',
+    onComplete: () => {
+      levelCard.style.display = 'none';
+      gsap.set(levelCard, { y: 0, opacity: 1 });
+    }
+  });
 }
+
 function show404() {
   showNotification('<Access Denied>', 6);
 }
