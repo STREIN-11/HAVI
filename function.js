@@ -292,6 +292,10 @@ function checkQuests() {
   document.getElementById('user-level').textContent = `Level: ${
     levelNames[questData.currentLevel]
   }`;
+  let levelImg = document.getElementById('level-image');
+  levelImg.src = `Images/${levelNames[questData.currentLevel]}.webp`;
+  let levelTitle = document.getElementById('card-title');
+  levelTitle.textContent = `Level: ${levelNames[questData.currentLevel]}`;
 }
 
 function loadQuests() {
