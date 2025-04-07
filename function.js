@@ -400,11 +400,11 @@ function showPopUp(message) {
   const modalBg = document.getElementById('passionModal');
   const passionCard = document.getElementById('passionCard');
 
-  modalBg.style.display = 'flex'; // Show the modal background
+  modalBg.style.display = 'flex';
 
   gsap.fromTo(
     passionCard,
-    { y: '-100%', opacity: 0 }, // Start position (above screen)
+    { y: '-100%', opacity: 0 },
     { y: '0%', opacity: 1, duration: 0.6, ease: 'power2.out' } // Slide down smoothly
   );
   lockScreen();
