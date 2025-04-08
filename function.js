@@ -12,7 +12,6 @@ let shown = false;
 // Issues to Fix: Fix level up logic
 // Implement Review system
 //Remove Unneeded code
-// Add Testimonals section
 let viewpoints = document.getElementsByClassName('Viewpoint');
 let views = document.getElementsByClassName('View');
 let questData = JSON.parse(localStorage.getItem('questsStatus')) || {
