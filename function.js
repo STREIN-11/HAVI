@@ -9,6 +9,8 @@ let shown = false;
 //     menu.classList.remove('tooltips-visible');
 //   }
 // };
+// Issues to Fix: Fix level up logic
+// Implement Review system
 let viewpoints = document.getElementsByClassName('Viewpoint');
 let views = document.getElementsByClassName('View');
 let questData = JSON.parse(localStorage.getItem('questsStatus')) || {
