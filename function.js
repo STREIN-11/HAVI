@@ -110,6 +110,7 @@ window.addEventListener('load', function (load) {
       break;
     case '#star':
       showNotification(`Thanks for starring...`, 5);
+      updateQuestStatus('LikeProjectTask', true);
       break;
     case '#ban':
       showNotification(`Hope you learnt your lesson...`, 10);
@@ -252,7 +253,7 @@ const quests = {
     { id: 'LinkedInTask', text: 'View: LinkedIn profile' },
     { id: 'ProjectSiteTask', text: 'View: A Project site' },
     { id: 'ProjectCodeTask', text: 'View: A Project code' },
-    { id: 'LikeTask', text: 'Like A Project' },
+    { id: 'LikeProjectTask', text: 'Like A Project' },
     { id: 'CVTask', text: 'Download my CV' },
     { id: 'GitHubTask', text: 'Follow me: GitHub' }
   ],
@@ -519,28 +520,28 @@ function showPopUp(message) {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Task Initialization <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 const socialPosts = document.querySelectorAll('.social-post');
 
-function handleSocialClick(e) {
+function sociaPostClick(e) {
   updateQuestStatus('SocialTask', true);
 
   socialPosts.forEach((post) => {
-    post.removeEventListener('click', handleSocialClick);
+    post.removeEventListener('click', sociaPostClick);
   });
 }
 socialPosts.forEach((socialPost) => {
-  socialPost.addEventListener('click', handleSocialClick);
+  socialPost.addEventListener('click', sociaPostClick);
 });
 
 const projectCodebtns = document.querySelectorAll('.project-code-btn');
 
-function ProjectCodeClick(e) {
+function projectCodeClick(e) {
   updateQuestStatus('ProjectCodeTask', true);
 
-  socialPosts.forEach((post) => {
-    post.removeEventListener('click', ProjectCodeClick);
+  projectCodebtns.forEach((button) => {
+    button.removeEventListener('click', projectCodeClick);
   });
 }
-socialPosts.forEach((socialPost) => {
-  socialPost.addEventListener('click', ProjectCodeClick);
+projectCodebtns.forEach((button) => {
+  button.addEventListener('click', projectCodeClick);
 });
 
 const helpBtn = document.getElementById('helpModeBtn');
@@ -556,6 +557,14 @@ LinkedInBtn.addEventListener(
   'click',
   () => {
     updateQuestStatus('LinkedInTask', true);
+  },
+  { once: true }
+);
+const WebsiteBtn = document.getElementById('LikeWebsiteChecker');
+WebsiteBtn.addEventListener(
+  'click',
+  () => {
+    updateQuestStatus('LikeWebsiteTask', true);
   },
   { once: true }
 );
@@ -831,7 +840,7 @@ gsap.utils.toArray(socialIcons).forEach((icon, index) => {
 // });
 
 function authenticateGitHub(intent, repoName = null) {
-  //Intents specify the action the user wants to undertake
+  //Intents specify the action the user wants to undertake # Tino was here 09/04/2025
   const repoOwner = 'Passion-Over-Pain';
   const backendUrl =
     'https://portfolio-backend-pi-three.vercel.app/api/auth/login';
