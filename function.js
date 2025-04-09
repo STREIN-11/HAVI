@@ -518,15 +518,31 @@ function showPopUp(message) {
 }
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Task Initialization <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 const socialPosts = document.querySelectorAll('.social-post');
+
+function handleSocialClick(e) {
+  updateQuestStatus('SocialTask', true);
+
+  socialPosts.forEach((post) => {
+    post.removeEventListener('click', handleSocialClick);
+  });
+}
 socialPosts.forEach((socialPost) => {
-  socialPost.addEventListener(
-    'click',
-    () => {
-      updateQuestStatus('SocialTask', true);
-    },
-    { once: true }
-  );
+  socialPost.addEventListener('click', handleSocialClick);
 });
+
+const projectCodebtns = document.querySelectorAll('.project-code-btn');
+
+function ProjectCodeClick(e) {
+  updateQuestStatus('ProjectCodeTask', true);
+
+  socialPosts.forEach((post) => {
+    post.removeEventListener('click', ProjectCodeClick);
+  });
+}
+socialPosts.forEach((socialPost) => {
+  socialPost.addEventListener('click', ProjectCodeClick);
+});
+
 const helpBtn = document.getElementById('helpModeBtn');
 helpBtn.addEventListener(
   'click',
@@ -831,12 +847,10 @@ function authenticateGitHub(intent, repoName = null) {
   window.location.href = url;
 }
 
-// Call this for starring
 function starRepository(repoName) {
   authenticateGitHub('star', repoName);
 }
 
-// Call this for following
 function followUser() {
   authenticateGitHub('follow');
 }
