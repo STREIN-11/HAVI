@@ -219,12 +219,6 @@ function openEmail() {
 function openDevTo() {
   navigateToSite('https://dev.to/passionoverpain');
 }
-function openLinkedIn() {
-  navigateToSite('https://www.linkedin.com/in/tinotenda-mhedziso/');
-}
-function openProjects() {
-  navigateToSite(`https://github.com/Passion-Over-Pain?tab=repositories`);
-}
 function navigateToSite(fileUrl) {
   const link = document.createElement('a');
   link.href = fileUrl;
@@ -522,6 +516,7 @@ function showPopUp(message) {
   passionCard.style.display = 'flex';
   notification.style.display = 'none';
 }
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Task Initialization <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 const socialPosts = document.querySelectorAll('.social-post');
 socialPosts.forEach((socialPost) => {
   socialPost.addEventListener(
@@ -540,6 +535,15 @@ helpBtn.addEventListener(
   },
   { once: true }
 );
+const LinkedInBtn = document.getElementById('LinkedInChecker');
+LinkedInBtn.addEventListener(
+  'click',
+  () => {
+    updateQuestStatus('LinkedInTask', true);
+  },
+  { once: true }
+);
+
 function hidePopUp() {
   const modalBg = document.getElementById('passionModal');
   const passionCard = document.getElementById('passionCard');

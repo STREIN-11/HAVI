@@ -441,7 +441,9 @@
               </li>
               <li>
                 GitHub:
-                <a onclick="openGitHub()" target="_blank">Passion-Over-Pain</a>
+                <a href="https://github.com/Passion-Over-Pain" target="_blank">
+                  Passion-Over-Pain
+                </a>
               </li>
             </ul>
             <br />
@@ -681,67 +683,67 @@
 
         <!-- Navigation Items -->
         <ul class="nav-links">
-          <a href="#">
+          <x href="#">
             <li>
               <img src="Images/Icons/home.svg" alt="Home Icon" />
               Home
             </li>
-          </a>
-          <a href="#AboutSection">
+          </x>
+          <x href="#AboutSection">
             <li>
               <img src="Images/Icons/about.svg" alt="About Icon" />
               About
             </li>
-          </a>
-          <a href="#ProjectsSection">
+          </x>
+          <x href="#ProjectsSection">
             <li>
               <img src="Images/Icons/website.svg" alt="Projects Icon" />
               Projects
             </li>
-          </a>
-          <a href="#SkillsSection">
+          </x>
+          <x href="#SkillsSection">
             <li>
               <img src="Images/Icons/star.svg" alt="Skills Icon" />
               Skills
             </li>
-          </a>
-          <a href="#SocialsSection">
+          </x>
+          <x href="#SocialsSection">
             <li>
               <img src="Images/Icons/follow.svg" alt="Skills Icon" />
               Socials
             </li>
-          </a>
+          </x>
           <li onclick="toggleHelpMode()" id="helpModeBtn">
             <img src="Images/Icons/help.svg" alt="Help Mode Icon" />
-            <a id="helperText">Enable Help Mode</a>
+            <x id="helperText">Enable Help Mode</x>
           </li>
           <li onclick="downloadCV()">
             <img src="Images/Icons/cv.svg" alt="Download Icon" />
-            <a>Download CV</a>
+            <x>Download CV</x>
           </li>
           <li onclick="contactMe()">
             <img src="Images/Icons/contact.svg" alt="Download Icon" />
-            <a>Contact Tino</a>
+            <x>Contact Tino</x>
           </li>
           <li id="Anime">
             <img src="Images/Icons/animation.svg" alt="Toggle Icon" />
-            <a id="animeText">Disable Animations</a>
+            <x id="animeText">Disable Animations</x>
           </li>
           <li onclick="toggleCheckList()">
             <img src="Images/Icons/checklist.svg" alt="Quest Icon" />
-            <a>Quest Checklist</a>
+            <x>Quest Checklist</x>
           </li>
           <li onclick="showToS()">
             <img src="Images/Icons/privacy.svg" alt="Terms Icon" />
-            <a>Terms of Service</a>
+            <x>Terms of Service</x>
           </li>
           <li onclick="starRepository('Tinotenda-Mhedziso')">
             <img src="Images/Icons/like-website.svg" alt="Download Icon" />
-            <a>Like Website</a>
+            <x>Like Website</x>
           </li>
           <li onclick="supportMe()">
             <img src="Images/Icons/support.svg" alt="Download Icon" />
-            <a>Support Tino</a>
+            <x>Support Tino</x>
           </li>
         </ul>
       </nav>
@@ -1221,7 +1223,7 @@
                 </span>
               </button>
 
-              <button class="ui-btn">
+              <button class="ui-btn" class="project-site-btn">
                 <span>
                   <a
                     href="https://passion-over-pain.github.io/Portfolio-Redesigned/"
@@ -1231,14 +1233,14 @@
                 </span>
               </button>
 
-              <button class="ui-btn">
+              <button class="ui-btn" class="project-like-btn">
                 <span onclick="starRepository(`Portfolio-Redesigned`)">
                   Like
                 </span>
               </button>
             </div>
           </div>
-          <div class="project-preview">
+          <div class="project-preview" class="project-like-btn">
             <a
               href="https://passion-over-pain.github.io/Portfolio-Redesigned/"
               target="_blank">
@@ -1249,8 +1251,12 @@
           </div>
         </div>
         <div class="flexBox">
-          <button class="actionBtn ui-btn" id="Git" onclick="openProjects()">
-            <span>All Projects</span>
+          <button class="actionBtn ui-btn" id="Git">
+            <span>
+              <a href="https://github.com/Passion-Over-Pain?tab=repositories">
+                All Projects
+              </a>
+            </span>
             <img src="Images/Icons/github.svg" alt="" />
           </button>
           <button class="actionBtn ui-btn" onclick="followUser()">
@@ -1441,12 +1447,12 @@
             </a>
           </li>
           <li class="social-Icon">
-            <a onclick="openGitHub()">
+            <a href="https://github.com/Passion-Over-Pain" target="_blank">
               <i class="fa-brands fa-github"></i>
               <span>GitHub</span>
             </a>
           </li>
-          <li class="social-Icon">
+          <li class="social-Icon" id="LinkedInChecker">
             <a
               href="https://za.linkedin.com/in/tinotenda-mhedziso"
               target="_blank">
@@ -1524,7 +1530,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <a class="textBtn" onclick="contactMe()">Contact Me</a>
+          <x class="textBtn" onclick="contactMe()">Contact Me</x>
           <p>&copy; 2025 Tinotenda Mhedziso. All Rights Reserved.</p>
           <a href="#" class="back-to-top">Back to Top</a>
           <button
