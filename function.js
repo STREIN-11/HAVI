@@ -544,6 +544,19 @@ projectCodebtns.forEach((button) => {
   button.addEventListener('click', projectCodeClick);
 });
 
+const projectSitebtns = document.querySelectorAll('.project-site-btn');
+
+function projectSiteClick(e) {
+  updateQuestStatus('ProjectSiteTask', true);
+
+  projectSitebtns.forEach((button) => {
+    button.removeEventListener('click', projectSiteClick);
+  });
+}
+projectSitebtns.forEach((button) => {
+  button.addEventListener('click', projectSiteClick);
+});
+
 const helpBtn = document.getElementById('helpModeBtn');
 helpBtn.addEventListener(
   'click',
