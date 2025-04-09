@@ -1656,6 +1656,9 @@ button img {
   position: relative;
   background: inherit;
 }
+.ui-btn span a {
+  text-decoration: none;
+}
 
 .ui-btn span::before {
   box-sizing: border-box;
