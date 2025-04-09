@@ -244,6 +244,7 @@ function resetQuestStatuses() {
   shown = false;
 }
 const levelNames = ['Guest', 'Acquaintance', 'Companion', 'Friend'];
+let questNames = [];
 const quests = {
   Guest: [
     { id: 'NavigationTask', text: 'Open nav menu' },
@@ -251,7 +252,7 @@ const quests = {
     { id: 'AnimationsTask', text: 'Toggle Animations' },
     { id: 'ToSTask', text: 'Accept ToS' },
     { id: 'TalktoPassionTask', text: 'Talk to Passion' },
-    { id: 'SocialTask', text: 'View: Social post' }
+    { id: 'SocialTask', text: 'View: A Social post' }
   ],
   Acquaintance: [
     { id: 'LinkedInTask', text: 'View: LinkedIn profile' },
@@ -304,6 +305,7 @@ function checkQuests() {
 function loadQuests() {
   const userLevel = getUserLevel();
   const questContainer = document.getElementById('checklist');
+  questNames = quests[userLevel].map((quest) => quest.id);
 
   questContainer.innerHTML = '';
 
@@ -330,15 +332,17 @@ function updateQuestStatus(questId, status) {
   if (!Array.isArray(questData.completedQuests)) {
     questData.completedQuests = [];
   }
-
-  if (status && !questData.completedQuests.includes(questId)) {
-    questData.completedQuests.push(questId);
-    document.getElementById(`${questId}`).checked = true;
-  } else if (!status) {
-    questData.completedQuests = questData.completedQuests.filter(
-      (q) => q !== questId
-    );
-  }
+  // Ensure Passion checks an existing quest Id
+  if (questNames.includes(questId)) {
+    if (status && !questData.completedQuests.includes(questId)) {
+      questData.completedQuests.push(questId);
+      document.getElementById(`${questId}`).checked = true;
+    } else if (!status) {
+      questData.completedQuests = questData.completedQuests.filter(
+        (q) => q !== questId
+      );
+    }
+  } else return;
 
   // Check if all quests in the current level are complete
   let levelComplete = questData.completedQuests.length >= 6;
