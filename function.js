@@ -199,7 +199,7 @@ function followedGitHub() {
   }
 }
 function downloadCV() {
-  downloadFile('Documents/TinotendaMhedzisoCV.pdf', 'TinotendaMhedzisoCV.pdf');
+  downloadFile('Documents/Tinotenda Mhedziso CV.pdf', 'Tinotenda Mhedziso CV.pdf');
   updateQuestStatus('CVTask', true);
 }
 function downloadFile(fileUrl, fileName) {
