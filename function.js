@@ -199,7 +199,10 @@ function followedGitHub() {
   }
 }
 function downloadCV() {
-  downloadFile('Documents/Tinotenda Mhedziso CV.pdf', 'Tinotenda Mhedziso CV.pdf');
+  downloadFile(
+    'Documents/Tinotenda Mhedziso CV.pdf',
+    'Tinotenda Mhedziso CV.pdf'
+  );
   updateQuestStatus('CVTask', true);
 }
 function downloadFile(fileUrl, fileName) {
@@ -688,6 +691,7 @@ function addNewUser(firstname, lastname) {
   }
   localStorage.setItem('username', username);
   document.getElementById('user-name').textContent = `${username}`;
+  document.getElementById('card-name').textContent = `${username}`;
   updateQuestStatus('TalktoPassionTask', true);
 }
 function sendMessageToBot(message) {
@@ -1111,6 +1115,7 @@ function playMusic() {
     playing = true;
     playButton.src = 'Images/Icons/pause.svg';
     toggleMusicAnimation(true);
+    updateQuestStatus('MusicTask', true);
     clickedMusic = true;
   }
 }
@@ -1289,6 +1294,11 @@ storyIcons.forEach((icon) => {
   icon.addEventListener('click', (e) => {
     const storyType = e.target.dataset.story;
     storyQueue = stories[storyType];
+    if (storyType == 'professional') {
+      updateQuestStatus('ProStatusTask', true);
+    } else {
+      updateQuestStatus('CasStatusTask', true);
+    }
     storyIndex = 0;
     showStory();
   });
