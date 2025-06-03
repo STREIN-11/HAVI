@@ -1,17 +1,6 @@
 /** @format */
 
-// let menuToggle = document.querySelector('.menuToggle');
-// let menu = document.querySelector('.menu');
 let shown = false;
-// menuToggle.onclick = function () {
-//   menu.classList.toggle('active');
-//   if (!menu.classList.contains('active')) {
-//     menu.classList.remove('tooltips-visible');
-//   }
-// };
-// Issues to Fix: Fix level up logic
-// Implement Review system
-//Remove Unneeded code
 let viewpoints = document.getElementsByClassName('Viewpoint');
 let views = document.getElementsByClassName('View');
 let questData = JSON.parse(localStorage.getItem('questsStatus')) || {
@@ -73,6 +62,7 @@ function animate() {
 }
 function backHome() {
   window.location.assign(`#`);
+  console.log("WEEEE") // Debugging 
 }
 
 function checkNotifications() {
