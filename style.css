@@ -642,7 +642,7 @@ html {
 }
 
 .social-post-preview {
-  font-size: var(--fontSize);
+  font-size: var(--fontSize) - 0.2rem;
   line-height: 1.5;
   color: var(--white);
   flex-grow: 1;
