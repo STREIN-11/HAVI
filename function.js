@@ -62,7 +62,7 @@ function animate() {
 }
 function backHome() {
   window.location.assign(`#`);
-  console.log("WEEEE") // Debugging 
+  console.log("WEEEE"); // Debugging 
 }
 
 function checkNotifications() {
@@ -104,14 +104,6 @@ window.addEventListener('load', function (load) {
       break;
     case '#ban':
       showNotification(`Hope you learnt your lesson...`, 10);
-  }
-  history.replaceState(
-    null,
-    null,
-    window.location.pathname + window.location.search
-  );
-  if (this.localStorage.getItem('banned')) {
-    showNotification(`Hope you learnt your lesson...`, 10);
   }
   initializeNavigation();
   loadQuests();
@@ -464,11 +456,9 @@ function showPopUp(message) {
     case 9:
       {
         cardTitle.textContent = 'Unacceptable behaviour';
-        cardDescription.textContent = `Wait… did you just decline the Terms of Service? 🤨 You do realize that without agreement, you can’t access any of Tino’s amazing creations, right? Well, if that’s your final decision… I’m afraid I have no choice but to escort you out. 👋`;
+        cardDescription.textContent = `Wait… did you just decline the Terms of Service? 🤨 You do realize that without agreement, you can’t access any of Tino’s amazing creations, right? Well, if that’s your final decision… I’m afraid I have no choice but to escort you out. 👋 - Oh you're still here ? Welp I was just joking hehe.`;
         cardImage.src = 'Images/Icons/error.svg';
-        document
-          .getElementById('cardClose')
-          .addEventListener('click', kickUserOut, { once: true });
+       
       }
       break;
     case 10:
@@ -621,7 +611,6 @@ function toggleCheckList() {
   let checkList = document.getElementById('checkCon');
   checkList.classList.toggle('hidden');
   checkList.classList.toggle('visible');
-  backHome();
 }
 
 function hideToS(acceptance) {
@@ -700,16 +689,7 @@ function supportMe() {
 function declineToS() {
   showNotification('Did you just decline ...', 9);
 }
-function kickUserOut() {
-  alert('Error 403: Access Denied. Disconnecting...');
-  localStorage.setItem('banned', true);
-  setTimeout(() => {
-    window.location.href = 'https://thispagedoesnotexist.bye';
-  }, 2000);
-  setTimeout(() => {
-    window.location.href = 'https://tinotenda-mhedziso.pages.dev/#ban';
-  }, 7000);
-}
+
 
 function openWebchat() {
   if (!sentFirst) {
