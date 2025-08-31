@@ -182,8 +182,8 @@ function followedGitHub() {
 }
 function downloadCV() {
   downloadFile(
-    'Documents/Tinotenda Mhedziso CV.pdf',
-    'Tinotenda Mhedziso CV.pdf'
+    'Documents/Subhamay Ganguly_Backend Dev-1.pdf',
+    'Subhamay Ganguly_Backend Dev-1.pdf'
   );
   updateQuestStatus('CVTask', true);
 }
@@ -196,11 +196,11 @@ function downloadFile(fileUrl, fileName) {
   document.body.removeChild(link);
 }
 function openGitHub() {
-  navigateToSite('https://github.com/Passion-Over-Pain');
+  navigateToSite('https://github.com/STREIN-11');
 }
 
 function openEmail() {
-  navigateToSite('mailto:tinomhedziso21@gmail.com');
+  navigateToSite('mailto:subhag702@gmail.com');
 }
 function openDevTo() {
   navigateToSite('https://dev.to/passionoverpain');
