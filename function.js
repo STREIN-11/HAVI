@@ -866,7 +866,7 @@ let isLoading = false;
 window.onload = function () {
   if (window.p5 && window.p5.prototype && window.p5.prototype.loadSound) {
     song = p5.prototype.loadSound(
-      `Audio/Music/Shogun's Shadow Trap.mp3`,
+      `Audio/Music/Kimi no Na wa.mp3`,
       () => {
         console.log('Sound loaded successfully!');
       }

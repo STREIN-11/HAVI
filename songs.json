@@ -1,5 +1,10 @@
 [
   {
+    "title": "Sparkle",
+    "artist": "Kimi no Na wa",
+    "src": "Audio/Music/Kimi no Na wa.mp3"
+  },
+  {
     "title": "Shogun's Shadow Trap",
     "artist": "Japanese Shamisen",
     "src": "Audio/Music/Shogun's Shadow Trap.mp3"
