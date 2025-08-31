@@ -828,9 +828,9 @@ gsap.utils.toArray(socialIcons).forEach((icon, index) => {
 
 function authenticateGitHub(intent, repoName = null) {
   //Intents specify the action the user wants to undertake # Tino was here 09/04/2025
-  const repoOwner = 'Passion-Over-Pain';
+  const repoOwner = 'STREIN-11';
   const backendUrl =
-    'https://portfolio-backend-pi-three.vercel.app/api/auth/login';
+    'https://havi.vercel.app/api/auth/login';
 
   let url = `${backendUrl}?intent=${encodeURIComponent(intent)}`;
 

@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">AI-Powered Irrigation &amp; Watershed System</title>
+  <desc id="desc">A stylized landscape showing fields, sensors, reservoir, a droplet with a circuit-brain, and data links indicating smart irrigation and watershed management.</desc>
+
+  <!-- ====== THEME ====== -->
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #111832;
+      --ink: #eaf2ff;
+      --primary: #4fd1c5;   /* teal */
+      --accent: #7aa2ff;    /* blue */
+      --leaf: #6dd57a;      /* green */
+      --sun: #ffd166;       /* warm */
+      --water: #63b3ed;     /* light blue */
+      --grid: #223055;      /* subtle line */
+      --signal: #a78bfa;    /* violet */
+    }
+    .soft { filter: drop-shadow(0 6px 20px rgba(0,0,0,.35)); }
+    .text { font: 600 18px/1.2 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; fill: var(--ink); letter-spacing:.3px }
+    .tiny { font: 500 12px/1.2 ui-sans-serif, system-ui; fill: #c9d7ff; opacity:.8 }
+    .chip { fill: var(--card); stroke: var(--primary); stroke-width:2; }
+    .sensor { fill: var(--card); stroke: var(--accent); stroke-width:2; }
+    .wire { stroke: var(--signal); stroke-width:2; stroke-dasharray:3 6; fill:none; }
+    .flow { stroke: var(--water); stroke-width:3; stroke-linecap:round; marker-end: url(#arrow); fill:none; }
+    .rows { fill: none; stroke: #25402b; stroke-width: 14; stroke-linecap: round; }
+    .rowlight { stroke: #2f6f3b; }
+    .grid { stroke: var(--grid); stroke-width:1; }
+  </style>
+
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1020"></stop>
+      <stop offset="1" stop-color="#0a1534"></stop>
+    </linearGradient>
+
+    <!-- Water gradient -->
+    <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7ecbff"></stop>
+      <stop offset="1" stop-color="#2f75c9"></stop>
+    </linearGradient>
+
+    <!-- Leaf gradient -->
+    <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7fe88b"></stop>
+      <stop offset="1" stop-color="#2faa42"></stop>
+    </linearGradient>
+
+    <!-- Arrow marker -->
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="var(--water)"></path>
+    </marker>
+
+    <!-- Glow -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#4fd1c5" flood-opacity=".7"></feDropShadow>
+    </filter>
+  </defs>
+
+  <!-- ====== BACKGROUND ====== -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)"></rect>
+
+  <!-- Subtle grid -->
+  <g opacity=".25">
+    <g class="grid">
+      <path d="M80,80 H880 M80,160 H880 M80,240 H880 M80,320 H880 M80,400 H880 M80,480 H880"></path>
+      <path d="M120,60 V520 M240,60 V520 M360,60 V520 M480,60 V520 M600,60 V520 M720,60 V520 M840,60 V520"></path>
+    </g>
+  </g>
+
+  <!-- ====== LANDSCAPE: FIELDS & RESERVOIR ====== -->
+  <!-- Terraced field base -->
+  <g transform="translate(70,300)">
+    <path class="soft" d="M0,40 C120,0 240,0 360,40 S600,80 760,30 L820,10 V140 H0 Z" fill="#12331c"></path>
+    <!-- Crop rows -->
+    <path class="rows" d="M40,100 C120,60 240,60 360,100 S600,140 760,90"></path>
+    <path class="rows rowlight" d="M40,130 C120,90 240,90 360,130 S600,170 760,120"></path>
+    <path class="rows" d="M40,70 C120,30 240,30 360,70 S600,110 760,60"></path>
+    <!-- Sprouts -->
+    <g fill="url(#leafGrad)" opacity=".95">
+      <path d="M120,95 q6,-16 14,0 q-7,5 -14,0Z"></path>
+      <path d="M220,85 q6,-16 14,0 q-7,5 -14,0Z"></path>
+      <path d="M320,100 q6,-16 14,0 q-7,5 -14,0Z"></path>
+      <path d="M430,90 q6,-16 14,0 q-7,5 -14,0Z"></path>
+      <path d="M540,110 q6,-16 14,0 q-7,5 -14,0Z"></path>
+      <path d="M660,95 q6,-16 14,0 q-7,5 -14,0Z"></path>
+    </g>
+  </g>
+
+  <!-- Reservoir / watershed -->
+  <g transform="translate(620,360)">
+    <path class="soft" d="M0,0 C40,-20 120,-20 160,0 C200,20 200,60 160,80 C120,100 40,100 0,80 C-40,60 -40,20 0,0Z" fill="url(#waterGrad)"></path>
+    <!-- Flow out -->
+    <path class="flow" d="M40,70 C20,100 -40,110 -100,92"></path>
+    <path class="flow" d="M110,65 C90,95 30,110 -30,96"></path>
+    <text x="80" y="-10" class="tiny" text-anchor="middle">Reservoir</text>
+  </g>
+
+  <!-- Sun & Cloud -->
+  <g transform="translate(130,90)" class="soft">
+    <circle r="34" cx="0" cy="0" fill="var(--sun)"></circle>
+    <g transform="translate(60,12)" fill="#cfe7ff">
+      <circle cx="0" cy="12" r="18"></circle>
+      <circle cx="20" cy="6" r="22"></circle>
+      <circle cx="42" cy="14" r="16"></circle>
+      <rect x="-8" y="14" width="70" height="16" rx="8"></rect>
+    </g>
+    <!-- Rain -->
+    <g stroke="var(--water)" stroke-width="2" opacity=".9">
+      <path d="M80,54 v18"></path>
+      <path d="M96,58 v18"></path>
+      <path d="M112,52 v18"></path>
+    </g>
+    <text x="0" y="60" class="tiny" text-anchor="middle">Sunlight &amp; Rainfall</text>
+  </g>
+
+  <!-- ====== AI DROPLET (BRAIN + CIRCUITS) ====== -->
+  <g transform="translate(480,180)">
+    <!-- Droplet -->
+    <path d="M0,-90 C-26,-50 -60,-25 -60,15 c0,40 27,75 60,75 s60,-35 60,-75 C60,-25 26,-50 0,-90Z" fill="url(#waterGrad)" stroke="var(--accent)" stroke-width="2.5" filter="url(#glow)"></path>
+    <!-- Neural 'brain' -->
+    <g stroke="var(--ink)" stroke-width="2" fill="none" opacity=".95">
+      <path d="M-28,-12 c10,-18 44,-18 54,0 s-8,30 -27,30 s-37,-12 -27,-30Z"></path>
+      <path d="M-8,-28 v18 M8,-28 v18"></path>
+      <path d="M-24,8 h48"></path>
+      <circle cx="-24" cy="8" r="3" fill="var(--ink)"></circle>
+      <circle cx="24" cy="8" r="3" fill="var(--ink)"></circle>
+      <circle cx="-8" cy="-10" r="3" fill="var(--ink)"></circle>
+      <circle cx="8" cy="-10" r="3" fill="var(--ink)"></circle>
+    </g>
+    <!-- IO pads -->
+    <g>
+      <circle cx="-70" cy="-10" r="6" class="chip"></circle>
+      <circle cx="70" cy="10" r="6" class="chip"></circle>
+      <circle cx="0" cy="90" r="6" class="chip"></circle>
+    </g>
+    <!-- Data links to sensors/reservoir -->
+    <path class="wire" d="M-70,-10 C-130,10 -180,70 -240,120"></path>
+    <path class="wire" d="M70,10 C130,40 180,80 240,100"></path>
+    <path class="wire" d="M0,90 C0,130 40,160 120,180"></path>
+
+    <text x="0" y="-120" class="text" text-anchor="middle">AI Orchestrator</text>
+    <text x="0" y="130" class="tiny" text-anchor="middle">Predict • Optimize • Automate</text>
+  </g>
+
+  <!-- ====== SENSORS ON FIELDS ====== -->
+  <g transform="translate(160,360)">
+    <!-- Soil moisture node -->
+    <g class="soft">
+      <rect x="-20" y="-40" width="40" height="26" rx="6" class="sensor"></rect>
+      <rect x="-6" y="-14" width="12" height="40" fill="var(--accent)"></rect>
+      <circle cx="0" cy="32" r="10" fill="var(--leaf)"></circle>
+      <text x="0" y="-48" class="tiny" text-anchor="middle">Soil Moisture</text>
+    </g>
+    <!-- Link -->
+    <path class="wire" d="M320,-180 C180,-160 60,-90 0,-40"></path>
+  </g>
+
+  <g transform="translate(360,380)">
+    <!-- Weather node -->
+    <g class="soft">
+      <rect x="-22" y="-38" width="44" height="26" rx="6" class="sensor"></rect>
+      <path d="M-10,-28 h20 M-14,-18 h28" stroke="var(--accent)" stroke-width="2"></path>
+      <circle cx="0" cy="34" r="10" fill="var(--sun)"></circle>
+      <text x="0" y="-46" class="tiny" text-anchor="middle">Weather</text>
+    </g>
+    <path class="wire" d="M120,-220 C80,-200 20,-120 0,-40"></path>
+  </g>
+
+  <g transform="translate(560,350)">
+    <!-- Flow meter -->
+    <g class="soft">
+      <rect x="-20" y="-36" width="40" height="26" rx="6" class="sensor"></rect>
+      <circle cx="0" cy="-23" r="6" fill="var(--accent)"></circle>
+      <path d="M-6,-23 a6,6 0 1,0 12,0" stroke="var(--accent)" stroke-width="2" fill="none"></path>
+      <rect x="-6" y="-10" width="12" height="36" fill="var(--accent)"></rect>
+      <text x="0" y="-44" class="tiny" text-anchor="middle">Flow Meter</text>
+    </g>
+    <path class="wire" d="M-80,-190 C-40,-150 -20,-110 0,-36"></path>
+  </g>
+
+  <!-- ====== ACTUATORS: VALVES & FLOW ARROWS ====== -->
+  <g transform="translate(260,428)">
+    <!-- Valve -->
+    <g class="soft">
+      <rect x="-18" y="-10" width="36" height="20" rx="6" fill="var(--card)" stroke="var(--water)" stroke-width="2"></rect>
+      <path d="M-28,0 h56" class="flow"></path>
+    </g>
+  </g>
+
+  <g transform="translate(420,448)">
+    <!-- Valve -->
+    <g class="soft">
+      <rect x="-18" y="-10" width="36" height="20" rx="6" fill="var(--card)" stroke="var(--water)" stroke-width="2"></rect>
+      <path d="M-28,0 h56" class="flow"></path>
+    </g>
+  </g>
+
+  <!-- Downstream channel -->
+  <path class="flow" d="M520,470 C600,480 680,470 740,450"></path>
+
+  <!-- ====== LEGEND / LABEL ====== -->
+  <g transform="translate(80,520)">
+    <rect x="0" y="-40" width="340" height="36" rx="10" fill="var(--card)" class="soft"></rect>
+    <circle cx="22" cy="-22" r="6" fill="var(--signal)"></circle>
+    <text x="40" y="-18" class="tiny">IoT Telemetry</text>
+    <circle cx="140" cy="-22" r="6" fill="var(--water)"></circle>
+    <text x="158" y="-18" class="tiny">Irrigation Flow</text>
+    <circle cx="260" cy="-22" r="6" fill="var(--leaf)"></circle>
+    <text x="278" y="-18" class="tiny">Crop Health</text>
+  </g>
+
+  <!-- Header -->
+  <g transform="translate(480,36)">
+    <text class="text" text-anchor="middle">AI-Powered Irrigation &amp; Watershed System</text>
+    <text y="22" class="tiny" text-anchor="middle">Sensors → AI Orchestrator → Optimal Water Distribution</text>
+  </g>
+</svg>
