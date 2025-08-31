@@ -400,7 +400,7 @@ function showPopUp(message) {
     case 1:
       {
         cardTitle.textContent = 'Site Navigation';
-        cardDescription.textContent = ` Hey! I'm <Passion>, Tino's personalized AI chatbot. Welcome to our portfolio website. Here are some helpful tips while navigating the site. If you know you're ready, feel free to skip this guide.`;
+        cardDescription.textContent = ` Hey! I'm <Passion>, Subhamay's personalized AI chatbot. Welcome to our portfolio website. Here are some helpful tips while navigating the site. If you know you're ready, feel free to skip this guide.`;
         document.getElementById('cardTable').style.display = 'grid';
         cardImage.src = 'Images/Icons/her.svg';
       }
@@ -408,14 +408,14 @@ function showPopUp(message) {
     case 2:
       {
         cardTitle.textContent = 'Name Pronunciation';
-        cardDescription.textContent = `Tinotenda Mhedziso, or Tino for short, is pronounced Tea-no-ten-da. His name translates to "Thank you."`;
+        cardDescription.textContent = `Subhamay Ganguly, or Subha for short. His name translates to "Everything is happy" in Sanskrit. To pronounce it correctly, say "Soo-bhaa-moy" (with a soft 'bhaa' sound). Don't worry if you don't get it right the first time; even I struggle with it sometimes! 😅`;
         cardImage.src = 'Images/Icons/speak.svg';
       }
       break;
     case 3:
       {
         cardTitle.textContent = 'Portfolio Projects';
-        cardDescription.textContent = `By clicking the <Code> button, you’ll be directed to the GitHub repository, where you can explore a detailed case study covering the project’s objectives, challenges, and key insights. The <Site> button lets you experience the project firsthand, but if it’s unavailable, simply download it to run locally. While some projects are hidden for now, Tino is eagerly preparing to release them soon — consider this a sneak peek of what's to come!`;
+        cardDescription.textContent = `By clicking the <Code> button, you’ll be directed to the GitHub repository, where you can explore a detailed case study covering the project’s objectives, challenges, and key insights. The <Site> button lets you experience the project firsthand, but if it’s unavailable, simply download it to run locally. While some projects are hidden for now, Subhamay is eagerly preparing to release them soon — consider this a sneak peek of what's to come!`;
         cardImage.src = 'Images/Icons/website.svg';
       }
       break;
@@ -429,7 +429,7 @@ function showPopUp(message) {
     case 5:
       {
         cardTitle.textContent = 'GitHub Star';
-        cardDescription.textContent = `You're an absolute star! ⭐Get it? because you starred a repo?... listen: blame Tino — he forgot to delete his bad jokes from my database. Anyway, thanks for the support😊! .`;
+        cardDescription.textContent = `You're an absolute star! ⭐Get it? because you starred a repo?... listen: blame Subhamay — he forgot to delete his bad jokes from my database. Anyway, thanks for the support😊! .`;
         cardImage.src = 'Images/Icons/star.svg';
       }
       break;
@@ -448,15 +448,15 @@ function showPopUp(message) {
       break;
     case 8:
       {
-        cardTitle.textContent = 'Supporting Tino';
-        cardDescription.textContent = `Oh? You want to support Tino? That’s awesome! 😄 He doesn’t take donations, but you can help by offering him a developer job at your company 😉. What ... No company? No problem! A simple follow on GitHub means a lot. Thanks! 💚`;
+        cardTitle.textContent = 'Supporting Subhamay';
+        cardDescription.textContent = `Oh? You want to support Subhamay? That’s awesome! 😄 He doesn’t take donations, but you can help by offering him a developer job at your company 😉. What ... No company? No problem! A simple follow on GitHub means a lot. Thanks! 💚`;
         cardImage.src = 'Images/Icons/support.svg';
       }
       break;
     case 9:
       {
         cardTitle.textContent = 'Unacceptable behaviour';
-        cardDescription.textContent = `Wait… did you just decline the Terms of Service? 🤨 You do realize that without agreement, you can’t access any of Tino’s amazing creations, right? Well, if that’s your final decision… I’m afraid I have no choice but to escort you out. 👋 - Oh you're still here ? Welp I was just joking hehe.`;
+        cardDescription.textContent = `Wait… did you just decline the Terms of Service? 🤨 You do realize that without agreement, you can’t access any of Subhamay’s amazing creations, right? Well, if that’s your final decision… I’m afraid I have no choice but to escort you out. 👋 - Oh you're still here ? Welp I was just joking hehe.`;
         cardImage.src = 'Images/Icons/error.svg';
        
       }
@@ -472,21 +472,21 @@ function showPopUp(message) {
     case 11:
       {
         cardTitle.textContent = 'Portfolio Skills';
-        cardDescription.textContent = `These are Tino's core areas of expertise. Some of these primary skills also encompass secondary abilities, such as database development.`;
+        cardDescription.textContent = `These are Subhamay's core areas of expertise. Some of these primary skills also encompass secondary abilities, such as database development.`;
         cardImage.src = 'Images/Icons/star.svg';
       }
       break;
     case 12:
       {
         cardTitle.textContent = 'Portfolio Socials';
-        cardDescription.textContent = `Whenever Tino feels the need to, he posts stuff about - well everything really. Since he is never online🙄, I have collected his professional insights <red> and casual updates <green> for you here. You will also find some blogs to read.`;
+        cardDescription.textContent = `Whenever Subhamay feels the need to, he posts stuff about - well everything really. Since he is never online🙄, I have collected his professional insights <red> and casual updates <green> for you here. You will also find some blogs to read.`;
         cardImage.src = 'Images/Icons/follow.svg';
       }
       break;
     case 13:
       {
         cardTitle.textContent = 'HQ Quest checklist';
-        cardDescription.textContent = `These tasks will help you get acquainted with Tino and address some personal requests he made. Completing 6 quests unlocks a new level, along with more challenging quests. To view your current level, simply click the <Navigation menu> and select the profile picture in the top left corner. Please make sure to complete all actions directly on this website so I can keep your profile updated. Thank you! 😄`;
+        cardDescription.textContent = `These tasks will help you get acquainted with Subhamay and address some personal requests he made. Completing 6 quests unlocks a new level, along with more challenging quests. To view your current level, simply click the <Navigation menu> and select the profile picture in the top left corner. Please make sure to complete all actions directly on this website so I can keep your profile updated. Thank you! 😄`;
         cardImage.src = 'Images/Icons/checklist.svg';
       }
       break;
@@ -684,7 +684,7 @@ function contactMe() {
   sendMessageToBot('contactMe');
 }
 function supportMe() {
-  showNotification('Oh, You want to support Tino ...', 8);
+  showNotification('Oh, You want to support Subhamay ...', 8);
 }
 function declineToS() {
   showNotification('Did you just decline ...', 9);
@@ -827,7 +827,7 @@ gsap.utils.toArray(socialIcons).forEach((icon, index) => {
 // });
 
 function authenticateGitHub(intent, repoName = null) {
-  //Intents specify the action the user wants to undertake # Tino was here 09/04/2025
+  //Intents specify the action the user wants to undertake # Subhamay was here 09/04/2025
   const repoOwner = 'STREIN-11';
   const backendUrl =
     'https://havi.vercel.app/api/auth/login';
